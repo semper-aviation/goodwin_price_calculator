@@ -1,5 +1,5 @@
 // engine/index.ts
-import type { PricingEngineDeps, QuoteRequestPayload } from "./quoteRequest"
+import type { QuoteRequestPayload } from "./quoteRequest"
 import type { LineItem, QuoteResult } from "./quoteResult"
 
 import {
@@ -26,10 +26,9 @@ import { calcVhbDiscount } from "./discounts"
 import { calcFlightSeconds } from "./flightTime"
 
 export async function quoteEngine(
-  payload: QuoteRequestPayload,
-  deps: PricingEngineDeps = {}
+  payload: QuoteRequestPayload
 ): Promise<QuoteResult> {
-  const now = deps.now?.() ?? new Date()
+  const now = new Date()
 
   const basic = validateBasics(payload)
   if (basic) return basic
@@ -66,10 +65,10 @@ export async function quoteEngine(
         knobs: payload.knobs,
       }
 
-      const out = await quoteOneItinerary(outReq, deps, now)
+      const out = await quoteOneItinerary(outReq, now)
       if (out.status === "REJECTED") return out
 
-      const back = await quoteOneItinerary(backReq, deps, now)
+      const back = await quoteOneItinerary(backReq, now)
       if (back.status === "REJECTED") return back
 
       return sumTwoQuotes(out, back, {
@@ -78,12 +77,11 @@ export async function quoteEngine(
     }
   }
 
-  return quoteOneItinerary(payload, deps, now)
+  return quoteOneItinerary(payload, now)
 }
 
 async function quoteOneItinerary(
   payload: QuoteRequestPayload,
-  deps: PricingEngineDeps,
   now: Date
 ): Promise<QuoteResult> {
   const { trip, knobs } = payload
@@ -120,7 +118,7 @@ async function quoteOneItinerary(
   const actualSeconds = await calcFlightSeconds(
     allLegs,
     trip.category,
-    deps.calculateFlightSeconds
+    trip
   )
 
   const timeR = applyTimeAdjustmentsAndValidate({

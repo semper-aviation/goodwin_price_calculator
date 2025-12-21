@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useState } from "react"
 import Card from "./Card"
 import airportsData, { type Airport } from "../data/airports"
-import aircraftModels, { type AircraftModel } from "../data/aircraftModels"
+import aircraftModels from "../data/aircraftModels"
 import TypeaheadSelect from "./TypeaheadSelect"
 
 // --- Types and Schema (copy from docs or import if available) ---
@@ -256,18 +256,24 @@ const CONTROL_CLASSES =
   "w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm transition focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200"
 const AIRCRAFT_MODELS = aircraftModels
   .slice()
-  .sort((a, b) => a.sort_order - b.sort_order || a.name.localeCompare(b.name))
+  .filter((model) => model.guid && model.name)
+  .sort((a, b) => {
+    const aOrder = a.sort_order ?? 0
+    const bOrder = b.sort_order ?? 0
+    if (aOrder !== bOrder) return aOrder - bOrder
+    return a.name!.localeCompare(b.name!)
+  })
 
 type AircraftModelOption = {
   label: string
   value: string
-  category: AircraftModel["guid"]
+  category: string
 }
 const AIRCRAFT_MODEL_OPTIONS: AircraftModelOption[] = AIRCRAFT_MODELS.map(
   (model) => ({
-    label: model.name,
-    value: model.name,
-    category: model.guid,
+    label: model.name!,
+    value: model.name!,
+    category: model.guid!,
   })
 )
 

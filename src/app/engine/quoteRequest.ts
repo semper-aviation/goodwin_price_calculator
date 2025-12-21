@@ -1,10 +1,23 @@
-export interface PricingEngineDeps {
-  calculateFlightSeconds?: (
-    legs: { from: Airport; to: Airport; kind: "OCCUPIED" | "REPO" }[],
-    category: CategoryId
-  ) => Promise<number[]>
-  resolveAirportByIcao?: (icao: string) => Promise<Airport | null>
-  now?: () => Date
+export type FlightLegInput = {
+  originIcao: string
+  destinationIcao: string
+  departDate: string
+  departTime?: string
+  originLat: number
+  originLon: number
+  destinationLat: number
+  destinationLon: number
+}
+
+export type ICalculatedFlightTime = {
+  duration: number
+  durationDetails: Array<{
+    originIcao: string
+    destinationIcao: string
+    departDate: string
+    departTime?: string
+    durationSec: number
+  }>
 }
 
 export type TripType = "ONE_WAY" | "ROUND_TRIP"
