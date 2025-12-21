@@ -1,0 +1,229 @@
+export type TripType = "ONE_WAY" | "ROUND_TRIP";
+export type CategoryId = "CAT1" | "CAT2" | "CAT3" | "CAT4" | "CAT5" | "CAT6" | "CAT7" | "CAT8";
+
+### INPUT SCHEMA to API ######
+
+export type Airport = {
+  icao: string;
+  lat: number;
+  lon: number;
+  country?: string; // e.g. "US"
+  state?: string; // e.g. "FL"
+  mississippi_direction: "EAST" | "WEST";
+  timezoneId: string;
+};
+
+export type TripInput = {
+  tripType: TripType;
+  category: CategoryId;
+
+  from: Airport;
+  to: Airport;
+
+  departLocalISO: string;      // "2025-12-19T09:00"
+  departTimezone?: string;     // optional if you infer from airport
+  returnLocalISO?: string;     // required if ROUND_TRIP
+  returnTimezone?: string;
+
+  passengers?: number;
+};
+
+export type QuoteRequest = {
+  trip: TripInput;
+  knobs: PricingKnobs;
+};
+
+
+
+export type PricingKnobs = {
+  repo: {
+    mode: "none" | "fixed_base" | "vhb_network";
+    policy: "both" | "outbound_only" | "inbound_only" | "none";
+
+    fixedBaseIcao?: string; // required if mode=fixed_base
+
+    vhbSets?: {
+      // either use "default" or per-category sets, or both.
+      default?: Airport[];
+      byCategory?: Partial<Record<CategoryId, string[]>>;
+    };
+
+    vhbSelection: "closest_by_distance"; // extend later
+
+    constraints?: {
+      maxOriginRepoHours?: number;
+      maxDestinationRepoHours?: number;
+      rejectIfExceeded?: boolean;
+    };
+  };
+
+  time: {
+    taxiHoursPerLeg: number;     // 0..1
+    bufferHoursPerLeg: number;   // 0..3
+    applyTo: "occupied" | "repo" | "both";
+
+    minimums?: {
+      minActualFlightHoursPerLeg?: number;
+      minFirstOccupiedLegHours?: number;
+      minTotalTripHours?: number;
+      minOccupiedHoursTotal?: number;
+    };
+
+    dailyLimits?: {
+      maxOccupiedHoursPerDay?: number;
+    };
+  };
+
+  pricing: {
+    currency: "USD";
+    rateModel: "single_hourly" | "dual_rate_repo_occupied";
+    hourlyRate?: number;      // required for single
+    repoRate?: number;        // required for dual
+    occupiedRate?: number;    // required for dual
+  };
+
+  discounts: {
+    vhbDiscount?: {
+      mode: "none" | "origin_or_destination" | "both_required";
+      percent: number; // 0..0.5 (store as 0.10)
+      appliesTo: "base_only" | "subtotal_before_fees" | "total";
+    };
+  };
+
+  scoring?: {
+    matchScore?: {
+      enabled: boolean;
+      threshold: number; // 0..10
+      action: "reject" | "rank_only";
+    };
+  };
+
+  fees: {
+    groundHandling?: {
+      perSegmentAmount: number;
+      appliesTo: "occupied_only" | "all_legs"; // recommend occupied_only
+    };
+
+    highDensity?: {
+      airports: Airport[];
+      feePerVisit: number;
+      countingMode: "segment_endpoints" | "arrivals_only" | "landings";
+      roundTripOriginDoubleCharge?: boolean;
+      tripCap?: number;
+    };
+
+    landingFees?: {
+      countingMode: "arrivals_only" | "landings_including_repo";
+      defaultAmount: number;
+      hdOverrideAmount?: number;
+      hdAirports?: Airport[];
+    };
+
+    overnight?: {
+      amountPerNight: number;
+      appliesWhen: "none" | "round_trip_only" | "always";
+      maxNightsBeforeSplit?: number; // if exceeded, treat as two one-ways
+    };
+
+    daily?: {
+      amountPerCalendarDay: number;
+      calendarDayCounting: "unique_dates_touched" | "nights_plus_one";
+      dateOverrides?: Array<{
+        startDate: string; // "2025-12-24"
+        endDate: string;   // inclusive
+        amountPerDay: number;
+        label?: string;
+      }>;
+    };
+
+   
+  };
+
+  
+
+  eligibility: {
+    domesticOnly: boolean;
+    maxAdvanceDays: number;
+    maxPassengers?: number;
+    excludeStates?: string[];
+
+    geoRules?: Array<
+      | {
+          type: "mississippi_rule";
+          // EAST or WEST derived from airport metadata you already have
+          oneWayRequires: "both_east" | "both_west";
+          roundTripUpToNightsRequiresOrigin: number; // e.g. 3
+          roundTripUpToNightsSide: "east" | "west";
+          roundTripBeyondNightsRequires: "both_east" | "both_west";
+        }
+      | {
+          type: "allowed_countries";
+          countries: string[];
+        }
+    >;
+  };
+
+  results: {
+    selection: "lowest" | "highest" | "all";
+    rankMetric: "price" | "matchScore";
+  };
+};
+
+
+
+
+### OUPUT Schema to API ####
+
+export type NormalizedLeg = {
+  kind: "OCCUPIED" | "REPO";
+  fromIcao: string;
+  toIcao: string;
+
+  // optional for teaching display
+  vhbChosen?: string;  // e.g. "Closest VHB to KMIA is KPBI"
+};
+
+export type LineItem = {
+  code:
+    | "BASE_OCCUPIED"
+    | "BASE_REPO"
+    | "DISCOUNT_VHB"
+    | "FEE_GROUND_HANDLING"
+    | "FEE_HIGH_DENSITY"
+    | "FEE_LANDING"
+    | "FEE_OVERNIGHT"
+    | "FEE_DAILY"
+    | "FEE_INTERNATIONAL"
+    | "FUEL"
+    | "INFO_MATCH_SCORE";
+  label: string;
+  amount: number; // positive = charge, negative = discount
+  meta?: Record<string, any>;
+};
+
+export type QuoteResult = {
+  status: "OK" | "REJECTED";
+  rejectReasons?: Array<{ code: string; message: string; fieldPath?: string }>;
+
+  legs?: NormalizedLeg[];
+
+  times?: {
+    occupiedHours: number;
+    repoHours: number;
+    totalHours: number;
+    matchScore?: number;
+    overnights?: number;
+    calendarDaysTouched?: number;
+  };
+
+  lineItems?: LineItem[];
+
+  totals?: {
+    baseOccupied: number;
+    baseRepo: number;
+    discounts: number;
+    fees: number;
+    fuel: number;
+    total: number;
+  };
+};

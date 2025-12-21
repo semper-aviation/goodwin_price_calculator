@@ -1,0 +1,147 @@
+This is the baseline engine; it matches all your operator patterns:
+
+Step 0 — “Trip filled in?” gate (for UI)
+
+Before calling the engine from UI, require:
+
+fromIcao, toIcao, departLocalISO, category
+
+plus returnLocalISO if ROUND_TRIP
+
+Step 1 — Resolve airports + validate
+
+Use your existing flow:
+
+AirportService.getAirportsWithTimezones([trip.from, trip.to, ...vhbs/base])
+
+validateAirportsAndTimezones()
+
+buildAirportMap()
+
+Step 2 — Build occupied legs
+
+ONE_WAY: [O→D]
+
+ROUND_TRIP: [O→D, D→O]
+
+Step 3 — Determine overnights + decide “split”
+
+If ROUND_TRIP:
+
+overnights = calculateOvernights(...)
+
+If fees.overnight.maxNightsBeforeSplit exists and overnights > that threshold:
+
+treat as two separate one-way quotes
+
+(and you’d usually remove RT-only fees)
+
+Step 4 — Build repo legs (based on knobs.repo)
+
+none → []
+
+fixed_base → BASE→O and/or D→BASE
+
+vhb_network → closestVHB(O)→O and/or D→closestVHB(D)
+
+Use findClosestVirtualHomeBase() with the appropriate VHB list:
+
+vhbSets.byCategory[trip.category] ?? vhbSets.default ?? []
+
+Step 5 — Calculate flight time for all legs
+
+Use your calculateFlightTimesWithErrorHandling()
+
+Step 6 — Apply time adjustments
+
+For each leg:
+
+actualHours = flightSeconds / 3600
+
+add taxi/buffer if applies to this leg kind
+
+adjustedHours = actualHours + taxi + buffer (only if applies)
+
+enforce minimums:
+
+min per leg (actual)
+
+min first occupied leg (actual)
+
+min totals (occupied/total)
+
+Step 7 — Eligibility checks (reject reasons)
+
+domesticOnly, excluded states, booking window, pax cap, Mississippi rule, etc.
+
+If fails, return REJECTED with fieldPath to highlight the relevant knob/field.
+
+Step 8 — Repo constraints (Aero-style)
+
+compute origin repo hours (outbound) and destination repo hours (inbound)
+
+if exceeds max and reject enabled → reject
+
+Step 9 — Base cost
+
+If single_hourly:
+
+baseOcc = occupiedHours * hourlyRate
+
+baseRepo = repoHours * hourlyRate
+
+If dual:
+
+baseOcc = occupiedHours * occupiedRate
+
+baseRepo = repoHours * repoRate
+
+Emit BASE_OCCUPIED, BASE_REPO line items
+
+Step 10 — Match score
+
+matchScore = occupied/(occupied+repo)*10 (if repo>0)
+
+if enabled and action=reject and below threshold → reject
+
+Emit INFO_MATCH_SCORE (amount 0) for UI display
+
+Step 11 — VHB discount
+
+determine if trip qualifies based on mode:
+
+origin_or_destination: O in VHB list OR D in VHB list (for the priced one-way; for RT you can define it per direction or overall—pick one and be consistent)
+
+both_required: O in VHB list AND D in VHB list
+
+compute discount amount based on appliesTo:
+
+base_only: discount = percent * (baseOcc + baseRepo)
+
+Emit negative line item: DISCOUNT_VHB
+
+Step 12 — Fees
+
+Compute and emit each line item:
+
+Ground handling: segments × perSegment
+
+High density: count visits × fee, apply cap, apply RT origin double
+
+Landing fees: landings × (hdOverride or default)
+
+Overnight: overnights × amount (if applies)
+
+Daily: calendarDaysTouched × daily (with overrides)
+
+International: if border/country change
+
+Fuel:
+
+pass-through: sum burn × price per gallon where applyAt indicates
+
+flat: flatPerHourAmount × totalHours
+
+Step 13 — Totals
+
+Sum line items into totals buckets and return.

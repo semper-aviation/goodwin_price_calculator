@@ -1,0 +1,945 @@
+Think of knobs as policy controls in 7 buckets:
+
+Repo (VHB / base / repo legs)
+
+Time (buffers, taxi, mins)
+
+Rates (single vs dual)
+
+Discounts & Scoring (VHB discount + match score)
+
+Fees (handling, HD, landing, overnight, daily, intl, fuel)
+
+Eligibility (rules that reject)
+
+Results (how to choose among many aircraft options)
+
+
+Think of knobs as policy levers. Each knob:
+
+changes how the trip is interpreted, or
+
+changes how time becomes money, or
+
+introduces fees, discounts, or rejection rules
+
+A) Repositioning (Repo / VHB)
+A1. Repo Mode
+
+What it controls:
+Whether the aircraft must reposition before/after the passenger trip.
+
+Options
+
+none
+Aircraft is assumed to already be at the origin and can end anywhere.
+→ No repo legs.
+
+fixed_base
+Aircraft always starts and ends at a single base airport.
+→ Repo legs: Base → Origin, Destination → Base
+
+vhb_network
+Aircraft uses a network of Virtual Home Bases (VHBs).
+→ Repo legs use the closest VHB to origin and destination.
+
+Why it matters:
+Repo often accounts for 30–60% of total billed time on short trips.
+
+A2. Repo Policy
+
+What it controls:
+Which repo legs are billed.
+
+Options
+
+both – bill outbound + inbound repo (most common)
+
+outbound_only – bill only base → origin
+
+inbound_only – bill only destination → base
+
+none – disable repo entirely
+
+Why it matters:
+Some operators absorb one direction of repositioning.
+
+A3. Fixed Base ICAO
+
+What it controls:
+The single base airport used when repo mode is fixed_base.
+
+Example
+
+Aero Center: KPDK
+
+Privaira: KFXE
+
+Why it matters:
+Distance from base drives repo cost and trip eligibility.
+
+A4. VHB Sets
+
+What it controls:
+The list of candidate airports used to compute closest VHB.
+
+Options
+
+One global list
+
+Category-specific lists (e.g. Fly Alliance CAT6 vs CAT8)
+
+Why it matters:
+Smaller VHB coverage = more repo = higher price.
+
+A5. VHB Selection Method
+
+What it controls:
+How the “closest” VHB is chosen.
+
+Options
+
+closest_by_distance (Haversine distance)
+
+Why it matters:
+Keeps behavior deterministic and easy to explain in training.
+
+A6. Repo Constraints
+
+What it controls:
+Maximum allowed repo time before rejection.
+
+Options
+
+maxOriginRepoHours
+
+maxDestinationRepoHours
+
+rejectIfExceeded
+
+Why it matters:
+Common for turboprops and short-range aircraft.
+
+B) Time & Flight Hour Adjustments
+B1. Taxi Time per Leg
+
+What it controls:
+Adds billable time for taxi, ground ops, and delays.
+
+Value
+
+Number (hours per leg), e.g. 0.2 = 12 minutes
+
+Why it matters:
+Taxi time compounds across repo + occupied legs.
+
+B2. Buffer Time per Leg
+
+What it controls:
+Adds operational padding per leg.
+
+Value
+
+Number (hours per leg), e.g. 1.5
+
+Why it matters:
+This is one of the strongest pricing levers.
+
+B3. Apply Time Adjustments To
+
+What it controls:
+Which legs receive taxi/buffer adjustments.
+
+Options
+
+occupied – passenger legs only
+
+repo – reposition legs only
+
+both – all legs
+
+Why it matters:
+Applying buffers to repo can double their impact.
+
+B4. Minimum Time Rules
+
+What they control:
+Hard rejection thresholds based on flight time.
+
+Options
+
+minActualFlightHoursPerLeg
+
+minFirstOccupiedLegHours
+
+minTotalTripHours
+
+minOccupiedHoursTotal
+
+Important:
+Measured on actual flight time, not adjusted time.
+
+Why it matters:
+Protects against short, inefficient trips.
+
+B5. Daily Flight Limits
+
+What they control:
+Caps on passenger flying per calendar day.
+
+Options
+
+maxOccupiedHoursPerDay
+
+Why it matters:
+Long trips may violate daily limits even if total time is fine.
+
+C) Base Pricing Model (Rates)
+C1. Rate Model
+
+What it controls:
+How time converts into base cost.
+
+Options
+
+single_hourly
+
+(repo + occupied) × hourlyRate
+
+
+dual_rate_repo_occupied
+
+repo × repoRate + occupied × occupiedRate
+
+
+Why it matters:
+Dual-rate models heavily reward efficient trips.
+
+C2. Rates
+
+What they control:
+Dollar cost per flight hour.
+
+Options
+
+hourlyRate
+
+repoRate
+
+occupiedRate
+
+Why it matters:
+Rates are the foundation everything else stacks onto.
+
+D) Discounts & Efficiency Scoring
+D1. VHB Discount
+
+What it controls:
+Discounts for efficient geography.
+
+Modes
+
+none
+
+origin_or_destination
+(either end is a VHB)
+
+both_required
+(both ends must be VHBs)
+
+Fields
+
+percent (e.g. 0.10)
+
+appliesTo:
+
+base_only
+
+subtotal_before_fees
+
+total
+
+Why it matters:
+Encourages demand near home bases.
+
+D2. Match Score
+
+What it controls:
+Efficiency filtering using repo vs occupied time.
+
+Formula
+
+matchScore = occupied / (occupied + repo) × 10
+
+
+Fields
+
+enabled
+
+threshold
+
+action:
+
+reject
+
+rank_only
+
+Why it matters:
+Filters out trips that look cheap but are operationally bad.
+
+E) Fees
+E1. Ground Handling Fee
+
+What it controls:
+Flat fee per segment.
+
+Options
+
+perSegmentAmount
+
+applies to:
+
+occupied_only
+
+all_legs
+
+Why it matters:
+Simple but meaningful add-on.
+
+E2. High-Density Airport Fee (HD)
+
+What it controls:
+Charges for congested airports.
+
+Fields
+
+airports (ICAO list)
+
+feePerVisit
+
+countingMode:
+
+segment_endpoints
+
+arrivals_only
+
+landings
+
+roundTripOriginDoubleCharge
+
+tripCap
+
+Why it matters:
+Encodes airport congestion cost behavior.
+
+E3. Landing Fees
+
+What they control:
+Per-landing charges.
+
+Fields
+
+countingMode:
+
+arrivals_only
+
+landings_including_repo
+
+defaultAmount
+
+optional HD overrides
+
+Why it matters:
+Makes repo landings visible in cost.
+
+E4. Overnight Fees
+
+What they control:
+Charges for aircraft staying away from base.
+
+Fields
+
+amountPerNight
+
+appliesWhen:
+
+none
+
+round_trip_only
+
+always
+
+maxNightsBeforeSplit
+
+Why it matters:
+Triggers trip splitting behavior.
+
+E5. Daily Fees / Daily Margin
+
+What they control:
+Charges per calendar day touched.
+
+Fields
+
+amountPerCalendarDay
+
+calendarDayCounting:
+
+unique_dates_touched
+
+nights_plus_one
+
+optional dateOverrides
+
+Why it matters:
+Daily margins often rival base cost on short trips.
+
+F) Eligibility Rules
+F1. Domestic-Only Rule
+
+Reject if trip leaves allowed geography.
+
+F2. Advance Booking Window
+
+Reject if trip is too far in the future.
+
+F3. Passenger Limits
+
+Reject if pax exceeds aircraft/operator limit.
+
+F4. Geographic Rules
+
+Example: Mississippi Rule
+
+One-way: both airports east
+
+Short RT: origin east
+
+Long RT: both east
+
+Why it matters:
+Encodes operational coverage regions.
+
+G) Result Selection
+G1. Selection Strategy
+
+What it controls:
+Which priced option to return.
+
+Options
+
+lowest
+
+highest
+
+all
+
+G2. Ranking Metric
+
+What it controls:
+How options are sorted.
+
+Options
+
+price
+
+matchScore
+
+Summary (mental model for users)
+
+Repo knobs decide where the airplane comes from
+
+Time knobs decide how long it “counts”
+
+Rate knobs decide how hours become money
+
+Discounts & scoring decide which trips are encouraged or rejected
+
+Fees add fixed operational costs
+
+Eligibility rules decide if a quote exists at all
+
+
+
+
+
+##### UI SCHEMA FOR KNOBS BELOW START ###########
+
+
+export type KnobUiField =
+  | {
+      type: "select";
+      path: string;
+      label: string;
+      why: string;
+      help: string;
+      options: { label: string; value: any }[];
+      enabledWhen?: string;
+    }
+  | {
+      type: "number";
+      path: string;
+      label: string;
+      why: string;
+      help: string;
+      min?: number;
+      max?: number;
+      step?: number;
+      enabledWhen?: string;
+    }
+  | {
+      type: "toggle";
+      path: string;
+      label: string;
+      why: string;
+      help: string;
+      enabledWhen?: string;
+    }
+  | {
+      type: "airportMulti";
+      path: string;
+      label: string;
+      why: string;
+      help: string;
+      enabledWhen?: string;
+    };
+
+export type KnobUiTab = {
+  id: string;
+  title: string;
+  sections: {
+    title: string;
+    description?: string;
+    fields: KnobUiField[];
+  }[];
+};
+
+
+export const KNOB_UI_TABS: KnobUiTab[] = [
+  /* ─────────────────────────────── REPO ─────────────────────────────── */
+  {
+    id: "repo",
+    title: "Repositioning",
+    sections: [
+      {
+        title: "Repo Strategy",
+        description: "Control where the aircraft starts and ends.",
+        fields: [
+          {
+            type: "select",
+            path: "repo.mode",
+            label: "Repo mode",
+            why: "Determines whether reposition legs are added.",
+            help:
+              "Repo mode controls how the aircraft gets to the passenger trip.\n\n" +
+              "- None: no repositioning at all\n" +
+              "- Fixed base: always repo to/from one airport\n" +
+              "- VHB network: choose closest virtual base to origin/destination",
+            options: [
+              { label: "None", value: "none" },
+              { label: "Fixed base", value: "fixed_base" },
+              { label: "VHB network", value: "vhb_network" }
+            ],
+            enabledWhen: "tripComplete"
+          },
+          {
+            type: "select",
+            path: "repo.policy",
+            label: "Repo policy",
+            why: "Choose which repo legs are billed.",
+            help:
+              "Repo policy controls which reposition legs are charged.\n\n" +
+              "- Both: outbound and inbound\n" +
+              "- Outbound only: base → origin\n" +
+              "- Inbound only: destination → base",
+            options: [
+              { label: "Both", value: "both" },
+              { label: "Outbound only", value: "outbound_only" },
+              { label: "Inbound only", value: "inbound_only" },
+              { label: "None", value: "none" }
+            ],
+            enabledWhen: "tripComplete && repo.mode !== 'none'"
+          }
+        ]
+      },
+      {
+        title: "VHB / Base Configuration",
+        fields: [
+          {
+            type: "airportMulti",
+            path: "repo.vhbSets.default",
+            label: "VHB airports",
+            why: "Defines the virtual base network.",
+            help:
+              "The calculator chooses the closest VHB to the origin and destination.\n" +
+              "Smaller VHB coverage usually increases repo time.",
+            enabledWhen: "tripComplete && repo.mode === 'vhb_network'"
+          },
+          {
+            type: "select",
+            path: "repo.vhbSelection",
+            label: "VHB selection method",
+            why: "Controls how the closest base is chosen.",
+            help:
+              "Closest by distance uses straight-line distance (Haversine).\n" +
+              "This keeps behavior deterministic and easy to explain.",
+            options: [
+              { label: "Closest by distance", value: "closest_by_distance" }
+            ],
+            enabledWhen: "tripComplete && repo.mode === 'vhb_network'"
+          }
+        ]
+      },
+      {
+        title: "Repo Limits",
+        fields: [
+          {
+            type: "number",
+            path: "repo.constraints.maxOriginRepoHours",
+            label: "Max origin repo (hrs)",
+            why: "Rejects long base → origin repositioning.",
+            help:
+              "If outbound repo exceeds this threshold, the trip may be rejected.",
+            min: 0,
+            step: 0.1,
+            enabledWhen: "tripComplete && repo.mode !== 'none'"
+          },
+          {
+            type: "number",
+            path: "repo.constraints.maxDestinationRepoHours",
+            label: "Max destination repo (hrs)",
+            why: "Rejects long destination → base repositioning.",
+            help:
+              "If inbound repo exceeds this threshold, the trip may be rejected.",
+            min: 0,
+            step: 0.1,
+            enabledWhen: "tripComplete && repo.mode !== 'none'"
+          },
+          {
+            type: "toggle",
+            path: "repo.constraints.rejectIfExceeded",
+            label: "Reject if repo exceeds limits",
+            why: "Turns repo limits into hard constraints.",
+            help:
+              "When enabled, trips violating repo limits will return no quote.",
+            enabledWhen: "tripComplete && repo.mode !== 'none'"
+          }
+        ]
+      }
+    ]
+  },
+
+  /* ─────────────────────────────── TIME ─────────────────────────────── */
+  {
+    id: "time",
+    title: "Time",
+    sections: [
+      {
+        title: "Time Adjustments",
+        fields: [
+          {
+            type: "number",
+            path: "time.taxiHoursPerLeg",
+            label: "Taxi time per leg (hrs)",
+            why: "Adds ground and taxi time to each leg.",
+            help:
+              "Taxi time is added to flight time when calculating billable hours.\n" +
+              "Example: 0.2 = 12 minutes.",
+            min: 0,
+            max: 1,
+            step: 0.05,
+            enabledWhen: "tripComplete"
+          },
+          {
+            type: "number",
+            path: "time.bufferHoursPerLeg",
+            label: "Buffer time per leg (hrs)",
+            why: "Adds operational padding per leg.",
+            help:
+              "Buffer time is commonly used to cover prep, delays, and ops padding.\n" +
+              "This is one of the strongest pricing levers.",
+            min: 0,
+            max: 3,
+            step: 0.1,
+            enabledWhen: "tripComplete"
+          },
+          {
+            type: "select",
+            path: "time.applyTo",
+            label: "Apply adjustments to",
+            why: "Choose which legs receive taxi/buffer time.",
+            help:
+              "You can apply adjustments to occupied legs, repo legs, or both.",
+            options: [
+              { label: "Occupied only", value: "occupied" },
+              { label: "Repo only", value: "repo" },
+              { label: "Both", value: "both" }
+            ],
+            enabledWhen: "tripComplete"
+          }
+        ]
+      },
+      {
+        title: "Minimum Time Rules",
+        fields: [
+          {
+            type: "number",
+            path: "time.minimums.minActualFlightHoursPerLeg",
+            label: "Min flight time per leg (hrs)",
+            why: "Rejects short inefficient legs.",
+            help:
+              "Measured on actual flight time (before taxi/buffer).\n" +
+              "Commonly used to reject sub-2hr legs.",
+            min: 0,
+            step: 0.1,
+            enabledWhen: "tripComplete"
+          },
+          {
+            type: "number",
+            path: "time.minimums.minFirstOccupiedLegHours",
+            label: "Min first occupied leg (hrs)",
+            why: "Ensures the first passenger leg is worthwhile.",
+            help:
+              "If the first passenger leg is too short, the trip can be rejected.",
+            min: 0,
+            step: 0.1,
+            enabledWhen: "tripComplete"
+          }
+        ]
+      }
+    ]
+  },
+
+  /* ─────────────────────────────── RATES ─────────────────────────────── */
+  {
+    id: "rates",
+    title: "Rates",
+    sections: [
+      {
+        title: "Base Pricing Model",
+        fields: [
+          {
+            type: "select",
+            path: "pricing.rateModel",
+            label: "Rate model",
+            why: "Defines how flight hours convert to base cost.",
+            help:
+              "Single hourly charges the same rate for repo and occupied.\n" +
+              "Dual rate charges repo cheaper than passenger time.",
+            options: [
+              { label: "Single hourly", value: "single_hourly" },
+              { label: "Dual rate (repo / occupied)", value: "dual_rate_repo_occupied" }
+            ],
+            enabledWhen: "tripComplete"
+          },
+          {
+            type: "number",
+            path: "pricing.hourlyRate",
+            label: "Hourly rate ($/hr)",
+            why: "Base cost per flight hour.",
+            help:
+              "Used when rate model is single hourly.",
+            min: 0,
+            step: 100,
+            enabledWhen: "tripComplete && pricing.rateModel === 'single_hourly'"
+          },
+          {
+            type: "number",
+            path: "pricing.repoRate",
+            label: "Repo rate ($/hr)",
+            why: "Lower rate applied to reposition hours.",
+            help:
+              "Used when rate model is dual rate.",
+            min: 0,
+            step: 100,
+            enabledWhen: "tripComplete && pricing.rateModel === 'dual_rate_repo_occupied'"
+          },
+          {
+            type: "number",
+            path: "pricing.occupiedRate",
+            label: "Occupied rate ($/hr)",
+            why: "Higher rate applied to passenger hours.",
+            help:
+              "Used when rate model is dual rate.",
+            min: 0,
+            step: 100,
+            enabledWhen: "tripComplete && pricing.rateModel === 'dual_rate_repo_occupied'"
+          }
+        ]
+      }
+    ]
+  },
+
+  /* ─────────────────────────────── DISCOUNTS ─────────────────────────────── */
+  {
+    id: "discounts",
+    title: "Discounts & Scoring",
+    sections: [
+      {
+        title: "VHB Discount",
+        fields: [
+          {
+            type: "select",
+            path: "discounts.vhbDiscount.mode",
+            label: "VHB discount rule",
+            why: "Discounts trips near home bases.",
+            help:
+              "Encourages demand near operational bases.\n" +
+              "Rules define whether one or both ends must be VHBs.",
+            options: [
+              { label: "None", value: "none" },
+              { label: "Origin or destination", value: "origin_or_destination" },
+              { label: "Both required", value: "both_required" }
+            ],
+            enabledWhen: "tripComplete"
+          },
+          {
+            type: "number",
+            path: "discounts.vhbDiscount.percent",
+            label: "Discount percent",
+            why: "Percentage reduction applied when eligible.",
+            help:
+              "Stored as decimal (0.10 = 10%).",
+            min: 0,
+            max: 0.5,
+            step: 0.01,
+            enabledWhen: "tripComplete && discounts.vhbDiscount.mode !== 'none'"
+          }
+        ]
+      },
+      {
+        title: "Match Score",
+        fields: [
+          {
+            type: "toggle",
+            path: "scoring.matchScore.enabled",
+            label: "Enable match score",
+            why: "Filters inefficient trips.",
+            help:
+              "Match score compares occupied vs repo time.\n" +
+              "occupied / (occupied + repo) × 10",
+            enabledWhen: "tripComplete"
+          },
+          {
+            type: "number",
+            path: "scoring.matchScore.threshold",
+            label: "Match score threshold",
+            why: "Rejects or flags inefficient trips.",
+            help:
+              "Trips below this score are rejected or ranked lower.",
+            min: 0,
+            max: 10,
+            step: 0.1,
+            enabledWhen: "tripComplete && scoring.matchScore.enabled"
+          }
+        ]
+      }
+    ]
+  },
+
+  /* ─────────────────────────────── FEES ─────────────────────────────── */
+  {
+    id: "fees",
+    title: "Fees",
+    sections: [
+      {
+        title: "Ground & Airport Fees",
+        fields: [
+          {
+            type: "number",
+            path: "fees.groundHandling.perSegmentAmount",
+            label: "Ground handling ($/segment)",
+            why: "Flat fee per flight segment.",
+            help:
+              "Applied per occupied segment unless configured otherwise.",
+            min: 0,
+            step: 100,
+            enabledWhen: "tripComplete"
+          },
+          {
+            type: "airportMulti",
+            path: "fees.highDensity.airports",
+            label: "High-density airports",
+            why: "Airports that trigger congestion fees.",
+            help:
+              "Visiting these airports adds an extra fee per rules below.",
+            enabledWhen: "tripComplete"
+          },
+          {
+            type: "number",
+            path: "fees.highDensity.feePerVisit",
+            label: "HD fee per visit",
+            why: "Charge per visit to a high-density airport.",
+            help:
+              "Counting method is defined separately.",
+            min: 0,
+            step: 100,
+            enabledWhen: "tripComplete"
+          }
+        ]
+      }
+    ]
+  },
+
+  /* ─────────────────────────────── ELIGIBILITY ─────────────────────────────── */
+  {
+    id: "eligibility",
+    title: "Eligibility",
+    sections: [
+      {
+        title: "Trip Constraints",
+        fields: [
+          {
+            type: "toggle",
+            path: "eligibility.domesticOnly",
+            label: "Domestic only",
+            why: "Rejects trips outside allowed geography.",
+            help:
+              "When enabled, international trips are rejected.",
+            enabledWhen: "tripComplete"
+          },
+          {
+            type: "number",
+            path: "eligibility.maxAdvanceDays",
+            label: "Max advance booking (days)",
+            why: "Limits how far in advance trips can be booked.",
+            help:
+              "Trips booked beyond this window are rejected.",
+            min: 0,
+            step: 1,
+            enabledWhen: "tripComplete"
+          }
+        ]
+      }
+    ]
+  },
+
+  /* ─────────────────────────────── OUTPUT ─────────────────────────────── */
+  {
+    id: "output",
+    title: "Output",
+    sections: [
+      {
+        title: "Result Selection",
+        fields: [
+          {
+            type: "select",
+            path: "results.selection",
+            label: "Return which result",
+            why: "Choose which priced option is returned.",
+            help:
+              "Useful when multiple aircraft/models are available.",
+            options: [
+              { label: "Lowest price", value: "lowest" },
+              { label: "Highest price", value: "highest" },
+              { label: "All results", value: "all" }
+            ],
+            enabledWhen: "tripComplete"
+          }
+        ]
+      }
+    ]
+  }
+];
+
+##### UI SCHEMA FOR KNOBS BELOW END ###########

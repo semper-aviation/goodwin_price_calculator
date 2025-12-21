@@ -1,0 +1,2189 @@
+icao,name,city,state,country,lat,lon,timezone_id,mississippi_direction
+K0S7,Dorothy Scott Intl,Oroville,Washington,US,48.958333,-119.411667,America/Los_Angeles,WEST
+K0S9,Jefferson County Intl,Port Townsend,Washington,US,48.053333,-122.81,America/Los_Angeles,WEST
+K1B1,Columbia County,Hudson,New York,US,42.291667,-73.71,America/New_York,EAST
+K1S1,Eckhart Intl,Porthill,Idaho,US,48.99,-116.501667,America/Los_Angeles,WEST
+K39N,Princeton,Princeton/Rocky Hill,NJ,US,40.3990889,-74.6590064,America/New_York,EAST
+K3CM,James Clements Muni,Bay City,Michigan,US,43.546667,-83.895,America/Detroit,EAST
+K59B,Newton Fld,Jackman,Maine,US,45.631667,-70.246667,America/New_York,EAST
+K5B2,Saratoga County,Saratoga Springs,New York,US,43.05,-73.861667,America/New_York,EAST
+K5T9,Maverick County Meml Intl,Eagle Pass,Texas,US,28.856667,-100.513333,America/Chicago,WEST
+K60B,Moose River,Jackman,Maine,US,45.633333,-70.266667,America/New_York,EAST
+K69S,Avey Fld,Laurier,Washington,US,48.998333,-118.223333,America/Los_Angeles,WEST
+K74S,Anacortes,Anacortes,Washington,US,48.498333,-122.661667,America/Los_Angeles,WEST
+K79J,South Alabama Rgnl At Bill Ben,Andalusia,AL,US,31.308361,-86.392222,America/Chicago,EAST
+K7S8,Ross Intl,Sweetgrass,Montana,US,48.998333,-111.978333,America/Denver,WEST
+K8U3,Scobey Border Station/East Poplar Intl,Scobey,Montana,US,49.0,-105.4,America/Regina,WEST
+KAAA,Logan County,Lincoln,IL,US,40.1586944,-89.3350278,America/Chicago,EAST
+KAAF,Apalachicola Rgnl-Cleve Randolph Fld,Apalachicola,FL,US,29.7275494,-85.0273775,America/New_York,EAST
+KAAO,Colonel James Jabara,Wichita,KS,US,37.7475742,-97.2211178,America/Chicago,WEST
+KAAS,Taylor County,Campbellsville,KY,US,37.3582778,-85.3094167,America/New_York,EAST
+KAAT,Alturas Muni,Alturas,CA,US,41.4828611,-120.5654167,America/Los_Angeles,WEST
+KABE,Lehigh Valley Intl,Allentown,PA,US,40.6523628,-75.4404058,America/New_York,EAST
+KABI,Abilene Rgnl,Abilene,TX,US,32.4113333,-99.6818889,America/Chicago,WEST
+KABQ,Albuquerque Intl Sunport,Albuquerque,NM,US,35.0389316,-106.6082622,America/Denver,WEST
+KABR,Aberdeen Rgnl,Aberdeen,SD,US,45.4467981,-98.4224408,America/Chicago,WEST
+KABY,Southwest Georgia Rgnl,Albany,GA,US,31.5355278,-84.1944722,America/New_York,EAST
+KACB,Antrim County,Bellaire,MI,US,44.9885775,-85.1983467,America/Detroit,EAST
+KACJ,Jimmy Carter Rgnl,Americus,GA,US,32.1108056,-84.1888611,America/New_York,EAST
+KACK,Nantucket Meml,Nantucket,MA,US,41.2532992,-70.0605114,America/New_York,EAST
+KACP,Allen Parish,Oakdale,LA,US,30.7505086,-92.6884908,America/Chicago,WEST
+KACQ,Waseca Muni/Maynard Richard Stensrud Fld,Waseca,MN,US,44.0734722,-93.5529442,America/Chicago,WEST
+KACT,Waco Rgnl,Waco,TX,US,31.6121944,-97.2303056,America/Chicago,WEST
+KACV,California Redwood Coast-Humboldt County,Arcata/Eureka,CA,US,40.9778264,-124.1084692,America/Los_Angeles,WEST
+KACY,Atlantic City Intl,Atlantic City,NJ,US,39.4575833,-74.5771667,America/New_York,EAST
+KACZ,Henderson Fld,Wallace,NC,US,34.7178611,-78.0038889,America/New_York,EAST
+KADC,Wadena Muni,Wadena,MN,US,46.449945,-95.210832,America/Chicago,WEST
+KADF,Dexter B Florence Meml Fld,Arkadelphia,AR,US,34.0998056,-93.0660833,America/Chicago,WEST
+KADG,Lenawee County,Adrian,MI,US,41.8676367,-84.0773058,America/Detroit,EAST
+KADH,Ada Rgnl,Ada,OK,US,34.804262,-96.6711997,America/Chicago,WEST
+KADM,Ardmore Muni,Ardmore,OK,US,34.3038734,-97.0205974,America/Chicago,WEST
+KADS,Addison,Dallas,TX,US,32.9685556,-96.8364444,America/Chicago,WEST
+KADT,Atwood County,Atwood,KS,US,39.8403385,-101.0424829,America/Chicago,WEST
+KADU,Audubon County,Audubon,IA,US,41.7015278,-94.9204444,America/Chicago,WEST
+KAEG,Double Eagle II,Albuquerque,NM,US,35.1449094,-106.7951739,America/Denver,WEST
+KAEJ,Central Colorado Rgnl,Buena Vista,CO,US,38.8141944,-106.1206111,America/Denver,WEST
+KAEL,Albert Lea Muni,Albert Lea,MN,US,43.6813143,-93.3681484,America/Chicago,WEST
+KAEX,Alexandria Intl,Alexandria,LA,US,31.3273717,-92.5485558,America/Chicago,WEST
+KAFJ,Washington County,Washington,PA,US,40.1364722,-80.2901944,America/New_York,EAST
+KAFK,Nebraska City Muni,Nebraska City,NE,US,40.6065278,-95.8666667,America/Chicago,WEST
+KAFN,Jaffrey,Jaffrey,NH,US,42.8051342,-72.0030219,America/New_York,EAST
+KAFO,Afton Muni,Afton,WY,US,42.7087706,-110.9421711,America/Denver,WEST
+KAFP,Anson County/Jeff Cloud Fld,Wadesboro,NC,US,35.0206378,-80.0771175,America/New_York,EAST
+KAFW,Perot Fld/Fort Worth Alliance,Fort Worth,TX,US,32.9903067,-97.3194294,America/Chicago,WEST
+KAGC,Allegheny County,Pittsburgh,PA,US,40.3544376,-79.9290467,America/New_York,EAST
+KAGO,Ralph C Weiser Fld,Magnolia,AR,US,33.2274722,-93.217,America/Chicago,WEST
+KAGS,Augusta Regional,Augusta,GA,US,33.3699444,-81.9645,America/New_York,EAST
+KAGZ,Wagner Muni,Wagner,SD,US,43.0641661,-98.2963821,America/Chicago,WEST
+KAHH,Amery Muni,Amery,WI,US,45.2811483,-92.3753922,America/Chicago,EAST
+KAHN,Athens/Ben Epps,Athens,GA,US,33.9486403,-83.3259142,America/New_York,EAST
+KAHQ,Wahoo Muni,Wahoo,NE,US,41.2406081,-96.594555,America/Chicago,WEST
+KAIA,Alliance Muni,Alliance,NE,US,42.0532222,-102.80375,America/Denver,WEST
+KAIB,Hopkins Fld,Nucla,CO,US,38.2390022,-108.5628067,America/Denver,WEST
+KAID,Anderson Municipal,Anderson,IN,US,40.1086111,-85.613,America/Indiana/Indianapolis,EAST
+KAIG,Langlade County,Antigo,WI,US,45.1539497,-89.1106167,America/Chicago,EAST
+KAIK,Aiken Rgnl,Aiken,SC,US,33.6493889,-81.6850278,America/New_York,EAST
+KAIO,Atlantic Muni,Atlantic,IA,US,41.4038333,-95.04875,America/Chicago,WEST
+KAIT,Aitkin Municipal,Aitkin,MN,US,46.5484619,-93.6766322,America/Chicago,EAST
+KAIV,George Downer,Aliceville,AL,US,33.1067444,-88.197175,America/Chicago,EAST
+KAIZ,Lee C Fine Meml,Kaiser/Lake Ozark,MO,US,38.0960278,-92.5494722,America/Chicago,WEST
+KAJG,Mount Carmel Muni,Mount Carmel,IL,US,38.6065278,-87.7266944,America/Chicago,EAST
+KAJO,Corona Muni,Corona,CA,US,33.8976541,-117.6024398,America/Los_Angeles,WEST
+KAJR,Habersham County,Cornelia,GA,US,34.4998517,-83.5566647,America/New_York,EAST
+KAJZ,Blake Fld,Delta,CO,US,38.7856033,-108.0620136,America/Denver,WEST
+KAKH,Gastonia Muni,Gastonia,NC,US,35.2026231,-81.1498758,America/New_York,EAST
+KAKO,Colorado Plains Rgnl,Akron,CO,US,40.1756389,-103.2220278,America/Denver,WEST
+KAKQ,Wakefield Muni,Wakefield,VA,US,36.9872222,-77.0011389,America/New_York,EAST
+KAKR,Akron Fulton Intl,Akron,OH,US,41.0374236,-81.4676847,America/New_York,EAST
+KALB,Albany Intl,Albany,NY,US,42.7491161,-73.80198,America/New_York,EAST
+KALI,Alice Intl,Alice,TX,US,27.7408889,-98.0269444,America/Chicago,WEST
+KALM,Alamogordo Rgnl,Alamogordo,NM,US,32.8394167,-105.9911389,America/Denver,WEST
+KALN,St Louis Rgnl,Alton/St Louis,IL,US,38.8899167,-90.046,America/Chicago,EAST
+KALO,Waterloo Rgnl,Waterloo,IA,US,42.5584492,-92.4010233,America/Chicago,WEST
+KALS,San Luis Valley Rgnl,Alamosa,CO,US,37.435125,-105.8678753,America/Denver,WEST
+KALW,Walla Walla Rgnl,Walla Walla,WA,US,46.0925417,-118.2840825,America/Los_Angeles,WEST
+KALX,Thomas C Russell Fld,Alexander City,AL,US,32.91475,-85.9629444,America/Chicago,EAST
+KAMA,Amarillo Intl,Amarillo,TX,US,35.2193611,-101.7059167,America/Chicago,WEST
+KAMG,Bacon County,Alma,GA,US,31.5360578,-82.5065533,America/New_York,EAST
+KAMN,Gratiot Community,Alma,MI,US,43.3221419,-84.6879386,America/Detroit,EAST
+KAMT,Alexander Salamon,West Union,OH,US,38.8516725,-83.5660072,America/New_York,EAST
+KAMW,Ames Muni,Ames,IA,US,41.9920436,-93.6218208,America/Chicago,WEST
+KANB,Anniston Rgnl,Anniston,AL,US,33.5881667,-85.8581111,America/Chicago,EAST
+KAND,Anderson Rgnl,Anderson,SC,US,34.4945867,-82.7093814,America/New_York,EAST
+KANE,Anoka Co-Blaine,Minneapolis,MN,US,45.1448889,-93.2101944,America/Chicago,EAST
+KANJ,Sault Ste Marie Muni,Sault Ste Marie,MI,US,46.4792222,-84.3683889,America/Detroit,EAST
+KANK,Salida Arpt Harriett Alexander Field,Salida,CO,US,38.5382778,-106.0486389,America/Denver,WEST
+KANP,Lee,Annapolis,MD,US,38.9428778,-76.5683992,America/New_York,EAST
+KANQ,Tri-State Steuben County,Angola,IN,US,41.6396983,-85.0834933,America/Indiana/Indianapolis,EAST
+KANW,Ainsworth Rgnl,Ainsworth,NE,US,42.5792222,-99.9929722,America/Chicago,WEST
+KANY,Anthony Muni,Anthony,KS,US,37.1598986,-98.0795264,America/Chicago,WEST
+KAOC,Arco-Butte County,Arco,ID,US,43.6035278,-113.33425,America/Boise,WEST
+KAOH,Lima Allen County,Lima,OH,US,40.707478,-84.0270781,America/New_York,EAST
+KAOO,Altoona/Blair County,Altoona,PA,US,40.2963611,-78.3200278,America/New_York,EAST
+KAOV,Ava Bill Martin Meml,Ava,MO,US,36.9718872,-92.6819458,America/Chicago,WEST
+KAPA,Centennial,Denver,CO,US,39.5701186,-104.8492931,America/Denver,WEST
+KAPC,Napa County,Napa,CA,US,38.2131892,-122.2806872,America/Los_Angeles,WEST
+KAPF,Naples Muni,Naples,FL,US,26.1524408,-81.7756392,America/New_York,EAST
+KAPN,Alpena County Rgnl,Alpena,MI,US,45.0780833,-83.5603056,America/Detroit,EAST
+KAPT,Marion County/Brown Fld,Jasper,TN,US,35.0606667,-85.5853056,America/Chicago,EAST
+KAPV,Apple Valley,Apple Valley,CA,US,34.5753314,-117.1861881,America/Los_Angeles,WEST
+KAPY,Zapata County,Zapata,TX,US,26.9687861,-99.2489083,America/Chicago,WEST
+KAQO,Llano Muni,Llano,TX,US,30.7842222,-98.6598889,America/Chicago,WEST
+KAQP,Appleton Muni,Appleton,MN,US,45.227528,-96.004333,America/Chicago,WEST
+KAQR,Atoka Muni,Atoka,OK,US,34.398339,-96.148061,America/Chicago,WEST
+KAQW,Harriman-and-West,North Adams,MA,US,42.6962538,-73.1705531,America/New_York,EAST
+KAQX,Allendale County,Allendale,SC,US,32.9951117,-81.2702367,America/New_York,EAST
+KARA,Acadiana Rgnl,New Iberia,LA,US,30.0377583,-91.8838961,America/Chicago,WEST
+KARB,Ann Arbor Muni,Ann Arbor,MI,US,42.2229276,-83.7457088,America/Detroit,EAST
+KARG,Walnut Ridge Rgnl,Walnut Ridge,AR,US,36.1246667,-90.9251111,America/Chicago,WEST
+KARM,Wharton Rgnl,Wharton,TX,US,29.2542778,-96.1543889,America/Chicago,WEST
+KARR,Aurora Muni,Chicago/Aurora,IL,US,41.7719167,-88.4756667,America/Chicago,EAST
+KART,Watertown Intl,Watertown,NY,US,43.9918333,-76.0194167,America/New_York,EAST
+KARV,Lakeland/Lee Field,Minocqua-Woodruff,WI,US,45.9279167,-89.7309444,America/Chicago,EAST
+KARW,Beaufort Exec,Beaufort,SC,US,32.4121667,-80.6343542,America/New_York,EAST
+KASD,Slidell,Slidell,LA,US,30.3463333,-89.8208056,America/Chicago,EAST
+KASE,Aspen-Pitkin County,Aspen,CO,US,39.2218783,-106.8682333,America/Denver,WEST
+KASG,Springdale Muni,Springdale,AR,US,36.1763889,-94.11925,America/Chicago,WEST
+KASH,Boire Fld,Nashua,NH,US,42.7824139,-71.5140944,America/New_York,EAST
+KASJ,Tri-County At Henry Joyner Fld,Ahoskie,NC,US,36.2975264,-77.1708528,America/New_York,EAST
+KASL,Harrison County,Marshall,TX,US,32.5205,-94.3077778,America/Chicago,WEST
+KASN,Talladega Muni,Talladega,AL,US,33.5695042,-86.0512014,America/Chicago,EAST
+KAST,Astoria Rgnl,Astoria,OR,US,46.1579783,-123.8786236,America/Los_Angeles,WEST
+KASW,Warsaw Muni,Warsaw,IN,US,41.2746944,-85.8400833,America/Indiana/Indianapolis,EAST
+KASX,John F Kennedy Meml,Ashland,WI,US,46.5485278,-90.9189722,America/Chicago,EAST
+KASY,Ashley Muni,Ashley,ND,US,46.0231556,-99.3525747,America/Chicago,WEST
+KATA,Hall-Miller Muni,Atlanta,TX,US,33.1025278,-94.1950278,America/Chicago,WEST
+KATL,Hartsfield-Jackson Intl,Atlanta,GA,US,33.6366996,-84.427864,America/New_York,EAST
+KATS,Artesia Muni,Artesia,NM,US,32.8519444,-104.4675833,America/Denver,WEST
+KATW,Appleton Intl,Appleton,WI,US,44.2580931,-88.5190722,America/Chicago,EAST
+KATY,Watertown Rgnl,Watertown,SD,US,44.9139722,-97.1547222,America/Chicago,WEST
+KAUG,Augusta State,Augusta,ME,US,44.3206869,-69.7973086,America/New_York,EAST
+KAUH,Aurora Municipal ,Aurora,NE,US,40.8941389,-97.9945556,America/Chicago,WEST
+KAUM,Austin Muni,Austin,MN,US,43.6626389,-92.9329167,America/Chicago,WEST
+KAUN,Auburn Muni,Auburn,CA,US,38.9548333,-121.0817222,America/Los_Angeles,WEST
+KAUO,Auburn University Regional Airport,Auburn,AL,US,32.6151111,-85.434,America/Chicago,EAST
+KAUS,Austin-Bergstrom Intl,Austin,TX,US,30.1945272,-97.6698761,America/Chicago,WEST
+KAUW,Wausau Downtown,Wausau,WI,US,44.9262845,-89.6270018,America/Chicago,EAST
+KAVC,Mecklenburg Rgnl,South Hill,VA,US,36.6882778,-78.0544722,America/New_York,EAST
+KAVK,Alva Rgnl,Alva,OK,US,36.7735767,-98.6711663,America/Chicago,WEST
+KAVL,Asheville Rgnl,Asheville,NC,US,35.4361131,-82.5420475,America/New_York,EAST
+KAVO,Avon Park Exec,Avon Park,FL,US,27.5912999,-81.5289668,America/New_York,EAST
+KAVP,Scranton Intl,Wilkes-Barre/Scranton,PA,US,41.3384722,-75.7233889,America/New_York,EAST
+KAVQ,Marana Rgnl,Marana,AZ,US,32.4095556,-111.2183889,America/Phoenix,WEST
+KAVX,Catalina,Avalon,CA,US,33.4049972,-118.4157694,America/Los_Angeles,WEST
+KAWG,Washington Muni,Washington,IA,US,41.2756944,-91.6760833,America/Chicago,WEST
+KAWM,West Memphis Muni,West Memphis,AR,US,35.1350556,-90.2344444,America/Chicago,WEST
+KAWO,Arlington Muni,Arlington,WA,US,48.16075,-122.1590278,America/Los_Angeles,WEST
+KAXA,Algona Muni,Algona,IA,US,43.0779167,-94.2719444,America/Chicago,WEST
+KAXH,Houston/Southwest,Houston,TX,US,29.5061389,-95.4769167,America/Chicago,WEST
+KAXN,Alexandria Rgnl/Chandler Fld,Alexandria,MN,US,45.8663056,-95.3946667,America/Chicago,WEST
+KAXQ,Clarion County,Clarion,PA,US,41.2249444,-79.4421667,America/New_York,EAST
+KAXS,Altus/Quartz Mtn Rgnl,Altus,OK,US,34.6988056,-99.3384722,America/Chicago,WEST
+KAXV,Neil Armstrong,Wapakoneta,OH,US,40.4935481,-84.2980744,America/New_York,EAST
+KAXX,Angel Fire,Angel Fire,NM,US,36.4220003,-105.289905,America/Denver,WEST
+KAYS,Waycross-Ware County,Waycross,GA,US,31.2483889,-82.3953889,America/New_York,EAST
+KAZC,Colorado City Muni,Colorado City,AZ,US,36.9599444,-113.0138889,America/Phoenix,WEST
+KAZE,Hazlehurst,Hazlehurst,GA,US,31.88519,-82.6478911,America/New_York,EAST
+KAZO,Kalamazoo/Battle Creek Intl,Kalamazoo,MI,US,42.2343889,-85.5515556,America/Detroit,EAST
+KBAC,Barnes County Muni,Valley City,ND,US,46.9412042,-98.0180136,America/Chicago,WEST
+KBAF,Westfield-Barnes Rgnl,Westfield/Springfield,MA,US,42.1579444,-72.7158611,America/New_York,EAST
+KBAK,Columbus Muni,Columbus,IN,US,39.261915,-85.8963389,America/Indiana/Indianapolis,EAST
+KBAM,Battle Mountain,Battle Mountain,NV,US,40.5990556,-116.8743333,America/Los_Angeles,WEST
+KBAX,Huron County Meml,Bad Axe,MI,US,43.7802278,-82.9854169,America/Detroit,EAST
+KBAZ,New Braunfels Ntl,New Braunfels,TX,US,29.70575,-98.0432222,America/Chicago,WEST
+KBBB,Benson Muni,Benson,MN,US,45.3319167,-95.6505833,America/Chicago,WEST
+KBBD,Curtis Fld,Brady,TX,US,31.1792778,-99.3239167,America/Chicago,WEST
+KBBG,Branson,Branson,MO,US,36.5320825,-93.2005444,America/Chicago,WEST
+KBBP,Marlboro County,Bennettsville,SC,US,34.6217086,-79.7343594,America/New_York,EAST
+KBBW,Broken Bow Muni/Keith Glaze Fld,Broken Bow,NE,US,41.4364444,-99.6421667,America/Chicago,WEST
+KBCB,Montgomery Exec,Blacksburg,VA,US,37.2093867,-80.41209,America/New_York,EAST
+KBCE,Bryce Canyon,Bryce Canyon,UT,US,37.7064469,-112.1457997,America/Denver,WEST
+KBCK,Black River Falls Area,Black River Falls,WI,US,44.2507386,-90.8552803,America/Chicago,EAST
+KBCR,Tri-County,Bonifay,FL,US,30.8438856,-85.6017494,America/Chicago,EAST
+KBCT,Boca Raton,Boca Raton,FL,US,26.3784856,-80.1076964,America/New_York,EAST
+KBDE,Baudette Intl,Baudette,MN,US,48.73025,-94.6110556,America/Winnipeg,EAST
+KBDG,Blanding Muni,Blanding,UT,US,37.5833333,-109.4832778,America/Denver,WEST
+KBDH,Willmar Municipal,Willmar,MN,US,45.1170278,-95.1293333,America/Chicago,WEST
+KBDL,Bradley Intl,Windsor Locks,CT,US,41.9390322,-72.6843158,America/New_York,EAST
+KBDN,Bend Muni,Bend,OR,US,44.0945608,-121.2002211,America/Los_Angeles,WEST
+KBDQ,Morrilton Muni,Morrilton,AR,US,35.1362336,-92.7137083,America/Chicago,WEST
+KBDR,Bridgeport/Sikorsky,Bridgeport,CT,US,41.1634808,-73.1261758,America/New_York,EAST
+KBDU,Boulder Muni,Boulder,CO,US,40.0393653,-105.2260896,America/Denver,WEST
+KBEA,Beeville Muni,Beeville,TX,US,28.3642222,-97.7919444,America/Chicago,WEST
+KBEC,Beech Factory,Wichita,KS,US,37.6939167,-97.2149167,America/Chicago,WEST
+KBED,Laurence G Hanscom Fld,Bedford,MA,US,42.4699444,-71.289,America/New_York,EAST
+KBEH,Southwest Michigan Rgnl,Benton Harbor,MI,US,42.1283808,-86.4248811,America/Detroit,EAST
+KBFA,Boyne Mountain,Boyne Falls,MI,US,45.1658415,-84.9241139,America/Detroit,EAST
+KBFD,Bradford Rgnl,Bradford,PA,US,41.8029543,-78.639966,America/New_York,EAST
+KBFE,Terry County,Brownfield,TX,US,33.1731389,-102.1929167,America/Chicago,WEST
+KBFF,Western Neb Rgnl,Scottsbluff,NE,US,41.8740278,-103.5956389,America/Denver,WEST
+KBFI,Boeing Field Intl,Seattle,WA,US,47.5299722,-122.3019444,America/Los_Angeles,WEST
+KBFK,Buffalo Muni,Buffalo,OK,US,36.8633014,-99.6187306,America/Chicago,WEST
+KBFL,Meadows Fld,Bakersfield,CA,US,35.4338611,-119.0576667,America/Los_Angeles,WEST
+KBFM,Mobile Intl,Mobile,AL,US,30.6267806,-88.0680908,America/Chicago,EAST
+KBFR,Virgil I Grissom Muni,Bedford,IN,US,38.8400278,-86.4453611,America/Indiana/Indianapolis,EAST
+KBFW,Silver Bay Muni,Two Harbors,MN,US,47.249028,-91.415583,America/Chicago,EAST
+KBGD,Hutchinson County,Borger,TX,US,35.7008889,-101.3936667,America/Chicago,WEST
+KBGE,Decatur County,Bainbridge,GA,US,30.9715981,-84.6369278,America/New_York,EAST
+KBGF,Winchester Muni,Winchester,TN,US,35.1775336,-86.0661664,America/Chicago,EAST
+KBGM,Binghamton,Binghamton,NY,US,42.2084444,-75.9796111,America/New_York,EAST
+KBGR,Bangor Intl,Bangor,ME,US,44.8074444,-68.8281389,America/New_York,EAST
+KBHB,Hancock County/Bar Harbor,Bar Harbor,ME,US,44.4497053,-68.3614897,America/New_York,EAST
+KBHC,Baxley Muni,Baxley,GA,US,31.7138333,-82.3937778,America/New_York,EAST
+KBHK,Baker Muni,Baker,MT,US,46.3466111,-104.2581111,America/Denver,WEST
+KBHM,Birmingham-Shuttlesworth Intl,Birmingham,AL,US,33.5638889,-86.7523056,America/Chicago,EAST
+KBID,Block Island State,Block Island,RI,US,41.1681111,-71.5778333,America/New_York,EAST
+KBIE,Beatrice Muni,Beatrice,NE,US,40.3012778,-96.7541111,America/Chicago,WEST
+KBIH,Bishop,Bishop,CA,US,37.3731111,-118.3636111,America/Los_Angeles,WEST
+KBIJ,Early County,Blakely,GA,US,31.3975086,-84.8947978,America/New_York,EAST
+KBIL,Billings Logan Intl,Billings,MT,US,45.8078491,-108.5435436,America/Denver,WEST
+KBIS,Bismarck Muni,Bismarck,ND,US,46.7727339,-100.7457375,America/Chicago,WEST
+KBIV,West Michigan Rgnl,Holland,MI,US,42.7427778,-86.1078333,America/Detroit,EAST
+KBJC,Rocky Mtn Metropolitan,Denver,CO,US,39.9088056,-105.1171944,America/Denver,WEST
+KBJI,Bemidji Rgnl,Bemidji,MN,US,47.5107222,-94.9347222,America/Chicago,EAST
+KBJJ,Wayne County,Wooster,OH,US,40.8748333,-81.88825,America/New_York,EAST
+KBKD,Stephens County,Breckenridge,TX,US,32.7187561,-98.8915964,America/Chicago,WEST
+KBKE,Baker City Muni,Baker City,OR,US,44.8373333,-117.8091389,America/Los_Angeles,WEST
+KBKL,Burke Lakefront,Cleveland,OH,US,41.5178611,-81.6826389,America/New_York,EAST
+KBKN,Blackwell-Tonkawa Muni,Blackwell,OK,US,36.7451111,-97.3495833,America/Chicago,WEST
+KBKS,Brooks County,Falfurrias,TX,US,27.2060556,-98.1210278,America/Chicago,WEST
+KBKT,Allen C Perkinson Blackstone Aaf,Blackstone,VA,US,37.0747673,-77.9565984,America/New_York,EAST
+KBKV,Brooksville-Tampa Bay Rgnl,Brooksville,FL,US,28.4736111,-82.4554167,America/New_York,EAST
+KBKW,Raleigh County Meml,Beckley,WV,US,37.7873333,-81.1241667,America/New_York,EAST
+KBKX,Brookings Rgnl,Brookings,SD,US,44.3045278,-96.8189167,America/Chicago,WEST
+KBLF,Mercer County,Bluefield,WV,US,37.2959484,-81.2075189,America/New_York,EAST
+KBLH,Blythe,Blythe,CA,US,33.6191667,-114.7168889,America/Los_Angeles,WEST
+KBLI,Bellingham Intl,Bellingham,WA,US,48.7926944,-122.5375278,America/Los_Angeles,WEST
+KBLM,Monmouth Exec,Belmar/Farmingdale,NJ,US,40.1867778,-74.1245556,America/New_York,EAST
+KBLU,Blue Canyon - Nyack,Emigrant Gap,CA,US,39.2749722,-120.70975,America/Los_Angeles,WEST
+KBLV,Scott Afb/Midamerica St Louis,Belleville,IL,US,38.5451731,-89.8351856,America/Chicago,EAST
+KBMC,Brigham City Rgnl,Brigham City,UT,US,41.5543056,-112.06225,America/Denver,WEST
+KBMG,Monroe County,Bloomington,IN,US,39.1460208,-86.6166805,America/Indiana/Indianapolis,EAST
+KBMI,Cent II Rgnl,Bloomington/Normal,IL,US,40.4771111,-88.9159167,America/Chicago,EAST
+KBML,Berlin Rgnl,Berlin,NH,US,44.5753611,-71.1759167,America/New_York,EAST
+KBMQ,Burnet Municipal,Burnet,TX,US,30.7389272,-98.2386103,America/Chicago,WEST
+KBMT,Beaumont Muni,Beaumont,TX,US,30.0702044,-94.2150967,America/Chicago,WEST
+KBNA,Nashville Intl,Nashville,TN,US,36.124475,-86.6781806,America/Chicago,EAST
+KBNG,Banning Muni,Banning,CA,US,33.9225556,-116.8509722,America/Los_Angeles,WEST
+KBNL,Barnwell Rgnl,Barnwell,SC,US,33.2576678,-81.3882189,America/New_York,EAST
+KBNO,Burns Muni,Burns,OR,US,43.5919056,-118.9554372,America/Los_Angeles,WEST
+KBNW,Boone Muni,Boone,IA,US,42.0495556,-93.8476111,America/Chicago,WEST
+KBOI,Gowen Field,Boise,ID,US,43.5643611,-116.2228611,America/Boise,WEST
+KBOK,Brookings,Brookings,OR,US,42.0739444,-124.2897778,America/Los_Angeles,WEST
+KBOS,Boston Logan Intl,Boston,MA,US,42.3629444,-71.0063889,America/New_York,EAST
+KBOW,Bartow Exec,Bartow,FL,US,27.9433586,-81.7834372,America/New_York,EAST
+KBPG,Big Spring McMahon-Wrinkle,Big Spring,TX,US,32.2126111,-101.5216389,America/Chicago,WEST
+KBPI,Miley Meml Fld,Big Piney,WY,US,42.5822222,-110.1088611,America/Denver,WEST
+KBPK,Baxter County,Mountain Home,AR,US,36.3689425,-92.4705197,America/Chicago,WEST
+KBPT,Jack Brooks Rgnl,Beaumont/Port Arthur,TX,US,29.9508311,-94.0206989,America/Chicago,WEST
+KBQK,Brunswick Golden Isles,Brunswick,GA,US,31.2590353,-81.4663164,America/New_York,EAST
+KBQP,Morehouse Meml,Bastrop,LA,US,32.7560833,-91.8805833,America/Chicago,WEST
+KBQR,Buffalo-Lancaster Rgnl,Lancaster,NY,US,42.9220556,-78.6119722,America/New_York,EAST
+KBRD,Brainerd Lakes Rgnl,Brainerd,MN,US,46.4042222,-94.1338056,America/Chicago,EAST
+KBRL,Southeast Iowa Rgnl,Burlington,IA,US,40.7829722,-91.1255833,America/Chicago,WEST
+KBRO,Brownsville Intl,Brownsville,TX,US,25.9061389,-97.426,America/Chicago,WEST
+KBRY,Samuels Fld,Bardstown,KY,US,37.8143333,-85.4996389,America/New_York,EAST
+KBST,Belfast Muni,Belfast,ME,US,44.4093889,-69.0118333,America/New_York,EAST
+KBTA,Blair Exec,Blair,NE,US,41.4148056,-96.1089722,America/Chicago,WEST
+KBTF,Skypark,Bountiful,UT,US,40.8681491,-111.9274991,America/Denver,WEST
+KBTL,Battle Creek Exec At Kellogg Fld,Battle Creek,MI,US,42.3064728,-85.2500889,America/Detroit,EAST
+KBTM,Bert Mooney,Butte,MT,US,45.9548056,-112.4974722,America/Denver,WEST
+KBTN,Britton Muni,Britton,SD,US,45.8150278,-97.7428056,America/Chicago,WEST
+KBTP,Pittsburgh-Butler Regional Airport,Butler,PA,US,40.7765833,-79.9510833,America/New_York,EAST
+KBTR,Baton Rouge Metro,Baton Rouge,LA,US,30.5329167,-91.1498889,America/Chicago,EAST
+KBTV,Patrick Leahy Burlington Intl,Burlington,VT,US,44.471955,-73.1532761,America/New_York,EAST
+KBTY,Beatty,Beatty,NV,US,36.861139,-116.786389,America/Los_Angeles,WEST
+KBUB,Cram Fld,Burwell,NE,US,41.7775767,-99.1502117,America/Chicago,WEST
+KBUF,Buffalo Niagara Intl,Buffalo,NY,US,42.9404272,-78.7305697,America/New_York,EAST
+KBUM,Butler Meml,Butler,MO,US,38.2897672,-94.3401278,America/Chicago,WEST
+KBUR,Bob Hope,Burbank,CA,US,34.2006944,-118.3586667,America/Los_Angeles,WEST
+KBUU,Burlington Muni,Burlington,WI,US,42.6907171,-88.3046825,America/Chicago,EAST
+KBUY,Burlington/Alamance Rgnl,Burlington,NC,US,36.0497278,-79.4730081,America/New_York,EAST
+KBVI,Beaver County,Beaver Falls,PA,US,40.7724722,-80.3914444,America/New_York,EAST
+KBVN,Albion Muni,Albion,NE,US,41.7285769,-98.0557597,America/Chicago,WEST
+KBVO,Bartlesville Muni,Bartlesville,OK,US,36.7633611,-96.0111944,America/Chicago,WEST
+KBVS,Skagit Rgnl,Burlington/Mount Vernon,WA,US,48.4705261,-122.4216894,America/Los_Angeles,WEST
+KBVU,Boulder City Muni,Boulder City,NV,US,35.9473081,-114.8610842,America/Los_Angeles,WEST
+KBVX,Batesville Rgnl,Batesville,AR,US,35.7262222,-91.6474444,America/Chicago,WEST
+KBVY,Beverly Rgnl,Beverly,MA,US,42.5841389,-70.9161389,America/New_York,EAST
+KBWC,Brawley Muni,Brawley,CA,US,32.9929375,-115.5172633,America/Los_Angeles,WEST
+KBWD,Brownwood Rgnl,Brownwood,TX,US,31.7936111,-98.9565,America/Chicago,WEST
+KBWG,Green-Warren Co Rgnl,Bowling Green,KY,US,36.9645278,-86.4196667,America/Chicago,EAST
+KBWI,Baltimore/Washington Intl,Baltimore,MD,US,39.1757283,-76.6689911,America/New_York,EAST
+KBWP,Harry Stern,Wahpeton,ND,US,46.2442938,-96.6071559,America/Chicago,WEST
+KBWW,Bowman Rgnl,Bowman,ND,US,46.1655193,-103.3007427,America/Denver,WEST
+KBXA,Carr Memorial Air Fld,Bogalusa,LA,US,30.8136864,-89.8649644,America/Chicago,EAST
+KBXG,Burke County,Waynesboro,GA,US,33.0408369,-82.0042636,America/New_York,EAST
+KBXK,Buckeye Muni,Buckeye,AZ,US,33.4225339,-112.6862339,America/Phoenix,WEST
+KBXM,Brunswick Executive,Brunswick,ME,US,43.8923551,-69.9388297,America/New_York,EAST
+KBYG,Johnson County,Buffalo,WY,US,44.3810833,-106.7218056,America/Denver,WEST
+KBYH,Arkansas Intl,Blytheville,AR,US,35.9643333,-89.9439444,America/Chicago,WEST
+KBYI,Burley Muni,Burley,ID,US,42.5426111,-113.7715278,America/Boise,WEST
+KBYL,Williamsburg-Whitley County,Williamsburg,KY,US,36.7949992,-84.1995175,America/New_York,EAST
+KBYY,Bay City Rgnl,Bay City,TX,US,28.9732467,-95.8634519,America/Chicago,WEST
+KBZN,Bozeman Yellowstone Intl,Bozeman,MT,US,45.7772358,-111.1502603,America/Denver,WEST
+KCAD,Wexford County,Cadillac,MI,US,44.2753333,-85.4189167,America/Detroit,EAST
+KCAE,Columbia Metro,Columbia,SC,US,33.9388378,-81.1195361,America/New_York,EAST
+KCAG,Craig-Moffat,Craig,CO,US,40.4952222,-107.5216667,America/Denver,WEST
+KCAK,Akron-Canton Rgnl,Akron,OH,US,40.9150556,-81.4436389,America/New_York,EAST
+KCAO,Clayton Muni Airpark,Clayton,NM,US,36.4462778,-103.1499444,America/Denver,WEST
+KCAR,Caribou Muni,Caribou,ME,US,46.8716389,-68.0181944,America/New_York,EAST
+KCAV,Clarion Muni,Clarion,IA,US,42.7404722,-93.7590556,America/Chicago,WEST
+KCBE,Greater Cumberland Rgnl,Cumberland,MD,US,39.6153058,-78.7614783,America/New_York,EAST
+KCBF,Council Bluffs Muni,Council Bluffs,IA,US,41.2601111,-95.7586389,America/Chicago,WEST
+KCBG,Cambridge Muni,Cambridge,MN,US,45.5574947,-93.2641844,America/Chicago,EAST
+KCBK,Shalz Fld,Colby,KS,US,39.4274586,-101.0466197,America/Chicago,WEST
+KCCA,Clinton Muni,Clinton,AR,US,35.59775,-92.4515833,America/Chicago,WEST
+KCCB,Cable,Upland,CA,US,34.1116111,-117.6873889,America/Los_Angeles,WEST
+KCCO,Newnan Coweta County,Atlanta,GA,US,33.3115656,-84.7697554,America/New_York,EAST
+KCCR,Buchanan Fld,Concord,CA,US,37.9896567,-122.0569022,America/Los_Angeles,WEST
+KCCY,Northeast Iowa Rgnl,Charles City,IA,US,43.0725038,-92.6108092,America/Chicago,WEST
+KCDA,Caledonia County,Lyndonville,VT,US,44.5691142,-72.0179789,America/New_York,EAST
+KCDC,Cedar City Rgnl,Cedar City,UT,US,37.70097,-113.0988508,America/Denver,WEST
+KCDH,Harrell Fld,Camden,AR,US,33.6228056,-92.7633889,America/Chicago,WEST
+KCDI,Cambridge Muni,Cambridge,OH,US,39.9750278,-81.5775833,America/New_York,EAST
+KCDK,George T Lewis,Cedar Key,FL,US,29.1342472,-83.0505833,America/New_York,EAST
+KCDN,Woodward Fld,Camden,SC,US,34.2835833,-80.5648611,America/New_York,EAST
+KCDR,Chadron Muni,Chadron,NE,US,42.8375577,-103.0954019,America/Denver,WEST
+KCDS,Childress Muni,Childress,TX,US,34.4337778,-100.288,America/Chicago,WEST
+KCDW,Essex County,Caldwell,NJ,US,40.8752247,-74.2813503,America/New_York,EAST
+KCEA,Cessna Acft Field,Derby,KS,US,37.648597,-97.2506,America/Chicago,WEST
+KCEC,Jack Mc Namara Fld,Crescent City,CA,US,41.7801667,-124.2365278,America/Los_Angeles,WEST
+KCEF,Westover Arb/Metro,Springfield/Chicopee,MA,US,42.1940156,-72.5347867,America/New_York,EAST
+KCEK,Crete Muni,Crete,NE,US,40.6183767,-96.9257087,America/Chicago,WEST
+KCEU,Oconee County Rgnl,Clemson,SC,US,34.6722222,-82.8858889,America/New_York,EAST
+KCEV,Mettel Fld,Connersville,IN,US,39.6981944,-85.1311389,America/Indiana/Indianapolis,EAST
+KCEW,Bob Sikes,Crestview,FL,US,30.7788311,-86.5221128,America/Chicago,EAST
+KCEY,Kyle-Oakley Fld,Murray,KY,US,36.6645811,-88.3727756,America/Chicago,EAST
+KCEZ,Cortez Muni,Cortez,CO,US,37.3030025,-108.6280442,America/Denver,WEST
+KCFD,Coulter Fld,Bryan,TX,US,30.7156944,-96.3313611,America/Chicago,WEST
+KCFE,Buffalo Muni,Buffalo,MN,US,45.1588333,-93.8433056,America/Chicago,WEST
+KCFJ,Crawfordsville Rgnl,Crawfordsville,IN,US,39.974625,-86.921075,America/Indiana/Indianapolis,EAST
+KCFO,Colorado Air and Space Port,Denver,CO,US,39.7841944,-104.5376389,America/Denver,WEST
+KCFS,Tuscola Area,Caro,MI,US,43.4588619,-83.4454457,America/Detroit,EAST
+KCFT,Greenlee County,Clifton/Morenci,AZ,US,32.9570386,-109.2111623,America/Phoenix,WEST
+KCFV,Coffeyville Muni,Coffeyville,KS,US,37.094,-95.572,America/Chicago,WEST
+KCGC,Crystal River-Capt Tom Davis Fld,Crystal River,FL,US,28.8676111,-82.5741111,America/New_York,EAST
+KCGE,Cambridge-Dorchester Rgnl,Cambridge,MD,US,38.5393214,-76.0303953,America/New_York,EAST
+KCGF,Cuyahoga County,Cleveland,OH,US,41.5645833,-81.4872222,America/New_York,EAST
+KCGI,Cape Girardeau Rgnl,Cape Girardeau,MO,US,37.2253153,-89.5707594,America/Chicago,WEST
+KCGS,College Park,College Park,MD,US,38.9805833,-76.9223056,America/New_York,EAST
+KCGZ,Casa Grande Muni,Casa Grande,AZ,US,32.9548981,-111.76682,America/Phoenix,WEST
+KCHA,Lovell Fld,Chattanooga,TN,US,35.0351944,-85.2035556,America/New_York,EAST
+KCHD,Chandler Muni,Chandler,AZ,US,33.2690961,-111.8111211,America/Phoenix,WEST
+KCHK,Chickasha Muni,Chickasha,OK,US,35.0971404,-97.9676805,America/Chicago,WEST
+KCHN,Wauchula Muni,Wauchula,FL,US,27.5149167,-81.8804722,America/New_York,EAST
+KCHO,Charlottesville-Albemarle,Charlottesville,VA,US,38.1396428,-78.4523442,America/New_York,EAST
+KCHQ,Mississippi County,Charleston,MO,US,36.8421372,-89.3596578,America/Chicago,WEST
+KCHS,Charleston Intl/AFB,Charleston,SC,US,32.8986389,-80.0405278,America/New_York,EAST
+KCHT,Chillicothe Muni,Chillicothe,MO,US,39.7820154,-93.4962361,America/Chicago,WEST
+KCHU,Houston County,Caledonia,MN,US,43.5963586,-91.5039464,America/Chicago,WEST
+KCIC,Chico Rgnl,Chico,CA,US,39.7953889,-121.8584167,America/Los_Angeles,WEST
+KCID,The Eastern Iowa,Cedar Rapids,IA,US,41.8846944,-91.7108056,America/Chicago,WEST
+KCII,Choteau,Choteau,MT,US,47.8283478,-112.1683358,America/Denver,WEST
+KCIN,Arthur N Neu,Carroll,IA,US,42.0466667,-94.7886944,America/Chicago,WEST
+KCIR,Cairo Rgnl,Cairo,IL,US,37.0641389,-89.2195278,America/Chicago,EAST
+KCIU,Chippewa County Intl,Sault Ste Marie,MI,US,46.2507517,-84.4723842,America/Detroit,EAST
+KCJJ,Ellen Church Fld,Cresco,IA,US,43.3653014,-92.1330831,America/Chicago,WEST
+KCJR,Culpeper Rgnl,Culpeper,VA,US,38.5254722,-77.8596389,America/New_York,EAST
+KCKB,North Central West Virginia,Clarksburg,WV,US,39.2976547,-80.2275319,America/New_York,EAST
+KCKC,Grand Marais/Cook County,Grand Marais,MN,US,47.8384317,-90.3845781,America/Chicago,EAST
+KCKF,Crisp County-Cordele,Cordele,GA,US,31.988845,-83.7739047,America/New_York,EAST
+KCKI,Williamsburg Rgnl,Kingstree,SC,US,33.7172222,-79.8569722,America/New_York,EAST
+KCKM,Fletcher Fld,Clarksdale,MS,US,34.2997222,-90.5123056,America/Chicago,EAST
+KCKN,Crookston Municipal,Crookston,MN,US,47.8416572,-96.6214536,America/Chicago,WEST
+KCKP,Cherokee County Rgnl,Cherokee,IA,US,42.7313889,-95.5560556,America/Chicago,WEST
+KCKV,Outlaw Fld,Clarksville,TN,US,36.6218611,-87.4149444,America/Chicago,EAST
+KCKZ,Pennridge,Perkasie,PA,US,40.3891944,-75.2904722,America/New_York,EAST
+KCLE,Cleveland-Hopkins Intl,Cleveland,OH,US,41.4094069,-81.8546911,America/New_York,EAST
+KCLI,Clintonville Muni,Clintonville,WI,US,44.6131667,-88.7308889,America/Chicago,EAST
+KCLK,Clinton Rgnl,Clinton,OK,US,35.5382726,-98.9327886,America/Chicago,WEST
+KCLL,Easterwood Fld,College Station,TX,US,30.5880419,-96.3625444,America/Chicago,WEST
+KCLM,William R Fairchild Intl,Port Angeles,WA,US,48.1201944,-123.4996944,America/Los_Angeles,WEST
+KCLR,Cliff Hatfield Meml,Calipatria,CA,US,33.1313333,-115.5213889,America/Los_Angeles,WEST
+KCLS,Chehalis-Centralia,Chehalis,WA,US,46.6770278,-122.98275,America/Los_Angeles,WEST
+KCLT,Charlotte/Douglas Intl,Charlotte,NC,US,35.21375,-80.9490556,America/New_York,EAST
+KCLW,Clearwater Air Park,Clearwater,FL,US,27.9772139,-82.7590569,America/New_York,EAST
+KCMA,Camarillo,Camarillo,CA,US,34.2137583,-119.0943542,America/Los_Angeles,WEST
+KCMD,Cullman Rgnl/Folsom Fld,Cullman,AL,US,34.2687025,-86.8580353,America/Chicago,EAST
+KCMH,John Glenn Columbus Intl Airport,Columbus,OH,US,39.9969467,-82.8921592,America/New_York,EAST
+KCMI,Univ of IL - Willard,Champaign/Urbana,IL,US,40.0385608,-88.2765392,America/Chicago,EAST
+KCMR,H a Clark Meml Fld,Williams,AZ,US,35.3054936,-112.1943478,America/Phoenix,WEST
+KCMX,Houghton County Meml,Hancock,MI,US,47.1684169,-88.4890694,America/Detroit,EAST
+KCMY,Sparta/Fort Mc Coy,Sparta,WI,US,43.9587161,-90.7378414,America/Chicago,EAST
+KCNB,Myers Fld,Canby,MN,US,44.7295,-96.2660278,America/Chicago,WEST
+KCNC,Chariton Muni,Chariton,IA,US,41.0196111,-93.3596667,America/Chicago,WEST
+KCNH,Claremont Muni,Claremont,NH,US,43.3705043,-72.3682074,America/New_York,EAST
+KCNI,Cherokee County Rgnl,Canton,GA,US,34.3122192,-84.4221528,America/New_York,EAST
+KCNK,Blosser Muni,Concordia,KS,US,39.5498678,-97.6520406,America/Chicago,WEST
+KCNM,Cavern City Air Trml,Carlsbad,NM,US,32.3374444,-104.2633611,America/Denver,WEST
+KCNO,Chino,Chino,CA,US,33.9747793,-117.6364828,America/Los_Angeles,WEST
+KCNP,Billy G Ray Fld,Chappell,NE,US,41.0774722,-102.4640556,America/Denver,WEST
+KCNU,Chanute Martin Johnson,Chanute,KS,US,37.6678889,-95.4867222,America/Chicago,WEST
+KCNW,Tstc Waco,Waco,TX,US,31.6378056,-97.0741389,America/Chicago,WEST
+KCNY,Canyonlands Rgnl,Moab,UT,US,38.7576308,-109.7534625,America/Denver,WEST
+KCOD,Yellowstone Rgnl,Cody,WY,US,44.5201944,-109.0238056,America/Denver,WEST
+KCOE,"Coeur D''Alene/Pappy Boyington Fld","Coeur D'Alene",ID,US,47.7743056,-116.8195833,America/Los_Angeles,WEST
+KCOI,Merritt Island,Merritt Island,FL,US,28.3416111,-80.6854722,America/New_York,EAST
+KCOM,Coleman Muni,Coleman,TX,US,31.8411389,-99.4036111,America/Chicago,WEST
+KCON,Concord Muni,Concord,NH,US,43.2027222,-71.5022778,America/New_York,EAST
+KCOQ,Cloquet/Carlton County,Cloquet,MN,US,46.7011111,-92.5035556,America/Chicago,EAST
+KCOS,Colorado Sprgs Muni,Colorado Springs,CO,US,38.8058167,-104.7007764,America/Denver,WEST
+KCOT,Cotulla-La Salle County,Cotulla,TX,US,28.4557222,-99.2172222,America/Chicago,WEST
+KCOU,Columbia Rgnl,Columbia,MO,US,38.8177353,-92.2177919,America/Chicago,WEST
+KCPC,Columbus County Muni,Whiteville,NC,US,34.2728706,-78.7149872,America/New_York,EAST
+KCPF,Wendell H Ford,Hazard,KY,US,37.3873636,-83.2615994,America/New_York,EAST
+KCPK,Chesapeake Rgnl,Norfolk,VA,US,36.6656175,-76.3206558,America/New_York,EAST
+KCPM,Compton/Woodley,Compton,CA,US,33.8899167,-118.2438056,America/Los_Angeles,WEST
+KCPR,Casper/Natrona County Intl,Casper,WY,US,42.9058611,-106.4636389,America/Denver,WEST
+KCPS,St Louis Downtown,Cahokia/St Louis,IL,US,38.5703611,-90.1550833,America/Chicago,EAST
+KCPT,Cleburne Rgnl,Cleburne,TX,US,32.35375,-97.43375,America/Chicago,WEST
+KCPU,Calaveras County,San Andreas,CA,US,38.1461111,-120.6481667,America/Los_Angeles,WEST
+KCQA,Lakefield,Celina,OH,US,40.4842778,-84.5581944,America/New_York,EAST
+KCQB,Chandler Rgnl,Chandler,OK,US,35.7240833,-96.8202778,America/Chicago,WEST
+KCQF,H L Sonny Callahan,Fairhope,AL,US,30.4605,-87.8770278,America/Chicago,EAST
+KCQM,Cook Muni,Cook,MN,US,47.8222817,-92.689525,America/Chicago,EAST
+KCQW,Cheraw Municipal,Cheraw,SC,US,34.7128611,-79.957,America/New_York,EAST
+KCQX,Chatham Muni,Chatham,MA,US,41.6883042,-69.9896519,America/New_York,EAST
+KCRE,Grand Strand,North Myrtle Beach,SC,US,33.81175,-78.7239444,America/New_York,EAST
+KCRG,Jacksonville Exec At Craig,Jacksonville,FL,US,30.3363333,-81.5144444,America/New_York,EAST
+KCRP,Corpus Christi Intl,Corpus Christi,TX,US,27.7721944,-97.5024167,America/Chicago,WEST
+KCRQ,McClellan-Palomar,Carlsbad,CA,US,33.12825,-117.2800833,America/Los_Angeles,WEST
+KCRS,Corsicana Muni,Corsicana,TX,US,32.0280556,-96.4005833,America/Chicago,WEST
+KCRT,Z M Jack Stell Fld,Crossett,AR,US,33.1783333,-91.8801944,America/Chicago,WEST
+KCRW,West Virginia Intl Yeager,Charleston,WV,US,38.3760131,-81.5928936,America/New_York,EAST
+KCRX,Roscoe Turner,Corinth,MS,US,34.9149672,-88.6034844,America/Chicago,EAST
+KCRZ,Corning Muni,Corning,IA,US,40.994125,-94.7550297,America/Chicago,WEST
+KCSB,Cambridge Muni,Cambridge,NE,US,40.3065819,-100.1620722,America/Chicago,WEST
+KCSG,Columbus,Columbus,GA,US,32.5163333,-84.9388611,America/New_York,EAST
+KCSM,Clinton/Sherman,Burns Flat,OK,US,35.3398392,-99.2004994,America/Chicago,WEST
+KCSQ,Creston Muni,Creston,IA,US,41.0214444,-94.3633056,America/Chicago,WEST
+KCSV,Crossville Memorial,Crossville,TN,US,35.9512914,-85.0849772,America/Chicago,EAST
+KCTB,Cut Bank Intl,Cut Bank,MT,US,48.6083547,-112.3761508,America/Denver,WEST
+KCTJ,W Georgia Regional,Carrollton,GA,US,33.6316964,-85.1522641,America/New_York,EAST
+KCTK,Ingersoll,Canton,IL,US,40.5690833,-90.0748333,America/Chicago,EAST
+KCTY,Cross City,Cross City,FL,US,29.6355278,-83.10475,America/New_York,EAST
+KCTZ,Clinton-Sampson County,Clinton,NC,US,34.9749353,-78.36563,America/New_York,EAST
+KCUB,Jim Hamilton L B Owens,Columbia,SC,US,33.9704722,-80.99525,America/New_York,EAST
+KCUH,Cushing Muni,Cushing,OK,US,35.9500278,-96.7734167,America/Chicago,WEST
+KCUL,Carmi Muni,Carmi,IL,US,38.0894792,-88.1230611,America/Chicago,EAST
+KCUT,Custer County,Custer,SD,US,43.7336606,-103.6194983,America/Denver,WEST
+KCVB,Castroville Muni,Castroville,TX,US,29.3423889,-98.8512222,America/Chicago,WEST
+KCVC,Covington Muni,Atlanta,GA,US,33.6322475,-83.8466189,America/New_York,EAST
+KCVG,Cincinnati/Northern Kentucky International Airport,Hebron,KY,US,39.0488375,-84.6678208,America/New_York,EAST
+KCVH,Hollister Muni,Hollister,CA,US,36.8933475,-121.4102736,America/Los_Angeles,WEST
+KCVK,Sharp County Rgnl,Cherokee Village,AR,US,36.264889,-91.562667,America/Chicago,WEST
+KCVN,Clovis Rgnl,Clovis,NM,US,34.4265903,-103.07758,America/Denver,WEST
+KCVO,Corvallis Muni,Corvallis,OR,US,44.4968758,-123.2894572,America/Los_Angeles,WEST
+KCVX,Charlevoix Muni,Charlevoix,MI,US,45.3048611,-85.2753056,America/Detroit,EAST
+KCWA,Central Wisconsin,Mosinee,WI,US,44.7777831,-89.6659111,America/Chicago,EAST
+KCWC,Kickapoo Downtown,Wichita Falls,TX,US,33.8606167,-98.4903986,America/Chicago,WEST
+KCWF,Chennault Intl,Lake Charles,LA,US,30.2105869,-93.1431892,America/Chicago,WEST
+KCWI,Clinton Muni,Clinton,IA,US,41.83075,-90.3289722,America/Chicago,EAST
+KCWV,Claxton-Evans County,Claxton,GA,US,32.1950564,-81.8693175,America/New_York,EAST
+KCXE,Chase City Muni,Chase City,VA,US,36.7883356,-78.5015536,America/New_York,EAST
+KCXL,Calexico Intl,Calexico,CA,US,32.6674444,-115.5175833,America/Los_Angeles,WEST
+KCXO,Conroe/North Houston Rgnl,Conroe,TX,US,30.3533955,-95.4150819,America/Chicago,WEST
+KCXP,Carson City,Carson City,NV,US,39.1923042,-119.7325706,America/Los_Angeles,WEST
+KCXU,Camilla-Mitchell County,Camilla,GA,US,31.2131667,-84.2352222,America/New_York,EAST
+KCXW,Conway Rgnl,Conway,AR,US,35.0198889,-92.5551111,America/Chicago,WEST
+KCXY,Capital City,Harrisburg,PA,US,40.2171389,-76.8513611,America/New_York,EAST
+KCYO,Pickaway County Meml,Circleville,OH,US,39.516,-82.9821389,America/New_York,EAST
+KCYS,Cheyenne Rgnl,Cheyenne,WY,US,41.1556389,-104.8104722,America/Denver,WEST
+KCYW,Clay Center Muni,Clay Center,KS,US,39.3871389,-97.1572222,America/Chicago,WEST
+KCZD,Cozad Muni,Cozad,NE,US,40.8695925,-100.0042514,America/Chicago,WEST
+KCZG,Tri-Cities,Endicott,NY,US,42.0785342,-76.0963306,America/New_York,EAST
+KCZK,Cascade Locks State,Cascade Locks,OR,US,45.676944,-121.878889,America/Los_Angeles,WEST
+KCZL,Tom B David Fld,Calhoun,GA,US,34.4554025,-84.9391553,America/New_York,EAST
+KCZT,Dimmit County,Carrizo Springs,TX,US,28.52225,-99.8236389,America/Chicago,WEST
+KDAB,Daytona Beach Intl,Daytona Beach,FL,US,29.1799089,-81.0580422,America/New_York,EAST
+KDAF,Necedah,Necedah,WI,US,44.0334444,-90.0851111,America/Chicago,EAST
+KDAG,Barstow-Daggett,Daggett,CA,US,34.8537222,-116.7866944,America/Los_Angeles,WEST
+KDAL,Dallas Love Fld,Dallas,TX,US,32.8459447,-96.8508767,America/Chicago,WEST
+KDAN,Danville Rgnl,Danville,VA,US,36.5724722,-79.33625,America/New_York,EAST
+KDAW,Skyhaven,Rochester,NH,US,43.2842348,-70.9295495,America/New_York,EAST
+KDAY,James M Cox Dayton Intl,Dayton,OH,US,39.9022522,-84.2194122,America/New_York,EAST
+KDBN,"W H ''Bud'' Barron",Dublin,GA,US,32.5647222,-82.9849722,America/New_York,EAST
+KDBQ,Dubuque Rgnl,Dubuque,IA,US,42.402,-90.7094722,America/Chicago,WEST
+KDCA,Reagan National,Washington,DC,US,38.8514403,-77.0377214,America/New_York,EAST
+KDCM,Chester Catawba Rgnl,Chester,SC,US,34.7893333,-81.1957778,America/New_York,EAST
+KDCU,Pryor Fld Rgnl,Decatur,AL,US,34.6540556,-86.9453611,America/Chicago,EAST
+KDCY,Daviess County,Washington,IN,US,38.7007661,-87.1312903,America/Indiana/Vincennes,EAST
+KDDC,Dodge City Rgnl,Dodge City,KS,US,37.7631111,-99.9654167,America/Chicago,WEST
+KDDH,William H Morse State,Bennington,VT,US,42.8913303,-73.2464042,America/New_York,EAST
+KDEC,Decatur,Decatur,IL,US,39.8345625,-88.8656892,America/Chicago,EAST
+KDED,Deland Municipal,Deland,FL,US,29.0670278,-81.28375,America/New_York,EAST
+KDEH,Decorah Muni,Decorah,IA,US,43.2755,-91.7393889,America/Chicago,WEST
+KDEN,Denver Intl,Denver,CO,US,39.8616667,-104.6731667,America/Denver,WEST
+KDEQ,Sevier County,De Queen,AR,US,34.047,-94.3993611,America/Chicago,WEST
+KDET,Coleman a Young Muni,Detroit,MI,US,42.4093275,-83.0101739,America/Detroit,EAST
+KDEW,Deer Park,Deer Park,WA,US,47.9670547,-117.4285867,America/Los_Angeles,WEST
+KDFI,Defiance Meml,Defiance,OH,US,41.3375,-84.4288056,America/New_York,EAST
+KDFW,Dallas-Fort Worth Intl,Dallas-Fort Worth,TX,US,32.8972331,-97.0376947,America/Chicago,WEST
+KDGL,Douglas Muni,Douglas,AZ,US,31.3426028,-109.5064544,America/Phoenix,WEST
+KDGW,Converse County,Douglas,WY,US,42.7971944,-105.3858333,America/Denver,WEST
+KDHN,Dothan Rgnl,Dothan,AL,US,31.3210278,-85.4494722,America/Chicago,EAST
+KDHT,Dalhart Muni,Dalhart,TX,US,36.0224722,-102.5473889,America/Chicago,WEST
+KDIJ,Driggs/Reed Meml,Driggs,ID,US,43.7426944,-111.0967778,America/Boise,WEST
+KDIK,Roosevelt Rgnl,Dickinson,ND,US,46.8004736,-102.8044353,America/Denver,WEST
+KDKB,De Kalb Taylor Muni,De Kalb,IL,US,41.9338342,-88.7056864,America/Chicago,EAST
+KDKK,Chautauqua County/Dunkirk,Dunkirk,NY,US,42.4939444,-79.2711111,America/New_York,EAST
+KDKR,Houston County,Crockett,TX,US,31.3069722,-95.4038333,America/Chicago,WEST
+KDKX,Knoxville Downtown Island,Knoxville,TN,US,35.9638333,-83.8736667,America/New_York,EAST
+KDLC,Dillon County,Dillon,SC,US,34.4490556,-79.3685833,America/New_York,EAST
+KDLH,Duluth Intl,Duluth,MN,US,46.8420698,-92.1932372,America/Chicago,EAST
+KDLL,Baraboo/Wisconsin Dells Rgnl,Baraboo,WI,US,43.5220278,-89.77125,America/Chicago,EAST
+KDLN,Dillon,Dillon,MT,US,45.2553611,-112.5525,America/Denver,WEST
+KDLO,Delano Muni,Delano,CA,US,35.7455556,-119.2365,America/Los_Angeles,WEST
+KDLS,Columbia Gorge Rgnl,The Dalles,OR,US,45.6193552,-121.1682757,America/Los_Angeles,WEST
+KDLZ,Delaware Muni/Jim Moore Fld,Delaware,OH,US,40.2795421,-83.1133836,America/New_York,EAST
+KDMN,Deming Muni,Deming,NM,US,32.2623889,-107.719,America/Denver,WEST
+KDMO,Sedalia Rgnl,Sedalia,MO,US,38.7074167,-93.1759167,America/Chicago,WEST
+KDMW,Carroll Co Rgnl,Westminster,MD,US,39.6082778,-77.0076667,America/New_York,EAST
+KDNL,Daniel Fld,Augusta,GA,US,33.4665833,-82.0393889,America/New_York,EAST
+KDNN,Dalton Muni,Dalton,GA,US,34.7229389,-84.8702414,America/New_York,EAST
+KDNS,Denison Muni,Denison,IA,US,41.9861991,-95.3799075,America/Chicago,WEST
+KDNV,Vermilion Rgnl,Danville,IL,US,40.1998272,-87.5951664,America/Chicago,EAST
+KDOV,Dover Air Force Base,Dover,DE,US,39.1295389,-75.4659611,America/New_York,EAST
+KDPA,Dupage,Chicago/West Chicago,IL,US,41.9070531,-88.247995,America/Chicago,EAST
+KDPL,Duplin County,Kenansville,NC,US,35.0000364,-77.9816583,America/New_York,EAST
+KDQH,Douglas Muni,Douglas,GA,US,31.4767386,-82.8605669,America/New_York,EAST
+KDRI,Beauregard Rgnl,De Ridder,LA,US,30.8317228,-93.3399156,America/Chicago,WEST
+KDRM,Drummond Island,Drummond Island,MI,US,46.0093114,-83.7439342,America/Detroit,EAST
+KDRO,Durango-La Plata County,Durango,CO,US,37.1515278,-107.7537778,America/Denver,WEST
+KDRP,Delta Rgnl,Colt,AR,US,35.1200522,-90.8265014,America/Chicago,WEST
+KDRT,Del Rio Intl,Del Rio,TX,US,29.3742069,-100.9271569,America/Chicago,WEST
+KDSM,Des Moines Intl,Des Moines,IA,US,41.5339728,-93.6630722,America/Chicago,WEST
+KDSV,Dansville Muni,Dansville,NY,US,42.5705314,-77.7132728,America/New_York,EAST
+KDTA,Delta Muni,Delta,UT,US,39.383597,-112.502206,America/Denver,WEST
+KDTG,Dwight,Dwight,IL,US,41.1326218,-88.4386453,America/Chicago,EAST
+KDTL,Detroit Lakes,Detroit Lakes,MN,US,46.8230461,-95.8827858,America/Chicago,WEST
+KDTN,Shreveport Downtown,Shreveport,LA,US,32.5408217,-93.7438353,America/Chicago,WEST
+KDTO,Denton Enterprise,Denton,TX,US,33.2019606,-97.1990975,America/Chicago,WEST
+KDTS,Destin Exec,Destin,FL,US,30.4000547,-86.4714722,America/Chicago,EAST
+KDTW,Detroit Metro Wayne Co,Detroit,MI,US,42.2124311,-83.3533933,America/Detroit,EAST
+KDUA,Durant Rgnl/Eaker Fld,Durant,OK,US,33.9396975,-96.3950575,America/Chicago,WEST
+KDUB,Dubois Muni,Dubois,WY,US,43.5486514,-109.6908278,America/Denver,WEST
+KDUC,Halliburton Fld,Duncan,OK,US,34.4708733,-97.9598603,America/Chicago,WEST
+KDUG,Bisbee Douglas Intl,Douglas Bisbee,AZ,US,31.4689444,-109.60375,America/Phoenix,WEST
+KDUH,Toledo Suburban,Lambertville,MI,US,41.735875,-83.6557639,America/Detroit,EAST
+KDUJ,Dubois Rgnl,Dubois,PA,US,41.1782778,-78.8986944,America/New_York,EAST
+KDUX,Moore County,Dumas,TX,US,35.8574307,-102.0133093,America/Chicago,WEST
+KDVK,Stuart Powell Fld,Danville,KY,US,37.5775751,-84.7694978,America/New_York,EAST
+KDVL,Devils Lake Rgnl,Devils Lake,ND,US,48.1165908,-98.9099881,America/Chicago,WEST
+KDVN,Davenport Muni,Davenport,IA,US,41.6102778,-90.5883611,America/Chicago,WEST
+KDVO,Gnoss Field,Novato,CA,US,38.1435758,-122.5570914,America/Los_Angeles,WEST
+KDVP,Slayton Muni,Slayton,MN,US,43.986792,-95.782611,America/Chicago,WEST
+KDVT,Phoenix Deer Valley,Phoenix,AZ,US,33.6883056,-112.0825556,America/Phoenix,WEST
+KDWA,Yolo County,Davis/Woodland/Winters,CA,US,38.5793889,-121.8569444,America/Los_Angeles,WEST
+KDWH,Hooks Mem,Houston,TX,US,30.0617791,-95.5527884,America/Chicago,WEST
+KDWU,Ashland Rgnl,Ashland,KY,US,38.5544608,-82.7376619,America/New_York,EAST
+KDWX,Dixon,Dixon,WY,US,41.0374414,-107.4925281,America/Denver,WEST
+KDXE,Dexter Muni,Dexter,MO,US,36.7754167,-89.94125,America/Chicago,WEST
+KDXR,Danbury Muni,Danbury,CT,US,41.3715344,-73.4821894,America/New_York,EAST
+KDXX,Lac Qui Parle County,Madison,MN,US,44.9864353,-96.1778595,America/Chicago,WEST
+KDYA,Demopolis Rgnl,Demopolis,AL,US,32.4638333,-87.9540556,America/Chicago,EAST
+KDYB,Summerville,Summerville,SC,US,33.0622778,-80.2809167,America/New_York,EAST
+KDYL,Doylestown,Doylestown,PA,US,40.3330503,-75.1223383,America/New_York,EAST
+KDYR,Dyersburg Rgnl,Dyersburg,TN,US,35.9979722,-89.4065833,America/Chicago,EAST
+KDYT,Sky Harbor,Duluth,MN,US,46.7221225,-92.0443858,America/Chicago,EAST
+KDZB,Horseshoe Bay Resort,Horseshoe Bay,TX,US,30.5270514,-98.3587569,America/Chicago,WEST
+KDZJ,Blairsville,Blairsville,GA,US,34.8544314,-83.99732,America/New_York,EAST
+KEAG,Eagle Grove Muni,Eagle Grove,IA,US,42.7099167,-93.9161111,America/Chicago,WEST
+KEAN,Phifer Airfield,Wheatland,WY,US,42.0555197,-104.9282831,America/Denver,WEST
+KEAR,Kearney Rgnl,Kearney,NE,US,40.7270406,-99.00677,America/Chicago,WEST
+KEAT,Pangborn Meml,Wenatchee,WA,US,47.3988056,-120.2068333,America/Los_Angeles,WEST
+KEAU,Chippewa Valley Rgnl,Eau Claire,WI,US,44.8658056,-91.48425,America/Chicago,EAST
+KEBA,Elbert County-Patz Fld,Elberton,GA,US,34.0954025,-82.8174925,America/New_York,EAST
+KEBD,Southern West Virginia Rgnl,Williamson,WV,US,37.681764,-82.1220666,America/New_York,EAST
+KEBG,South Texas Intl At Edinburg,Edinburg,TX,US,26.4416667,-98.1222222,America/Chicago,WEST
+KEBS,Webster City Muni,Webster City,IA,US,42.4364135,-93.868967,America/Chicago,WEST
+KECG,Elizabeth City Rgnl,Elizabeth City,NC,US,36.2605756,-76.1745672,America/New_York,EAST
+KECP,Northwest Florida Beaches Intl,Panama City,FL,US,30.3582408,-85.7956022,America/Chicago,EAST
+KECS,Mondell Fld,Newcastle,WY,US,43.88425,-104.3145,America/Denver,WEST
+KECU,Edwards County,Rocksprings,TX,US,29.9469196,-100.1738547,America/Chicago,WEST
+KEDC,Austin Exec,Austin,TX,US,30.3974931,-97.5663935,America/Chicago,WEST
+KEDE,Northeastern Rgnl,Edenton,NC,US,36.02859,-76.5697675,America/New_York,EAST
+KEDJ,Bellefontaine Rgnl,Bellefontaine,OH,US,40.3722778,-83.81925,America/New_York,EAST
+KEDN,Enterprise Muni,Enterprise,AL,US,31.2997222,-85.8998333,America/Chicago,EAST
+KEDU,University,Davis,CA,US,38.5314622,-121.7864817,America/Los_Angeles,WEST
+KEED,Needles,Needles,CA,US,34.7663468,-114.6232799,America/Los_Angeles,WEST
+KEEN,Dillant/Hopkins,Keene,NH,US,42.8983889,-72.2707778,America/New_York,EAST
+KEEO,Meeker Coulter Fld,Meeker,CO,US,40.0488056,-107.8859167,America/Denver,WEST
+KEET,Shelby County,Alabaster,AL,US,33.1777778,-86.7832222,America/Chicago,EAST
+KEFC,Belle Fourche Muni,Belle Fourche,SD,US,44.734556,-103.861806,America/Denver,WEST
+KEFD,Houston Ellington,Houston,TX,US,29.6073333,-95.15875,America/Chicago,WEST
+KEFK,Northeast Kingdom Intl,Newport,VT,US,44.8881756,-72.2286353,America/New_York,EAST
+KEFT,Monroe Muni,Monroe,WI,US,42.6149007,-89.5904034,America/Chicago,EAST
+KEFW,Jefferson Muni,Jefferson,IA,US,42.0098333,-94.3418056,America/Chicago,WEST
+KEGE,Eagle County,Eagle,CO,US,39.64275,-106.9159444,America/Denver,WEST
+KEGQ,Emmetsburg Muni,Emmetsburg,IA,US,43.1020556,-94.7045278,America/Chicago,WEST
+KEGT,Wellington Muni,Wellington,KS,US,37.323611,-97.388333,America/Chicago,WEST
+KEGV,Eagle River Union,Eagle River,WI,US,45.9323333,-89.2682778,America/Chicago,EAST
+KEHA,Elkhart-Morton County,Elkhart,KS,US,37.0007822,-101.8800278,America/Chicago,WEST
+KEHO,Shelby County Rgnl,Shelby,NC,US,35.2557492,-81.6007644,America/New_York,EAST
+KEHR,Henderson City-County,Henderson,KY,US,37.8078333,-87.6856944,America/Chicago,EAST
+KEIK,Erie Muni,Erie,CO,US,40.01025,-105.0480833,America/Denver,WEST
+KEIW,County Meml,New Madrid,MO,US,36.5353056,-89.5997222,America/Chicago,WEST
+KEKA,Murray Fld,Eureka,CA,US,40.8033981,-124.1127903,America/Los_Angeles,WEST
+KEKM,Elkhart Muni,Elkhart,IN,US,41.7194062,-86.003219,America/Indiana/Indianapolis,EAST
+KEKN,Elkins-Randolph Co,Elkins,WV,US,38.8894444,-79.8571389,America/New_York,EAST
+KEKO,Elko Rgnl,Elko,NV,US,40.8249986,-115.7913375,America/Los_Angeles,WEST
+KEKQ,Wayne County,Monticello,KY,US,36.855278,-84.856139,America/New_York,EAST
+KEKS,Ennis Big Sky,Ennis,MT,US,45.2757247,-111.6489156,America/Denver,WEST
+KEKX,Addington Fld,Elizabethtown,KY,US,37.686,-85.9250278,America/New_York,EAST
+KEKY,Bessemer,Bessemer,AL,US,33.3126111,-86.9263056,America/Chicago,EAST
+KELA,Eagle Lake,Eagle Lake,TX,US,29.6000278,-96.3219444,America/Chicago,WEST
+KELD,S Arkansas Regional,El Dorado,AR,US,33.2212378,-92.8117489,America/Chicago,WEST
+KELK,Elk City Rgnl Business,Elk City,OK,US,35.4307778,-99.3942778,America/Chicago,WEST
+KELM,Elmira/Corning Rgnl,Elmira/Corning,NY,US,42.1598547,-76.8917478,America/New_York,EAST
+KELN,Bowers Fld,Ellensburg,WA,US,47.0348455,-120.5288591,America/Los_Angeles,WEST
+KELO,Ely Muni,Ely,MN,US,47.8240131,-91.8293206,America/Chicago,EAST
+KELP,El Paso Intl,El Paso,TX,US,31.8073333,-106.3763611,America/Denver,WEST
+KELY,Ely/Yelland Fld,Ely,NV,US,39.2996883,-114.8418781,America/Los_Angeles,WEST
+KELZ,Wellsville Muni,Wellsville,NY,US,42.1095239,-77.9899786,America/New_York,EAST
+KEMM,Kemmerer Muni,Kemmerer,WY,US,41.8240833,-110.5569444,America/Denver,WEST
+KEMP,Emporia Muni,Emporia,KS,US,38.3305633,-96.1899319,America/Chicago,WEST
+KEMT,San Gabriel Valley,El Monte,CA,US,34.0860089,-118.0348453,America/Los_Angeles,WEST
+KEMV,Emporia-Greensville Rgnl,Emporia,VA,US,36.6868581,-77.4827489,America/New_York,EAST
+KENL,Centralia Muni,Centralia,IL,US,38.5150833,-89.0911389,America/Chicago,EAST
+KENV,Wendover,Wendover,UT,US,40.7187253,-114.0286736,America/Denver,WEST
+KENW,Kenosha Rgnl,Kenosha,WI,US,42.5960633,-87.9273236,America/Chicago,EAST
+KEOE,Newberry County,Newberry,SC,US,34.3093333,-81.6406667,America/New_York,EAST
+KEOK,Keokuk Muni,Keokuk,IA,US,40.4599078,-91.4285011,America/Chicago,WEST
+KEOP,Pike County,Waverly,OH,US,39.1669722,-82.9283333,America/New_York,EAST
+KEOS,Neosho Hugh Robinson,Neosho,MO,US,36.8108056,-94.3916944,America/Chicago,WEST
+KEPH,Ephrata Muni,Ephrata,WA,US,47.3080717,-119.5169136,America/Los_Angeles,WEST
+KEPM,Eastport Muni,Eastport,ME,US,44.9101111,-67.0126944,America/New_York,EAST
+KEQA,El Dorado,El Dorado,KS,US,37.7741111,-96.8177222,America/Chicago,WEST
+KEQY,Charlotte/Monroe Exec,Monroe,NC,US,35.0174161,-80.6220558,America/New_York,EAST
+KERI,Erie Intl/Tom Ridge Fld,Erie,PA,US,42.0830833,-80.1739444,America/New_York,EAST
+KERV,Kerrville Muni,Kerrville,TX,US,29.9766667,-99.0854722,America/Chicago,WEST
+KERY,Luce County,Newberry,MI,US,46.311,-85.4571667,America/Detroit,EAST
+KESC,Delta County,Escanaba,MI,US,45.7226742,-87.0937158,America/Detroit,EAST
+KESF,Esler Rgnl,Alexandria,LA,US,31.3949042,-92.2957731,America/Chicago,WEST
+KESN,Easton/Newnam Fld,Easton,MD,US,38.80416,-76.0689903,America/New_York,EAST
+KEST,Estherville Muni,Estherville,IA,US,43.4074722,-94.7463889,America/Chicago,WEST
+KETB,West Bend Muni,West Bend,WI,US,43.4221667,-88.1279167,America/Chicago,EAST
+KETC,Tarboro-Edgecombe,Tarboro,NC,US,35.9372631,-77.5464803,America/New_York,EAST
+KETH,Wheaton Muni,Wheaton,MN,US,45.7805061,-96.543798,America/Chicago,WEST
+KETN,Eastland Muni,Eastland,TX,US,32.4148889,-98.8096944,America/Chicago,WEST
+KEUF,Weedon Fld,Eufaula,AL,US,31.9513056,-85.1289167,America/Chicago,EAST
+KEUG,Mahlon Sweet Fld,Eugene,OR,US,44.1245833,-123.2119722,America/Los_Angeles,WEST
+KEUL,Caldwell Exec,Caldwell,ID,US,43.6418489,-116.6357642,America/Boise,WEST
+KEVB,New Smyrna Beach Muni,New Smyrna Beach,FL,US,29.0556944,-80.9489167,America/New_York,EAST
+KEVM,Eveleth/Virginia Muni,Eveleth,MN,US,47.4241667,-92.4965556,America/Chicago,EAST
+KEVU,Northwest Missouri Rgnl,Maryville,MO,US,40.3532912,-94.9166354,America/Chicago,WEST
+KEVV,Evansville Rgnl,Evansville,IN,US,38.0408056,-87.5285,America/Chicago,EAST
+KEVW,Evanston-Uinta Co ,Evanston,WY,US,41.2747778,-111.0346389,America/Denver,WEST
+KEVY,Summit,Middletown,DE,US,39.5210278,-75.7236667,America/New_York,EAST
+KEWB,New Bedford Rgnl,New Bedford,MA,US,41.6765661,-70.9578361,America/New_York,EAST
+KEWK,Newton-City-County,Newton,KS,US,38.0571014,-97.2752283,America/Chicago,WEST
+KEWN,Coastal Carolina Rgnl,New Bern,NC,US,35.0728544,-77.0430197,America/New_York,EAST
+KEWR,Newark Liberty Intl,Newark,NJ,US,40.6924798,-74.1686868,America/New_York,EAST
+KEXX,Davidson County Exec,Lexington,NC,US,35.7811414,-80.3037733,America/New_York,EAST
+KEYE,Eagle Creek Airpark,Indianapolis,IN,US,39.8307174,-86.2943857,America/Indiana/Indianapolis,EAST
+KEYF,Curtis L Brown Jr Fld,Elizabethtown,NC,US,34.6018156,-78.5792764,America/New_York,EAST
+KEYW,Key West Intl,Key West,FL,US,24.5561197,-81.7599558,America/New_York,EAST
+KEZF,Shannon,Fredericksburg,VA,US,38.2662222,-77.4493889,America/New_York,EAST
+KEZI,Kewanee Muni,Kewanee,IL,US,41.2051944,-89.9638611,America/Chicago,EAST
+KEZM,Heart of Georgia Rgnl,Eastman,GA,US,32.2163889,-83.1286667,America/New_York,EAST
+KEZS,Shawano Muni,Shawano,WI,US,44.7873058,-88.5600125,America/Chicago,EAST
+KEZZ,Cameron Meml,Cameron,MO,US,39.7275556,-94.2763889,America/Chicago,WEST
+KFAM,Farmington Rgnl,Farmington,MO,US,37.7610178,-90.4285981,America/Chicago,WEST
+KFAR,Hector Intl,Fargo,ND,US,46.9206389,-96.81575,America/Chicago,WEST
+KFAT,Fresno Yosemite Intl,Fresno,CA,US,36.7765556,-119.7188333,America/Los_Angeles,WEST
+KFAY,Fayetteville Rgnl,Fayetteville,NC,US,34.9912111,-78.8802742,America/New_York,EAST
+KFBL,Faribault Muni-Liz Wall Strohfus Fld,Faribault,MN,US,44.3289694,-93.3130736,America/Chicago,WEST
+KFBR,Fort Bridger,Fort Bridger,WY,US,41.3933333,-110.4059722,America/Denver,WEST
+KFBY,Fairbury Muni,Fairbury,NE,US,40.1819722,-97.1678889,America/Chicago,WEST
+KFCH,Fresno Chandler Exec,Fresno,CA,US,36.7321242,-119.8203325,America/Los_Angeles,WEST
+KFCI,Richmond Exec/Chesterfield County,Richmond,VA,US,37.4064444,-77.5248333,America/New_York,EAST
+KFCM,Flying Cloud,Minneapolis,MN,US,44.8275072,-93.4585717,America/Chicago,WEST
+KFCY,Hutfly,Forrest City,AR,US,34.9419981,-90.7749661,America/Chicago,WEST
+KFDK,Frederick Muni,Frederick,MD,US,39.4170211,-77.3747322,America/New_York,EAST
+KFDR,Frederick Rgnl,Frederick,OK,US,34.3520958,-98.9839091,America/Chicago,WEST
+KFDW,Fairfield County,Winnsboro,SC,US,34.3157222,-81.1085556,America/New_York,EAST
+KFDY,Findlay,Findlay,OH,US,41.0120278,-83.6686111,America/New_York,EAST
+KFEP,Albertus,Freeport,IL,US,42.2461147,-89.5819767,America/Chicago,EAST
+KFET,Fremont Muni,Fremont,NE,US,41.4499444,-96.5211944,America/Chicago,WEST
+KFFA,First Flight,Kill Devil Hills,NC,US,36.0175833,-75.6715833,America/New_York,EAST
+KFFC,Falcon Field,Atlanta,GA,US,33.3577222,-84.5725278,America/New_York,EAST
+KFFL,Fairfield Muni,Fairfield,IA,US,41.0557198,-91.9808218,America/Chicago,WEST
+KFFM,Fergus Falls Muni,Fergus Falls,MN,US,46.2843889,-96.1566944,America/Chicago,WEST
+KFFT,Capital City,Frankfort,KY,US,38.1817317,-84.9067498,America/New_York,EAST
+KFFX,Fremont Muni,Fremont,MI,US,43.4393056,-85.9948889,America/Detroit,EAST
+KFFZ,Falcon Fld,Mesa,AZ,US,33.4608406,-111.7283253,America/Phoenix,WEST
+KFGU,Collegedale Muni,Collegedale,TN,US,35.044422,-85.020067,America/New_York,EAST
+KFGX,Fleming-Mason,Flemingsburg,KY,US,38.5416056,-83.7440186,America/New_York,EAST
+KFHB,Fernandina Beach Muni,Fernandina Beach,FL,US,30.6118333,-81.4611944,America/New_York,EAST
+KFHR,Friday Harbor,Friday Harbor,WA,US,48.5219722,-123.0243611,America/Los_Angeles,WEST
+KFHU,Sierra Vista Municipal ,Fort Huachuca Sierra Vista,AZ,US,31.5884722,-110.3443889,America/Phoenix,WEST
+KFIG,Clearfield-Lawrence,Clearfield,PA,US,41.0491336,-78.4151579,America/New_York,EAST
+KFIN,Flagler Exec,Palm Coast,FL,US,29.4651511,-81.2076483,America/New_York,EAST
+KFIT,Fitchburg Muni,Fitchburg,MA,US,42.5538472,-71.7591739,America/New_York,EAST
+KFKA,Fillmore County,Preston,MN,US,43.67675,-92.17975,America/Chicago,WEST
+KFKL,Venango Rgnl,Franklin,PA,US,41.3774167,-79.8606389,America/New_York,EAST
+KFKN,Franklin Municipal,Franklin,VA,US,36.7002964,-76.9021356,America/New_York,EAST
+KFKR,Frankfort Clinton County Rgnl,Frankfort,IN,US,40.2734308,-86.5621703,America/Indiana/Indianapolis,EAST
+KFKS,Frankfort Dow Mem Fld,Frankfort,MI,US,44.6252017,-86.2008553,America/Detroit,EAST
+KFLD,Fond Du Lac County,Fond Du Lac,WI,US,43.7711667,-88.4884167,America/Chicago,EAST
+KFLG,Flagstaff Pulliam,Flagstaff,AZ,US,35.1403158,-111.6692414,America/Phoenix,WEST
+KFLL,Fort Lauderdale Intl,Fort Lauderdale,FL,US,26.0716667,-80.1496944,America/New_York,EAST
+KFLO,Florence Rgnl,Florence,SC,US,34.1853633,-79.7238831,America/New_York,EAST
+KFLP,Marion County Rgnl,Flippin,AR,US,36.2908889,-92.59025,America/Chicago,WEST
+KFLV,Sherman Aaf,Fort Leavenworth,KS,US,39.3675756,-94.9143397,America/Chicago,WEST
+KFLX,Fallon Muni,Fallon,NV,US,39.4991694,-118.7487922,America/Los_Angeles,WEST
+KFLY,Meadow Lake,Colorado Springs,CO,US,38.9427697,-104.5699047,America/Denver,WEST
+KFME,Tipton,Fort Meade (Odenton),MD,US,39.0853867,-76.7594144,America/New_York,EAST
+KFMM,Fort Morgan Muni,Fort Morgan,CO,US,40.3354444,-103.8041667,America/Denver,WEST
+KFMN,Four Corners Rgnl,Farmington,NM,US,36.7412511,-108.2299417,America/Denver,WEST
+KFMY,Page Fld,Fort Myers,FL,US,26.586615,-81.8632469,America/New_York,EAST
+KFMZ,Fairmont State,Fairmont,NE,US,40.5860976,-97.5731366,America/Chicago,WEST
+KFNB,Brenner Fld,Falls City,NE,US,40.0787778,-95.592,America/Chicago,WEST
+KFNL,Northern Colorado Regional,Fort Collins/Loveland,CO,US,40.4518158,-105.0113256,America/Denver,WEST
+KFNT,Bishop Intl,Flint,MI,US,42.9654639,-83.7447381,America/Detroit,EAST
+KFOA,Flora Muni,Flora,IL,US,38.6649902,-88.453112,America/Chicago,EAST
+KFOD,Fort Dodge Rgnl,Fort Dodge,IA,US,42.5511944,-94.1918333,America/Chicago,WEST
+KFOE,Topeka Rgnl,Topeka,KS,US,38.9509492,-95.6636136,America/Chicago,WEST
+KFOK,Francis S Gabreski,Westhampton Beach,NY,US,40.8436186,-72.6318119,America/New_York,EAST
+KFOM,Fillmore Muni,Fillmore,UT,US,38.9581389,-112.3631389,America/Denver,WEST
+KFOT,Rohnerville,Fortuna,CA,US,40.5539414,-124.1326556,America/Los_Angeles,WEST
+KFOZ,Bigfork Muni,Bigfork,MN,US,47.783934,-93.6509937,America/Chicago,EAST
+KFPK,Fitch H Beach,Charlotte,MI,US,42.5740889,-84.8120972,America/Detroit,EAST
+KFPR,Treasure Coast Intl,Fort Pierce,FL,US,27.4974722,-80.3726389,America/New_York,EAST
+KFPY,Perry-Foley,Perry,FL,US,30.0708125,-83.5815439,America/New_York,EAST
+KFQD,Rutherford Co,Rutherfordton,NC,US,35.4282222,-81.9350778,America/New_York,EAST
+KFRG,Republic,Farmingdale,NY,US,40.7292742,-73.4134208,America/New_York,EAST
+KFRH,French Lick Muni,French Lick,IN,US,38.5062222,-86.6369444,America/Indiana/Indianapolis,EAST
+KFRM,Fairmont Muni,Fairmont,MN,US,43.6439444,-94.4156111,America/Chicago,WEST
+KFRR,Front Royal-Warren County,Front Royal,VA,US,38.9175122,-78.2533733,America/New_York,EAST
+KFSD,Joe Foss Fld,Sioux Falls,SD,US,43.5820181,-96.7419253,America/Chicago,WEST
+KFSE,Fosston Muni/Anderson Fld,Fosston,MN,US,47.5928297,-95.7734867,America/Chicago,WEST
+KFSK,Fort Scott Muni,Fort Scott,KS,US,37.7983611,-94.7693611,America/Chicago,WEST
+KFSM,Fort Smith Rgnl,Fort Smith,AR,US,35.3366464,-94.3661092,America/Chicago,WEST
+KFSO,Franklin County State,Highgate,VT,US,44.9402778,-73.0974722,America/New_York,EAST
+KFST,Fort Stockton County,Fort Stockton,TX,US,30.91525,-102.9127778,America/Chicago,WEST
+KFSU,Fort Sumner Muni,Fort Sumner,NM,US,34.487772,-104.216947,America/Denver,WEST
+KFSW,Fort Madison Muni,Fort Madison,IA,US,40.6591111,-91.32775,America/Chicago,WEST
+KFTT,Elton Hensley Meml,Fulton,MO,US,38.8381111,-92.0025833,America/Chicago,WEST
+KFTW,Fort Worth Meacham Intl,Fort Worth,TX,US,32.8197703,-97.36245,America/Chicago,WEST
+KFTY,Fulton County ,Atlanta,GA,US,33.7791264,-84.521366,America/New_York,EAST
+KFUL,Fullerton Muni,Fullerton,CA,US,33.8720142,-117.9797842,America/Los_Angeles,WEST
+KFVE,Northern Aroostook Rgnl,Frenchville,ME,US,47.2855,-68.3127222,America/New_York,EAST
+KFVX,Farmville Rgnl,Farmville,VA,US,37.3575278,-78.4378056,America/New_York,EAST
+KFWA,Fort Wayne Intl,Fort Wayne,IN,US,40.9784722,-85.1951667,America/Indiana/Indianapolis,EAST
+KFWB,Branson West Muni - Emerson Fld,Branson West,MO,US,36.6985,-93.40225,America/Chicago,WEST
+KFWC,Fairfield Muni,Fairfield,IL,US,38.3786331,-88.4126522,America/Chicago,EAST
+KFWN,Sussex,Sussex,NJ,US,41.2002139,-74.6230353,America/New_York,EAST
+KFWQ,Rostraver,Monongahela,PA,US,40.2097222,-79.8314444,America/New_York,EAST
+KFWS,Fort Worth Spinks,Fort Worth,TX,US,32.5651336,-97.3084394,America/Chicago,WEST
+KFXE,Fort Lauderdale Exec,Fort Lauderdale,FL,US,26.1972794,-80.1707063,America/New_York,EAST
+KFXY,Forest City Muni,Forest City,IA,US,43.2347569,-93.6241039,America/Chicago,WEST
+KFYE,Fayette County,Somerville,TN,US,35.2076944,-89.3944444,America/Chicago,EAST
+KFYG,Washington Rgnl,Washington,MO,US,38.5875833,-90.9938056,America/Chicago,WEST
+KFYJ,Middle Peninsula Rgnl,West Point,VA,US,37.5213611,-76.76275,America/New_York,EAST
+KFYM,Fayetteville Muni,Fayetteville,TN,US,35.0596944,-86.564,America/Chicago,EAST
+KFYV,Drake Fld,Fayetteville,AR,US,36.0050833,-94.1700556,America/Chicago,WEST
+KFZG,Fitzgerald Muni,Fitzgerald,GA,US,31.6839046,-83.2709036,America/New_York,EAST
+KFZI,Fostoria Metro,Fostoria,OH,US,41.1908333,-83.3930833,America/New_York,EAST
+KFZY,Oswego County,Fulton,NY,US,43.3507736,-76.3880556,America/New_York,EAST
+KGAD,Northeast Alabama Rgnl,Gadsden,AL,US,33.9726489,-86.0890834,America/Chicago,EAST
+KGAF,Hutson Fld,Grafton,ND,US,48.4047156,-97.3709567,America/Chicago,WEST
+KGAG,Gage,Gage,OK,US,36.2957653,-99.7764958,America/Chicago,WEST
+KGAI,Montgomery County Airpark,Gaithersburg,MD,US,39.1683333,-77.166,America/New_York,EAST
+KGAO,South Lafourche,Galliano,LA,US,29.4411111,-90.2611111,America/Chicago,WEST
+KGAS,Gallia-Meigs Rgnl,Gallipolis,OH,US,38.8341115,-82.1634298,America/New_York,EAST
+KGBD,Great Bend Muni,Great Bend,KS,US,38.3442514,-98.8591969,America/Chicago,WEST
+KGBG,Galesburg Muni,Galesburg,IL,US,40.9380005,-90.4311236,America/Chicago,EAST
+KGBR,Walter J Koladza,Great Barrington,MA,US,42.1842142,-73.4032406,America/New_York,EAST
+KGCC,Northeast Wyoming Rgnl,Gillette,WY,US,44.3489081,-105.5393675,America/Denver,WEST
+KGCD,Grant Co Rgnl/ogilvie Field,John Day,OR,US,44.402867,-118.967883,America/Los_Angeles,WEST
+KGCK,Garden City Rgnl,Garden City,KS,US,37.9275278,-100.7244167,America/Chicago,WEST
+KGCM,Claremore Rgnl,Claremore,OK,US,36.2927222,-95.4796111,America/Chicago,WEST
+KGCN,Grand Canyon,Grand Canyon,AZ,US,35.9523611,-112.1469722,America/Phoenix,WEST
+KGCT,Guthrie County Rgnl,Guthrie Center,IA,US,41.6869722,-94.4350556,America/Chicago,WEST
+KGCY,Greeneville-Greene Co Muni,Greeneville,TN,US,36.1957222,-82.8113611,America/New_York,EAST
+KGDA,Marion-Crittenden County James C Johnson Rgnl,Marion,KY,US,37.3359394,-88.1106708,America/Chicago,EAST
+KGDB,Granite Falls Muni/lenzen-roe,Granite Falls,MN,US,44.752458,-95.555531,America/Chicago,WEST
+KGDJ,Granbury Rgnl,Granbury,TX,US,32.4430722,-97.8213728,America/Chicago,WEST
+KGDK,Greene County/Lewis a Jackson Rgnl,Dayton,OH,US,39.6907222,-83.9927778,America/New_York,EAST
+KGDM,Gardner Muni,Gardner,MA,US,42.5498889,-72.0160278,America/New_York,EAST
+KGDV,Dawson Community,Glendive,MT,US,47.1387222,-104.8072222,America/Denver,WEST
+KGDW,Gladwin Zettel Memorial,Gladwin,MI,US,43.9705894,-84.4750197,America/Detroit,EAST
+KGED,Delaware Coastal,Georgetown,DE,US,38.6876328,-75.3593044,America/New_York,EAST
+KGEG,Spokane Intl,Spokane,WA,US,47.6190278,-117.5352222,America/Los_Angeles,WEST
+KGEO,Brown County,Georgetown,OH,US,38.8819456,-83.8827367,America/New_York,EAST
+KGEU,Glendale Muni,Glendale,AZ,US,33.5269167,-112.2951389,America/Phoenix,WEST
+KGEV,Ashe County,Jefferson,NC,US,36.4324722,-81.4185,America/New_York,EAST
+KGEY,South Big Horn County,Greybull,WY,US,44.5179444,-108.083,America/Denver,WEST
+KGEZ,Shelbyville Muni,Shelbyville,IN,US,39.5831389,-85.8048056,America/Indiana/Indianapolis,EAST
+KGFK,Grand Forks Intl,Grand Forks,ND,US,47.9472778,-97.1737778,America/Chicago,WEST
+KGFL,Floyd Bennett Meml,Glens Falls,NY,US,43.3412222,-73.6103056,America/New_York,EAST
+KGFZ,Greenfield Muni,Greenfield,IA,US,41.3272222,-94.4451667,America/Chicago,WEST
+KGGE,Georgetown County,Georgetown,SC,US,33.3114167,-79.3203056,America/New_York,EAST
+KGGF,Grant Muni,Grant,NE,US,40.8706634,-101.7338794,America/Denver,WEST
+KGGG,East Texas Rgnl,Longview,TX,US,32.384,-94.7115,America/Chicago,WEST
+KGGI,Grinnell Rgnl,Grinnell,IA,US,41.7098889,-92.7359722,America/Chicago,WEST
+KGGP,Logansport/Cass County,Logansport,IN,US,40.7112644,-86.3727047,America/Indiana/Indianapolis,EAST
+KGGW,Wokal Fld/Glasgow-Valley County,Glasgow,MT,US,48.2124444,-106.6148056,America/Denver,WEST
+KGHG,Marshfield Muni,Marshfield,MA,US,42.0974988,-70.6730199,America/New_York,EAST
+KGHM,Centerville Muni,Centerville,TN,US,35.8374167,-87.4453889,America/Chicago,EAST
+KGHW,Glenwood Muni,Glenwood,MN,US,45.6438301,-95.3204489,America/Chicago,WEST
+KGIC,Idaho County,Grangeville,ID,US,45.9426667,-116.1230278,America/Los_Angeles,WEST
+KGIF,Winter Haven Rgnl,Winter Haven,FL,US,28.0629203,-81.7533144,America/New_York,EAST
+KGJT,Grand Junction Rgnl,Grand Junction,CO,US,39.1214994,-108.5254856,America/Denver,WEST
+KGKJ,Port Meadville,Meadville,PA,US,41.6265278,-80.2147222,America/New_York,EAST
+KGKT,Gatlinburg-Pigeon Forge,Sevierville,TN,US,35.8577586,-83.5287031,America/New_York,EAST
+KGKY,Arlington Muni,Arlington,TX,US,32.6638611,-97.0942778,America/Chicago,WEST
+KGLD,Goodland Municipal,Goodland,KS,US,39.3707408,-101.6987339,America/Denver,WEST
+KGLE,Gainesville Muni,Gainesville,TX,US,33.6521944,-97.1972778,America/Chicago,WEST
+KGLH,Greenville Mid-Delta,Greenville,MS,US,33.4852483,-90.9844859,America/Chicago,WEST
+KGLR,Gaylord Rgnl,Gaylord,MI,US,45.0130278,-84.7034444,America/Detroit,EAST
+KGLS,Galveston Scholes Intl,Galveston,TX,US,29.2653333,-94.8604167,America/Chicago,WEST
+KGLW,Glasgow Muni,Glasgow,KY,US,37.0317764,-85.9537558,America/Chicago,EAST
+KGLY,Clinton Rgnl,Clinton,MO,US,38.3547003,-93.6791869,America/Chicago,WEST
+KGMJ,Grove Rgnl,Grove,OK,US,36.6067778,-94.7385556,America/Chicago,WEST
+KGMU,Greenville Downtown,Greenville,SC,US,34.8479317,-82.3499981,America/New_York,EAST
+KGNB,Granby-Grand County,Granby,CO,US,40.0900556,-105.9166389,America/Denver,WEST
+KGNC,Gaines County,Seminole,TX,US,32.6753333,-102.6526667,America/Chicago,WEST
+KGNF,Grenada Muni,Grenada,MS,US,33.8324444,-89.7981667,America/Chicago,EAST
+KGNG,Gooding Muni,Gooding,ID,US,42.9170808,-114.7663381,America/Boise,WEST
+KGNT,Grants-Milan Muni,Grants,NM,US,35.1672778,-107.9020556,America/Denver,WEST
+KGNV,Gainesville Rgnl,Gainesville,FL,US,29.6900556,-82.2717778,America/New_York,EAST
+KGOK,Guthrie/Edmond Rgnl,Guthrie,OK,US,35.8515227,-97.4161776,America/Chicago,WEST
+KGON,Groton-New London,Groton (New London),CT,US,41.3300556,-72.0451389,America/New_York,EAST
+KGOO,Nevada County,Grass Valley,CA,US,39.2240556,-121.0025556,America/Los_Angeles,WEST
+KGOP,Gatesville Muni,Gatesville,TX,US,31.4209389,-97.7964639,America/Chicago,WEST
+KGOV,Grayling Aaf,Grayling,MI,US,44.6803333,-84.7288611,America/Detroit,EAST
+KGPH,Midwest Ntl,Mosby,MO,US,39.3325078,-94.3096481,America/Chicago,WEST
+KGPI,Glacier Park Intl,Kalispell,MT,US,48.3105,-114.256,America/Denver,WEST
+KGPM,Grand Prairie Muni,Grand Prairie,TX,US,32.6987778,-97.0469167,America/Chicago,WEST
+KGPT,Gulfport-Biloxi Intl,Gulfport,MS,US,30.4072692,-89.0700958,America/Chicago,EAST
+KGPZ,Grand Rapids,Grand Rapids,MN,US,47.2092839,-93.5099447,America/Chicago,EAST
+KGQQ,Galion Muni,Galion,OH,US,40.7533889,-82.7238056,America/New_York,EAST
+KGRB,Green Bay/Austin Straubel Intl,Green Bay,WI,US,44.4846336,-88.1297133,America/Chicago,EAST
+KGRD,Greenwood County,Greenwood,SC,US,34.2503938,-82.1578093,America/New_York,EAST
+KGRE,Greenville,Greenville,IL,US,38.8362222,-89.3788889,America/Chicago,EAST
+KGRI,Central Nebraska Rgnl,Grand Island,NE,US,40.9675425,-98.3096389,America/Chicago,WEST
+KGRK,Robert Gray Aaf,Fort Cavazos (Killeen),TX,US,31.06725,-97.8289167,America/Chicago,WEST
+KGRN,Gordon Muni,Gordon,NE,US,42.8059722,-102.17525,America/Denver,WEST
+KGRR,Gerald R Ford Intl,Grand Rapids,MI,US,42.8808333,-85.5228056,America/Detroit,EAST
+KGSH,Goshen Muni,Goshen,IN,US,41.5261334,-85.7942702,America/Indiana/Indianapolis,EAST
+KGSO,Piedmont Triad Intl,Greensboro,NC,US,36.1013267,-79.9411228,America/New_York,EAST
+KGSP,Greenville/Spartanburg Intl,Greer,SC,US,34.8956711,-82.2188594,America/New_York,EAST
+KGTE,Gothenburg Muni,Gothenburg,NE,US,40.9254833,-100.1465694,America/Chicago,WEST
+KGTF,Great Falls Intl,Great Falls,MT,US,47.4822993,-111.3702794,America/Denver,WEST
+KGTG,Grantsburg Muni,Grantsburg,WI,US,45.7983779,-92.6643309,America/Chicago,EAST
+KGTR,Golden Triangle Rgnl,Columbus/W Point/Starkville,MS,US,33.4482778,-88.5913889,America/Chicago,EAST
+KGTU,Georgetown Exec,Georgetown,TX,US,30.6788056,-97.6793889,America/Chicago,WEST
+KGUC,Gunnison Regional,Gunnison,CO,US,38.5343333,-106.93175,America/Denver,WEST
+KGUP,Gallup Muni,Gallup,NM,US,35.5110583,-108.7893094,America/Denver,WEST
+KGUR,Camp Guernsey,Guernsey,WY,US,42.25975,-104.7283056,America/Denver,WEST
+KGUS,Grissom Arb,Grissom Joint Air Reserve Base,IN,US,40.648092,-86.152119,America/Indiana/Indianapolis,EAST
+KGUY,Guymon Muni,Guymon,OK,US,36.6841555,-101.5069686,America/Chicago,WEST
+KGVE,Gordonsville Muni,Gordonsville,VA,US,38.1559961,-78.16578,America/New_York,EAST
+KGVL,Lee Gilmer Meml,Gainesville,GA,US,34.2726264,-83.8302261,America/New_York,EAST
+KGVQ,Genesee County,Batavia,NY,US,43.03175,-78.1696667,America/New_York,EAST
+KGVT,Majors,Greenville,TX,US,33.0678333,-96.0653333,America/Chicago,WEST
+KGWB,De Kalb County,Auburn,IN,US,41.3071667,-85.0643611,America/Indiana/Indianapolis,EAST
+KGWO,Greenwood-Leflore,Greenwood,MS,US,33.4933089,-90.0866774,America/Chicago,EAST
+KGWR,Gwinner-Roger,Gwinner,ND,US,46.2182778,-97.6433611,America/Chicago,WEST
+KGWS,Glenwood Springs Muni,Glenwood Springs,CO,US,39.506,-107.3090833,America/Denver,WEST
+KGWW,Wayne Exec Jetport,Goldsboro,NC,US,35.4605553,-77.9649275,America/New_York,EAST
+KGXY,Greeley-Weld County,Greeley,CO,US,40.4374167,-104.6332222,America/Denver,WEST
+KGYB,Giddings-Lee County,Giddings,TX,US,30.1692778,-96.9800278,America/Chicago,WEST
+KGYH,Donaldson Field,Greenville,SC,US,34.7583128,-82.3764139,America/New_York,EAST
+KGYI,North Texas Rgnl/Perrin Field,Sherman/Denison,TX,US,33.7141911,-96.6743597,America/Chicago,WEST
+KGYL,Glencoe Muni,Glencoe,MN,US,44.7560058,-94.0814606,America/Chicago,WEST
+KGYR,Phoenix Goodyear,Goodyear,AZ,US,33.4232778,-112.3753611,America/Phoenix,WEST
+KGYY,Gary/Chicago Intl,Gary,IN,US,41.61725,-87.4145278,America/Chicago,EAST
+KGZH,Evergreen Rgnl/Middleton Fld,Evergreen,AL,US,31.415,-87.0433611,America/Chicago,EAST
+KGZL,Stigler Rgnl,Stigler,OK,US,35.2881667,-95.0938889,America/Chicago,WEST
+KGZS,Abernathy Fld,Pulaski,TN,US,35.1540833,-87.0570556,America/Chicago,EAST
+KH28,Whetstone Intl,Port Of Del Bonita,Montana,US,49.0,-112.793333,America/Edmonton,WEST
+KHAB,Marion County-Rankin Fite,Hamilton,AL,US,34.1169444,-87.9982222,America/Chicago,EAST
+KHAE,Hannibal Rgnl,Hannibal,MO,US,39.7251667,-91.4438611,America/Chicago,WEST
+KHAF,Half Moon Bay,Half Moon Bay,CA,US,37.5134444,-122.5011667,America/Los_Angeles,WEST
+KHAI,Three Rivers Muni,Three Rivers,MI,US,41.9597403,-85.5930622,America/Detroit,EAST
+KHAO,Butler County Rgnl/Hogan Fld,Hamilton,OH,US,39.36375,-84.5219444,America/New_York,EAST
+KHBC,Mohall Muni,Mohall,ND,US,48.7688853,-101.5376422,America/Chicago,WEST
+KHBG,Hattiesburg Muni,Hattiesburg,MS,US,31.2649444,-89.2528889,America/Chicago,EAST
+KHBI,Asheboro Rgnl,Asheboro,NC,US,35.654525,-79.8947372,America/New_York,EAST
+KHBR,Hobart Rgnl,Hobart,OK,US,34.9899167,-99.0530586,America/Chicago,WEST
+KHBV,Jim Hogg County,Hebbronville,TX,US,27.3495556,-98.7369444,America/Chicago,WEST
+KHBZ,Heber Springs Muni,Heber Springs,AR,US,35.5116939,-92.0130094,America/Chicago,WEST
+KHCD,Hutchinson Muni,Hutchinson,MN,US,44.8598889,-94.3825,America/Chicago,WEST
+KHCO,Hallock Muni,Hallock,MN,US,48.752731,-96.943003,America/Chicago,WEST
+KHDC,Hammond Northshore Rgnl,Hammond,LA,US,30.5216875,-90.4183797,America/Chicago,EAST
+KHDE,Brewster Fld,Holdrege,NE,US,40.4518075,-99.3360278,America/Chicago,WEST
+KHDL,Headland Muni,Headland,AL,US,31.3641389,-85.3125278,America/Chicago,EAST
+KHDN,Yampa Valley,Hayden,CO,US,40.4811944,-107.2176667,America/Denver,WEST
+KHDO,South Texas Rgnl At Hondo,Hondo,TX,US,29.3591306,-99.1774917,America/Chicago,WEST
+KHEE,Thompson-Robbins,Helena/West Helena,AR,US,34.5764919,-90.6758894,America/Chicago,EAST
+KHEF,Manassas Rgnl,Washington,DC,US,38.7210247,-77.5151047,America/New_York,EAST
+KHEG,Herlong Recreational,Jacksonville,FL,US,30.2777858,-81.8059456,America/New_York,EAST
+KHEI,Hettinger/Jb Lindquist Rgnl,Hettinger,ND,US,46.0148889,-102.656,America/Denver,WEST
+KHEQ,Holyoke,Holyoke,CO,US,40.5694297,-102.2726889,America/Denver,WEST
+KHES,Healdsburg Muni,Healdsburg,CA,US,38.6528592,-122.8986415,America/Los_Angeles,WEST
+KHEZ,Hardy-Anders Fld,Natchez,MS,US,31.6136611,-91.2973356,America/Chicago,EAST
+KHFD,Hartford-Brainard,Hartford,CT,US,41.7367222,-72.6494444,America/New_York,EAST
+KHFJ,Monett Rgnl,Monett,MO,US,36.9051294,-94.0141664,America/Chicago,WEST
+KHFY,Indy South Greenwood,Indianapolis,IN,US,39.6276111,-86.0880278,America/Indiana/Indianapolis,EAST
+KHGR,Hagerstown Rgnl,Hagerstown,MD,US,39.7085,-77.7265,America/New_York,EAST
+KHHF,Hemphill County,Canadian,TX,US,35.8951111,-100.4038889,America/Chicago,WEST
+KHHG,Huntington Muni,Huntington,IN,US,40.8529167,-85.4570556,America/Indiana/Indianapolis,EAST
+KHHR,Hawthorne Municipal ,Hawthorne,CA,US,33.9228611,-118.3350833,America/Los_Angeles,WEST
+KHHW,Stan Stamper Muni,Hugo,OK,US,34.0336389,-95.5420556,America/Chicago,WEST
+KHIB,Range Rgnl,Hibbing,MN,US,47.386575,-92.8389781,America/Chicago,EAST
+KHIE,Mount Washington Rgnl,Whitefield,NH,US,44.3675556,-71.5458056,America/New_York,EAST
+KHIG,Higginsville Muni,Higginsville,MO,US,39.0724444,-93.6773611,America/Chicago,WEST
+KHII,Lake Havasu City,Lake Havasu City,AZ,US,34.5711239,-114.3582769,America/Phoenix,WEST
+KHIO,Portland-Hillsboro,Portland,OR,US,45.5421217,-122.9507219,America/Los_Angeles,WEST
+KHJH,Hebron Muni,Hebron,NE,US,40.1519444,-97.5845278,America/Chicago,WEST
+KHJO,Hanford Muni,Hanford,CA,US,36.3167222,-119.6276667,America/Los_Angeles,WEST
+KHKA,Blytheville Muni,Blytheville,AR,US,35.9404167,-89.8308056,America/Chicago,WEST
+KHKS,Hawkins Fld,Jackson,MS,US,32.3347778,-90.2225278,America/Chicago,EAST
+KHKY,Hickory Rgnl,Hickory,NC,US,35.7411456,-81.3895506,America/New_York,EAST
+KHLB,Batesville,Batesville,IN,US,39.3431111,-85.2584167,America/Indiana/Indianapolis,EAST
+KHLC,Hill City Muni,Hill City,KS,US,39.3801944,-99.8314722,America/Chicago,WEST
+KHLG,Wheeling Ohio County,Wheeling,WV,US,40.1750114,-80.6462683,America/New_York,EAST
+KHLN,Helena Rgnl,Helena,MT,US,46.6067222,-111.9832778,America/Denver,WEST
+KHLX,Twin County,Galax Hillsville,VA,US,36.7661108,-80.82356,America/New_York,EAST
+KHMT,Hemet-Ryan,Hemet,CA,US,33.7340278,-117.0223056,America/Los_Angeles,WEST
+KHMZ,Bedford County,Bedford,PA,US,40.086125,-78.5134983,America/New_York,EAST
+KHNB,Huntingburg,Huntingburg,IN,US,38.2490169,-86.9528194,America/Indiana/Vincennes,EAST
+KHND,Henderson Exec,Las Vegas,NV,US,35.972855,-115.1343847,America/Los_Angeles,WEST
+KHNR,Harlan Muni,Harlan,IA,US,41.5843611,-95.3396944,America/Chicago,WEST
+KHNZ,Henderson/Oxford,Oxford,NC,US,36.3611408,-78.5298272,America/New_York,EAST
+KHOB,Lea County Rgnl,Hobbs,NM,US,32.6875,-103.2173333,America/Denver,WEST
+KHOC,Highland County,Hillsboro,OH,US,39.1887613,-83.5387915,America/New_York,EAST
+KHOE,Homerville,Homerville,GA,US,31.0568889,-82.7752778,America/New_York,EAST
+KHON,Huron Rgnl,Huron,SD,US,44.3851944,-98.2285556,America/Chicago,WEST
+KHOT,Meml Fld,Hot Springs,AR,US,34.4780278,-93.0962222,America/Chicago,WEST
+KHOU,William P Hobby,Houston,TX,US,29.6457998,-95.2772316,America/Chicago,WEST
+KHPN,Westchester County,White Plains,NY,US,41.0669531,-73.7075661,America/New_York,EAST
+KHPT,Hampton Muni,Hampton,IA,US,42.7236944,-93.2263333,America/Chicago,WEST
+KHPY,Baytown,Baytown,TX,US,29.7860833,-94.9526667,America/Chicago,WEST
+KHQG,Hugoton Muni,Hugoton,KS,US,37.1633583,-101.3706775,America/Chicago,WEST
+KHQM,Bowerman,Hoquiam,WA,US,46.9711944,-123.9365556,America/Los_Angeles,WEST
+KHQU,Thomson-Mcduffie County,Thomson,GA,US,33.5297306,-82.5169528,America/New_York,EAST
+KHQZ,Mesquite Metro,Mesquite,TX,US,32.7469628,-96.5304172,America/Chicago,WEST
+KHRI,Hermiston Muni,Hermiston,OR,US,45.8282222,-119.2591667,America/Los_Angeles,WEST
+KHRJ,Harnett Rgnl Jetport,Erwin,NC,US,35.380155,-78.7322367,America/New_York,EAST
+KHRL,Valley Intl,Harlingen,TX,US,26.2271111,-97.6551389,America/Chicago,WEST
+KHRO,Boone County,Harrison,AR,US,36.2615206,-93.1547289,America/Chicago,WEST
+KHRU,Herington Rgnl,Herington,KS,US,38.6947222,-96.8079722,America/Chicago,WEST
+KHRX,Hereford Muni,Hereford,TX,US,34.8606989,-102.3258832,America/Chicago,WEST
+KHSA,Stennis Intl,Bay St Louis,MS,US,30.3678047,-89.4546125,America/Chicago,EAST
+KHSB,Harrisburg-Raleigh,Harrisburg,IL,US,37.8112561,-88.5502596,America/Chicago,EAST
+KHSD,Sundance,Oklahoma City,OK,US,35.6018333,-97.7061667,America/Chicago,WEST
+KHSE,Billy Mitchell,Hatteras,NC,US,35.2328056,-75.6178056,America/New_York,EAST
+KHSI,Hastings Muni,Hastings,NE,US,40.60525,-98.4278889,America/Chicago,WEST
+KHSP,Ingalls Fld,Hot Springs,VA,US,37.9514444,-79.8338944,America/New_York,EAST
+KHSR,Hot Springs Muni,Hot Springs,SD,US,43.3683056,-103.3882778,America/Denver,WEST
+KHSV,Huntsville Intl,Huntsville,AL,US,34.6371969,-86.7750542,America/Chicago,EAST
+KHTF,Hornell Muni,Hornell,NY,US,42.3821389,-77.6821111,America/New_York,EAST
+KHTH,Hawthorne Industrial,Hawthorne,NV,US,38.5450769,-118.6324031,America/Los_Angeles,WEST
+KHTL,Roscommon County,Houghton Lake,MI,US,44.359869,-84.669483,America/Detroit,EAST
+KHTS,Ferguson Field,Huntington,WV,US,38.3685078,-82.5603602,America/New_York,EAST
+KHTW,Lawrence County Airpark,Chesapeake/Huntington Wva,OH,US,38.4191111,-82.4948333,America/New_York,EAST
+KHUF,Terre Haute Intl,Terre Haute,IN,US,39.4506319,-87.30699,America/Indiana/Indianapolis,EAST
+KHUL,Houlton Intl,Houlton,ME,US,46.1246069,-67.7923603,America/New_York,EAST
+KHUM,Houma-Terrebonne,Houma,LA,US,29.5665021,-90.6604267,America/Chicago,WEST
+KHUT,Hutchinson Rgnl,Hutchinson,KS,US,38.0661547,-97.8604897,America/Chicago,WEST
+KHVC,Hopkinsville County,Hopkinsville,KY,US,36.8569722,-87.4550833,America/Chicago,EAST
+KHVE,Hanksville,Hanksville,UT,US,38.4194167,-110.7029167,America/Denver,WEST
+KHVN,Tweed/New Haven,New Haven,CT,US,41.2637247,-72.8877292,America/New_York,EAST
+KHVR,Havre City-County,Havre,MT,US,48.5429847,-109.7623422,America/Denver,WEST
+KHVS,Hartsville Rgnl,Hartsville,SC,US,34.4030833,-80.1192222,America/New_York,EAST
+KHWD,Hayward Exec,Hayward,CA,US,37.6589317,-122.1217389,America/Los_Angeles,WEST
+KHWO,North Perry,Hollywood,FL,US,26.0012222,-80.2407222,America/New_York,EAST
+KHWQ,Wheatland Co,Harlowton,MT,US,46.4486111,-109.8527778,America/Denver,WEST
+KHWV,Brookhaven,Shirley,NY,US,40.8219542,-72.8669072,America/New_York,EAST
+KHWY,Warrenton/Fauquier,Warrenton,VA,US,38.5862853,-77.7106308,America/New_York,EAST
+KHXD,Hilton Head,Hilton Head Island,SC,US,32.224495,-80.6974008,America/New_York,EAST
+KHXF,Hartford Muni,Hartford,WI,US,43.3500472,-88.3902408,America/Chicago,EAST
+KHYA,Barnstable Muni,Hyannis,MA,US,41.6693372,-70.2803592,America/New_York,EAST
+KHYI,San Marcos Rgnl,Austin,TX,US,29.89275,-97.863,America/Chicago,WEST
+KHYR,Sawyer County,Hayward,WI,US,46.0252661,-91.444265,America/Chicago,EAST
+KHYS,Hays Rgnl,Hays,KS,US,38.8422222,-99.2731667,America/Chicago,WEST
+KHYW,Conway-Horry County,Conway,SC,US,33.8284875,-79.1221763,America/New_York,EAST
+KHYX,Saginaw County,Saginaw,MI,US,43.4333744,-83.8623019,America/Detroit,EAST
+KHZD,Carroll County,Huntingdon,TN,US,36.0892974,-88.4632988,America/Chicago,EAST
+KHZE,Mercer County Rgnl,Hazen,ND,US,47.2899353,-101.5809778,America/North_Dakota/Beulah,WEST
+KHZL,Hazleton Rgnl,Hazleton,PA,US,40.9867725,-75.9947031,America/New_York,EAST
+KHZR,False River Rgnl,New Roads,LA,US,30.7183333,-91.4786667,America/Chicago,WEST
+KHZX,Isedor Iverson,Mc Gregor,MN,US,46.6187972,-93.3098111,America/Chicago,EAST
+KHZY,Northeast Ohio Rgnl,Ashtabula,OH,US,41.7777778,-80.6967778,America/New_York,EAST
+KIAD,Washington Dulles Intl,Washington,DC,US,38.9474564,-77.4599286,America/New_York,EAST
+KIAG,Niagara Falls Intl,Niagara Falls,NY,US,43.1075574,-78.9458467,America/New_York,EAST
+KIAH,"Houston Bush Int''ctl",Houston,TX,US,29.9844353,-95.3414425,America/Chicago,WEST
+KIBM,Kimball Municipal,Kimball,NE,US,41.1880556,-103.6773889,America/Denver,WEST
+KICL,Schenck Fld,Clarinda,IA,US,40.7221944,-95.0266111,America/Chicago,WEST
+KICR,Winner Rgnl,Winner,SD,US,43.3894847,-99.8412144,America/Chicago,WEST
+KICT,Wichita Eisenhower,Wichita,KS,US,37.6499525,-97.4330428,America/Chicago,WEST
+KIDA,Idaho Falls Rgnl,Idaho Falls,ID,US,43.5136733,-112.0708203,America/Boise,WEST
+KIDG,Ida Grove Muni,Ida Grove,IA,US,42.3325978,-95.4448878,America/Chicago,WEST
+KIDI,Indiana County,Indiana,PA,US,40.6310608,-79.1015264,America/New_York,EAST
+KIDL,Indianola Muni,Indianola,MS,US,33.4857222,-90.6788889,America/Chicago,EAST
+KIDP,Independence Muni,Independence,KS,US,37.1579263,-95.7789503,America/Chicago,WEST
+KIEN,Pine Ridge,Pine Ridge,SD,US,43.0212737,-102.5066064,America/Denver,WEST
+KIER,Natchitoches Rgnl,Natchitoches,LA,US,31.73572,-93.0991364,America/Chicago,WEST
+KIFA,Iowa Falls Muni,Iowa Falls,IA,US,42.4713583,-93.2707194,America/Chicago,WEST
+KIFP,Laughlin/Bullhead Intl,Bullhead City,AZ,US,35.1546144,-114.5593322,America/Phoenix,WEST
+KIGM,Kingman,Kingman,AZ,US,35.2594781,-113.9380503,America/Phoenix,WEST
+KIGQ,Lansing Muni,Chicago,IL,US,41.5349167,-87.5295278,America/Chicago,EAST
+KIIB,James H Connell Fld At Independence Muni,Independence,IA,US,42.4568889,-91.9476667,America/Chicago,WEST
+KIIY,Washington/Wilkes County,Washington,GA,US,33.7785981,-82.8144967,America/New_York,EAST
+KIJD,Windham,Willimantic,CT,US,41.7440278,-72.1802222,America/New_York,EAST
+KIJX,Jacksonville Muni,Jacksonville,IL,US,39.7746111,-90.2382778,America/Chicago,EAST
+KIKG,Kleberg County,Kingsville,TX,US,27.5508611,-98.0309167,America/Chicago,WEST
+KIKK,Greater Kankakee,Kankakee,IL,US,41.0713889,-87.8462778,America/Chicago,EAST
+KIKV,Ankeny Rgnl,Ankeny,IA,US,41.6913468,-93.5663491,America/Chicago,WEST
+KIKW,Jack Barstow,Midland Township,MI,US,43.662917,-84.261306,America/Detroit,EAST
+KILE,Skylark Fld,Killeen,TX,US,31.0858333,-97.6865,America/Chicago,WEST
+KILG,New Castle,Wilmington,DE,US,39.6787097,-75.606635,America/New_York,EAST
+KILM,Wilmington Intl,Wilmington,NC,US,34.2711389,-77.9028889,America/New_York,EAST
+KILN,Wilmington Air Park,Wilmington,OH,US,39.4279167,-83.7921111,America/New_York,EAST
+KIML,Imperial Muni,Imperial,NE,US,40.5103262,-101.620146,America/Denver,WEST
+KIMM,Immokalee Rgnl,Immokalee,FL,US,26.4337122,-81.4004782,America/New_York,EAST
+KIMS,Madison Muni,Madison,IN,US,38.7599167,-85.4646944,America/Indiana/Indianapolis,EAST
+KIMT,Ford,Iron Mountain Kingsford,MI,US,45.8183611,-88.1145556,America/Chicago,EAST
+KIND,Indianapolis Intl,Indianapolis,IN,US,39.7173056,-86.2946389,America/Indiana/Indianapolis,EAST
+KINF,Inverness,Inverness,FL,US,28.8036128,-82.3182908,America/New_York,EAST
+KINJ,Hillsboro Muni,Hillsboro,TX,US,32.0836389,-97.09725,America/Chicago,WEST
+KINK,Winkler County,Wink,TX,US,31.7798056,-103.2016944,America/Chicago,WEST
+KINL,Falls Intl/Einarson Fld,International Falls,MN,US,48.5655878,-93.4021792,America/Chicago,EAST
+KINT,Smith Reynolds,Winston Salem,NC,US,36.1337138,-80.2219877,America/New_York,EAST
+KINW,Winslow-Lindbergh Rgnl,Winslow,AZ,US,35.0219097,-110.7225158,America/Phoenix,WEST
+KIOB,Mt Sterling County,Mount Sterling,KY,US,38.0581389,-83.9795833,America/New_York,EAST
+KIOW,Iowa City Muni,Iowa City,IA,US,41.6397778,-91.5481389,America/Chicago,WEST
+KIPJ,Lincoln Co Rgnl,Lincolnton,NC,US,35.4831417,-81.1615056,America/New_York,EAST
+KIPL,Imperial County,Imperial,CA,US,32.8342222,-115.57875,America/Los_Angeles,WEST
+KIPT,Williamsport Rgnl,Williamsport,PA,US,41.2416667,-76.9218056,America/New_York,EAST
+KIRK,Kirksville Rgnl,Kirksville,MO,US,40.0934722,-92.5449167,America/Chicago,WEST
+KIRS,Kirsch Muni,Sturgis,MI,US,41.8132876,-85.4389607,America/Detroit,EAST
+KISB,Sibley Muni,Sibley,IA,US,43.3693528,-95.7596389,America/Chicago,WEST
+KISM,Kissimmee Gateway,Orlando,FL,US,28.2898069,-81.4370814,America/New_York,EAST
+KISO,Kinston Rgnl,Kinston,NC,US,35.3314328,-77.60883,America/New_York,EAST
+KISP,Long Island MacArthur,Ronkonkoma,NY,US,40.7961357,-73.1006651,America/New_York,EAST
+KISQ,Schoolcraft County,Manistique,MI,US,45.9746389,-86.1718333,America/Detroit,EAST
+KISW,Alexander Field South Wood County Airport,Wisconsin Rapids,WI,US,44.360355,-89.8390394,America/Chicago,EAST
+KITH,Ithaca Tompkins Intl,Ithaca,NY,US,42.4913611,-76.4587222,America/New_York,EAST
+KITR,Kit Carson County,Burlington,CO,US,39.2425111,-102.2853775,America/Denver,WEST
+KIWA,Phoenix-Mesa Gateway,Phoenix,AZ,US,33.3078239,-111.6554592,America/Phoenix,WEST
+KIWD,Gogebic/Iron County,Ironwood,MI,US,46.5274814,-90.1313944,America/Chicago,EAST
+KIWH,Wabash Muni,Wabash,IN,US,40.761972,-85.79875,America/Indiana/Indianapolis,EAST
+KIWI,Wiscasset,Wiscasset,ME,US,43.9614167,-69.7125556,America/New_York,EAST
+KIWS,West Houston,Houston,TX,US,29.8181944,-95.6726111,America/Chicago,WEST
+KIXA,Halifax-Northampton Rgnl,Roanoke Rapids,NC,US,36.3297917,-77.6352308,America/New_York,EAST
+KIXD,New Century AirCenter,Olathe,KS,US,38.8309167,-94.8903056,America/Chicago,WEST
+KIYA,Abbeville Chris Crusta Meml,Abbeville,LA,US,29.9757778,-92.0842222,America/Chicago,WEST
+KIYK,Inyokern,Inyokern,CA,US,35.6587413,-117.8295325,America/Los_Angeles,WEST
+KIZA,Santa Ynez/Kunkle Fld,Santa Ynez,CA,US,34.6068153,-120.07555,America/Los_Angeles,WEST
+KIZG,Eastern Slopes Rgnl,Fryeburg,ME,US,43.9911389,-70.9478889,America/New_York,EAST
+KJAC,Jackson Hole,Jackson,WY,US,43.6073333,-110.73775,America/Denver,WEST
+KJAN,Jackson-Medgar Wiley Evers Intl,Jackson,MS,US,32.3111667,-90.0758889,America/Chicago,EAST
+KJAQ,Westover Fld Amador County,Jackson,CA,US,38.3768017,-120.7939103,America/Los_Angeles,WEST
+KJAS,Jasper County/Bell Fld,Jasper,TX,US,30.8856944,-94.0349444,America/Chicago,WEST
+KJAU,Colonel Tommy C Stiner Airfield,Jacksboro,TN,US,36.3340889,-84.1629653,America/New_York,EAST
+KJAX,Jacksonville Intl,Jacksonville,FL,US,30.4940456,-81.6878467,America/New_York,EAST
+KJBR,Jonesboro Muni,Jonesboro,AR,US,35.8317111,-90.6464219,America/Chicago,WEST
+KJCT,Kimble County,Junction,TX,US,30.5111111,-99.7628889,America/Chicago,WEST
+KJDD,Wood County/Collins Fld,Mineola/Quitman,TX,US,32.7421944,-95.4964722,America/Chicago,WEST
+KJDN,Jordan,Jordan,MT,US,47.32875,-106.952689,America/Denver,WEST
+KJEF,Jefferson City Meml,Jefferson City,MO,US,38.5911736,-92.1561447,America/Chicago,WEST
+KJER,Jerome County,Jerome,ID,US,42.7266833,-114.4566472,America/Boise,WEST
+KJES,Jesup-Wayne County,Jesup,GA,US,31.5539722,-81.8825,America/New_York,EAST
+KJFK,John F Kennedy Intl,New York,NY,US,40.6399281,-73.7786922,America/New_York,EAST
+KJFX,Walker County,Jasper,AL,US,33.902,-87.3138333,America/Chicago,EAST
+KJFZ,Tazewell County,Richlands,VA,US,37.0637464,-81.7982658,America/New_York,EAST
+KJGG,Williamsburg-Jamestown,Williamsburg,VA,US,37.2391747,-76.7160961,America/New_York,EAST
+KJHN,Stanton County Muni,Johnson,KS,US,37.58539,-101.7323031,America/Chicago,WEST
+KJHW,Chautauqua County,Jamestown,NY,US,42.1533944,-79.2580228,America/New_York,EAST
+KJKA,Gulf Shores International,Gulf Shores,AL,US,30.2896389,-87.6717778,America/Chicago,EAST
+KJKJ,Moorhead Muni/Florence Klingensmith Fld,Moorhead,MN,US,46.8392778,-96.6640278,America/Chicago,WEST
+KJKL,Julian Carroll,Jackson,KY,US,37.5938611,-83.31725,America/New_York,EAST
+KJLN,Joplin Rgnl,Joplin,MO,US,37.1531672,-94.4988075,America/Chicago,WEST
+KJMR,Mora Muni,Mora,MN,US,45.8918983,-93.2729492,America/Chicago,EAST
+KJMS,Jamestown Rgnl,Jamestown,ND,US,46.9297222,-98.6781944,America/Chicago,WEST
+KJNX,Johnston Rgnl,Smithfield,NC,US,35.5409381,-78.3903256,America/New_York,EAST
+KJOT,Joliet Rgnl,Joliet,IL,US,41.5177414,-88.1753972,America/Chicago,EAST
+KJPX,East Hampton Town,East Hampton,NY,US,40.9594167,-72.2516667,America/New_York,EAST
+KJQD,Ohio County,Hartford,KY,US,37.4585478,-86.8498242,America/Chicago,EAST
+KJQF,Concord-Padgett Rgnl,Concord,NC,US,35.3877703,-80.7091325,America/New_York,EAST
+KJRO,James a Rhodes,Jackson,OH,US,38.9813603,-82.5778497,America/New_York,EAST
+KJSO,Cherokee County,Jacksonville,TX,US,31.8693304,-95.2174055,America/Chicago,WEST
+KJST,Johnstown-Cambria Co,Johnstown,PA,US,40.3155556,-78.8346667,America/New_York,EAST
+KJSV,Sallisaw Muni,Sallisaw,OK,US,35.43825,-94.8029167,America/Chicago,WEST
+KJSY,Joseph State,Joseph,OR,US,45.3595497,-117.2538389,America/Los_Angeles,WEST
+KJTC,Springerville Muni,Springerville,AZ,US,34.1294167,-109.3108611,America/Phoenix,WEST
+KJVL,Southern Wisconsin Rgnl,Janesville,WI,US,42.6202528,-89.0415669,America/Chicago,EAST
+KJVW,John Bell Williams,Raymond,MS,US,32.3044722,-90.4105278,America/Chicago,EAST
+KJVY,Clark Rgnl,Jeffersonville,IN,US,38.3666183,-85.7381447,America/New_York,EAST
+KJWG,Watonga Rgnl,Watonga,OK,US,35.8645636,-98.4207569,America/Chicago,WEST
+KJWN,John C Tune,Nashville,TN,US,36.1830218,-86.8864953,America/Chicago,EAST
+KJWY,Mid-Way Rgnl,Midlothian/Waxahachie,TX,US,32.4582931,-96.9125264,America/Chicago,WEST
+KJXI,Gilmer Municipal,Gilmer,TX,US,32.6980319,-94.9488683,America/Chicago,WEST
+KJXN,Jackson County,Jackson,MI,US,42.2604431,-84.4621386,America/Detroit,EAST
+KJYG,St James Muni,St James,MN,US,43.9863539,-94.5579742,America/Chicago,WEST
+KJYL,Plantation Airpark,Sylvania,GA,US,32.6455228,-81.5966117,America/New_York,EAST
+KJYM,Hillsdale Muni,Hillsdale,MI,US,41.9213028,-84.5866986,America/Detroit,EAST
+KJYO,Leesburg Exec,Leesburg,VA,US,39.0779722,-77.5575,America/New_York,EAST
+KJYR,York Muni,York,NE,US,40.8964164,-97.6240724,America/Chicago,WEST
+KJZI,Charleston Exec,Charleston,SC,US,32.7010278,-80.00325,America/New_York,EAST
+KJZP,Pickens County,Jasper,GA,US,34.4534722,-84.4572222,America/New_York,EAST
+KKIC,Mesa Del Rey,King City,CA,US,36.2285556,-121.1213056,America/Los_Angeles,WEST
+KKLS,Southwest Washington Rgnl,Kelso,WA,US,46.118,-122.8983611,America/Los_Angeles,WEST
+KKNB,Kanab Muni,Kanab,UT,US,37.0105114,-112.5314778,America/Denver,WEST
+KLAA,Southeast Colorado Rgnl,Lamar,CO,US,38.0696944,-102.6885,America/Denver,WEST
+KLAF,Purdue University,Lafayette,IN,US,40.4123056,-86.9368889,America/Indiana/Indianapolis,EAST
+KLAL,Lakeland Linder Intl,Lakeland,FL,US,27.9876389,-82.019,America/New_York,EAST
+KLAM,Los Alamos,Los Alamos,NM,US,35.8796861,-106.2686861,America/Denver,WEST
+KLAN,Capital Region Intl,Lansing,MI,US,42.7786389,-84.5861944,America/Detroit,EAST
+KLAR,Laramie Rgnl,Laramie,WY,US,41.3120572,-105.6749856,America/Denver,WEST
+KLAS,Harry Reid Intl,Las Vegas,NV,US,36.0800439,-115.1522347,America/Los_Angeles,WEST
+KLAW,Lawton-Fort Sill Rgnl,Lawton,OK,US,34.5677144,-98.4166367,America/Chicago,WEST
+KLAX,Los Angeles Intl,Los Angeles,CA,US,33.9424964,-118.4080486,America/Los_Angeles,WEST
+KLBB,Lubbock Smith Intl,Lubbock,TX,US,33.6636667,-101.8205556,America/Chicago,WEST
+KLBE,Arnold Palmer Rgnl,Latrobe,PA,US,40.2731005,-79.4103256,America/New_York,EAST
+KLBF,N Platte Rgnl,North Platte,NE,US,41.1262128,-100.6836531,America/Chicago,WEST
+KLBL,Liberal Mid-America Rgnl,Liberal,KS,US,37.0439211,-100.9599686,America/Chicago,WEST
+KLBO,Floyd W Jones Lebanon,Lebanon,MO,US,37.6483219,-92.6524308,America/Chicago,WEST
+KLBR,Clarksville,Clarksville,TX,US,33.5926403,-95.0641472,America/Chicago,WEST
+KLBT,Lumberton Rgnl,Lumberton,NC,US,34.6098056,-79.0595556,America/New_York,EAST
+KLBX,Texas Gulf Coast Rgnl,Angleton/Lake Jackson,TX,US,29.1086389,-95.4620833,America/Chicago,WEST
+KLCG,Wayne Muni/Stan Morris Fld,Wayne,NE,US,42.2416057,-96.982271,America/Chicago,WEST
+KLCH,Lake Charles Rgnl,Lake Charles,LA,US,30.1260833,-93.2234167,America/Chicago,WEST
+KLCI,Laconia Muni,Laconia,NH,US,43.5730417,-71.4178417,America/New_York,EAST
+KLCK,Rickenbacker Intl,Columbus,OH,US,39.8137881,-82.9278164,America/New_York,EAST
+KLCQ,Lake City Gateway,Lake City,FL,US,30.1820556,-82.5768611,America/New_York,EAST
+KLDJ,Linden,Linden,NJ,US,40.6174494,-74.2445942,America/New_York,EAST
+KLDM,Mason County,Ludington,MI,US,43.9625311,-86.4079164,America/Detroit,EAST
+KLEB,Lebanon Muni,Lebanon,NH,US,43.6261111,-72.3041944,America/New_York,EAST
+KLEE,Leesburg Intl,Leesburg,FL,US,28.8228981,-81.8084175,America/New_York,EAST
+KLEM,Lemmon Muni,Lemmon,SD,US,45.9183805,-102.1055364,America/Denver,WEST
+KLEW,Auburn/Lewiston Muni,Auburn/Lewiston,ME,US,44.0484728,-70.2835075,America/New_York,EAST
+KLEX,Blue Grass,Lexington,KY,US,38.0367417,-84.6086172,America/New_York,EAST
+KLFK,Angelina County,Lufkin,TX,US,31.2340278,-94.75,America/Chicago,WEST
+KLFT,Lafayette Rgnl/Paul Fournet Fld,Lafayette,LA,US,30.2050278,-91.98775,America/Chicago,WEST
+KLGA,LaGuardia,New York,NY,US,40.7772422,-73.8726056,America/New_York,EAST
+KLGB,Daugherty Field,Long Beach,CA,US,33.8179297,-118.1518906,America/Los_Angeles,WEST
+KLGC,Lagrange/Callaway,Lagrange,GA,US,33.0091508,-85.0732042,America/New_York,EAST
+KLGD,La Grande/Union County,La Grande,OR,US,45.2890781,-118.0061239,America/Los_Angeles,WEST
+KLGU,Logan-Cache,Logan,UT,US,41.7917706,-111.8516472,America/Denver,WEST
+KLHB,Hearne Muni,Hearne,TX,US,30.8720833,-96.6221944,America/Chicago,WEST
+KLHM,Lincoln Regional ,Lincoln,CA,US,38.9091667,-121.3513333,America/Los_Angeles,WEST
+KLHQ,Fairfield County,Lancaster,OH,US,39.7556386,-82.6570964,America/New_York,EAST
+KLHV,William T Piper Meml,Lock Haven,PA,US,41.1357778,-77.4223056,America/New_York,EAST
+KLHW,Wright Aaf (Fort Stewart)/Midcoast Rgnl,Fort Stewart(Hinesville),GA,US,31.8878194,-81.562655,America/New_York,EAST
+KLHX,La Junta Muni,La Junta,CO,US,38.05,-103.50975,America/Denver,WEST
+KLHZ,Triangle North Executive,Louisburg,NC,US,36.0233486,-78.3302631,America/New_York,EAST
+KLIC,Limon Muni,Limon,CO,US,39.2747778,-103.6658611,America/Denver,WEST
+KLIT,Clinton National,Little Rock,AR,US,34.7294414,-92.2247772,America/Chicago,WEST
+KLIU,Littlefield Taylor Brown Muni,Littlefield,TX,US,33.9239442,-102.3866738,America/Chicago,WEST
+KLJF,Litchfield Muni,Litchfield,MN,US,45.0971389,-94.50725,America/Chicago,WEST
+KLKP,Lake Placid,Lake Placid,NY,US,44.2644778,-73.9618694,America/New_York,EAST
+KLKR,Lancaster County,Lancaster,SC,US,34.7229044,-80.8545901,America/New_York,EAST
+KLKU,Louisa County,Louisa,VA,US,38.0098247,-77.9701267,America/New_York,EAST
+KLKV,Lake County,Lakeview,OR,US,42.1611111,-120.3990833,America/Los_Angeles,WEST
+KLLJ,Challis,Challis,ID,US,44.5236067,-114.2179383,America/Boise,WEST
+KLLN,Levelland Muni,Levelland,TX,US,33.5525278,-102.3725278,America/Chicago,WEST
+KLLQ,Monticello Municipal ,Monticello,AR,US,33.6385556,-91.751,America/Chicago,WEST
+KLLR,Little River,Little River,CA,US,39.2620556,-123.7537778,America/Los_Angeles,WEST
+KLLU,Lamar Muni,Lamar,MO,US,37.4859722,-94.312,America/Chicago,WEST
+KLMO,Vance Brand,Longmont,CO,US,40.1643889,-105.1636389,America/Denver,WEST
+KLMS,Louisville/Winston County,Louisville,MS,US,33.1459883,-89.0624483,America/Chicago,EAST
+KLMT,Crater Lake/Klamath Rgnl,Klamath Falls,OR,US,42.1561439,-121.7332047,America/Los_Angeles,WEST
+KLNA,Palm Beach County Park,West Palm Beach,FL,US,26.5930556,-80.0850646,America/New_York,EAST
+KLNC,Lancaster Rgnl,Lancaster,TX,US,32.5776042,-96.7175028,America/Chicago,WEST
+KLND,Hunt Fld,Lander,WY,US,42.8153847,-108.7285631,America/Denver,WEST
+KLNK,Lincoln,Lincoln,NE,US,40.8508914,-96.7591211,America/Chicago,WEST
+KLNL,Kings Land O Lakes,Land O Lakes,WI,US,46.1541175,-89.211965,America/Chicago,EAST
+KLNN,Lake County Executive,Willoughby,OH,US,41.6840278,-81.38975,America/New_York,EAST
+KLNP,Lonesome Pine,Wise,VA,US,36.9875178,-82.5299975,America/New_York,EAST
+KLNR,Tri-County Rgnl,Lone Rock,WI,US,43.2118611,-90.1798333,America/Chicago,EAST
+KLNS,Lancaster,Lancaster,PA,US,40.1223611,-76.2943611,America/New_York,EAST
+KLOL,Derby Fld,Lovelock,NV,US,40.0664675,-118.5650861,America/Los_Angeles,WEST
+KLOM,Wings Field,Philadelphia,PA,US,40.1375556,-75.2651389,America/New_York,EAST
+KLOT,Lewis University,Chicago/Romeoville,IL,US,41.6080969,-88.0963897,America/Chicago,EAST
+KLOU,Bowman Fld,Louisville,KY,US,38.227984,-85.6637491,America/New_York,EAST
+KLOZ,London-Corbin,London,KY,US,37.0868889,-84.0773889,America/New_York,EAST
+KLPC,Lompoc,Lompoc,CA,US,34.6656194,-120.4675028,America/Los_Angeles,WEST
+KLPR,Lorain County Rgnl,Lorain/Elyria,OH,US,41.3442778,-82.1776389,America/New_York,EAST
+KLQK,Pickens County,Pickens,SC,US,34.8099722,-82.7028889,America/New_York,EAST
+KLQR,Larned-Pawnee County,Larned,KS,US,38.2086041,-99.0859141,America/Chicago,WEST
+KLRD,Laredo Intl,Laredo,TX,US,27.5441944,-99.4615833,America/Chicago,WEST
+KLRG,Lincoln Rgnl,Lincoln,ME,US,45.3618497,-68.5344583,America/New_York,EAST
+KLRJ,Le Mars Muni,Le Mars,IA,US,42.7785556,-96.1935833,America/Chicago,WEST
+KLRO,Mt Pleasant Rgnl,Mount Pleasant,SC,US,32.8978333,-79.7828611,America/New_York,EAST
+KLRU,Las Cruces Intl,Las Cruces,NM,US,32.2894139,-106.9219644,America/Denver,WEST
+KLRY,Lawrence Smith Meml,Harrisonville,MO,US,38.6101944,-94.3435278,America/Chicago,WEST
+KLSB,Lordsburg Muni,Lordsburg,NM,US,32.3334628,-108.6917342,America/Denver,WEST
+KLSE,La Crosse Rgnl,La Crosse,WI,US,43.8792657,-91.2566336,America/Chicago,EAST
+KLSK,Lusk Muni,Lusk,WY,US,42.7538056,-104.4045556,America/Denver,WEST
+KLSN,Los Banos Muni,Los Banos,CA,US,37.0638889,-120.8698611,America/Los_Angeles,WEST
+KLTY,Liberty County,Chester,MT,US,48.5107222,-110.9908639,America/Denver,WEST
+KLUA,Luray Caverns,Luray,VA,US,38.6667105,-78.500835,America/New_York,EAST
+KLUD,Decatur Muni,Decatur,TX,US,33.25425,-97.5805,America/Chicago,WEST
+KLUG,Ellington,Lewisburg,TN,US,35.5069742,-86.8038875,America/Chicago,EAST
+KLUK,Cincinnati Muni,Cincinnati,OH,US,39.1029772,-84.4176058,America/New_York,EAST
+KLUL,Hesler-Noble Fld,Laurel,MS,US,31.6730278,-89.1728056,America/Chicago,EAST
+KLUM,Menomonie Muni,Menomonie,WI,US,44.8923333,-91.8678056,America/Chicago,EAST
+KLUV,Lamesa Muni,Lamesa,TX,US,32.7563056,-101.9202222,America/Chicago,WEST
+KLUX,Laurens County,Laurens,SC,US,34.5071111,-81.9469444,America/New_York,EAST
+KLVJ,Pearland Rgnl,Pearland,TX,US,29.5212778,-95.2421389,America/Chicago,WEST
+KLVK,Livermore Muni,Livermore,CA,US,37.6933889,-121.8203611,America/Los_Angeles,WEST
+KLVL,Lawrenceville Muni,Lawrenceville,VA,US,36.7746292,-77.7937819,America/New_York,EAST
+KLVM,Mission Fld,Livingston,MT,US,45.6994167,-110.4480278,America/Denver,WEST
+KLVN,Airlake,Minneapolis,MN,US,44.6278611,-93.2280944,America/Chicago,WEST
+KLVS,Las Vegas Muni,Las Vegas,NM,US,35.6542222,-105.1423889,America/Denver,WEST
+KLWA,South Haven Area Rgnl,South Haven,MI,US,42.3513264,-86.2557375,America/Detroit,EAST
+KLWB,Greenbrier Valley,Lewisburg,WV,US,37.8583067,-80.3994825,America/New_York,EAST
+KLWC,Lawrence Muni,Lawrence,KS,US,39.0111111,-95.2164722,America/Chicago,WEST
+KLWD,Lamoni Muni,Lamoni,IA,US,40.6323919,-93.9022261,America/Chicago,WEST
+KLWL,Wells Muni/Harriet Fld,Wells,NV,US,41.1171111,-114.9221389,America/Los_Angeles,WEST
+KLWM,Lawrence Muni,Lawrence,MA,US,42.7170422,-71.1235333,America/New_York,EAST
+KLWS,Lewiston/Nez Perce County,Lewiston,ID,US,46.3744986,-117.0153964,America/Los_Angeles,WEST
+KLWT,Lewistown Muni,Lewistown,MT,US,47.04925,-109.4666944,America/Denver,WEST
+KLWV,Vincennes Intl,Lawrenceville,IL,US,38.7642778,-87.6055,America/Chicago,EAST
+KLXL,Lindbergh Fld,Little Falls,MN,US,45.949065,-94.3470364,America/Chicago,EAST
+KLXN,Jim Kelly Fld,Lexington,NE,US,40.7904236,-99.7759142,America/Chicago,WEST
+KLXT,"Lee''s Summit Muni","Lee's Summit",MO,US,38.9590967,-94.3718947,America/Chicago,WEST
+KLXV,Lake County,Leadville,CO,US,39.2194722,-106.3164167,America/Denver,WEST
+KLXY,Mexia-Limestone County,Mexia,TX,US,31.6411783,-96.5144594,America/Chicago,WEST
+KLYH,Lynchburg Rgnl,Lynchburg,VA,US,37.3253889,-79.2012222,America/New_York,EAST
+KLYO,Lyons-Rice County Muni,Lyons,KS,US,38.34025,-98.2285556,America/Chicago,WEST
+KLYV,Quentin Aanenson Fld,Luverne,MN,US,43.6167692,-96.2177364,America/Chicago,WEST
+KLZD,Danielson,Danielson,CT,US,41.81975,-71.9009722,America/New_York,EAST
+KLZU,Gwinnett County,Lawrenceville,GA,US,33.9780919,-83.9623639,America/New_York,EAST
+KLZZ,Lampasas,Lampasas,TX,US,31.1061944,-98.1959167,America/Chicago,WEST
+KMAC,Macon Downtown,Macon,GA,US,32.8217644,-83.5619349,America/New_York,EAST
+KMAE,Madera Muni,Madera,CA,US,36.9886003,-120.1124497,America/Los_Angeles,WEST
+KMAF,Midland Intl Air and Space Port,Midland,TX,US,31.9425278,-102.2019167,America/Chicago,WEST
+KMAI,Marianna Muni,Marianna,FL,US,30.8382214,-85.1822236,America/Chicago,EAST
+KMAL,Malone-Dufort,Malone,NY,US,44.8536667,-74.3289444,America/New_York,EAST
+KMAN,Nampa Muni,Nampa,ID,US,43.5813411,-116.5230631,America/Boise,WEST
+KMAO,Marion County,Marion,SC,US,34.1811667,-79.3347222,America/New_York,EAST
+KMAW,Malden Rgnl,Malden,MO,US,36.5982042,-89.9925486,America/Chicago,WEST
+KMBG,Mobridge Muni,Mobridge,SD,US,45.5462778,-100.4062778,America/Chicago,WEST
+KMBL,Manistee County/Blacker,Manistee,MI,US,44.272465,-86.2469008,America/Detroit,EAST
+KMBO,Bruce Campbell Field,Madison,MS,US,32.4386667,-90.1031111,America/Chicago,EAST
+KMBS,MBS Intl,Saginaw,MI,US,43.5329269,-84.0796358,America/Detroit,EAST
+KMBT,Murfreesboro Muni,Murfreesboro,TN,US,35.8786583,-86.3774708,America/Chicago,EAST
+KMBY,Omar N Bradley,Moberly,MO,US,39.4631703,-92.42589,America/Chicago,WEST
+KMCB,Mc Comb,Mc Comb,MS,US,31.1784444,-90.4718611,America/Chicago,EAST
+KMCC,Sacramento McClellan,Sacramento,CA,US,38.6676389,-121.4006111,America/Los_Angeles,WEST
+KMCD,Mackinac Island,Mackinac Island,MI,US,45.8649833,-84.6370944,America/Detroit,EAST
+KMCE,Merced Municipal,Merced,CA,US,37.28475,-120.5139167,America/Los_Angeles,WEST
+KMCI,Kansas City Intl,Kansas City,MO,US,39.2976111,-94.7138889,America/Chicago,WEST
+KMCK,Mc Cook Ben Nelson Rgnl,Mc Cook,NE,US,40.2062922,-100.5920939,America/Chicago,WEST
+KMCN,Middle Georgia Rgnl,Macon,GA,US,32.6928333,-83.6492222,America/New_York,EAST
+KMCO,Orlando Intl,Orlando,FL,US,28.4293889,-81.309,America/New_York,EAST
+KMCW,Mason City Muni,Mason City,IA,US,43.1578056,-93.33125,America/Chicago,WEST
+KMCX,White County,Monticello,IN,US,40.7101939,-86.7667939,America/Indiana/Indianapolis,EAST
+KMCZ,Martin County,Williamston,NC,US,35.8621928,-77.1782006,America/New_York,EAST
+KMDD,Midland Airpark,Midland,TX,US,32.0365704,-102.1015276,America/Chicago,WEST
+KMDF,Mooreland Muni,Mooreland,OK,US,36.484767,-99.194167,America/Chicago,WEST
+KMDH,Southern Illinois,Carbondale/Murphysboro,IL,US,37.7780833,-89.2520278,America/Chicago,EAST
+KMDQ,Huntsville Executive,Huntsville,AL,US,34.8593522,-86.5575139,America/Chicago,EAST
+KMDS,Madison Muni,Madison,SD,US,44.0164167,-97.0856111,America/Chicago,WEST
+KMDT,Harrisburg Intl,Harrisburg,PA,US,40.1931917,-76.7626192,America/New_York,EAST
+KMDW,Chicago Midway Intl,Chicago,IL,US,41.7859722,-87.7524167,America/Chicago,EAST
+KMDZ,Taylor County,Medford,WI,US,45.1013185,-90.3001744,America/Chicago,EAST
+KMEB,Laurinburg-Maxton,Maxton,NC,US,34.7921722,-79.3658961,America/New_York,EAST
+KMEI,Key Fld,Meridian,MS,US,32.3328617,-88.7515722,America/Chicago,EAST
+KMEJ,Meade Muni,Meade,KS,US,37.2786751,-100.3564557,America/Chicago,WEST
+KMEM,Memphis Intl,Memphis,TN,US,35.0424114,-89.9766792,America/Chicago,EAST
+KMER,Castle,Atwater,CA,US,37.3804844,-120.5681864,America/Los_Angeles,WEST
+KMEV,Minden-Tahoe,Minden,NV,US,39.0005,-119.7511111,America/Los_Angeles,WEST
+KMEY,Whiting Memorial,Mapleton,IA,US,42.178295,-95.7936453,America/Chicago,WEST
+KMEZ,Mena Intermountain Muni,Mena,AR,US,34.5455118,-94.2024165,America/Chicago,WEST
+KMFD,Mansfield Lahm Rgnl,Mansfield,OH,US,40.8214167,-82.5166389,America/New_York,EAST
+KMFE,Mc Allen Intl,Mc Allen,TX,US,26.1758333,-98.2386111,America/Chicago,WEST
+KMFI,Marshfield Muni,Marshfield,WI,US,44.6368797,-90.1893267,America/Chicago,EAST
+KMFR,Rogue Valley Intl,Medford,OR,US,42.3749647,-122.8732875,America/Los_Angeles,WEST
+KMFV,Accomack County,Melfa,VA,US,37.6468789,-75.7610453,America/New_York,EAST
+KMGC,Michigan City Muni-Phillips Fld,Michigan City,IN,US,41.7033153,-86.82124,America/Chicago,EAST
+KMGG,Maple Lake Muni-Bill Mavencamp Sr Fld,Maple Lake,MN,US,45.2359928,-93.9855889,America/Chicago,WEST
+KMGJ,Orange County,Montgomery,NY,US,41.5118117,-74.2635392,America/New_York,EAST
+KMGM,Montgomery Rgnl ,Montgomery,AL,US,32.3006389,-86.3939722,America/Chicago,EAST
+KMGN,Harbor Springs,Harbor Springs,MI,US,45.4254722,-84.9134722,America/Detroit,EAST
+KMGR,Moultrie Muni,Moultrie,GA,US,31.0855794,-83.8028092,America/New_York,EAST
+KMGW,Morgantown Muni,Morgantown,WV,US,39.6435953,-79.9175469,America/New_York,EAST
+KMGY,Dayton/Wright Brothers,Dayton,OH,US,39.5889722,-84.2248611,America/New_York,EAST
+KMHE,Mitchell Muni,Mitchell,SD,US,43.7748219,-98.0386153,America/Chicago,WEST
+KMHK,Manhattan Rgnl,Manhattan,KS,US,39.1414167,-96.6715556,America/Chicago,WEST
+KMHL,Marshall Meml Muni,Marshall,MO,US,39.0954783,-93.2029997,America/Chicago,WEST
+KMHP,John Edwin Jones Sr Fld/Metter Muni,Metter,GA,US,32.3739722,-82.0814444,America/New_York,EAST
+KMHR,Sacramento Mather,Sacramento,CA,US,38.557645,-121.2938425,America/Los_Angeles,WEST
+KMHT,Manchester Boston Rgnl,Manchester,NH,US,42.9328056,-71.43575,America/New_York,EAST
+KMHV,Mojave Air & Space Port/Rutan Fld,Mojave,CA,US,35.0589444,-118.1506111,America/Los_Angeles,WEST
+KMIA,Miami Intl,Miami,FL,US,25.7953611,-80.2901158,America/New_York,EAST
+KMIC,Crystal,Minneapolis,MN,US,45.0624694,-93.3539653,America/Chicago,EAST
+KMIE,Delaware County,Muncie,IN,US,40.2424722,-85.39575,America/Indiana/Indianapolis,EAST
+KMIO,Miami Rgnl,Miami,OK,US,36.9092222,-94.8875,America/Chicago,WEST
+KMIT,Shafter-Minter Field,Shafter,CA,US,35.5074754,-119.1921343,America/Los_Angeles,WEST
+KMIV,Millville Muni,Millville,NJ,US,39.3678056,-75.0722222,America/New_York,EAST
+KMIW,Marshalltown Muni,Marshalltown,IA,US,42.11275,-92.9177778,America/Chicago,WEST
+KMJD,Picayune Muni,Picayune,MS,US,30.4874722,-89.6511944,America/Chicago,EAST
+KMJQ,Jackson Muni,Jackson,MN,US,43.6507808,-94.9865725,America/Chicago,WEST
+KMJX,Ocean County,Toms River,NJ,US,39.9260417,-74.2955347,America/New_York,EAST
+KMKA,Miller Muni,Miller,SD,US,44.5252389,-98.9580792,America/Chicago,WEST
+KMKC,Wheeler Downtown,Kansas City,MO,US,39.1229356,-94.5928231,America/Chicago,WEST
+KMKE,Milwaukee Mitchell Intl Airport,Milwaukee,WI,US,42.9469319,-87.8970644,America/Chicago,EAST
+KMKG,Muskegon County,Muskegon,MI,US,43.1676717,-86.2354387,America/Detroit,EAST
+KMKJ,Mountain Empire,Marion/Wytheville,VA,US,36.8948489,-81.3499461,America/New_York,EAST
+KMKL,Mc Kellar-Sipes Rgnl,Jackson,TN,US,35.5998806,-88.9156119,America/Chicago,EAST
+KMKN,Comanche County-City,Comanche,TX,US,31.9203056,-98.5991944,America/Chicago,WEST
+KMKO,Muskogee-Davis Rgnl,Muskogee,OK,US,35.65775,-95.3616389,America/Chicago,WEST
+KMKS,Berkeley County,Moncks Corner,SC,US,33.1848369,-80.0369764,America/New_York,EAST
+KMKT,Mankato Rgnl,Mankato,MN,US,44.2227778,-93.9193056,America/Chicago,WEST
+KMKV,Marksville Muni,Marksville,LA,US,31.0946533,-92.0690586,America/Chicago,WEST
+KMKY,Marco Island Executive,Marco Island,FL,US,25.9950278,-81.6725278,America/New_York,EAST
+KMLB,Melbourne Orlando Intl,Melbourne,FL,US,28.10275,-80.64525,America/New_York,EAST
+KMLC,Mc Alester Rgnl,Mc Alester,OK,US,34.8823889,-95.7834722,America/Chicago,WEST
+KMLD,Malad City,Malad City,ID,US,42.1701263,-112.2926792,America/Boise,WEST
+KMLE,Millard,Omaha,NE,US,41.1959861,-96.1122647,America/Chicago,WEST
+KMLF,Milford Municipal,Milford,UT,US,38.4266356,-113.013274,America/Denver,WEST
+KMLI,Quad Cities Intl,Moline,IL,US,41.4482092,-90.50777,America/Chicago,WEST
+KMLJ,Baldwin County Rgnl,Milledgeville,GA,US,33.1542256,-83.2414075,America/New_York,EAST
+KMLS,Frank Wiley Fld,Miles City,MT,US,46.4268864,-105.8882253,America/Denver,WEST
+KMLT,Millinocket Muni,Millinocket,ME,US,45.6478333,-68.6855556,America/New_York,EAST
+KMLU,Monroe Rgnl,Monroe,LA,US,32.5105558,-92.0361336,America/Chicago,WEST
+KMMH,Mammoth Yosemite,Mammoth Lakes,CA,US,37.6240556,-118.83875,America/Los_Angeles,WEST
+KMMI,Mcminn County,Athens,TN,US,35.3991944,-84.5617778,America/New_York,EAST
+KMMK,Meriden Markham Muni,Meriden,CT,US,41.5087147,-72.8294783,America/New_York,EAST
+KMML,SW Minnesota Rgnl,Marshall,MN,US,44.4517222,-95.8244167,America/Chicago,WEST
+KMMS,Selfs,Marks,MS,US,34.2314444,-90.2895556,America/Chicago,EAST
+KMMU,Morristown Muni,Morristown,NJ,US,40.7993383,-74.4148886,America/New_York,EAST
+KMMV,Mc Minnville Muni,Mc Minnville,OR,US,45.1945556,-123.1360556,America/Los_Angeles,WEST
+KMNE,Minden,Minden,LA,US,32.6460278,-93.2980833,America/Chicago,WEST
+KMNF,Mountain View,Mountain View,MO,US,36.9928333,-91.7144722,America/Chicago,WEST
+KMNI,Santee Cooper Rgnl,Manning,SC,US,33.5871006,-80.20867,America/New_York,EAST
+KMNM,Menominee County,Menominee,MI,US,45.1266878,-87.6385428,America/Chicago,EAST
+KMNN,Marion Muni,Marion,OH,US,40.61625,-83.0634722,America/New_York,EAST
+KMNV,Monroe County,Madisonville,TN,US,35.5452319,-84.3804003,America/New_York,EAST
+KMNZ,Hamilton Muni,Hamilton,TX,US,31.6659208,-98.1486431,America/Chicago,WEST
+KMOB,Mobile Rgnl,Mobile,AL,US,30.6914167,-88.2428333,America/Chicago,EAST
+KMOD,Modesto City,Modesto,CA,US,37.6258247,-120.95443,America/Los_Angeles,WEST
+KMOP,Mount Pleasant Muni,Mount Pleasant,MI,US,43.6216389,-84.7373056,America/Detroit,EAST
+KMOR,Moore-Murrell,Morristown,TN,US,36.1793889,-83.3754444,America/New_York,EAST
+KMOT,Minot Intl,Minot,ND,US,48.2576389,-101.2780278,America/Chicago,WEST
+KMOX,Morris Municipal,Morris,MN,US,45.5659956,-95.9671933,America/Chicago,WEST
+KMPE,Philadelphia Muni,Philadelphia,MS,US,32.799212,-89.1259972,America/Chicago,EAST
+KMPG,Marshall County,Moundsville,WV,US,39.8808333,-80.7357778,America/New_York,EAST
+KMPI,Mariposa-Yosemite,Mariposa,CA,US,37.5108611,-120.0395278,America/Los_Angeles,WEST
+KMPJ,Petit Jean Park,Morrilton,AR,US,35.1388333,-92.9091944,America/Chicago,WEST
+KMPO,Pocono Mountains Rgnl,Mount Pocono,PA,US,41.1376944,-75.3800556,America/New_York,EAST
+KMPR,Mc Pherson,Mc Pherson,KS,US,38.3523936,-97.6912983,America/Chicago,WEST
+KMPV,Edward F Knapp State,Barre/Montpelier,VT,US,44.2034892,-72.5620964,America/New_York,EAST
+KMPZ,Mount Pleasant Muni,Mount Pleasant,IA,US,40.9466122,-91.5111706,America/Chicago,WEST
+KMQB,Macomb Muni,Macomb,IL,US,40.5200833,-90.6523889,America/Chicago,EAST
+KMQI,Dare County Rgnl,Manteo,NC,US,35.9189828,-75.6955358,America/New_York,EAST
+KMQJ,Indianapolis Rgnl,Indianapolis,IN,US,39.8431378,-85.8977356,America/Indiana/Indianapolis,EAST
+KMQS,Chester County G O Carlson,Coatesville,PA,US,39.9789722,-75.8654722,America/New_York,EAST
+KMQW,Telfair-Wheeler,Mc Rae,GA,US,32.0969964,-82.8794117,America/New_York,EAST
+KMQY,Smyrna,Smyrna,TN,US,36.0089703,-86.5200897,America/Chicago,EAST
+KMRB,Eastern WV Rgnl,Martinsburg,WV,US,39.4023578,-77.983,America/New_York,EAST
+KMRC,Maury County Rgnl,Columbia/Mount Pleasant,TN,US,35.5543386,-87.17914,America/Chicago,EAST
+KMRF,Marfa Muni,Marfa,TX,US,30.3711111,-104.0175278,America/Chicago,WEST
+KMRH,Michael J Smith Fld,Beaufort,NC,US,34.7337586,-76.6603547,America/New_York,EAST
+KMRJ,Iowa County,Mineral Point,WI,US,42.88688,-90.2366658,America/Chicago,EAST
+KMRN,Foothills Rgnl,Morganton,NC,US,35.8202222,-81.6114167,America/New_York,EAST
+KMRT,Union County,Marysville,OH,US,40.2244997,-83.3516331,America/New_York,EAST
+KMRY,Monterey Rgnl,Monterey,CA,US,36.5869522,-121.8427831,America/Los_Angeles,WEST
+KMSL,Northwest Alabama Rgnl,Muscle Shoals,AL,US,34.7453056,-87.6102222,America/Chicago,EAST
+KMSN,Dane Co Rgnl,Madison,WI,US,43.1398791,-89.3375045,America/Chicago,EAST
+KMSO,Missoula Montana,Missoula,MT,US,46.9163056,-114.0905556,America/Denver,WEST
+KMSP,Minneapolis/St Paul Intl,Minneapolis,MN,US,44.8819722,-93.2217778,America/Chicago,WEST
+KMSS,Massena Intl,Massena,NY,US,44.9362411,-74.8451197,America/New_York,EAST
+KMSV,Sullivan County Intl,Monticello,NY,US,41.7016389,-74.7950278,America/New_York,EAST
+KMSY,New Orleans Intl,New Orleans,LA,US,29.9932722,-90.2590275,America/Chicago,WEST
+KMTH,The Florida Keys Marathon Intl,Marathon,FL,US,24.7261944,-81.0513611,America/New_York,EAST
+KMTJ,Montrose Rgnl,Montrose,CO,US,38.5098056,-107.89425,America/Denver,WEST
+KMTN,Martin State,Baltimore,MD,US,39.3256614,-76.4137561,America/New_York,EAST
+KMTO,Coles County Meml,Mattoon/Charleston,IL,US,39.4778889,-88.2799722,America/Chicago,EAST
+KMTP,Montauk,Montauk,NY,US,41.0766667,-71.9204722,America/New_York,EAST
+KMTV,Blue Ridge,Martinsville,VA,US,36.6307525,-80.0183383,America/New_York,EAST
+KMTW,Manitowoc County,Manitowoc,WI,US,44.1287778,-87.6805833,America/Chicago,EAST
+KMUL,Spence,Moultrie,GA,US,31.1376867,-83.7040597,America/New_York,EAST
+KMUT,Muscatine Muni,Muscatine,IA,US,41.3678889,-91.1482222,America/Chicago,WEST
+KMVC,Monroe County Aeroplex,Monroeville,AL,US,31.4580556,-87.3510278,America/Chicago,EAST
+KMVE,Montevideo Co,Montevideo,MN,US,44.9691944,-95.7103889,America/Chicago,WEST
+KMVI,Monte Vista Muni,Monte Vista,CO,US,37.5287261,-106.0458978,America/Denver,WEST
+KMVL,Morrisville-Stowe State,Morrisville,VT,US,44.5343611,-72.614,America/New_York,EAST
+KMVM,Machias Valley,Machias,ME,US,44.7030956,-67.4785903,America/New_York,EAST
+KMVN,Mount Vernon,Mount Vernon,IL,US,38.3233611,-88.8585,America/Chicago,EAST
+KMVY,"Martha''s Vineyard",Vineyard Haven,MA,US,41.3934175,-70.6138744,America/New_York,EAST
+KMWA,Veterans Airport of Southern Illinois,Marion,IL,US,37.7549722,-89.0110833,America/Chicago,EAST
+KMWC,Lawrence J Timmerman,Milwaukee,WI,US,43.11038,-88.0344183,America/Chicago,EAST
+KMWH,Grant County Intl,Moses Lake,WA,US,47.2085833,-119.3191389,America/Los_Angeles,WEST
+KMWK,Mount Airy/Surry County,Mount Airy,NC,US,36.4613617,-80.5532103,America/New_York,EAST
+KMWL,Mineral Wells Rgnl,Mineral Wells,TX,US,32.7816056,-98.060175,America/Chicago,WEST
+KMWM,Windom Muni,Windom,MN,US,43.913403,-95.109408,America/Chicago,WEST
+KMWO,Middletown Rgnl/Hook Fld,Middletown,OH,US,39.53175,-84.3964444,America/New_York,EAST
+KMXA,Manila Muni,Manila,AR,US,35.8944472,-90.1545706,America/Chicago,WEST
+KMXO,Monticello Rgnl,Monticello,IA,US,42.2203619,-91.1632983,America/Chicago,WEST
+KMYF,Montgomery-Gibbs Exec,San Diego,CA,US,32.8157222,-117.1395556,America/Los_Angeles,WEST
+KMYJ,Mexico Meml,Mexico,MO,US,39.1575114,-91.8182642,America/Chicago,WEST
+KMYL,Mc Call Muni,Mc Call,ID,US,44.8887442,-116.1017519,America/Boise,WEST
+KMYR,Myrtle Beach Intl,Myrtle Beach,SC,US,33.6797411,-78.9283214,America/New_York,EAST
+KMYV,Yuba County,Marysville,CA,US,39.0977778,-121.5698333,America/Los_Angeles,WEST
+KMYZ,Marysville Muni,Marysville,KS,US,39.8564292,-96.6307125,America/Chicago,WEST
+KMZH,Moose Lake Carlton County,Moose Lake,MN,US,46.4186111,-92.8047778,America/Chicago,EAST
+KMZJ,Pinal Airpark,Marana,AZ,US,32.5098333,-111.3253333,America/Phoenix,WEST
+KMZZ,Marion Muni - Mckinney Fld,Marion,IN,US,40.4899167,-85.6797778,America/Indiana/Indianapolis,EAST
+KN23,Sidney Muni,Sidney,New York,US,42.303333,-75.416667,America/New_York,EAST
+KN66,Albert S Nader Rgnl,Oneonta,New York,US,42.525,-75.065,America/New_York,EAST
+KNEW,Lakefront,New Orleans,LA,US,30.0424167,-90.02825,America/Chicago,EAST
+KNQA,Millington/Memphis,Millington,TN,US,35.3566392,-89.8704303,America/Chicago,EAST
+KNRN,Norton Muni,Norton,KS,US,39.8504722,-99.8946944,America/Chicago,WEST
+KNVD,Nevada Muni,Nevada,MO,US,37.8524767,-94.3046078,America/Chicago,WEST
+KNYL,Yuma Intl,Yuma,AZ,US,32.6565739,-114.6059872,America/Phoenix,WEST
+KOAJ,Albert J Ellis,Jacksonville,NC,US,34.8291667,-77.6121389,America/New_York,EAST
+KOAK,San Francisco Bay Oakland Intl,Oakland,CA,US,37.7212614,-122.2211506,America/Los_Angeles,WEST
+KOAR,Marina Muni,Marina,CA,US,36.6815278,-121.7616667,America/Los_Angeles,WEST
+KOBE,Okeechobee County,Okeechobee,FL,US,27.2665736,-80.8503911,America/New_York,EAST
+KOBI,Woodbine Muni,Woodbine,NJ,US,39.219139,-74.79475,America/New_York,EAST
+KOCF,Ocala Intl,Ocala,FL,US,29.1718768,-82.2241146,America/New_York,EAST
+KOCH,A.L. Mangham Jr. Regional Airport,Nacogdoches,TX,US,31.5777639,-94.7101111,America/Chicago,WEST
+KOCQ,Oconto/J Douglas Bake Muni,Oconto,WI,US,44.8740556,-87.9097705,America/Chicago,EAST
+KOCW,Washington-Warren,Washington,NC,US,35.5704722,-77.0498056,America/New_York,EAST
+KODO,Odessa-Schlemeyer Fld,Odessa,TX,US,31.9214152,-102.3871329,America/Chicago,WEST
+KODX,Evelyn Sharp Fld,Ord,NE,US,41.6236944,-98.9518611,America/Chicago,WEST
+KOEB,Branch County Meml,Coldwater,MI,US,41.9334889,-85.0523083,America/Detroit,EAST
+KOEL,Oakley Muni,Oakley,KS,US,39.11175,-100.81675,America/Chicago,WEST
+KOEO,L O Simenstad Muni,Osceola,WI,US,45.3093431,-92.6901228,America/Chicago,EAST
+KOFK,Norfolk Rgnl/Karl Stefan Meml Fld,Norfolk,NE,US,41.9854603,-97.4351139,America/Chicago,WEST
+KOFP,Hanover County Muni,Richmond/Ashland,VA,US,37.7089381,-77.4366378,America/New_York,EAST
+KOGA,Searle Fld,Ogallala,NE,US,41.1194722,-101.7696944,America/Denver,WEST
+KOGB,Orangeburg Muni,Orangeburg,SC,US,33.4569178,-80.8594067,America/New_York,EAST
+KOGD,Ogden-Hinckley,Ogden,UT,US,41.1950704,-112.0121947,America/Denver,WEST
+KOGM,Ontonagon County,Ontonagon,MI,US,46.8454703,-89.3670917,America/Detroit,EAST
+KOGS,Ogdensburg Intl,Ogdensburg,NY,US,44.68225,-75.46325,America/New_York,EAST
+KOIC,Lt Warren Eaton,Norwich,NY,US,42.5665556,-75.5241111,America/New_York,EAST
+KOIN,Oberlin Muni,Oberlin,KS,US,39.8343844,-100.5398342,America/Chicago,WEST
+KOJA,Weatherford Stafford,Weatherford,OK,US,35.5458056,-98.6685,America/Chicago,WEST
+KOJC,Johnson County Exec,Olathe,KS,US,38.8475978,-94.7375839,America/Chicago,WEST
+KOKB,Bob Maxwell Meml Airfield,Oceanside,CA,US,33.2179764,-117.3515075,America/Los_Angeles,WEST
+KOKC,Will Rogers World,Oklahoma City,OK,US,35.393074,-97.6007617,America/Chicago,WEST
+KOKH,Oak Harbor Airpark,Oak Harbor,WA,US,48.2517,-122.68,America/Los_Angeles,WEST
+KOKK,Kokomo Muni,Kokomo,IN,US,40.5276667,-86.05975,America/Indiana/Indianapolis,EAST
+KOKM,Okmulgee Rgnl/Paul and Betty Abbott Fld,Okmulgee,OK,US,35.6681111,-95.9485278,America/Chicago,WEST
+KOKS,Garden County/King Rhiley Fld,Oshkosh,NE,US,41.4019111,-102.3563516,America/Denver,WEST
+KOKV,Winchester Rgnl,Winchester,VA,US,39.1435278,-78.1444444,America/New_York,EAST
+KOKZ,Kaolin Fld,Sandersville,GA,US,32.9663747,-82.8374886,America/New_York,EAST
+KOLD,Dewitt Fld/Old Town Muni,Old Town,ME,US,44.952335,-68.6744956,America/New_York,EAST
+KOLE,Cattaraugus County-Olean,Olean,NY,US,42.2411944,-78.3713611,America/New_York,EAST
+KOLF,L M Clayton,Wolf Point,MT,US,48.0945,-105.5750556,America/Denver,WEST
+KOLG,Solon Springs Muni,Solon Springs,WI,US,46.3147508,-91.8163758,America/Chicago,EAST
+KOLM,Olympia Rgnl,Olympia,WA,US,46.9694044,-122.9025447,America/Los_Angeles,WEST
+KOLS,Nogales Intl,Nogales,AZ,US,31.4177222,-110.8478889,America/Phoenix,WEST
+KOLU,Columbus Muni,Columbus,NE,US,41.4487222,-97.3409444,America/Chicago,WEST
+KOLV,Olive Branch/Taylor Fld,Olive Branch,MS,US,34.97875,-89.7868611,America/Chicago,EAST
+KOLY,Olney-Noble,Olney-Noble,IL,US,38.7218272,-88.1764328,America/Chicago,EAST
+KOLZ,Oelwein Muni,Oelwein,IA,US,42.6809245,-91.9743954,America/Chicago,WEST
+KOMA,Eppley Airfield,Omaha,NE,US,41.3031667,-95.8940556,America/Chicago,WEST
+KOMH,Orange County,Orange,VA,US,38.2472028,-78.0456211,America/New_York,EAST
+KOMK,Omak,Omak,WA,US,48.4644122,-119.5180514,America/Los_Angeles,WEST
+KOMN,Ormond Beach Muni,Ormond Beach,FL,US,29.3011389,-81.1138056,America/New_York,EAST
+KONA,Winona Municipal,Winona,MN,US,44.0796099,-91.7116299,America/Chicago,EAST
+KONL,The Oneill Municipal Airport,Oneill,NB,US,42.4655,-98.6866,America/Chicago,WEST
+KONM,Socorro Muni,Socorro,NM,US,34.0224722,-106.9031389,America/Denver,WEST
+KONO,Ontario Muni,Ontario,OR,US,44.0193611,-117.0130278,America/Boise,WEST
+KONP,Newport Muni,Newport,OR,US,44.5803611,-124.0579167,America/Los_Angeles,WEST
+KONT,Ontario Intl,Ontario,CA,US,34.0560142,-117.6011875,America/Los_Angeles,WEST
+KONX,Currituck County Rgnl,Currituck,NC,US,36.3999411,-76.0154253,America/New_York,EAST
+KONY,Olney Muni,Olney,TX,US,33.3508889,-98.8191667,America/Chicago,WEST
+KONZ,Grosse Ile Muni,Detroit/Grosse Ile,MI,US,42.0990786,-83.1614686,America/Detroit,EAST
+KOOA,Oskaloosa Muni,Oskaloosa,IA,US,41.2261111,-92.4938333,America/Chicago,WEST
+KOPF,Opa-locka Executive,Miami,FL,US,25.9074167,-80.2782222,America/New_York,EAST
+KOPL,Parish-Ahart Fld,Opelousas,LA,US,30.5583997,-92.0993761,America/Chicago,WEST
+KOPN,Thomaston-Upson County,Thomaston,GA,US,32.9550026,-84.2640862,America/New_York,EAST
+KOQN,Brandywine Rgnl,West Chester,PA,US,39.9901172,-75.5819019,America/New_York,EAST
+KOQU,Quonset State,North Kingstown,RI,US,41.5971389,-71.4121389,America/New_York,EAST
+KOQW,Maquoketa Muni,Maquoketa,IA,US,42.0500833,-90.7388056,America/Chicago,WEST
+KORB,Orr Rgnl,Orr,MN,US,48.0159167,-92.8560556,America/Chicago,EAST
+KORD,"Chicago O''Hare Intl",Chicago,IL,US,41.9769403,-87.9081497,America/Chicago,EAST
+KORE,Orange Muni,Orange,MA,US,42.5699975,-72.2884978,America/New_York,EAST
+KORF,Norfolk Intl,Norfolk,VA,US,36.8946042,-76.2012292,America/New_York,EAST
+KORG,Orange County,Orange,TX,US,30.0684516,-93.8040202,America/Chicago,WEST
+KORH,Worcester Rgnl,Worcester,MA,US,42.2671389,-71.8756111,America/New_York,EAST
+KORK,North Little Rock Muni,North Little Rock,AR,US,34.8331389,-92.2541389,America/Chicago,WEST
+KORL,Orlando Executive,Orlando,FL,US,28.5454617,-81.33293,America/New_York,EAST
+KORS,Orcas Island,Eastsound,WA,US,48.7083372,-122.9105953,America/Los_Angeles,WEST
+KOSA,Mount Pleasant Rgnl,Mount Pleasant,TX,US,33.0968889,-94.96175,America/Chicago,WEST
+KOSC,Oscoda/Wurtsmith,Oscoda,MI,US,44.4515278,-83.3941667,America/Detroit,EAST
+KOSH,Wittman Rgnl,Oshkosh,WI,US,43.9843708,-88.5570425,America/Chicago,EAST
+KOSU,Ohio State University,Columbus,OH,US,40.0795156,-83.0732128,America/New_York,EAST
+KOSX,Kosciusko-Attala County,Kosciusko,MS,US,33.09025,-89.5420278,America/Chicago,EAST
+KOTG,Worthington Muni,Worthington,MN,US,43.6550556,-95.5791944,America/Chicago,WEST
+KOTH,Southwest Oregon Rgnl,North Bend,OR,US,43.4169444,-124.2470278,America/Los_Angeles,WEST
+KOTM,Ottumwa Rgnl,Ottumwa,IA,US,41.1072222,-92.4471667,America/Chicago,WEST
+KOUN,Univ of OK,Norman,OK,US,35.2455556,-97.4721389,America/Chicago,WEST
+KOVE,Oroville Muni,Oroville,CA,US,39.4878056,-121.622,America/Los_Angeles,WEST
+KOVL,Olivia Rgnl,Olivia,MN,US,44.7785719,-95.0327783,America/Chicago,WEST
+KOVO,North Vernon,North Vernon,IN,US,39.0453333,-85.6056111,America/Indiana/Indianapolis,EAST
+KOVS,Boscobel,Boscobel,WI,US,43.1608067,-90.6739781,America/Chicago,EAST
+KOWA,Owatonna Degner Rgnl,Owatonna,MN,US,44.1229518,-93.2588264,America/Chicago,WEST
+KOWB,Owensboro/Daviess County Rgnl,Owensboro,KY,US,37.7388342,-87.1668286,America/Chicago,EAST
+KOWD,Norwood Meml,Norwood,MA,US,42.1905278,-71.1729444,America/New_York,EAST
+KOWI,Ottawa Muni,Ottawa,KS,US,38.5391742,-95.2531846,America/Chicago,WEST
+KOWK,Central Maine,Norridgewock,ME,US,44.7155,-69.8664722,America/New_York,EAST
+KOWP,William R Pogue Muni,Sand Springs,OK,US,36.1752778,-96.1518333,America/Chicago,WEST
+KOWX,Putnam County,Ottawa,OH,US,41.035595,-83.9818936,America/New_York,EAST
+KOXB,Ocean City Muni,Ocean City,MD,US,38.3104792,-75.1240253,America/New_York,EAST
+KOXC,Waterbury-Oxford,Oxford,CT,US,41.4782806,-73.1351825,America/New_York,EAST
+KOXD,Miami University,Oxford,OH,US,39.5022597,-84.7843814,America/New_York,EAST
+KOXI,Starke County,Knox,IN,US,41.3297008,-86.6646094,America/Indiana/Knox,EAST
+KOXR,Oxnard,Oxnard,CA,US,34.2008069,-119.2072264,America/Los_Angeles,WEST
+KOXV,Knoxville Muni,Knoxville,IA,US,41.2990969,-93.1137428,America/Chicago,WEST
+KOYM,St Marys Muni,St Marys,PA,US,41.4124778,-78.5026314,America/New_York,EAST
+KOZA,Ozona Muni,Ozona,TX,US,30.7351944,-101.2021944,America/Chicago,WEST
+KOZS,Camdenton Meml-Lake Rgnl,Camdenton,MO,US,37.9727225,-92.6904586,America/Chicago,WEST
+KOZW,Livingston County,Howell,MI,US,42.6294278,-83.9821931,America/Detroit,EAST
+KPAE,Snohomish County,Everett,WA,US,47.9073181,-122.2820939,America/Los_Angeles,WEST
+KPAH,Barkley Rgnl,Paducah,KY,US,37.0602883,-88.7729592,America/Chicago,EAST
+KPAN,Payson,Payson,AZ,US,34.2568364,-111.3392558,America/Phoenix,WEST
+KPAO,Palo Alto,Palo Alto,CA,US,37.4611111,-122.1150556,America/Los_Angeles,WEST
+KPBF,Pinebluff Rgnl/Grider Fld,Pine Bluff,AR,US,34.1745131,-91.9356042,America/Chicago,WEST
+KPBG,Plattsburgh Intl,Plattsburgh,NY,US,44.6509444,-73.4681389,America/New_York,EAST
+KPBH,Price County,Phillips,WI,US,45.7088333,-90.4025,America/Chicago,EAST
+KPBI,Palm Beach Intl,West Palm Beach,FL,US,26.6831617,-80.0955919,America/New_York,EAST
+KPBX,Pike County/Hatcher Fld,Pikeville,KY,US,37.5618114,-82.566432,America/New_York,EAST
+KPCM,Plant City,Plant City,FL,US,28.0001667,-82.1633056,America/New_York,EAST
+KPCW,Erie-Ottawa Intl,Port Clinton,OH,US,41.5162706,-82.8694867,America/New_York,EAST
+KPCZ,Waupaca Muni,Waupaca,WI,US,44.33325,-89.019778,America/Chicago,EAST
+KPDC,Prairie Du Chien Muni,Prairie Du Chien,WI,US,43.0192853,-91.1237328,America/Chicago,WEST
+KPDK,Dekalb-Peachtree,Atlanta,GA,US,33.8760019,-84.3020306,America/New_York,EAST
+KPDT,Eastern Oregon Rgnl,Pendleton,OR,US,45.6950953,-118.8433686,America/Los_Angeles,WEST
+KPDX,Portland Intl,Portland,OR,US,45.5887089,-122.5968694,America/Los_Angeles,WEST
+KPEA,Pella Muni,Pella,IA,US,41.4012222,-92.9458611,America/Chicago,WEST
+KPEO,Penn Yan/Yates City,Penn Yan,NY,US,42.6370833,-77.0528611,America/New_York,EAST
+KPEQ,Pecos Muni,Pecos,TX,US,31.3823889,-103.5107222,America/Chicago,WEST
+KPEX,Paynesville Muni,Paynesville,MN,US,45.3720635,-94.7447263,America/Chicago,WEST
+KPEZ,Pleasanton Muni,Pleasanton,TX,US,28.9541944,-98.5199722,America/Chicago,WEST
+KPFC,Pacific City State,Cloverdale,OR,US,45.199825,-123.962339,America/Los_Angeles,WEST
+KPGA,Page Muni,Page,AZ,US,36.9260694,-111.4483506,America/Phoenix,WEST
+KPGD,Punta Gorda,Punta Gorda,FL,US,26.9185925,-81.9908861,America/New_York,EAST
+KPGR,Kirk Fld,Paragould,AR,US,36.0638056,-90.5091944,America/Chicago,WEST
+KPGV,Pitt-Greenville,Greenville,NC,US,35.6356944,-77.3840833,America/New_York,EAST
+KPHD,Harry Clever Fld,New Philadelphia,OH,US,40.4701667,-81.4199444,America/New_York,EAST
+KPHF,Newport News/ Williamsburg Intl,Newport News,VA,US,37.1318889,-76.4929722,America/New_York,EAST
+KPHG,Phillipsburg Muni,Phillipsburg,KS,US,39.7358056,-99.3171111,America/Chicago,WEST
+KPHH,Robert F Swinnie,Andrews,SC,US,33.4516997,-79.5261767,America/New_York,EAST
+KPHK,Palm Beach County Glades,Pahokee,FL,US,26.7850278,-80.6933611,America/New_York,EAST
+KPHL,Philadelphia Intl,Philadelphia,PA,US,39.8720839,-75.2406631,America/New_York,EAST
+KPHN,St Clair County Intl,Port Huron,MI,US,42.9109586,-82.5288497,America/Detroit,EAST
+KPHP,Philip,Philip,SD,US,44.0487306,-101.5988405,America/Denver,WEST
+KPHT,Henry County,Paris,TN,US,36.3359444,-88.3844444,America/Chicago,EAST
+KPHX,Phoenix Sky Harbor Intl,Phoenix,AZ,US,33.4342778,-112.0115833,America/Phoenix,WEST
+KPIA,General Downing - Peoria Intl,Peoria,IL,US,40.6641944,-89.69325,America/Chicago,EAST
+KPIB,Hattiesburg/Laurel Rgnl,Hattiesburg-Laurel,MS,US,31.4671389,-89.3370556,America/Chicago,EAST
+KPIE,Clearwater Intl,St Petersburg-Clearwater,FL,US,27.9086336,-82.68651,America/New_York,EAST
+KPIH,Pocatello Rgnl,Pocatello,ID,US,42.9097925,-112.5959189,America/Boise,WEST
+KPIL,Cameron Co,Port Isabel,TX,US,26.1661944,-97.3458889,America/Chicago,WEST
+KPIM,Harris County,Pine Mountain,GA,US,32.8406944,-84.8824444,America/New_York,EAST
+KPIR,Pierre Rgnl,Pierre,SD,US,44.3826944,-100.2859722,America/Chicago,WEST
+KPIT,Pittsburgh Intl,Pittsburgh,PA,US,40.4914167,-80.2326944,America/New_York,EAST
+KPJC,Zelienople Muni,Zelienople,PA,US,40.8027031,-80.1610997,America/New_York,EAST
+KPJY,Pinckneyville/Du Quoin,Pinckneyville,IL,US,37.9778842,-89.3604489,America/Chicago,EAST
+KPKB,Mid-Ohio Valley Rgnl,Parkersburg,WV,US,39.3449619,-81.4392931,America/New_York,EAST
+KPKD,Park Rapids Muni,Park Rapids,MN,US,46.9012038,-95.0731062,America/Chicago,EAST
+KPKF,Park Falls Muni,Park Falls,WI,US,45.9550906,-90.4244345,America/Chicago,EAST
+KPKV,Calhoun County,Port Lavaca,TX,US,28.6533056,-96.6827222,America/Chicago,WEST
+KPLD,Portland Muni,Portland,IN,US,40.4515175,-84.9917178,America/Indiana/Indianapolis,EAST
+KPLK,Clark-Taney County,Branson,MO,US,36.6259281,-93.2289229,America/Chicago,WEST
+KPLN,Pellston Rgnl,Pellston,MI,US,45.5709167,-84.7967222,America/Detroit,EAST
+KPLR,St Clair County,Pell City,AL,US,33.5588333,-86.2490556,America/Chicago,EAST
+KPLU,Pierce County,Puyallup,WA,US,47.10392,-122.2872003,America/Los_Angeles,WEST
+KPMB,Pembina Muni,Pembina,ND,US,48.9424167,-97.2406667,America/Chicago,WEST
+KPMD,Palmdale Regional,Palmdale,CA,US,34.6293889,-118.0845528,America/Los_Angeles,WEST
+KPMH,Greater Portsmouth Rgnl,Portsmouth,OH,US,38.8404717,-82.8473094,America/New_York,EAST
+KPMP,Pompano Beach Airpark,Pompano Beach,FL,US,26.24736,-80.1111272,America/New_York,EAST
+KPMU,Panola County,Batesville,MS,US,34.3635,-89.8928889,America/Chicago,EAST
+KPMV,Plattsmouth Muni/Douglas V Duey Fld,Plattsmouth,NE,US,40.9483694,-95.9173542,America/Chicago,WEST
+KPMZ,Plymouth Muni,Plymouth,NC,US,35.8107803,-76.75837,America/New_York,EAST
+KPNA,Ralph Wenz Fld,Pinedale,WY,US,42.7973889,-109.8110278,America/Denver,WEST
+KPNC,Ponca City Rgnl,Ponca City,OK,US,36.7319547,-97.0997822,America/Chicago,WEST
+KPNE,Northeast Philadelphia,Philadelphia,PA,US,40.0819383,-75.0105778,America/New_York,EAST
+KPNM,Princeton Muni,Princeton,MN,US,45.5598611,-93.6082222,America/Chicago,EAST
+KPNN,Princeton Muni,Princeton,ME,US,45.2006597,-67.5643989,America/New_York,EAST
+KPNS,Pensacola Intl,Pensacola,FL,US,30.4734167,-87.1866111,America/Chicago,EAST
+KPNT,Pontiac Muni,Pontiac,IL,US,40.9244444,-88.6239444,America/Chicago,EAST
+KPOC,Brackett Fld,La Verne,CA,US,34.0916667,-117.7817778,America/Los_Angeles,WEST
+KPOF,Poplar Bluff Rgnl Business,Poplar Bluff,MO,US,36.7739353,-90.3248528,America/Chicago,WEST
+KPOH,Pocahontas Muni,Pocahontas,IA,US,42.7428889,-94.6473611,America/Chicago,WEST
+KPOU,Hudson Valley Rgnl,Poughkeepsie,NY,US,41.626585,-73.8841886,America/New_York,EAST
+KPOV,Portage County,Ravenna,OH,US,41.210183,-81.251625,America/New_York,EAST
+KPOY,Powell Muni,Powell,WY,US,44.8671667,-108.7934167,America/Denver,WEST
+KPPA,Perry Lefors Fld,Pampa,TX,US,35.613,-100.99625,America/Chicago,WEST
+KPPF,Tri-City,Parsons,KS,US,37.3308136,-95.506175,America/Chicago,WEST
+KPPO,La Porte Muni,La Porte,IN,US,41.5724669,-86.7345278,America/Chicago,EAST
+KPPQ,Pittsfield Penstone Muni,Pittsfield,IL,US,39.6388901,-90.778559,America/Chicago,WEST
+KPQI,N Maine,Presque Isle,ME,US,46.6889639,-68.0447914,America/New_York,EAST
+KPQL,Trent Lott Intl,Pascagoula,MS,US,30.4627719,-88.5292286,America/Chicago,EAST
+KPQN,Pipestone Muni,Pipestone,MN,US,43.9821367,-96.3004075,America/Chicago,WEST
+KPRB,Paso Robles Muni,Paso Robles,CA,US,35.6728889,-120.6270833,America/Los_Angeles,WEST
+KPRC,Prescott Rgnl - Ernest a Love Fld,Prescott,AZ,US,34.6548333,-112.4192222,America/Phoenix,WEST
+KPRG,Edgar County,Paris,IL,US,39.6996667,-87.6707778,America/Chicago,EAST
+KPRN,Mac Crenshaw Meml,Greenville,AL,US,31.8456944,-86.61075,America/Chicago,EAST
+KPRO,Perry Muni,Perry,IA,US,41.828,-94.1598333,America/Chicago,WEST
+KPRS,Presidio Lely Intl,Presidio,TX,US,29.6342125,-104.3614944,NULL,WEST
+KPRX,Cox Fld,Paris,TX,US,33.6366111,-95.45075,America/Chicago,WEST
+KPRZ,Portales Muni,Portales,NM,US,34.1454722,-103.4103333,America/Denver,WEST
+KPSB,Mid-State,Philipsburg,PA,US,40.8843914,-78.0873417,America/New_York,EAST
+KPSC,Tri-Cities,Pasco,WA,US,46.2646817,-119.1190239,America/Los_Angeles,WEST
+KPSF,Pittsfield Muni,Pittsfield,MA,US,42.4276201,-73.2908398,America/New_York,EAST
+KPSK,New River Valley,Dublin,VA,US,37.1373364,-80.6784794,America/New_York,EAST
+KPSM,Portsmouth Intl At Pease,Portsmouth,NH,US,43.0779444,-70.8232778,America/New_York,EAST
+KPSN,Palestine Muni,Palestine,TX,US,31.7796944,-95.7063056,America/Chicago,WEST
+KPSO,Stevens Field,Pagosa Springs,CO,US,37.2862486,-107.0560089,America/Denver,WEST
+KPSP,Palm Springs Intl,Palm Springs,CA,US,33.8296697,-116.5066942,America/Los_Angeles,WEST
+KPSX,Palacios Muni,Palacios,TX,US,28.7275,-96.2509444,America/Chicago,WEST
+KPTB,Tri Cities Exec/Dinwiddie County,Petersburg,VA,US,37.1843014,-77.5061744,America/New_York,EAST
+KPTD,Potsdam Muni/Damon Fld,Potsdam,NY,US,44.6766667,-74.9484444,America/New_York,EAST
+KPTK,Oakland County Intl,Pontiac,MI,US,42.6656362,-83.4205056,America/Detroit,EAST
+KPTN,Harry P Williams Meml,Patterson,LA,US,29.7095464,-91.3389786,America/Chicago,WEST
+KPTS,Atkinson Muni,Pittsburg,KS,US,37.4500556,-94.7312222,America/Chicago,WEST
+KPTT,Pratt Rgnl,Pratt,KS,US,37.7025278,-98.747,America/Chicago,WEST
+KPTV,Porterville Muni,Porterville,CA,US,36.0295833,-119.0627222,America/Los_Angeles,WEST
+KPTW,Heritage Fld,Pottstown,PA,US,40.2395556,-75.5567222,America/New_York,EAST
+KPUB,Pueblo Meml,Pueblo,CO,US,38.2899475,-104.4980281,America/Denver,WEST
+KPUC,Carbon Co Rgnl,Price,UT,US,39.6138889,-110.7516111,America/Denver,WEST
+KPUJ,Paulding Northwest Atlanta,Atlanta,GA,US,33.9120431,-84.9406194,America/New_York,EAST
+KPUW,Pullman/Moscow Rgnl,Pullman/Moscow,WA,US,46.7416914,-117.1116192,America/Los_Angeles,WEST
+KPVB,Platteville Muni,Platteville,WI,US,42.6893572,-90.4443911,America/Chicago,EAST
+KPVC,Provincetown Muni,Provincetown,MA,US,42.0722778,-70.2207222,America/New_York,EAST
+KPVD,Rhode Island T. F. Green International Airport,Providence,RI,US,41.7223333,-71.4277222,America/New_York,EAST
+KPVE,Beech River Rgnl,Lexington-Parsons,TN,US,35.6563617,-88.1953523,America/Chicago,EAST
+KPVF,Placerville,Placerville,CA,US,38.7242275,-120.7533092,America/Los_Angeles,WEST
+KPVG,Hampton Roads Exec,Norfolk,VA,US,36.7807648,-76.4512804,America/New_York,EAST
+KPVJ,Pauls Valley Muni,Pauls Valley,OK,US,34.7095633,-97.2233458,America/Chicago,WEST
+KPVU,Provo Muni,Provo,UT,US,40.21785,-111.72161,America/Denver,WEST
+KPVW,Hale County,Plainview,TX,US,34.1681472,-101.7173361,America/Chicago,WEST
+KPWA,Wiley Post,Oklahoma City,OK,US,35.5341639,-97.6470528,America/Chicago,WEST
+KPWC,Pine River Rgnl,Pine River,MN,US,46.7247878,-94.3816997,America/Chicago,EAST
+KPWD,Sher-Wood,Plentywood,MT,US,48.7905156,-104.5237383,America/Denver,WEST
+KPWG,Mc Gregor Exec,Waco,TX,US,31.4849167,-97.3165278,America/Chicago,WEST
+KPWK,Chicago Exec,Chicago/Prospect Heights/Wheeling,IL,US,42.1142794,-87.9015408,America/Chicago,EAST
+KPWM,Portland Intl Jetport,Portland,ME,US,43.6456435,-70.3086164,America/New_York,EAST
+KPWT,Bremerton Ntl,Bremerton,WA,US,47.49025,-122.7648056,America/Los_Angeles,WEST
+KPXE,Perry-Houston County,Perry,GA,US,32.5105808,-83.7673458,America/New_York,EAST
+KPYG,Pageland,Pageland,SC,US,34.7421389,-80.3451944,America/New_York,EAST
+KPYM,Plymouth Muni,Plymouth,MA,US,41.9087883,-70.7276281,America/New_York,EAST
+KPYN,Piedmont Muni,Piedmont,MO,US,37.1261375,-90.7135286,America/Chicago,WEST
+KPYP,Centre-Piedmont-Cherokee County Rgnl,Centre,AL,US,34.0899167,-85.6100833,America/Chicago,EAST
+KPYX,Perryton Ochiltree County,Perryton,TX,US,36.4129178,-100.7515764,America/Chicago,WEST
+KPZQ,Presque Isle County,Rogers City,MI,US,45.4070833,-83.8128611,America/Detroit,EAST
+KRAC,Batten Intl,Racine,WI,US,42.7611803,-87.8139094,America/Chicago,EAST
+KRAL,Riverside Muni,Riverside,CA,US,33.9518889,-117.4451111,America/Los_Angeles,WEST
+KRAP,Rapid City Rgnl,Rapid City,SD,US,44.0453333,-103.0573611,America/Denver,WEST
+KRAS,Mustang Beach,Port Aransas,TX,US,27.8118333,-97.08875,America/Chicago,WEST
+KRAW,Warsaw Muni,Warsaw,MO,US,38.3478472,-93.3453875,America/Chicago,WEST
+KRBD,Dallas Exec,Dallas,TX,US,32.6813056,-96.8687778,America/Chicago,WEST
+KRBE,Rock County,Bassett,NE,US,42.5711258,-99.5695202,America/Chicago,WEST
+KRBG,Roseburg Rgnl,Roseburg,OR,US,43.2393353,-123.3558525,America/Los_Angeles,WEST
+KRBL,Red Bluff Muni,Red Bluff,CA,US,40.1503056,-122.2521944,America/Los_Angeles,WEST
+KRBO,Nueces County,Robstown,TX,US,27.7781389,-97.6901111,America/Chicago,WEST
+KRBW,Lowcountry Rgnl,Walterboro,SC,US,32.921,-80.6406111,America/New_York,EAST
+KRCE,Clarence E Page Muni,Oklahoma City,OK,US,35.4880833,-97.8235556,America/Chicago,WEST
+KRCK,H H Coffield Rgnl,Rockdale,TX,US,30.6313764,-96.9894875,America/Chicago,WEST
+KRCM,Skyhaven,Warrensburg,MO,US,38.7841711,-93.8028542,America/Chicago,WEST
+KRCP,Rooks County Rgnl,Stockton,KS,US,39.3465833,-99.3046389,America/Chicago,WEST
+KRCR,Fulton County,Rochester,IN,US,41.0655475,-86.1817029,America/Indiana/Indianapolis,EAST
+KRCV,Astronaut Kent Rominger,Del Norte,CO,US,37.7137838,-106.3520185,America/Denver,WEST
+KRCX,Rusk County,Ladysmith,WI,US,45.4965856,-91.0001874,America/Chicago,EAST
+KRCZ,Richmond County,Rockingham,NC,US,34.8913033,-79.7595978,America/New_York,EAST
+KRDD,Redding Rgnl,Redding,CA,US,40.5089853,-122.2933853,America/Los_Angeles,WEST
+KRDG,Reading Rgnl,Reading,PA,US,40.3784986,-75.9652472,America/New_York,EAST
+KRDK,Red Oak Muni,Red Oak,IA,US,41.0108333,-95.2588611,America/Chicago,WEST
+KRDM,Roberts Fld,Redmond,OR,US,44.2540689,-121.1499714,America/Los_Angeles,WEST
+KRDU,Raleigh-Durham Intl,Raleigh/Durham,NC,US,35.8776389,-78.7874722,America/New_York,EAST
+KRED,Red Lodge,Red Lodge,MT,US,45.1848333,-109.2577097,America/Denver,WEST
+KREI,Redlands Muni,Redlands,CA,US,34.08525,-117.1463889,America/Los_Angeles,WEST
+KRFD,Chicago/Rockford Intl,Chicago/Rockford,IL,US,42.1953611,-89.0972222,America/Chicago,EAST
+KRFG,Rooke Fld,Refugio,TX,US,28.2958167,-97.3259719,America/Chicago,WEST
+KRFI,Rusk County,Henderson,TX,US,32.1417228,-94.8517281,America/Chicago,WEST
+KRGK,Red Wing Rgnl,Red Wing,MN,US,44.5893611,-92.4849722,America/Chicago,EAST
+KRHI,Rhinelander/Oneida County,Rhinelander,WI,US,45.6309006,-89.4666278,America/Chicago,EAST
+KRHP,Western Carolina Rgnl,Andrews,NC,US,35.1952297,-83.8630386,America/New_York,EAST
+KRHV,Santa Clara County,San Jose,CA,US,37.3328611,-121.8198056,America/Los_Angeles,WEST
+KRIC,Richmond Intl,Richmond,VA,US,37.5051811,-77.3197386,America/New_York,EAST
+KRID,Richmond Muni,Richmond,IN,US,39.7560833,-84.8426944,America/Indiana/Indianapolis,EAST
+KRIF,Richfield Muni,Richfield,UT,US,38.7341111,-112.1015833,America/Denver,WEST
+KRIL,Rifle Garfield County,Rifle,CO,US,39.5266067,-107.7279869,America/Denver,WEST
+KRIR,Flabob,Riverside/Rubidoux/,CA,US,33.9887875,-117.4099097,America/Los_Angeles,WEST
+KRIU,Rancho Murieta,Rancho Murieta,CA,US,38.4867778,-121.1027778,America/Los_Angeles,WEST
+KRIV,March Arb,Riverside,CA,US,33.8819433,-117.2590169,America/Los_Angeles,WEST
+KRIW,Central Wyoming Rgnl,Riverton,WY,US,43.06425,-108.4598333,America/Denver,WEST
+KRJD,Gooden Airpark,Ridgely,MD,US,38.9701133,-75.8663244,America/New_York,EAST
+KRKD,Knox County Rgnl,Rockland,ME,US,44.0601422,-69.0996697,America/New_York,EAST
+KRKP,Aransas County,Rockport,TX,US,28.0862222,-97.0436944,America/Chicago,WEST
+KRKR,Robert S Kerr,Poteau,OK,US,35.0216389,-94.62125,America/Chicago,WEST
+KRKS,Southwest Wyoming Regional,Rock Springs,WY,US,41.5942222,-109.0651944,America/Denver,WEST
+KRKW,Rockwood Muni,Rockwood,TN,US,35.9223333,-84.6897778,America/Chicago,EAST
+KRLD,Richland,Richland,WA,US,46.3056394,-119.3041894,America/Los_Angeles,WEST
+KRME,Rome Griffiss,Rome,NY,US,43.2337994,-75.4070258,America/New_York,EAST
+KRMG,Richard B Russell Rgnl - J H Towers Fld,Rome,GA,US,34.3507778,-85.1586667,America/New_York,EAST
+KRMN,Stafford Rgnl,Stafford,VA,US,38.3981111,-77.4554722,America/New_York,EAST
+KRMY,Brooks Fld,Marshall,MI,US,42.2511932,-84.9554443,America/Detroit,EAST
+KRNC,Warren County Meml,Mc Minnville,TN,US,35.6986989,-85.8438203,America/Chicago,EAST
+KRNH,New Richmond Rgnl,New Richmond,WI,US,45.1477778,-92.5391667,America/Chicago,EAST
+KRNM,Ramona,Ramona,CA,US,33.0391667,-116.91525,America/Los_Angeles,WEST
+KRNO,Reno/Tahoe Intl,Reno,NV,US,39.4991111,-119.7681111,America/Los_Angeles,WEST
+KRNP,Owosso Community,Owosso,MI,US,42.9929722,-84.1385,America/Detroit,EAST
+KRNT,Renton Muni,Renton,WA,US,47.4931389,-122.21575,America/Los_Angeles,WEST
+KRNV,Cleveland Muni,Cleveland,MS,US,33.7625278,-90.7579444,America/Chicago,EAST
+KROA,Roanoke Rgnl,Roanoke,VA,US,37.3254722,-79.9754167,America/New_York,EAST
+KROC,Frederick Douglass/Greater Rochester Intl,Rochester,NY,US,43.1191436,-77.6718689,America/New_York,EAST
+KROG,Rogers Executive,Rogers,AR,US,36.3724167,-94.1069722,America/Chicago,WEST
+KROS,Rush City Rgnl,Rush City,MN,US,45.6971542,-92.9521756,America/Chicago,EAST
+KROW,Roswell Air Center,Roswell,NM,US,33.2998775,-104.5294031,America/Denver,WEST
+KROX,Roseau Municipal,Roseau,MN,US,48.85625,-95.6969444,America/Chicago,WEST
+KRPB,Belleville Muni,Belleville,KS,US,39.8177597,-97.6595864,America/Chicago,WEST
+KRPD,Rice Lake Rgnl,Rice Lake,WI,US,45.4201111,-91.7733333,America/Chicago,EAST
+KRPH,Graham Muni,Graham,TX,US,33.1107222,-98.5547778,America/Chicago,WEST
+KRPJ,Rochelle Municipal,Rochelle,IL,US,41.8926389,-89.0796111,America/Chicago,EAST
+KRPX,Roundup,Roundup,MT,US,46.475,-108.5434167,America/Denver,WEST
+KRQB,Roben-Hood,Big Rapids,MI,US,43.7226389,-85.5040556,America/Detroit,EAST
+KRQE,Window Rock,Window Rock,AZ,US,35.6520556,-109.0673889,America/Denver,WEST
+KRQO,El Reno Rgnl,El Reno,OK,US,35.4727222,-98.00575,America/Chicago,WEST
+KRRL,Merrill Muni,Merrill,WI,US,45.1989167,-89.7128611,America/Chicago,EAST
+KRRQ,Rock Rapids Muni,Rock Rapids,IA,US,43.4522211,-96.1797769,America/Chicago,WEST
+KRRT,Warroad Intl Meml,Warroad,MN,US,48.9414722,-95.3484722,America/Chicago,WEST
+KRSL,Russell Muni,Russell,KS,US,38.8713636,-98.8116037,America/Chicago,WEST
+KRSN,Ruston Rgnl,Ruston,LA,US,32.5132247,-92.5884447,America/Chicago,WEST
+KRST,Rochester Intl,Rochester,MN,US,43.9082778,-92.5000278,America/Chicago,WEST
+KRSV,Crawford County,Robinson,IL,US,39.0160278,-87.6497778,America/Chicago,EAST
+KRSW,Southwest Florida Intl,Fort Myers,FL,US,26.5361639,-81.755155,America/New_York,EAST
+KRTN,Raton Muni/Crews Fld,Raton,NM,US,36.7424392,-104.5017264,America/Denver,WEST
+KRTS,Reno/Stead,Reno,NV,US,39.6681769,-119.8764396,America/Los_Angeles,WEST
+KRUE,Russellville Rgnl,Russellville,AR,US,35.2592831,-93.0926222,America/Chicago,WEST
+KRUG,Rugby Muni,Rugby,ND,US,48.3903611,-100.0242778,America/Chicago,WEST
+KRUQ,Mid-Carolina Rgnl,Salisbury,NC,US,35.6458833,-80.5202917,America/New_York,EAST
+KRUT,Rutland/Southern Vermont Rgnl,Rutland,VT,US,43.5297303,-72.9496261,America/New_York,EAST
+KRVJ,Reidsville Municipal,Reidsville,GA,US,32.0594872,-82.1535767,America/New_York,EAST
+KRVL,Mifflin County,Reedsville,PA,US,40.6773889,-77.6268333,America/New_York,EAST
+KRVN,Hawkins County,Rogersville,TN,US,36.4575792,-82.8850342,America/New_York,EAST
+KRVS,Tulsa Riverside,Tulsa,OK,US,36.0395839,-95.9845953,America/Chicago,WEST
+KRWF,Redwood Falls Muni,Redwood Falls,MN,US,44.546889,-95.082,America/Chicago,WEST
+KRWI,Rocky Mount/Wilson Rgnl,Rocky Mount,NC,US,35.8562528,-77.8919333,America/New_York,EAST
+KRWL,Rawlins Muni/Harvey Fld,Rawlins,WY,US,41.8057222,-107.2003333,America/Denver,WEST
+KRWN,Arens Fld,Winamac,IN,US,41.0922631,-86.6128711,America/Indiana/Winamac,EAST
+KRWV,Caldwell Muni,Caldwell,TX,US,30.5154743,-96.7040858,America/Chicago,WEST
+KRXE,Rexburg-Madison County,Rexburg,ID,US,43.8339167,-111.8051111,America/Boise,WEST
+KRYN,Ryan Fld,Tucson,AZ,US,32.1422111,-111.1745792,America/Phoenix,WEST
+KRYV,Watertown Muni,Watertown,WI,US,43.1696389,-88.7232222,America/Chicago,EAST
+KRYW,Lago Vista Tx/Rusty Allen,Lago Vista,TX,US,30.4985833,-97.9694722,America/Chicago,WEST
+KRYY,Cobb County International,Kennesaw,GA,US,34.0131667,-84.5970278,America/New_York,EAST
+KRZL,Jasper County,Rensselaer,IN,US,40.9478237,-87.1826481,America/Chicago,EAST
+KRZN,Burnett County,Siren,WI,US,45.8234639,-92.3736931,America/Chicago,EAST
+KRZR,Cleveland Rgnl Jetport,Cleveland,TN,US,35.2123364,-84.7991989,America/New_York,EAST
+KRZT,Ross County,Chillicothe,OH,US,39.4404167,-83.0230556,America/New_York,EAST
+KS10,Flying R.N.,Valley Center,KS,US,37.860012,-97.245873,America/Chicago,WEST
+KS28,Intl Peace Garden,Dunseith,North Dakota,US,48.996667,-100.043333,America/Chicago,WEST
+KS60,Kenmore Air Harbor,Kenmore,Washington,US,47.755,-122.26,America/Los_Angeles,WEST
+KS93,Dickson - Private,Reading,KS,US,38.645842,-95.989157,America/Chicago,WEST
+KSAA,Shively Fld,Saratoga,WY,US,41.4435278,-106.8275278,America/Denver,WEST
+KSAC,Sacramento Exec,Sacramento,CA,US,38.5128611,-121.4933003,America/Los_Angeles,WEST
+KSAD,Safford Rgnl/1lt Duane Spalsbury Fld,Safford,AZ,US,32.8533411,-109.6350819,America/Phoenix,WEST
+KSAF,Santa Fe Regional,Santa Fe,NM,US,35.6171111,-106.0894167,America/Denver,WEST
+KSAN,San Diego Intl,San Diego,CA,US,32.7335628,-117.1896633,America/Los_Angeles,WEST
+KSAR,Sparta Community,Sparta,IL,US,38.1488636,-89.6985039,America/Chicago,EAST
+KSAT,San Antonio Intl,San Antonio,TX,US,29.5339583,-98.4690569,America/Chicago,WEST
+KSAV,Savannah/Hilton Head Intl,Savannah,GA,US,32.1275833,-81.2021389,America/New_York,EAST
+KSAW,Marquette/Sawyer Rgnl,Marquette,MI,US,46.3491583,-87.3963717,America/Detroit,EAST
+KSAZ,Staples Muni,Staples,MN,US,46.3808794,-94.8066017,America/Chicago,EAST
+KSBA,Santa Barbara Muni,Santa Barbara,CA,US,34.4261917,-119.8414928,America/Los_Angeles,WEST
+KSBD,San Bernardino Intl,San Bernardino,CA,US,34.0953611,-117.2348889,America/Los_Angeles,WEST
+KSBM,Sheboygan County Meml Intl,Sheboygan,WI,US,43.7697778,-87.8517222,America/Chicago,EAST
+KSBN,South Bend Intl,South Bend,IN,US,41.7082239,-86.3173375,America/Indiana/Indianapolis,EAST
+KSBO,East Georgia Rgnl,Swainsboro,GA,US,32.6091389,-82.3699444,America/New_York,EAST
+KSBP,San Luis Obispo County Rgnl,San Luis Obispo,CA,US,35.2372725,-120.6426028,America/Los_Angeles,WEST
+KSBS,Steamboat Sprgs,Steamboat Springs,CO,US,40.5162608,-106.8663017,America/Denver,WEST
+KSBU,Blue Earth Muni,Blue Earth,MN,US,43.5953611,-94.0928611,America/Chicago,WEST
+KSBX,Shelby,Shelby,MT,US,48.5406944,-111.87125,America/Denver,WEST
+KSBY,Salisbury Rgnl,Salisbury,MD,US,38.3401894,-75.5094781,America/New_York,EAST
+KSCA,Sidney Muni,Sidney,OH,US,40.2412778,-84.1478611,America/New_York,EAST
+KSCB,Scribner State,Scribner,NE,US,41.6103333,-96.6298611,America/Chicago,WEST
+KSCD,Sylacauga Municipal,Sylacauga,AL,US,33.1718333,-86.3055278,America/Chicago,EAST
+KSCH,Schenectady County,Schenectady,NY,US,42.8527183,-73.9295644,America/New_York,EAST
+KSCK,Stockton Metro,Stockton,CA,US,37.8944103,-121.23874,America/Los_Angeles,WEST
+KSCR,Siler City Muni,Siler City,NC,US,35.7042745,-79.5042976,America/New_York,EAST
+KSCX,Scott Muni,Oneida,TN,US,36.4556919,-84.58575,America/New_York,EAST
+KSDA,Shenandoah Muni,Shenandoah,IA,US,40.7515872,-95.4136242,America/Chicago,WEST
+KSDC,Williamson/Sodus,Williamson/Sodus,NY,US,43.2345975,-77.1194639,America/New_York,EAST
+KSDF,Muhammad Ali Intl,Louisville,KY,US,38.174085,-85.7364936,America/New_York,EAST
+KSDL,Scottsdale,Scottsdale,AZ,US,33.6228889,-111.9105278,America/Phoenix,WEST
+KSDM,Brown Fld Muni,San Diego,CA,US,32.5722778,-116.9801667,America/Los_Angeles,WEST
+KSDY,Sidney-Richland Rgnl,Sidney,MT,US,47.7068611,-104.1925556,America/Denver,WEST
+KSEA,Seattle-Tacoma Intl,Seattle,WA,US,47.4498889,-122.3117778,America/Los_Angeles,WEST
+KSEE,Gillespie Fld,San Diego/El Cajon,CA,US,32.8262222,-116.9724444,America/Los_Angeles,WEST
+KSEF,Sebring Rgnl,Sebring,FL,US,27.4563889,-81.3423889,America/New_York,EAST
+KSEG,Penn Valley,Selinsgrove,PA,US,40.8212347,-76.8641722,America/New_York,EAST
+KSEM,Craig Fld,Selma,AL,US,32.3439467,-86.9878056,America/Chicago,EAST
+KSEP,Stephenville Clark Rgnl,Stephenville,TX,US,32.2153333,-98.1776667,America/Chicago,WEST
+KSER,Freeman Muni,Seymour,IN,US,38.9242564,-85.9097206,America/Indiana/Indianapolis,EAST
+KSET,St Charles County Rgnl/Smartt Fld,St Charles,MO,US,38.9296944,-90.4299722,America/Chicago,WEST
+KSEZ,Sedona,Sedona,AZ,US,34.8485892,-111.7884475,America/Phoenix,WEST
+KSFB,Orlando Sanford Intl,Orlando,FL,US,28.7771781,-81.2349139,America/New_York,EAST
+KSFF,Felts Fld,Spokane,WA,US,47.6829406,-117.3224261,America/Los_Angeles,WEST
+KSFM,Sanford Seacoast Rgnl,Sanford,ME,US,43.3938056,-70.708,America/New_York,EAST
+KSFO,"San Francisco Int''l",San Francisco,CA,US,37.6188056,-122.3754167,America/Los_Angeles,WEST
+KSFQ,Suffolk Exec,Suffolk,VA,US,36.6828884,-76.5996232,America/New_York,EAST
+KSFY,Tri-Township,Savanna,IL,US,42.0458333,-90.1079444,America/Chicago,EAST
+KSFZ,North Central State,Smithfield,RI,US,41.92075,-71.4914167,America/New_York,EAST
+KSGF,Springfield,Springfield,MO,US,37.2456614,-93.3886269,America/Chicago,WEST
+KSGH,Springfield/Beckley Muni,Springfield,OH,US,39.8402778,-83.8401667,America/New_York,EAST
+KSGJ,Northeast Florida Rgnl,St Augustine,FL,US,29.9592503,-81.3397292,America/New_York,EAST
+KSGR,Sugar Land Rgnl,Houston,TX,US,29.6222486,-95.6565342,America/Chicago,WEST
+KSGS,So St Paul Municipal,South St Paul,MN,US,44.8571389,-93.0328611,America/Chicago,EAST
+KSGT,Stuttgart Muni Carl Humphrey Fld,Stuttgart,AR,US,34.5994785,-91.5750003,America/Chicago,WEST
+KSGU,St George Rgnl,St George,UT,US,37.0363781,-113.5103028,America/Denver,WEST
+KSHD,Shenandoah Valley Rgnl,Staunton/Waynesboro/Harrisonburg,VA,US,38.2638333,-78.8964444,America/New_York,EAST
+KSHL,Sheldon Rgnl,Sheldon,IA,US,43.2083889,-95.8334167,America/Chicago,WEST
+KSHN,Sanderson Fld,Shelton,WA,US,47.2335556,-123.1475556,America/Los_Angeles,WEST
+KSHR,Sheridan County,Sheridan,WY,US,44.7691944,-106.9802778,America/Denver,WEST
+KSHV,Shreveport Rgnl,Shreveport,LA,US,32.4465153,-93.82604,America/Chicago,WEST
+KSIF,Rockingham Co,Reidsville,NC,US,36.4372164,-79.8510097,America/New_York,EAST
+KSIK,Sikeston Meml Muni,Sikeston,MO,US,36.8988889,-89.56175,America/Chicago,WEST
+KSIV,Sullivan County,Sullivan,IN,US,39.1147125,-87.4483292,America/Indiana/Indianapolis,EAST
+KSIY,Siskiyou County,Montague,CA,US,41.7814444,-122.4681111,America/Los_Angeles,WEST
+KSJC,"San Jose Int''l",San Jose,CA,US,37.3629947,-121.9286206,America/Los_Angeles,WEST
+KSJN,St Johns Industrial,St Johns,AZ,US,34.5185556,-109.37875,America/Phoenix,WEST
+KSJS,Big Sandy Rgnl,Prestonsburg,KY,US,37.7509603,-82.6367317,America/New_York,EAST
+KSJT,San Angelo Rgnl,San Angelo,TX,US,31.3577483,-100.4963042,America/Chicago,WEST
+KSJX,Beaver Island,Beaver Island,MI,US,45.6922222,-85.5666111,America/Detroit,EAST
+KSKF,Kelly Field,San Antonio,TX,US,29.3842333,-98.5811167,America/Chicago,WEST
+KSKI,Sac City Muni,Sac City,IA,US,42.3790556,-94.9796111,America/Chicago,WEST
+KSKX,Taos Rgnl,Taos,NM,US,36.4516944,-105.6730833,America/Denver,WEST
+KSLB,Storm Lake Muni,Storm Lake,IA,US,42.5972349,-95.2406656,America/Chicago,WEST
+KSLC,Salt Lake City Intl,Salt Lake City,UT,US,40.7883933,-111.9777733,America/Denver,WEST
+KSLE,Mcnary Fld,Salem,OR,US,44.9095278,-123.0025,America/Los_Angeles,WEST
+KSLG,Smith Fld,Siloam Springs,AR,US,36.1918611,-94.49,America/Chicago,WEST
+KSLH,Cheboygan County,Cheboygan,MI,US,45.6537378,-84.5192978,America/Detroit,EAST
+KSLK,Adirondack Rgnl,Saranac Lake,NY,US,44.3853081,-74.2061814,America/New_York,EAST
+KSLN,Salina Rgnl,Salina,KS,US,38.7906111,-97.6522222,America/Chicago,WEST
+KSLO,Salem-Leckrone,Salem,IL,US,38.6428722,-88.9641853,America/Chicago,EAST
+KSLR,Sulphur Springs Muni,Sulphur Springs,TX,US,33.1598333,-95.6211389,America/Chicago,WEST
+KSMD,Smith Fld,Fort Wayne,IN,US,41.1433611,-85.1527778,America/Indiana/Indianapolis,EAST
+KSME,Somerset-Pulaski Co,Somerset,KY,US,37.0535833,-84.6156389,America/New_York,EAST
+KSMF,Sacramento Intl,Sacramento,CA,US,38.6954444,-121.5907778,America/Los_Angeles,WEST
+KSMN,Lemhi County Airport,Salmon,ID,US,45.1148,-113.888,America/Boise,WEST
+KSMO,Santa Monica Muni,Santa Monica,CA,US,34.0158219,-118.4513061,America/Los_Angeles,WEST
+KSMQ,Somerset,Somerville,NJ,US,40.6259806,-74.6700316,America/New_York,EAST
+KSMS,Sumter,Sumter,SC,US,33.9950256,-80.3613289,America/New_York,EAST
+KSMX,Santa Maria,Santa Maria,CA,US,34.8999444,-120.4580833,America/Los_Angeles,WEST
+KSNA,John Wayne,Santa Ana,CA,US,33.6756619,-117.8682331,America/Los_Angeles,WEST
+KSNC,Chester,Chester,CT,US,41.3837094,-72.5057872,America/New_York,EAST
+KSNH,Savannah-Hardin County,Savannah,TN,US,35.1702464,-88.2167261,America/Chicago,EAST
+KSNK,Winston Fld,Snyder,TX,US,32.6933889,-100.9504722,America/Chicago,WEST
+KSNL,Shawnee Rgnl,Shawnee,OK,US,35.3573056,-96.9428333,America/Chicago,WEST
+KSNS,Salinas Muni,Salinas,CA,US,36.6624108,-121.6071536,America/Los_Angeles,WEST
+KSNY,Sidney Municipal,Sidney,NE,US,41.0997608,-102.9849931,America/Denver,WEST
+KSOA,Sonora Muni,Sonora,TX,US,30.5856944,-100.6485556,America/Chicago,WEST
+KSOP,Moore County,Pinehurst/Southern Pines,NC,US,35.2374225,-79.3890336,America/New_York,EAST
+KSOW,Show Low Rgnl,Show Low,AZ,US,34.2654717,-110.0056625,America/Phoenix,WEST
+KSPA,Spartanburg Dntn Mem,Spartanburg,SC,US,34.9164167,-81.9557778,America/New_York,EAST
+KSPB,Scappoose,Scappoose,OR,US,45.7710278,-122.8618333,America/Los_Angeles,WEST
+KSPF,Black Hills,Spearfish,SD,US,44.4810556,-103.786,America/Denver,WEST
+KSPG,Albert Whitted,St Petersburg,FL,US,27.7651142,-82.6269397,America/New_York,EAST
+KSPH,Springhill,Springhill,LA,US,32.9837222,-93.4091667,America/Chicago,WEST
+KSPI,Abraham Lincoln Capital,Springfield,IL,US,39.8446136,-89.6775467,America/Chicago,EAST
+KSPS,Sheppard AFB ,Wichita Falls,TX,US,33.9888028,-98.4919028,America/Chicago,WEST
+KSPW,Spencer Muni,Spencer,IA,US,43.1656389,-95.2028056,America/Chicago,WEST
+KSPZ,Silver Springs,Silver Springs,NV,US,39.4030556,-119.2511944,America/Los_Angeles,WEST
+KSQI,Whiteside Co,Sterling/Rockfalls,IL,US,41.7428333,-89.6762778,America/Chicago,EAST
+KSQL,San Carlos,San Carlos,CA,US,37.5118611,-122.2495311,America/Los_Angeles,WEST
+KSRB,Upper Cumberland Rgnl,Sparta,TN,US,36.0567378,-85.5301061,America/Chicago,EAST
+KSRC,Searcy Rgnl,Searcy,AR,US,35.2106097,-91.7375394,America/Chicago,WEST
+KSRE,Seminole Muni,Seminole,OK,US,35.2744594,-96.6753789,America/Chicago,WEST
+KSRQ,Sarasota/Bradenton Intl,Sarasota/Bradenton,FL,US,27.3954444,-82.5543889,America/New_York,EAST
+KSRR,Sierra Blanca Rgnl,Ruidoso,NM,US,33.4609444,-105.5301389,America/Denver,WEST
+KSSF,Stinson Muni,San Antonio,TX,US,29.3369814,-98.4710444,America/Chicago,WEST
+KSSI,St Simons Island,St Simons Island,GA,US,31.1519664,-81.3910597,America/New_York,EAST
+KSSQ,Shell Lake Muni,Shell Lake,WI,US,45.7313814,-91.9206622,America/Chicago,EAST
+KSTC,St Cloud Rgnl,St Cloud,MN,US,45.5462222,-94.0593889,America/Chicago,EAST
+KSTE,Stevens Point Muni,Stevens Point,WI,US,44.5451356,-89.5302844,America/Chicago,EAST
+KSTF,George M Bryan,Starkville,MS,US,33.4331111,-88.8486111,America/Chicago,EAST
+KSTJ,Rosecrans Meml,St Joseph,MO,US,39.7719444,-94.9097056,America/Chicago,WEST
+KSTK,Sterling Muni,Sterling,CO,US,40.6142981,-103.2642611,America/Denver,WEST
+KSTL,St Louis Lambert Intl,St Louis,MO,US,38.7486982,-90.3700257,America/Chicago,WEST
+KSTP,St Paul Holman Fld,St Paul,MN,US,44.9346225,-93.0603424,America/Chicago,EAST
+KSTS,Schulz-Sonoma County,Santa Rosa,CA,US,38.5096944,-122.8128889,America/Los_Angeles,WEST
+KSUA,Witham Fld,Stuart,FL,US,27.1816992,-80.2212933,America/New_York,EAST
+KSUD,Stroud Muni,Stroud,OK,US,35.7895833,-96.6556667,America/Chicago,WEST
+KSUE,Door County Cherryland,Sturgeon Bay,WI,US,44.8436667,-87.4215278,America/Chicago,EAST
+KSUN,Sun Valley/Friedman Meml,Hailey,ID,US,43.5037806,-114.2955583,America/Boise,WEST
+KSUO,Rosebud Sioux Tribal,Rosebud,SD,US,43.2584572,-100.8594936,America/Chicago,WEST
+KSUS,Spirit of St Louis,St Louis,MO,US,38.6621111,-90.6520556,America/Chicago,WEST
+KSUT,Cape Fear Rgnl Jetport/Howie Franklin Fld,Oak Island,NC,US,33.9308156,-78.0733636,America/New_York,EAST
+KSUW,Richard I Bong,Superior,WI,US,46.6896841,-92.094642,America/Chicago,EAST
+KSUX,Sioux Gateway,Sioux City,IA,US,42.4013094,-96.3844181,America/Chicago,WEST
+KSUZ,Saline County Rgnl,Benton,AR,US,34.5903889,-92.4794444,America/Chicago,WEST
+KSVC,Grant County,Silver City,NM,US,32.6365469,-108.156385,America/Denver,WEST
+KSVE,Susanville Muni,Susanville,CA,US,40.3756944,-120.5726944,America/Los_Angeles,WEST
+KSVH,Statesville Rgnl,Statesville,NC,US,35.7649967,-80.9539,America/New_York,EAST
+KSWF,New York Stewart Intl,New Windsor,NY,US,41.5041111,-74.1048333,America/New_York,EAST
+KSWI,Sherman Muni,Sherman,TX,US,33.6241389,-96.5861389,America/Chicago,WEST
+KSWO,Stillwater Rgnl,Stillwater,OK,US,36.1613894,-97.0858933,America/Chicago,WEST
+KSWT,Seward Muni,Seward,NE,US,40.8647222,-97.1092222,America/Chicago,WEST
+KSWW,Avenger Fld,Sweetwater,TX,US,32.4673611,-100.4665556,America/Chicago,WEST
+KSXL,Summersville,Summersville,WV,US,38.2316389,-80.8708056,America/New_York,EAST
+KSXU,Santa Rosa Route 66,Santa Rosa,NM,US,34.9356721,-104.6425638,America/Denver,WEST
+KSYF,Cheyenne County Muni,St Francis,KS,US,39.759844,-101.794881,America/Chicago,WEST
+KSYI,Shelbyville Muni,Shelbyville,TN,US,35.5594,-86.4424719,America/Chicago,EAST
+KSYM,Morehead-Rowan County Clyde a Thomas Rgnl,Morehead,KY,US,38.215,-83.5876111,America/New_York,EAST
+KSYR,Syracuse Hancock Intl,Syracuse,NY,US,43.1111811,-76.1063203,America/New_York,EAST
+KSYV,Sylvester,Sylvester,GA,US,31.5571547,-83.8940364,America/New_York,EAST
+KSZP,Santa Paula,Santa Paula,CA,US,34.3470176,-119.0616166,America/Los_Angeles,WEST
+KSZT,Sandpoint,Sandpoint,ID,US,48.2995278,-116.5601389,America/Los_Angeles,WEST
+KSZY,Robert Sibley,Selmer,TN,US,35.2029444,-88.4983611,America/Chicago,EAST
+KTAD,Perry Stokes,Trinidad,CO,US,37.2592236,-104.3408614,America/Denver,WEST
+KTAN,Taunton Muni - King Fld,Taunton,MA,US,41.8744674,-71.0163165,America/New_York,EAST
+KTAZ,Taylorville Muni,Taylorville,IL,US,39.5325855,-89.3307069,America/Chicago,EAST
+KTBN,Waynesville Rgnl ,Fort Leonard Wood,MO,US,37.7416389,-92.1407222,America/Chicago,WEST
+KTBR,Statesboro-Bulloch County,Statesboro,GA,US,32.48275,-81.7369444,America/New_York,EAST
+KTCC,Tucumcari Muni,Tucumcari,NM,US,35.182778,-103.603194,America/Denver,WEST
+KTCL,Tuscaloosa National Airport,Tuscaloosa,AL,US,33.2206289,-87.6114039,America/Chicago,EAST
+KTCS,Truth Or Consequences Muni,Truth Or Consequences,NM,US,33.2353611,-107.2698889,America/Denver,WEST
+KTCY,Tracy Muni,Tracy,CA,US,37.6888953,-121.4415747,America/Los_Angeles,WEST
+KTDF,Raleigh Rgnl At Person County,Roxboro,NC,US,36.2846111,-78.9846389,America/New_York,EAST
+KTDO,South Lewis Co,Toledo,WA,US,46.4771675,-122.8064789,America/Los_Angeles,WEST
+KTDW,Tradewind,Amarillo,TX,US,35.1698889,-101.8258611,America/Chicago,WEST
+KTDZ,Toledo Exec,Toledo,OH,US,41.5649444,-83.4822222,America/New_York,EAST
+KTEB,Teterboro,Teterboro,NJ,US,40.8501111,-74.0608333,America/New_York,EAST
+KTEL,Perry County Muni,Tell City,IN,US,38.0188611,-86.6924167,America/Indiana/Tell_City,EAST
+KTEW,Mason Jewett Fld,Mason,MI,US,42.5657678,-84.4232061,America/Detroit,EAST
+KTEX,Telluride Rgnl,Telluride,CO,US,37.9538056,-107.90875,America/Denver,WEST
+KTFP,Mccampbell-Porter,Ingleside,TX,US,27.9130317,-97.2114872,America/Chicago,WEST
+KTGC,Gibson County,Trenton,TN,US,35.9324547,-88.8489403,America/Chicago,EAST
+KTGI,Tangier Island,Tangier,VA,US,37.8258653,-75.9976625,America/New_York,EAST
+KTHA,Tullahoma Rgnl,Tullahoma,TN,US,35.3801253,-86.2467783,America/Chicago,EAST
+KTHM,Thompson Falls,Thompson Falls,MT,US,47.5734978,-115.2806561,America/Denver,WEST
+KTHV,York,York,PA,US,39.917,-76.8730278,America/New_York,EAST
+KTIF,Thomas County,Thedford,NE,US,41.9627083,-100.5703056,America/Chicago,WEST
+KTIP,Rantoul Natl Avn Cntr,Rantoul,IL,US,40.2935556,-88.1423889,America/Chicago,EAST
+KTIW,Tacoma Narrows,Tacoma,WA,US,47.2679444,-122.5781111,America/Los_Angeles,WEST
+KTIX,Space Coast Rgnl,Titusville,FL,US,28.5148056,-80.7992222,America/New_York,EAST
+KTKC,Tracy Muni,Tracy,MN,US,44.249114,-95.607261,America/Chicago,WEST
+KTKI,McKinney National,Dallas,TX,US,33.1770653,-96.5887667,America/Chicago,WEST
+KTKO,Mankato,Mankato,KS,US,39.80279,-98.2211619,America/Chicago,WEST
+KTKV,Tomahawk Rgnl,Tomahawk,WI,US,45.4693611,-89.8048889,America/Chicago,EAST
+KTKX,Kennett Memorial,Kennett,MO,US,36.2258619,-90.0366411,America/Chicago,WEST
+KTLH,Tallahassee Intl,Tallahassee,FL,US,30.3967542,-84.3508689,America/New_York,EAST
+KTLR,Mefford Field,Tulare,CA,US,36.156583,-119.326556,America/Los_Angeles,WEST
+KTMA,Henry Tift Myers,Tifton,GA,US,31.4295556,-83.4892222,America/New_York,EAST
+KTMB,Miami Exec,Miami,FL,US,25.6475637,-80.4332246,America/New_York,EAST
+KTME,Houston Exec,Houston,TX,US,29.8050278,-95.8978889,America/Chicago,WEST
+KTMK,Tillamook,Tillamook,OR,US,45.41825,-123.8143889,America/Los_Angeles,WEST
+KTNP,Twentynine Palms,Twentynine Palms,CA,US,34.1315833,-115.9458056,America/Los_Angeles,WEST
+KTNT,Dade-Collier Training,Miami,FL,US,25.8618056,-80.897,America/New_York,EAST
+KTNU,Newton Muni-Earl Johnson Fld,Newton,IA,US,41.67443,-93.0217283,America/Chicago,WEST
+KTOA,Zamperini Fld,Torrance,CA,US,33.8033829,-118.3396076,America/Los_Angeles,WEST
+KTOB,Dodge Center,Dodge Center,MN,US,44.0179956,-92.8316201,America/Chicago,WEST
+KTOC,Letourneau Field,Toccoa,GA,US,34.5928117,-83.2963717,America/New_York,EAST
+KTOI,Troy Muni At N Kenneth Campbell Fld,Troy,AL,US,31.86,-86.0138889,America/Chicago,EAST
+KTOL,Eugene F Kranz Toledo Express,Toledo,OH,US,41.5868167,-83.8078267,America/New_York,EAST
+KTOP,Philip Billard Muni,Topeka,KS,US,39.068823,-95.6223759,America/Chicago,WEST
+KTOR,Torrington Muni,Torrington,WY,US,42.0644214,-104.1526794,America/Denver,WEST
+KTPA,Tampa Intl,Tampa,FL,US,27.9754722,-82.53325,America/New_York,EAST
+KTPF,Peter O Knight,Tampa,FL,US,27.9154444,-82.4493889,America/New_York,EAST
+KTPH,Tonopah,Tonopah,NV,US,38.0598936,-117.0866008,America/Los_Angeles,WEST
+KTPL,Draughon-Miller Rgnl,Temple,TX,US,31.1519004,-97.4076629,America/Chicago,WEST
+KTQE,Tekamah Muni,Tekamah,NE,US,41.7635371,-96.177939,America/Chicago,WEST
+KTQH,Tahlequah Muni,Tahlequah,OK,US,35.9302778,-95.0045278,America/Chicago,WEST
+KTQK,Scott City Muni,Scott City,KS,US,38.4750231,-100.8844389,America/Chicago,WEST
+KTRI,Tri-Cities,Bristol/Johnson/Kingsport,TN,US,36.4752078,-82.4074153,America/New_York,EAST
+KTRK,Truckee-Tahoe,Truckee,CA,US,39.3200556,-120.1395833,America/Los_Angeles,WEST
+KTRL,Terrell Muni,Terrell,TX,US,32.7084944,-96.2670944,America/Chicago,WEST
+KTRM,Jacqueline Cochran Rgnl,Thermal,CA,US,33.6266706,-116.1596544,America/Los_Angeles,WEST
+KTRX,Trenton Muni,Trenton,MO,US,40.0835278,-93.5906389,America/Chicago,WEST
+KTSO,Carroll County-Tolson,Carrollton,OH,US,40.5616667,-81.0780833,America/New_York,EAST
+KTSP,Tehachapi Muni,Tehachapi,CA,US,35.1349944,-118.4393,America/Los_Angeles,WEST
+KTTA,Raleigh Exec Jetport At Sanford-Lee County,Sanford,NC,US,35.5824394,-79.1013378,America/New_York,EAST
+KTTD,Portland-Troutdale,Portland,OR,US,45.5493611,-122.40125,America/Los_Angeles,WEST
+KTTF,Custer,Monroe,MI,US,41.9398889,-83.4346667,America/Detroit,EAST
+KTTN,Trenton Mercer,Trenton,NJ,US,40.2766944,-74.8134722,America/New_York,EAST
+KTUL,Tulsa Intl,Tulsa,OK,US,36.1983933,-95.8881053,America/Chicago,WEST
+KTUP,Tupelo Rgnl,Tupelo,MS,US,34.269,-88.7698889,America/Chicago,EAST
+KTUS,Tucson Intl,Tucson,AZ,US,32.1170682,-110.9414628,America/Phoenix,WEST
+KTVB,Cabool Meml,Cabool,MO,US,37.1324444,-92.0839722,America/Chicago,WEST
+KTVC,Cherry Capital,Traverse City,MI,US,44.7415786,-85.58187,America/Detroit,EAST
+KTVF,Thief River Falls Rgnl,Thief River Falls,MN,US,48.0656772,-96.1849953,America/Chicago,WEST
+KTVI,Thomasville Rgnl,Thomasville,GA,US,30.9014722,-83.8814444,America/New_York,EAST
+KTVK,Centerville Muni,Centerville,IA,US,40.6844289,-92.9009939,America/Chicago,WEST
+KTVL,Lake Tahoe,South Lake Tahoe,CA,US,38.8938889,-119.9953333,America/Los_Angeles,WEST
+KTVR,Vicksburg Tallulah Rgnl,Tallulah,LA,US,32.3516111,-91.0276887,America/Chicago,WEST
+KTVY,Tooele Valley,Tooele,UT,US,40.6125533,-112.3507775,America/Denver,WEST
+KTWF,Magic Valley Rgnl,Twin Falls,ID,US,42.4818092,-114.4877361,America/Boise,WEST
+KTWM,Richard B Helgeson,Two Harbors,MN,US,47.0491389,-91.7452222,America/Chicago,EAST
+KTWT,Sturgis Muni,Sturgis,KY,US,37.5417778,-87.9543611,America/Chicago,EAST
+KTXK,Texarkana Rgnl-Webb Fld,Texarkana,AR,US,33.4537164,-93.9910306,America/Chicago,WEST
+KTYL,Taylor,Taylor,AZ,US,34.4527222,-110.1150278,America/Phoenix,WEST
+KTYQ,Indianapolis Exec,Indianapolis,IN,US,40.0286108,-86.2514047,America/Indiana/Indianapolis,EAST
+KTYR,Tyler Pounds Rgnl,Tyler,TX,US,32.3535472,-95.4029778,America/Chicago,WEST
+KTYS,McGhee Tyson,Knoxville,TN,US,35.8110911,-83.9940672,America/New_York,EAST
+KTZR,Bolton Fld,Columbus,OH,US,39.9011667,-83.1369167,America/New_York,EAST
+KTZT,Belle Plaine Muni,Belle Plaine,IA,US,41.8787778,-92.2845278,America/Chicago,WEST
+KTZV,Tompkinsville Co,Tompkinsville,KY,US,36.7290278,-85.6523889,America/Chicago,EAST
+KUAO,Aurora State,Aurora,OR,US,45.2471264,-122.7700469,America/Los_Angeles,WEST
+KUBE,Cumberland Muni,Cumberland,WI,US,45.5060997,-91.9808021,America/Chicago,EAST
+KUBS,Columbus-Lowndes County,Columbus,MS,US,33.4653333,-88.38075,America/Chicago,EAST
+KUBX,Cuba Muni,Cuba,MO,US,38.0687731,-91.4288586,America/Chicago,WEST
+KUCP,New Castle Muni,New Castle,PA,US,41.0253331,-80.4133628,America/New_York,EAST
+KUCY,Everett-Stewart Rgnl,Union City,TN,US,36.3797406,-88.9857019,America/Chicago,EAST
+KUDD,Bermuda Dunes,Palm Springs,CA,US,33.7484375,-116.2748133,America/Los_Angeles,WEST
+KUDG,Darlington County,Darlington,SC,US,34.4474889,-79.8864242,America/New_York,EAST
+KUES,Waukesha County,Waukesha,WI,US,43.0410278,-88.2370556,America/Chicago,EAST
+KUGN,Waukegan Ntl,Chicago/Waukegan,IL,US,42.4221486,-87.8679161,America/Chicago,EAST
+KUIL,Quillayute,Quillayute,WA,US,47.9365803,-124.5626158,America/Los_Angeles,WEST
+KUIN,Quincy Rgnl-Baldwin Fld,Quincy,IL,US,39.9422753,-91.1924044,America/Chicago,WEST
+KUKF,Wilkes County,North Wilkesboro,NC,US,36.2236021,-81.0986063,America/New_York,EAST
+KUKI,Ukiah Muni,Ukiah,CA,US,39.1259444,-123.2008611,America/Los_Angeles,WEST
+KUKL,Coffey County,Burlington,KS,US,38.3024819,-95.7249575,America/Chicago,WEST
+KUKT,Quakertown,Quakertown,PA,US,40.4351389,-75.3819444,America/New_York,EAST
+KULM,New Ulm Muni,New Ulm,MN,US,44.3183867,-94.5016433,America/Chicago,WEST
+KULS,Ulysses,Ulysses,KS,US,37.604,-101.3735556,America/Chicago,WEST
+KUMP,Indianapolis Metro,Indianapolis,IN,US,39.9353985,-86.0450677,America/Indiana/Indianapolis,EAST
+KUNI,Ohio Univ,Athens/Albany,OH,US,39.2118928,-82.2292554,America/New_York,EAST
+KUNO,West Plains Rgnl,West Plains,MO,US,36.8784231,-91.9026744,America/Chicago,WEST
+KUNU,Dodge County,Juneau,WI,US,43.4264722,-88.7038611,America/Chicago,EAST
+KUNV,State College Regional Airport,State College,PA,US,40.85,-77.8475833,America/New_York,EAST
+KUOS,Franklin County,Sewanee,TN,US,35.2051458,-85.8981472,America/Chicago,EAST
+KUOX,University-Oxford,Oxford,MS,US,34.3843333,-89.5368056,America/Chicago,EAST
+KUSE,Fulton County,Wauseon,OH,US,41.6097786,-84.1271886,America/New_York,EAST
+KUSW,Boggs Fld,Spencer,WV,US,38.8237969,-81.3488289,America/New_York,EAST
+KUTA,Tunica Muni,Tunica,MS,US,34.6850556,-90.3477778,America/Chicago,EAST
+KUTS,Huntsville Muni,Huntsville,TX,US,30.7468889,-95.5871667,America/Chicago,WEST
+KUUU,Newport State,Newport,RI,US,41.5324398,-71.2815439,America/New_York,EAST
+KUUV,Sullivan Rgnl,Sullivan,MO,US,38.2334722,-91.1642778,America/Chicago,WEST
+KUVA,Garner Fld,Uvalde,TX,US,29.2113333,-99.7435833,America/Chicago,WEST
+KUWL,New Castle Co Muni,New Castle,IN,US,39.8767222,-85.3252778,America/Indiana/Indianapolis,EAST
+KUXL,Southland Fld,Sulphur,LA,US,30.1314444,-93.3761667,America/Chicago,WEST
+KUYF,Madison County,London,OH,US,39.9327222,-83.462,America/New_York,EAST
+KUZA,Rock Hill,Rock Hill,SC,US,34.9878333,-81.0571667,America/New_York,EAST
+KVAY,South Jersey Rgnl,Mount Holly,NJ,US,39.9428889,-74.84575,America/New_York,EAST
+KVBT,Bentonville Municipal,Bentonville,AR,US,36.3453353,-94.2195033,America/Chicago,WEST
+KVBW,Bridgewater Air Park,Bridgewater,VA,US,38.3667375,-78.9603342,America/New_York,EAST
+KVCB,Nut Tree,Vacaville,CA,US,38.3782222,-121.9611944,America/Los_Angeles,WEST
+KVCT,Victoria Rgnl,Victoria,TX,US,28.8542058,-96.9187322,America/Chicago,WEST
+KVCV,So California Logistics,Victorville,CA,US,34.5955261,-117.3826622,America/Los_Angeles,WEST
+KVDF,Tampa Exec,Tampa,FL,US,28.0139872,-82.3452592,America/New_York,EAST
+KVDI,Vidalia Rgnl,Vidalia,GA,US,32.1927222,-82.3711667,America/New_York,EAST
+KVEL,Vernal Rgnl,Vernal,UT,US,40.4360778,-109.5114225,America/Denver,WEST
+KVER,Jesse Viertel Meml,Boonville,MO,US,38.9467222,-92.6826667,America/Chicago,WEST
+KVES,Darke County,Versailles,OH,US,40.2044108,-84.5324228,America/New_York,EAST
+KVGC,Hamilton Muni,Hamilton,NY,US,42.8434444,-75.5611944,America/New_York,EAST
+KVGT,North Las Vegas,Las Vegas,NV,US,36.2107029,-115.1944432,America/Los_Angeles,WEST
+KVHN,Culberson County,Van Horn,TX,US,31.0578333,-104.7838056,America/Chicago,WEST
+KVIH,Rolla Ntl,Rolla/Vichy,MO,US,38.1274294,-91.7695139,America/Chicago,WEST
+KVIQ,Neillsville Muni,Neillsville,WI,US,44.5581111,-90.51225,America/Chicago,EAST
+KVIS,Visalia Muni,Visalia,CA,US,36.3186378,-119.3928608,America/Los_Angeles,WEST
+KVJI,Virginia Highlands,Abingdon,VA,US,36.6871025,-82.0333267,America/New_York,EAST
+KVKS,Vicksburg Muni,Vicksburg,MS,US,32.239145,-90.928195,America/Chicago,EAST
+KVKX,Potomac Airfield,Friendly,MD,US,38.7486417,-76.9559222,America/New_York,EAST
+KVLA,Vandalia Muni,Vandalia,IL,US,38.9914658,-89.1661894,America/Chicago,EAST
+KVLD,Valdosta Rgnl,Valdosta,GA,US,30.781465,-83.2759719,America/New_York,EAST
+KVLL,Oakland/Troy,Troy,MI,US,42.5429444,-83.1778889,America/Detroit,EAST
+KVMR,Harold Davidson Fld,Vermillion,SD,US,42.7652778,-96.93425,America/Chicago,WEST
+KVNC,Venice Muni,Venice,FL,US,27.0712678,-82.4400325,America/New_York,EAST
+KVNW,Van Wert County,Van Wert,OH,US,40.8638295,-84.606358,America/New_York,EAST
+KVNY,Van Nuys,Van Nuys,CA,US,34.2098056,-118.4899722,America/Los_Angeles,WEST
+KVPC,Cartersville,Cartersville,GA,US,34.1231475,-84.8487067,America/New_York,EAST
+KVPS,Eglin AFB/Destin-Ft Walton Beach,Valparaiso/Destin-Ft Walton Beach,FL,US,30.4832194,-86.5260443,America/Chicago,EAST
+KVPZ,Porter County Rgnl,Valparaiso,IN,US,41.4539722,-87.0070833,America/Chicago,EAST
+KVQQ,Cecil,Jacksonville,FL,US,30.2187778,-81.8771667,America/New_York,EAST
+KVRB,Vero Beach Rgnl,Vero Beach Regional Airport,FL,US,27.655555,-80.4179542,America/New_York,EAST
+KVSF,Hartness State,Springfield,VT,US,43.3437222,-72.5172778,America/New_York,EAST
+KVTA,Newark-Heath,Newark,OH,US,40.0246667,-82.4618056,America/New_York,EAST
+KVTI,Veterans Memorial Arpk,Vinton,IA,US,42.2186389,-92.0259167,America/Chicago,WEST
+KVTN,Miller Fld,Valentine,NE,US,42.8566944,-100.5489722,America/Chicago,WEST
+KVUJ,Stanly County,Albemarle,NC,US,35.4166939,-80.1507911,America/New_York,EAST
+KVUO,Pearson Fld,Vancouver,WA,US,45.6204525,-122.6564883,America/Los_Angeles,WEST
+KVVS,Connellsville,Connellsville,PA,US,39.9590556,-79.6574167,America/New_York,EAST
+KVVV,Ortonville Muni,Ortonville,MN,US,45.3041294,-96.4246089,America/Chicago,WEST
+KVYS,IL Valley Rgnl,Peru,IL,US,41.3501389,-89.1529444,America/Chicago,EAST
+KWAY,Greene County,Waynesburg,PA,US,39.9011389,-80.1306944,America/New_York,EAST
+KWBW,Wilkes-Barre Valley,Wilkes-Barre,PA,US,41.2973075,-75.8522433,America/New_York,EAST
+KWDG,Enid Woodring Rgnl,Enid,OK,US,36.3759444,-97.7894167,America/Chicago,WEST
+KWDR,Barrow County,Winder,GA,US,33.9826897,-83.6672167,America/New_York,EAST
+KWEA,Parker County,Weatherford,TX,US,32.7462867,-97.6824522,America/Chicago,WEST
+KWHP,Whiteman,Los Angeles,CA,US,34.2593253,-118.4134331,America/Los_Angeles,WEST
+KWJF,General Wm J Fox Airfield,Lancaster,CA,US,34.7410556,-118.2186389,America/Los_Angeles,WEST
+KWLD,Strother Field,Winfield/Arkansas City,KS,US,37.1686111,-97.0375278,America/Chicago,WEST
+KWLW,Willows/Glenn County,Willows,CA,US,39.5157559,-122.2172754,America/Los_Angeles,WEST
+KWMC,Winnemucca Muni,Winnemucca,NV,US,40.8966111,-117.8058889,America/Los_Angeles,WEST
+KWRL,Worland Muni,Worland,WY,US,43.9628889,-107.9505278,America/Denver,WEST
+KWST,Westerly State,Westerly,RI,US,41.349633,-71.8034168,America/New_York,EAST
+KWVI,Watsonville Muni,Watsonville,CA,US,36.9357325,-121.7896375,America/Los_Angeles,WEST
+KWVL,Waterville Robert Lafleur,Waterville,ME,US,44.53325,-69.6755278,America/New_York,EAST
+KWWD,Cape May County,Wildwood,NJ,US,39.0083694,-74.9085089,America/New_York,EAST
+KWWR,West Woodward,Woodward,OK,US,36.438,-99.5226667,America/Chicago,WEST
+KWYS,Yellowstone,West Yellowstone,MT,US,44.6883889,-111.1176389,America/Denver,WEST
+KXBP,Bridgeport Muni,Bridgeport,TX,US,33.1739597,-97.8284271,America/Chicago,WEST
+KXLL,Allentown Queen City Muni,Allentown,PA,US,40.5702778,-75.4883056,America/New_York,EAST
+KXNA,Northwest Arkansas Ntl,Fayetteville/Springdale/Rogers,AR,US,36.2815792,-94.3077656,America/Chicago,WEST
+KXSA,Tappahannock/Essex County,Tappahannock,VA,US,37.8596092,-76.8941194,America/New_York,EAST
+KXVG,Longville Muni,Longville,MN,US,46.9899075,-94.2036319,America/Chicago,EAST
+KYIP,Willow Run,Detroit,MI,US,42.2402739,-83.5314611,America/Detroit,EAST
+KYKM,Yakima Air Terminal ,Yakima,WA,US,46.5681672,-120.5440625,America/Los_Angeles,WEST
+KYKN,Chan Gurney Muni,Yankton,SD,US,42.9166786,-97.3859317,America/Chicago,WEST
+KYNG,Youngstown/Warren Rgnl,Youngstown/Warren,OH,US,41.2615833,-80.6803611,America/New_York,EAST
+KZEF,Elkin Muni,Elkin,NC,US,36.28,-80.7860556,America/New_York,EAST
+KZER,Schuylkill County,Pottsville,PA,US,40.7067508,-76.3737503,America/New_York,EAST
+KZPH,Zephyrhills Muni,Zephyrhills,FL,US,28.2266694,-82.1556453,America/New_York,EAST
+KZZV,Zanesville Muni,Zanesville,OH,US,39.9444461,-81.8920942,America/New_York,EAST
+PAAK,Atka,Atka,AK,US,52.2205833,-174.2061944,America/Adak,WEST
+PAAQ,"Warren ""Bud"" Woods Palmer Muni",Palmer,AK,US,61.5949167,-149.0887222,America/Anchorage,WEST
+PABE,Bethel,Bethel,AK,US,60.7785556,-161.8371667,America/Anchorage,WEST
+PABR,Wiley Post-Will Rogers,Utqiagvik,AK,US,71.2848611,-156.7685833,America/Anchorage,WEST
+PABV,Birchwood,Birchwood,AK,US,61.4160875,-149.5083098,America/Anchorage,WEST
+PACD,Cold Bay,Cold Bay,AK,US,55.2059167,-162.72625,America/Anchorage,WEST
+PACL,Clear,Clear,AK,US,64.3003889,-149.1165278,America/Anchorage,WEST
+PACV,Merle K (Mudhole) Smith,Cordova,AK,US,60.4916397,-145.4775578,America/Anchorage,WEST
+PADK,Adak,Adak Island,AK,US,51.8835828,-176.6424822,America/Adak,WEST
+PADL,Dillingham,Dillingham,AK,US,59.0446667,-158.5055,America/Anchorage,WEST
+PADQ,Kodiak,Kodiak,AK,US,57.7497939,-152.4939436,America/Anchorage,WEST
+PADU,Unalaska,Unalaska,AK,US,53.8989444,-166.5450278,America/Adak,WEST
+PAEN,Kenai Muni,Kenai,AK,US,60.5732778,-151.2448333,America/Anchorage,WEST
+PAFA,Fairbanks Intl,Fairbanks,AK,US,64.8153556,-147.8566667,America/Anchorage,WEST
+PAFE,Kake Airport,Kake,AK,US,56.9613625,-133.9102611,America/Anchorage,WEST
+PAGA,Edward G Pitka Sr,Galena,AK,US,64.7361897,-156.9345547,America/Anchorage,WEST
+PAGK,Gulkana,Gulkana,AK,US,62.1543347,-145.4552917,America/Anchorage,WEST
+PAGM,Gambell,Gambell,AK,US,63.7666164,-171.7327839,America/Anchorage,WEST
+PAGS,Gustavus,Gustavus,AK,US,58.4252778,-135.7074167,America/Anchorage,WEST
+PAGY,Skagway,Skagway,AK,US,59.4602,-135.3168597,America/Anchorage,WEST
+PAHN,Haines,Haines,AK,US,59.2438292,-135.5235375,America/Anchorage,WEST
+PAHO,Homer,Homer,AK,US,59.644995,-151.4858084,America/Anchorage,WEST
+PAHV,Healy River,Healy,AK,US,63.8675833,-148.9688333,America/Anchorage,WEST
+PAIL,Iliamna,Iliamna,AK,US,59.7555781,-154.9177523,America/Anchorage,WEST
+PAJN,Juneau Intl,Juneau,AK,US,58.3547118,-134.5784705,America/Anchorage,WEST
+PAKN,King Salmon,King Salmon,AK,US,58.6764935,-156.648691,America/Anchorage,WEST
+PAKT,Ketchikan Intl,Ketchikan,AK,US,55.3540833,-131.7112222,America/Anchorage,WEST
+PAKW,Klawock,Klawock,AK,US,55.5792222,-133.076,America/Anchorage,WEST
+PAMC,Mc Grath,Mc Grath,AK,US,62.9527839,-155.6070481,America/Anchorage,WEST
+PAMR,Merrill Field,Anchorage,AK,US,61.2135451,-149.8447241,America/Anchorage,WEST
+PANC,Anchorage Intl,Anchorage,AK,US,61.1740847,-149.9981375,America/Anchorage,WEST
+PANI,Aniak,Aniak,AK,US,61.5814053,-159.5452981,America/Anchorage,WEST
+PANN,Nenana Muni,Nenana,AK,US,64.5473,-149.073925,America/Anchorage,WEST
+PAOH,Hoonah,Hoonah,AK,US,58.0961992,-135.4087563,America/Anchorage,WEST
+PAOM,Nome,Nome,AK,US,64.512555,-165.4443939,America/Anchorage,WEST
+PAOR,Northway,Northway,AK,US,62.9611667,-141.9280833,America/Anchorage,WEST
+PAOT,Ralph Wien Meml,Kotzebue,AK,US,66.8848056,-162.5981389,America/Anchorage,WEST
+PAPB,St George,St George,AK,US,56.5773611,-169.6637222,America/Adak,WEST
+PAPG,Petersburg,Petersburg,AK,US,56.8014722,-132.9462222,America/Anchorage,WEST
+PAPO,Point Hope,Point Hope,AK,US,68.3487722,-166.7992611,America/Anchorage,WEST
+PASC,Deadhorse,Deadhorse,AK,US,70.1947541,-148.4651649,America/Anchorage,WEST
+PASD,Sand Point,Sand Point,AK,US,55.3136953,-160.5214247,America/Anchorage,WEST
+PASH,Shishmaref,Shishmaref,AK,US,66.2495833,-166.0893611,America/Anchorage,WEST
+PASI,Sitka Rocky Gutierrez,Sitka,AK,US,57.0468344,-135.3610687,America/Anchorage,WEST
+PASN,St Paul Island,St Paul Island,AK,US,57.1663056,-170.2225556,America/Adak,WEST
+PASX,Soldotna,Soldotna,AK,US,60.4751389,-151.0396389,America/Anchorage,WEST
+PATC,Tin City AFS,Tin City,AK,US,65.5639,-167.919,America/Anchorage,WEST
+PATK,Talkeetna,Talkeetna,AK,US,62.3213719,-150.0927183,America/Anchorage,WEST
+PAUN,Unalakleet,Unalakleet,AK,US,63.8885,-160.7991111,America/Anchorage,WEST
+PAUT,Akutan,Akutan,AK,US,54.1446111,-165.6041083,America/Anchorage,WEST
+PAVD,Valdez Pioneer Fld,Valdez,AK,US,61.1342219,-146.2447681,America/Anchorage,WEST
+PAWD,Seward,Seward,AK,US,60.1298859,-149.4166294,America/Anchorage,WEST
+PAWG,Wrangell,Wrangell,AK,US,56.4843333,-132.3698333,America/Anchorage,WEST
+PAWS,Wasilla,Wasilla,AK,US,61.5719861,-149.5395567,America/Anchorage,WEST
+PAYA,Yakutat,Yakutat,AK,US,59.5033233,-139.6602681,America/Anchorage,WEST
+PFTO,Tok Junction,Tok,AK,US,63.3295143,-142.953684,America/Anchorage,WEST
+PHDH,Kawaihapai Airfield,Mokuleia,HI,US,21.5794736,-158.1972814,Pacific/Honolulu,WEST
+PHHN,Hana,Hana,HI,US,20.7956372,-156.0144379,Pacific/Honolulu,WEST
+PHJR,Kalaeloa,Kapolei,HI,US,21.3073539,-158.0703017,Pacific/Honolulu,WEST
+PHKO,Ellison Onizuka Kona Intl At Keahole,Kailua/Kona,HI,US,19.738765,-156.0456311,Pacific/Honolulu,WEST
+PHLI,Lihue,Lihue,HI,US,21.9759833,-159.3389578,Pacific/Honolulu,WEST
+PHLU,Kalaupapa,Kalaupapa,HI,US,21.2110403,-156.9735972,Pacific/Honolulu,WEST
+PHMK,Molokai,Kaunakakai,HI,US,21.1528858,-157.0962561,Pacific/Honolulu,WEST
+PHMU,Waimea-Kohala,Kamuela,HI,US,20.0013269,-155.6681072,Pacific/Honolulu,WEST
+PHNL,Daniel K Inouye Intl,Honolulu,HI,US,21.3178247,-157.9202503,Pacific/Honolulu,WEST
+PHNY,Lanai,Lanai City,HI,US,20.7856111,-156.9514181,Pacific/Honolulu,WEST
+PHOG,Kahului,Kahului,HI,US,20.8986486,-156.4304586,Pacific/Honolulu,WEST
+PHPA,Port Allen,Hanapepe,HI,US,21.8969444,-159.6031667,Pacific/Honolulu,WEST
+PHTO,Hilo Intl,Hilo,HI,US,19.720263,-155.0484701,Pacific/Honolulu,WEST
+PHUP,Upolu,Hawi,HI,US,20.2651944,-155.8599444,Pacific/Honolulu,WEST

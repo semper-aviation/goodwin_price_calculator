@@ -1,0 +1,249 @@
+Below is a schema-driven Trip Planner design, similar to your KNOB_UI_TABS approach. It includes:
+
+a Trip planner UI schema (TRIP_PLANNER_SCHEMA)
+
+an empty trip state (EMPTY_TRIP)
+
+the recommended component breakdown (what React components you’d build)
+
+It matches your requirements:
+
+Trip type dropdown: One-way / Round-trip
+
+Category selector included
+
+Knobs unlock only when “tripComplete” is true
+
+1) Trip Planner schema types
+export type TripType = "ONE_WAY" | "ROUND_TRIP";
+export type CategoryId = "CAT2" | "CAT4" | "CAT6" | "CAT7" | "CAT8";
+
+export type TripInput = {
+  tripType?: TripType;
+  category?: CategoryId;
+
+  fromIcao?: string;
+  toIcao?: string;
+
+  departLocalISO?: string;  // "YYYY-MM-DDTHH:mm"
+  returnLocalISO?: string;  // required if ROUND_TRIP
+
+  passengers?: number;
+};
+
+export type TripUiField =
+  | {
+      type: "select";
+      path: keyof TripInput;
+      label: string;
+      why: string;
+      help: string;
+      options: { label: string; value: any }[];
+      required?: boolean;
+      enabledWhen?: string;
+    }
+  | {
+      type: "airport";
+      path: keyof TripInput;
+      label: string;
+      why: string;
+      help: string;
+      required?: boolean;
+      enabledWhen?: string;
+      placeholder?: string;
+    }
+  | {
+      type: "datetime";
+      path: keyof TripInput;
+      label: string;
+      why: string;
+      help: string;
+      required?: boolean;
+      enabledWhen?: string;
+      minNow?: boolean; // optional: prevent past dates
+    }
+  | {
+      type: "number";
+      path: keyof TripInput;
+      label: string;
+      why: string;
+      help: string;
+      required?: boolean;
+      enabledWhen?: string;
+      min?: number;
+      max?: number;
+      step?: number;
+    };
+
+export type TripUiSection = {
+  title: string;
+  description?: string;
+  fields: TripUiField[];
+};
+
+export type TripPlannerSchema = {
+  title: string;
+  sections: TripUiSection[];
+};
+
+2) Trip planner UI schema (FINAL)
+
+This is the “Trip Planner equivalent” of KNOB_UI_TABS.
+
+export const TRIP_PLANNER_SCHEMA: TripPlannerSchema = {
+  title: "Trip Planner",
+  sections: [
+    {
+      title: "Trip Basics",
+      description: "These fields define the scenario the calculator will price.",
+      fields: [
+        {
+          type: "select",
+          path: "tripType",
+          label: "Trip type",
+          why: "Determines whether we price one leg or an out-and-back itinerary.",
+          help:
+            "Trip type controls the passenger itinerary.\n\n" +
+            "- One-way: origin → destination\n" +
+            "- Round-trip: origin → destination → origin\n\n" +
+            "Some fees (like overnights) apply only to round-trips.",
+          options: [
+            { label: "One-way", value: "ONE_WAY" },
+            { label: "Round-trip", value: "ROUND_TRIP" }
+          ],
+          required: true
+        },
+        {
+          type: "select",
+          path: "category",
+          label: "Aircraft category",
+          why: "Sets a speed baseline used to estimate flight time (and therefore cost).",
+          help:
+            "Aircraft category is used as a performance baseline for time estimates.\n\n" +
+            "If you later model specific aircraft, category can still be used for defaults.",
+          options: [
+            { label: "CAT2 — Turboprop", value: "CAT2" },
+            { label: "CAT4 — Light Jet", value: "CAT4" },
+            { label: "CAT6 — Mid-Size Jet", value: "CAT6" },
+            { label: "CAT7 — Heavy Jet", value: "CAT7" },
+            { label: "CAT8 — Heavy+ / Large Cabin", value: "CAT8" }
+          ],
+          required: true
+        }
+      ]
+    },
+
+    {
+      title: "Route",
+      description: "Where the aircraft is flying.",
+      fields: [
+        {
+          type: "airport",
+          path: "fromIcao",
+          label: "From airport (ICAO)",
+          why: "Trip origin airport. Used to compute flight time and repo.",
+          help:
+            "Enter an ICAO airport code (e.g., KTEB).\n\n" +
+            "This airport anchors:\n" +
+            "- occupied leg flight time\n" +
+            "- repositioning (repo) legs\n" +
+            "- high-density / landing fee checks",
+          placeholder: "e.g., KTEB",
+          required: true
+        },
+        {
+          type: "airport",
+          path: "toIcao",
+          label: "To airport (ICAO)",
+          why: "Trip destination airport. Used to compute flight time and repo.",
+          help:
+            "Enter an ICAO airport code (e.g., KMIA).\n\n" +
+            "This airport anchors:\n" +
+            "- occupied leg flight time\n" +
+            "- repositioning (repo) legs\n" +
+            "- fee checks (HD, landing, overnight)",
+          placeholder: "e.g., KMIA",
+          required: true
+        }
+      ]
+    },
+
+    {
+      title: "Schedule",
+      description: "When the trip happens. Used for eligibility checks and calendar-day fees.",
+      fields: [
+        {
+          type: "datetime",
+          path: "departLocalISO",
+          label: "Departure (local)",
+          why: "Used to compute advance booking window and calendar days touched.",
+          help:
+            "Departure time is used for:\n" +
+            "- advance booking eligibility (max advance days)\n" +
+            "- determining calendar days touched (daily fees)\n" +
+            "- overnight calculations (round trips)",
+          required: true
+        },
+        {
+          type: "datetime",
+          path: "returnLocalISO",
+          label: "Return (local)",
+          why: "Only required for round-trips. Used to compute overnights and day counts.",
+          help:
+            "Return time is used for:\n" +
+            "- counting overnights\n" +
+            "- splitting trips (if overnights exceed threshold)\n" +
+            "- daily fee calculations (calendar days touched)",
+          required: true,
+          enabledWhen: "trip.tripType === 'ROUND_TRIP'"
+        }
+      ]
+    },
+
+    {
+      title: "Optional",
+      description: "Not required for a quote, but can trigger constraints (like pax limits).",
+      fields: [
+        {
+          type: "number",
+          path: "passengers",
+          label: "Passengers",
+          why: "Used for eligibility checks if pax limits are enabled.",
+          help:
+            "Passenger count can trigger eligibility rules.\n\n" +
+            "If 'maxPassengers' is set in eligibility knobs, exceeding it will reject the quote.",
+          min: 1,
+          max: 19,
+          step: 1,
+          required: false
+        }
+      ]
+    }
+  ]
+};
+
+3) Empty trip state (start with no values)
+export const EMPTY_TRIP: TripInput = {
+  tripType: undefined,
+  category: undefined,
+  fromIcao: undefined,
+  toIcao: undefined,
+  departLocalISO: undefined,
+  returnLocalISO: undefined,
+  passengers: undefined
+};
+
+4) Trip completeness (what unlocks the knobs)
+
+Use this exact logic for gating the knobs panel:
+
+export function isTripComplete(trip: TripInput): boolean {
+  if (!trip.tripType) return false;
+  if (!trip.category) return false;
+  if (!trip.fromIcao || !trip.toIcao) return false;
+  if (!trip.departLocalISO) return false;
+
+  if (trip.tripType === "ROUND_TRIP" && !trip.returnLocalISO) return false;
+
+  return true;
+}
