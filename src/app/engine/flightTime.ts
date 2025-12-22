@@ -15,6 +15,7 @@ export async function calcFlightSeconds(
   trip: TripInput
 ): Promise<number[]> {
   const fallback = () => {
+    console.log("Using fallback flight time calculations")
     const speed = categoryAvgSpeedKnots(category)
     return legs.map((l) => {
       const dNm = haversineNm(l.from.lat, l.from.lon, l.to.lat, l.to.lon)
@@ -23,9 +24,15 @@ export async function calcFlightSeconds(
     })
   }
 
-  const modelsForCategory = aircraftModels.filter(
-    (model) => model.guid === category && model.model_id
-  )
+  const selectedModelId = trip.aircraftModelId
+  const selectedModel =
+    selectedModelId &&
+    aircraftModels.find((model) => model.model_id === selectedModelId)
+  const modelsForCategory = selectedModel
+    ? [selectedModel]
+    : aircraftModels.filter(
+        (model) => model.guid === category && model.model_id
+      )
 
   if (modelsForCategory.length === 0) {
     return fallback()
@@ -64,10 +71,10 @@ export async function calcFlightSeconds(
         Math.max(0, Math.round(total / modelCount))
       )
     }
-  } catch {
+  } catch (error) {
+    console.warn("Flight time API error, using fallback calculations", error)
     return fallback()
   }
-
   return fallback()
 }
 
@@ -125,14 +132,14 @@ function buildFlightLegsInput(
       )
 
       return {
-      originIcao: leg.from.icao,
-      destinationIcao: leg.to.icao,
-      departDate: date,
-      departTime: time,
-      originLat: leg.from.lat,
-      originLon: leg.from.lon,
-      destinationLat: leg.to.lat,
-      destinationLon: leg.to.lon,
+        originIcao: leg.from.icao,
+        destinationIcao: leg.to.icao,
+        departDate: date,
+        departTime: time,
+        originLat: leg.from.lat,
+        originLon: leg.from.lon,
+        destinationLat: leg.to.lat,
+        destinationLon: leg.to.lon,
       }
     }),
   }
@@ -152,11 +159,7 @@ function pickLegDateTime(
     if (index > lastOccupiedIdx && lastOccupiedIdx >= 0) {
       return formatDateTime(returnDateTime)
     }
-    if (
-      leg.kind === "REPO" &&
-      firstOccupiedIdx >= 0 &&
-      lastOccupiedIdx >= 0
-    ) {
+    if (leg.kind === "REPO" && firstOccupiedIdx >= 0 && lastOccupiedIdx >= 0) {
       const position = index < firstOccupiedIdx ? "outbound" : "inbound"
       return position === "inbound"
         ? formatDateTime(returnDateTime)

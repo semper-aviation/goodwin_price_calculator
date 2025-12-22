@@ -73,10 +73,13 @@ export const calculateFlightTimeForModels = async (input: {
   addTaxiTime?: boolean
 }): Promise<Record<string, ICalculatedFlightTime>> => {
   const { aircraftModels, flightLegs, addTaxiTime = true } = input
-  const baseUrl = process.env.FLIGHT_TIME_CALCULATOR_BASE_URL
-  const apiKey = process.env.FLIGHT_TIME_CALCULATOR_KEY
+  const baseUrl = process.env.NEXT_PUBLIC_FLIGHT_TIME_CALCULATOR_BASE_URL
+  const apiKey = process.env.NEXT_PUBLIC_FLIGHT_TIME_CALCULATOR_KEY
 
   if (!baseUrl || !apiKey) {
+    console.warn(
+      "Flight time API configuration missing, using fallback calculations"
+    )
     return Object.fromEntries(
       aircraftModels.map((model) => [
         model.modelId,

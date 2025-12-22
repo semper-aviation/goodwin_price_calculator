@@ -264,18 +264,42 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             type: "number",
             path: "fees.groundHandling.perSegmentAmount",
             label: "Ground handling ($/segment)",
-            why: "Flat fee per flight segment.",
-            help: "Applied per occupied segment unless configured otherwise.",
+            why: "Flat fee per segment (you control which legs count).",
+            help:
+              "Adds a flat fee per segment.\n\n" +
+              "Tip: If you set this to $100 and apply it to occupied-only segments, a one-way trip charges once.\n" +
+              "If you apply it to all legs, repo legs will also count.",
             min: 0,
             step: 100,
             enabledWhen: "tripComplete",
           },
+          // NEW: appliesTo for ground handling
+          {
+            type: "select",
+            path: "fees.groundHandling.appliesTo",
+            label: "Ground handling applies to",
+            why: "Controls which segments are counted for ground handling fees.",
+            help:
+              "Choose which legs count as 'segments' for ground handling.\n\n" +
+              "- Occupied only: counts passenger legs only (most common)\n" +
+              "- All legs: counts passenger legs + repo legs\n\n" +
+              "This is helpful when modeling fees that should also apply to reposition flying.",
+            options: [
+              { label: "Occupied only", value: "occupied_only" },
+              { label: "All legs (occupied + repo)", value: "all_legs" },
+            ],
+            enabledWhen:
+              "tripComplete && fees.groundHandling.perSegmentAmount > 0",
+          },
+
           {
             type: "airportMulti",
             path: "fees.highDensity.airports",
             label: "High-density airports",
             why: "Airports that trigger congestion fees.",
-            help: "Visiting these airports adds an extra fee per rules below.",
+            help:
+              "These airports are treated as 'high density'.\n" +
+              "If the trip touches them, the calculator can add a fee per visit (based on the counting mode below).",
             enabledWhen: "tripComplete",
           },
           {
@@ -283,10 +307,66 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             path: "fees.highDensity.feePerVisit",
             label: "HD fee per visit",
             why: "Charge per visit to a high-density airport.",
-            help: "Counting method is defined separately.",
+            help:
+              "Sets the dollar amount charged per 'visit'.\n" +
+              "What counts as a visit depends on the counting mode below.",
             min: 0,
             step: 100,
             enabledWhen: "tripComplete",
+          },
+          // NEW: countingMode for high density
+          {
+            type: "select",
+            path: "fees.highDensity.countingMode",
+            label: "HD counting mode",
+            why: "Defines what counts as a 'visit' to a high-density airport.",
+            help:
+              "Controls how HD visits are counted:\n\n" +
+              "- Segment endpoints (occupied only): counts BOTH from and to airports for each occupied leg.\n" +
+              "  Example (one-way A→B): A counts once, B counts once.\n\n" +
+              "- Arrivals only (occupied only): counts only the arrival airport (to) for each occupied leg.\n" +
+              "  Example (one-way A→B): only B counts.\n\n" +
+              "- Landings (all legs): counts the arrival airport (to) for every leg, including repo.\n" +
+              "  Use this when you want repo landings to also trigger HD fees.",
+            options: [
+              {
+                label: "Segment endpoints (occupied legs)",
+                value: "segment_endpoints",
+              },
+              {
+                label: "Arrivals only (occupied legs)",
+                value: "arrivals_only",
+              },
+              { label: "Landings (all legs incl repo)", value: "landings" },
+            ],
+            enabledWhen:
+              "tripComplete && fees.highDensity.feePerVisit > 0 && fees.highDensity.airports",
+          },
+          // NEW: RT origin double charge
+          {
+            type: "toggle",
+            path: "fees.highDensity.roundTripOriginDoubleCharge",
+            label: "Round-trip: double-charge origin if HD",
+            why: "Some operators charge an extra HD fee because the origin is visited twice on a round trip.",
+            help:
+              "When enabled (ROUND_TRIP only): if the trip origin is in the HD airport list, add +1 extra visit.\n\n" +
+              "This models cases where the origin airport is effectively visited twice (depart and return).",
+            enabledWhen:
+              "tripComplete && trip.tripType === 'ROUND_TRIP' && fees.highDensity.feePerVisit > 0",
+          },
+          // NEW: trip cap
+          {
+            type: "number",
+            path: "fees.highDensity.tripCap",
+            label: "HD fee trip cap ($)",
+            why: "Limits HD fees to a maximum per trip.",
+            help:
+              "If set, the total HD fee is capped at this amount.\n" +
+              "Example: feePerVisit=$1,000 and visits=3 => $3,000; cap=$2,000 => charges $2,000.",
+            min: 0,
+            step: 100,
+            enabledWhen:
+              "tripComplete && fees.highDensity.feePerVisit > 0 && fees.highDensity.airports",
           },
         ],
       },

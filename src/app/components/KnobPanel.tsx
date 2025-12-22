@@ -493,15 +493,38 @@ export default function KnobPanel({
 
   function evaluateCondition(condition: string) {
     if (condition === "tripComplete") return tripComplete
-    const equalsMatch = condition.match(/^(.+?)\\s*===\\s*'(.+)'$/)
+    const equalsMatch = condition.match(/^(.+?)\s*===\s*'(.+)'$/)
     if (equalsMatch) {
       const [, path, expected] = equalsMatch
       return String(getFieldValue(path.trim())) === expected
     }
-    const notEqualsMatch = condition.match(/^(.+?)\\s*!==\\s*'(.+)'$/)
+    const notEqualsMatch = condition.match(/^(.+?)\s*!==\s*'(.+)'$/)
     if (notEqualsMatch) {
       const [, path, expected] = notEqualsMatch
       return String(getFieldValue(path.trim())) !== expected
+    }
+    const compareMatch = condition.match(/^(.+?)\s*(>=|<=|>|<)\s*([\d.]+)$/)
+    if (compareMatch) {
+      const [, path, operator, raw] = compareMatch
+      const leftValue = getFieldValue(path.trim())
+      const leftNumber =
+        typeof leftValue === "number"
+          ? leftValue
+          : Number(leftValue ?? NaN)
+      const rightNumber = Number(raw)
+      if (Number.isNaN(leftNumber) || Number.isNaN(rightNumber)) return false
+      switch (operator) {
+        case ">":
+          return leftNumber > rightNumber
+        case ">=":
+          return leftNumber >= rightNumber
+        case "<":
+          return leftNumber < rightNumber
+        case "<=":
+          return leftNumber <= rightNumber
+        default:
+          return false
+      }
     }
     const value = getFieldValue(condition)
     return Boolean(value)

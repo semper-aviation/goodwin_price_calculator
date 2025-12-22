@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Goodwin - Price Calculator",
   description: "Price calculator",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"
+  ),
   icons: [
     { rel: "shortcut icon", url: "/goodwin_calc.png", type: "image/x-icon" },
   ],

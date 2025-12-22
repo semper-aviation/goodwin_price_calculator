@@ -272,7 +272,7 @@ type AircraftModelOption = {
 const AIRCRAFT_MODEL_OPTIONS: AircraftModelOption[] = AIRCRAFT_MODELS.map(
   (model) => ({
     label: model.name!,
-    value: model.name!,
+    value: model.model_id,
     category: model.guid!,
   })
 )
@@ -425,6 +425,7 @@ function AircraftModelDropdownField({
   const [open, setOpen] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
   const [hasTyped, setHasTyped] = useState(false)
+  const selectedLabel = value ? options.find((opt) => opt.value === value)?.label : undefined
 
   const suggestions = useMemo(() => {
     if (!hasTyped) return options.slice(0, 10)
@@ -447,7 +448,7 @@ function AircraftModelDropdownField({
           type="text"
           className={`${CONTROL_CLASSES} h-11 pr-10 leading-5`}
           placeholder="Type aircraft model..."
-          value={isEditing ? query : value ?? ""}
+          value={isEditing ? query : selectedLabel ?? ""}
           onChange={(e) => {
             setQuery(e.target.value)
             setHasTyped(true)
@@ -457,7 +458,7 @@ function AircraftModelDropdownField({
             }
           }}
           onFocus={() => {
-            setQuery(value ?? "")
+            setQuery(selectedLabel ?? "")
             setHasTyped(false)
             setIsEditing(true)
             setOpen(true)
@@ -614,10 +615,15 @@ function Field({
 // --- Main TripPlanner ---
 export default function TripPlanner({
   onTripChangeAction,
+  initialTrip,
 }: {
   onTripChangeAction?: (trip: TripInput, complete: boolean) => void
+  initialTrip?: TripInput
 }) {
-  const [trip, setTrip] = useState<TripInput>({ ...EMPTY_TRIP })
+  const [trip, setTrip] = useState<TripInput>(() => ({
+    ...EMPTY_TRIP,
+    ...(initialTrip ?? {}),
+  }))
 
   useEffect(() => {
     if (onTripChangeAction) onTripChangeAction(trip, isTripComplete(trip))
@@ -674,6 +680,9 @@ export default function TripPlanner({
                     if (!stillValid) {
                       nextTrip.aircraftModel = undefined
                     }
+                  } else {
+                    // If category is cleared, also clear aircraft model
+                    nextTrip.aircraftModel = undefined
                   }
                   return nextTrip
                 })

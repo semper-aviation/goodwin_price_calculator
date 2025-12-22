@@ -148,3 +148,23 @@ export function buildOccupiedLegs(trip: TripInput): NormalizedLeg[] {
         { kind: "OCCUPIED", from: trip.to, to: trip.from },
       ]
 }
+
+export function money(n: number | undefined) {
+  if (typeof n !== "number" || Number.isNaN(n)) return "—"
+  return n.toLocaleString(undefined, {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  })
+}
+
+export function hours(n: number | undefined) {
+  if (typeof n !== "number" || Number.isNaN(n)) return "—"
+  return `${n.toFixed(2)}h`
+}
+
+export function badgeClasses(kind: "OCCUPIED" | "REPO") {
+  return kind === "OCCUPIED"
+    ? "bg-slate-900 text-white px-3 py-1"
+    : "bg-slate-100 text-slate-700 border border-slate-200 px-3 py-1"
+}

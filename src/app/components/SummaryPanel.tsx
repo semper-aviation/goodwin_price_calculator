@@ -6,6 +6,7 @@ import type {
   TripInput as ApiTripInput,
 } from "../engine/quoteRequest"
 import type { TripInput } from "./TripPlanner"
+import aircraftModels from "../data/aircraftModels"
 
 type SummaryPanelProps = {
   tripPayload: ApiTripInput | null
@@ -19,6 +20,12 @@ type SummaryPanelProps = {
 function formatAirportLabel(airport: Airport | undefined | null) {
   if (!airport) return "—"
   return `${airport.icao}, ${airport.state}`
+}
+
+function formatAircraftModelLabel(modelId?: string) {
+  if (!modelId) return "—"
+  const model = aircraftModels.find((item) => item.model_id === modelId)
+  return model?.name ?? modelId
 }
 
 function formatAirportList(airports: Airport[] | undefined) {
@@ -45,7 +52,10 @@ export default function SummaryPanel({
   if (tripDraft?.category)
     fields.push({ label: "Category", value: tripDraft.category })
   if (tripDraft?.aircraftModel)
-    fields.push({ label: "Model", value: tripDraft.aircraftModel })
+    fields.push({
+      label: "Model",
+      value: formatAircraftModelLabel(tripDraft.aircraftModel),
+    })
   if (typeof tripDraft?.passengers === "number")
     fields.push({ label: "Passengers", value: tripDraft.passengers })
   if (tripDraft?.fromIcao)

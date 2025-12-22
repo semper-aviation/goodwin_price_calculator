@@ -29,7 +29,7 @@ export async function quoteEngine(
   payload: QuoteRequestPayload
 ): Promise<QuoteResult> {
   const now = new Date()
-
+  console.log("Payload received by quoteEngine:", payload)
   const basic = validateBasics(payload)
   if (basic) return basic
 
@@ -115,11 +115,7 @@ async function quoteOneItinerary(
 
   const allLegs = [...repoBuild.legsOut, ...occupiedLegs, ...repoBuild.legsBack]
 
-  const actualSeconds = await calcFlightSeconds(
-    allLegs,
-    trip.category,
-    trip
-  )
+  const actualSeconds = await calcFlightSeconds(allLegs, trip.category, trip)
 
   const timeR = applyTimeAdjustmentsAndValidate({
     trip,

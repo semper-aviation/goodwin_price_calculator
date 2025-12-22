@@ -44,6 +44,7 @@ export type Airport = {
 export type TripInput = {
   tripType: TripType
   category: CategoryId
+  aircraftModelId?: string
   from: Airport
   to: Airport
   departLocalISO: string

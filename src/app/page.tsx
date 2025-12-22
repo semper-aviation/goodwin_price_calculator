@@ -2,7 +2,7 @@
 
 // --- Layout and component skeletons for CalculatorPage ---
 
-import { useMemo, useRef, useState } from "react"
+import { useMemo, useRef, useState, type ChangeEvent } from "react"
 import Header from "./components/Header"
 import TripPlanner, { type TripInput } from "./components/TripPlanner"
 import KnobPanel from "./components/KnobPanel"
@@ -16,10 +16,22 @@ import {
   type QuoteRequestPayload,
   type TripInput as ApiTripInput,
 } from "./engine/quoteRequest"
+import { quoteEngine } from "./engine"
+import type { QuoteResult } from "./engine/quoteResult"
 import airportsData from "./data/airports"
 import { logQuoteRequest } from "./services/calculatePricing"
 
 type KnobValues = Record<string, string | number | boolean | undefined>
+const TRIP_KEYS: Array<keyof TripInput> = [
+  "tripType",
+  "category",
+  "aircraftModel",
+  "fromIcao",
+  "toIcao",
+  "departLocalISO",
+  "returnLocalISO",
+  "passengers",
+]
 
 const airportsByIcao = new Map(
   airportsData.map((airport) => [airport.icao, airport])
@@ -145,6 +157,20 @@ function isPlainObject(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value)
 }
 
+function areTripValuesEqual(a: TripInput | null, b: TripInput | null) {
+  if (a === b) return true
+  if (!a || !b) return false
+  return TRIP_KEYS.every((key) => a[key] === b[key])
+}
+
+function areKnobValuesEqual(a: KnobValues, b: KnobValues) {
+  if (a === b) return true
+  const aKeys = Object.keys(a)
+  const bKeys = Object.keys(b)
+  if (aKeys.length !== bKeys.length) return false
+  return aKeys.every((key) => a[key] === b[key])
+}
+
 function mergeDeep(
   base: Record<string, unknown>,
   override: Record<string, unknown>
@@ -207,6 +233,7 @@ function buildTripInput(trip: TripInput): ApiTripInput | null {
   return {
     tripType: trip.tripType as ApiTripInput["tripType"],
     category: trip.category as CategoryId,
+    aircraftModelId: trip.aircraftModel || undefined,
     from: fromAirport,
     to: toAirport,
     departLocalISO: trip.departLocalISO,
@@ -236,7 +263,7 @@ const DEFAULT_KNOBS: PricingKnobs = {
   fees: {},
   eligibility: {
     domesticOnly: true,
-    maxAdvanceDays: 0,
+    maxAdvanceDays: 60,
   },
   results: {
     selection: "lowest",
@@ -249,10 +276,15 @@ export default function CalculatorPage() {
   const [tripComplete, setTripComplete] = useState(false)
   const [isCalculating, setIsCalculating] = useState(false)
   const [trip, setTrip] = useState<TripInput | null>(null)
+  const [quote, setQuote] = useState<QuoteResult | null>(null)
+  const [tripSeed, setTripSeed] = useState(0)
+  const [knobSeed, setKnobSeed] = useState(0)
   const defaultKnobValues = useMemo(
     () => buildDefaultKnobValues(DEFAULT_KNOBS),
     []
   )
+  const [knobDefaults, setKnobDefaults] =
+    useState<KnobValues>(defaultKnobValues)
   const [knobValues, setKnobValues] =
     useState<KnobValues>(defaultKnobValues)
   const mergedKnobs = useMemo(
@@ -265,29 +297,91 @@ export default function CalculatorPage() {
   )
   const knobsReady = useMemo(() => isKnobsReady(mergedKnobs), [mergedKnobs])
   const resultsRef = useRef<HTMLDivElement>(null)
+  const importInputRef = useRef<HTMLInputElement>(null)
 
   const tripPayload = useMemo(() => {
     if (!trip) return null
     return buildTripInput(trip)
   }, [trip])
 
-  const handleCalculate = () => {
+  const handleCalculate = async () => {
     if (!tripComplete || isCalculating || !knobsReady) return
+    if (!tripPayload) return
     setIsCalculating(true)
-    setTimeout(() => {
-      setIsCalculating(false)
-      if (tripPayload) {
-        const payload: QuoteRequestPayload = {
-          trip: tripPayload,
-          knobs: mergedKnobs,
-        }
-        logQuoteRequest(payload)
+    try {
+      const payload: QuoteRequestPayload = {
+        trip: tripPayload,
+        knobs: mergedKnobs,
       }
+      logQuoteRequest(payload)
+      const result = await quoteEngine(payload)
+      setQuote(result)
+    } catch (error) {
+      console.warn("Quote engine failed", error)
+      setQuote(null)
+    } finally {
+      setIsCalculating(false)
       resultsRef.current?.scrollIntoView({
         behavior: "smooth",
         block: "start",
       })
-    }, 900)
+    }
+  }
+
+  const canExport = tripComplete && !isCalculating && knobsReady
+
+  const handleExport = () => {
+    if (!canExport || !trip) return
+    const payload = {
+      version: 1,
+      trip,
+      knobs: knobValues,
+      quote,
+    }
+    const blob = new Blob([JSON.stringify(payload, null, 2)], {
+      type: "application/json",
+    })
+    const url = URL.createObjectURL(blob)
+    const anchor = document.createElement("a")
+    anchor.href = url
+    anchor.download = `goodwin-quote-${new Date()
+      .toISOString()
+      .slice(0, 19)
+      .replace(/[:T]/g, "-")}.json`
+    anchor.click()
+    URL.revokeObjectURL(url)
+  }
+
+  const handleImport = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (!file) return
+    try {
+      const text = await file.text()
+      const data = JSON.parse(text) as {
+        trip?: TripInput
+        knobs?: KnobValues
+        quote?: QuoteResult | null
+      }
+      if (data.trip) {
+        setTrip(data.trip)
+        setTripComplete(false)
+        setTripSeed((prev) => prev + 1)
+      }
+      if (data.knobs) {
+        setKnobDefaults(data.knobs)
+        setKnobValues(data.knobs)
+        setKnobSeed((prev) => prev + 1)
+      }
+      if (data.quote) {
+        setQuote(data.quote)
+      } else {
+        setQuote(null)
+      }
+    } catch (error) {
+      console.warn("Failed to import data", error)
+    } finally {
+      event.target.value = ""
+    }
   }
 
   return (
@@ -298,49 +392,78 @@ export default function CalculatorPage() {
         <div className="flex justify-end gap-2">
           <button
             type="button"
+            onClick={() => importInputRef.current?.click()}
             className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-600 transition hover:border-slate-300 hover:text-slate-800"
           >
             Import
           </button>
           <button
             type="button"
-            className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-600 transition hover:border-slate-300 hover:text-slate-800"
+            onClick={handleExport}
+            disabled={!canExport}
+            className={`rounded-lg border px-3 py-2 text-xs font-semibold transition ${
+              canExport
+                ? "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-800"
+                : "cursor-not-allowed border-slate-200 bg-slate-100 text-slate-400"
+            }`}
           >
             Export
           </button>
+          <input
+            ref={importInputRef}
+            type="file"
+            accept="application/json"
+            style={{ display: 'none' }}
+            onChange={handleImport}
+            tabIndex={-1}
+            aria-hidden="true"
+          />
         </div>
 
         {/* Top row: TripPlanner, KnobPanel */}
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
           <div className="lg:w-[45%]">
             <TripPlanner
+              key={`trip-${tripSeed}`}
+              initialTrip={trip ?? undefined}
               onTripChangeAction={(nextTrip, complete) => {
-                setTrip(nextTrip)
+                setTrip((prev) => {
+                  if (areTripValuesEqual(prev, nextTrip)) return prev
+                  setQuote(null)
+                  return nextTrip
+                })
                 setTripComplete(complete)
               }}
             />
           </div>
           <div className="lg:w-[55%]">
             <KnobPanel
+              key={`knobs-${knobSeed}`}
               tripComplete={tripComplete}
-              onKnobsChangeAction={setKnobValues}
-              defaultValues={defaultKnobValues}
+              onKnobsChangeAction={(values) => {
+                setKnobValues((prev) => {
+                  if (areKnobValuesEqual(prev, values)) return prev
+                  setQuote(null)
+                  return values
+                })
+              }}
+              defaultValues={knobDefaults}
             />
           </div>
         </div>
 
-          <SummaryPanel
-            tripPayload={tripPayload}
-            tripDraft={trip}
-            knobs={mergedKnobs}
-            isCalculating={isCalculating}
-            canCalculate={tripComplete && !isCalculating && knobsReady}
-            onCalculateAction={handleCalculate}
-          />
+        <SummaryPanel
+          tripPayload={tripPayload}
+          tripDraft={trip}
+          knobs={mergedKnobs}
+          isCalculating={isCalculating}
+          canCalculate={tripComplete && !isCalculating && knobsReady}
+          onCalculateAction={handleCalculate}
+        />
 
         {/* Results */}
         <div ref={resultsRef}>
-          <ResultsPanel />
+          <ResultsPanel quote={quote} />
         </div>
       </div>
     </div>
