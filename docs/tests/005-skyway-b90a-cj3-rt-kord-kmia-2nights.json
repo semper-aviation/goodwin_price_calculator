@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "trip": {
+    "tripType": "ROUND_TRIP",
+    "category": "CAT4",
+    "departLocalISO": "2026-02-15T10:00",
+    "returnLocalISO": "2025-01-17T15:00",
+    "passengers": 5,
+    "fromIcao": "KORD",
+    "toIcao": "KMIA"
+  },
+  "knobs": {
+    "repo.mode": "vhb_network",
+    "repo.policy": "both",
+    "repo.vhbSets.default": "KORD, KMIA",
+    "repo.vhbSelection": "closest_by_distance",
+    "time.taxiHoursPerLeg": 0.2,
+    "time.bufferHoursPerLeg": 0.0,
+    "time.applyTo": "both",
+    "pricing.currency": "USD",
+    "pricing.rateModel": "single_hourly",
+    "pricing.hourlyRate": 4000,
+    "fees.groundHandling.perSegmentAmount": 0,
+    "fees.groundHandling.appliesTo": "occupied_only",
+    "fees.highDensity.feePerVisit": 0,
+    "fees.highDensity.countingMode": "arrivals_only",
+    "fees.landingFees.countingMode": "arrivals_only",
+    "fees.landingFees.defaultAmount": 0,
+    "fees.overnight.amountPerNight": 1200,
+    "fees.overnight.appliesWhen": "round_trip_only",
+    "fees.overnight.maxNightsBeforeSplit": 3,
+    "fees.daily.amountPerCalendarDay": 0,
+    "fees.daily.calendarDayCounting": "unique_dates_touched",
+    "eligibility.domesticOnly": true,
+    "eligibility.maxAdvanceDays": 90,
+    "results.selection": "all",
+    "results.rankMetric": "price"
+  },
+  "quote": null,
+  "name": "skyway-b90a-cj3-rt-kord-kmia-2nights"
+}

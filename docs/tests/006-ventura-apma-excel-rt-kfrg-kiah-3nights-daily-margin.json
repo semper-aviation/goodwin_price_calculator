@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "trip": {
+    "tripType": "ROUND_TRIP",
+    "category": "CAT6",
+    "departLocalISO": "2026-02-15T09:00",
+    "returnLocalISO": "2025-01-18T15:00",
+    "passengers": 7,
+    "fromIcao": "KFRG",
+    "toIcao": "KIAH"
+  },
+  "knobs": {
+    "repo.mode": "vhb_network",
+    "repo.policy": "inbound_only",
+    "repo.vhbSets.default": "KTEP",
+    "repo.vhbSelection": "closest_by_distance",
+    "time.taxiHoursPerLeg": 0.0,
+    "time.bufferHoursPerLeg": 0.0,
+    "time.applyTo": "both",
+    "pricing.currency": "USD",
+    "pricing.rateModel": "single_hourly",
+    "pricing.hourlyRate": 3300,
+    "fees.groundHandling.perSegmentAmount": 0,
+    "fees.groundHandling.appliesTo": "occupied_only",
+    "fees.highDensity.feePerVisit": 0,
+    "fees.highDensity.countingMode": "arrivals_only",
+    "fees.landingFees.countingMode": "arrivals_only",
+    "fees.landingFees.defaultAmount": 0,
+    "fees.overnight.amountPerNight": 0,
+    "fees.overnight.appliesWhen": "none",
+    "fees.daily.amountPerCalendarDay": 6500,
+    "fees.daily.calendarDayCounting": "unique_dates_touched",
+    "eligibility.domesticOnly": true,
+    "eligibility.maxAdvanceDays": 90,
+    "results.selection": "all",
+    "results.rankMetric": "price"
+  },
+  "quote": null,
+  "name": "ventura-apma-excel-rt-kfrg-kiah-3nights-daily-margin"
+}

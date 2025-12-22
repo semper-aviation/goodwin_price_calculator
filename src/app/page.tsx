@@ -171,6 +171,22 @@ function areKnobValuesEqual(a: KnobValues, b: KnobValues) {
   return aKeys.every((key) => a[key] === b[key])
 }
 
+function buildExportName(trip: TripInput | null) {
+  if (!trip) return "untitled"
+  const parts = [
+    trip.tripType ?? "trip",
+    trip.category ?? "cat",
+    trip.fromIcao ?? "from",
+    trip.toIcao ?? "to",
+  ]
+  return parts
+    .join("-")
+    .toLowerCase()
+    .replace(/[^a-z0-9-]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "")
+}
+
 function mergeDeep(
   base: Record<string, unknown>,
   override: Record<string, unknown>
@@ -277,6 +293,7 @@ export default function CalculatorPage() {
   const [isCalculating, setIsCalculating] = useState(false)
   const [trip, setTrip] = useState<TripInput | null>(null)
   const [quote, setQuote] = useState<QuoteResult | null>(null)
+  const [importName, setImportName] = useState<string | null>(null)
   const [tripSeed, setTripSeed] = useState(0)
   const [knobSeed, setKnobSeed] = useState(0)
   const defaultKnobValues = useMemo(
@@ -332,8 +349,10 @@ export default function CalculatorPage() {
 
   const handleExport = () => {
     if (!canExport || !trip) return
+    const exportName = importName ?? buildExportName(trip)
     const payload = {
       version: 1,
+      name: exportName,
       trip,
       knobs: knobValues,
       quote,
@@ -344,7 +363,7 @@ export default function CalculatorPage() {
     const url = URL.createObjectURL(blob)
     const anchor = document.createElement("a")
     anchor.href = url
-    anchor.download = `goodwin-quote-${new Date()
+    anchor.download = `${exportName}-${new Date()
       .toISOString()
       .slice(0, 19)
       .replace(/[:T]/g, "-")}.json`
@@ -358,10 +377,12 @@ export default function CalculatorPage() {
     try {
       const text = await file.text()
       const data = JSON.parse(text) as {
+        name?: string
         trip?: TripInput
         knobs?: KnobValues
         quote?: QuoteResult | null
       }
+      setImportName(data.name ?? null)
       if (data.trip) {
         setTrip(data.trip)
         setTripComplete(false)
@@ -421,6 +442,12 @@ export default function CalculatorPage() {
         </div>
 
         {/* Top row: TripPlanner, KnobPanel */}
+        {importName ? (
+          <div className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold uppercase tracking-widest text-slate-600">
+            {importName}
+          </div>
+        ) : null}
+
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
           <div className="lg:w-[45%]">
             <TripPlanner
@@ -430,6 +457,7 @@ export default function CalculatorPage() {
                 setTrip((prev) => {
                   if (areTripValuesEqual(prev, nextTrip)) return prev
                   setQuote(null)
+                  setImportName(null)
                   return nextTrip
                 })
                 setTripComplete(complete)
@@ -444,6 +472,7 @@ export default function CalculatorPage() {
                 setKnobValues((prev) => {
                   if (areKnobValuesEqual(prev, values)) return prev
                   setQuote(null)
+                  setImportName(null)
                   return values
                 })
               }}
