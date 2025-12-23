@@ -118,7 +118,7 @@ export type PricingKnobs = {
       tripCap?: number
     }
     landingFees?: {
-      countingMode: "arrivals_only" | "landings_including_repo"
+      countingMode: "arrivals_only" | "landings"
       defaultAmount: number
       hdOverrideAmount?: number
       hdAirports?: Airport[]

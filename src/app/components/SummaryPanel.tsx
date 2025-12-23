@@ -33,6 +33,25 @@ function formatAirportList(airports: Airport[] | undefined) {
   return airports.map((airport) => airport.icao).join(", ")
 }
 
+function formatGeoRules(
+  rules: PricingKnobs["eligibility"]["geoRules"] | undefined
+) {
+  if (!rules || rules.length === 0) return ""
+  const parts: string[] = []
+  rules.forEach((rule) => {
+    if (rule.type === "mississippi_rule") {
+      parts.push(
+        `Mississippi rule: one-way ${rule.oneWayRequires}, RT<=${rule.roundTripUpToNightsRequiresOrigin} origin ${rule.roundTripUpToNightsSide}, RT> requires ${rule.roundTripBeyondNightsRequires}`
+      )
+    } else if (rule.type === "allowed_countries") {
+      if (rule.countries?.length) {
+        parts.push(`Allowed countries: ${rule.countries.join(", ")}`)
+      }
+    }
+  })
+  return parts.join(" | ")
+}
+
 export default function SummaryPanel({
   tripPayload,
   tripDraft,
@@ -206,6 +225,8 @@ export default function SummaryPanel({
     pushField("Max passengers", knobs.eligibility.maxPassengers)
   if (knobs.eligibility.excludeStates?.length)
     pushField("Excluded states", knobs.eligibility.excludeStates.join(", "))
+  const geoRules = formatGeoRules(knobs.eligibility.geoRules)
+  if (geoRules) pushField("Geo rules", geoRules)
 
   if (knobs.results.selection)
     pushField("Result selection", knobs.results.selection)

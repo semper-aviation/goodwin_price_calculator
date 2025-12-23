@@ -5,7 +5,7 @@
 import { useMemo, useRef, useState, type ChangeEvent } from "react"
 import Header from "./components/Header"
 import TripPlanner, { type TripInput } from "./components/TripPlanner"
-import KnobPanel from "./components/KnobPanel"
+import KnobPanel, { KnobValue } from "./components/KnobPanel"
 import ResultsPanel from "./components/ResultsPanel"
 import SummaryPanel from "./components/SummaryPanel"
 import { KNOB_UI_TABS } from "./components/knobsSchema"
@@ -21,7 +21,7 @@ import type { QuoteResult } from "./engine/quoteResult"
 import airportsData from "./data/airports"
 import { logQuoteRequest } from "./services/calculatePricing"
 
-type KnobValues = Record<string, string | number | boolean | undefined>
+type KnobValues = Record<string, KnobValue>
 const TRIP_KEYS: Array<keyof TripInput> = [
   "tripType",
   "category",
@@ -302,14 +302,10 @@ export default function CalculatorPage() {
   )
   const [knobDefaults, setKnobDefaults] =
     useState<KnobValues>(defaultKnobValues)
-  const [knobValues, setKnobValues] =
-    useState<KnobValues>(defaultKnobValues)
+  const [knobValues, setKnobValues] = useState<KnobValues>(defaultKnobValues)
   const mergedKnobs = useMemo(
     () =>
-      mergeDeep(
-        DEFAULT_KNOBS,
-        buildPricingKnobs(knobValues)
-      ) as PricingKnobs,
+      mergeDeep(DEFAULT_KNOBS, buildPricingKnobs(knobValues)) as PricingKnobs,
     [knobValues]
   )
   const knobsReady = useMemo(() => isKnobsReady(mergedKnobs), [mergedKnobs])
@@ -434,7 +430,7 @@ export default function CalculatorPage() {
             ref={importInputRef}
             type="file"
             accept="application/json"
-            style={{ display: 'none' }}
+            style={{ display: "none" }}
             onChange={handleImport}
             tabIndex={-1}
             aria-hidden="true"

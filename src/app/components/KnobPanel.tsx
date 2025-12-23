@@ -4,6 +4,7 @@ import { FiInfo } from "react-icons/fi"
 import { KNOB_UI_TABS, KnobUiField } from "./knobsSchema"
 import TypeaheadSelect from "./TypeaheadSelect"
 import airportsData, { type Airport } from "../data/airports"
+import { GeoRulesEditor } from "./GeoRulesEditor"
 
 const CONTROL_CLASSES =
   "w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm transition focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200"
@@ -74,8 +75,7 @@ function SingleAirportSelect({
       city.includes(trimmed) ||
       state.includes(trimmed)
     )
-  })
-    .slice(0, 10)
+  }).slice(0, 10)
 
   return (
     <div className="mb-4">
@@ -310,6 +310,8 @@ function MultiAirportSelect({
   )
 }
 
+export type KnobValue = string | number | boolean | undefined | unknown
+
 // --- Field Renderers ---
 function Field({
   field,
@@ -318,8 +320,8 @@ function Field({
   required,
 }: {
   field: KnobUiField
-  value: string | number | boolean | undefined
-  onChange: (v: string | number | boolean | undefined) => void
+  value: KnobValue
+  onChange: (v: KnobValue) => void
   required?: boolean
 }) {
   switch (field.type) {
@@ -374,7 +376,9 @@ function Field({
       return (
         <div className="mb-4">
           <div className="flex items-center gap-3">
-            <label className={`${LABEL_CLASSES} group inline-flex items-center`}>
+            <label
+              className={`${LABEL_CLASSES} group inline-flex items-center`}
+            >
               {field.label}
               {required ? <span className="ml-1 text-amber-600">*</span> : null}
               {field.help ? <HelpIcon text={field.help} /> : null}
@@ -419,6 +423,16 @@ function Field({
         />
       )
     }
+    case "geoRulesEditor":
+      return (
+        <GeoRulesEditor
+          label={field.label}
+          help={field.help}
+          value={value}
+          onChangeAction={onChange}
+        />
+      )
+
     default:
       return null
   }
@@ -440,20 +454,17 @@ export default function KnobPanel({
   defaultValues,
 }: {
   tripComplete: boolean
-  onKnobsChangeAction?: (
-    values: Record<string, string | number | boolean | undefined>
-  ) => void
-  defaultValues?: Record<string, string | number | boolean | undefined>
+  onKnobsChangeAction?: (values: Record<string, KnobValue>) => void
+  defaultValues?: Record<string, KnobValue>
 }) {
   const [tabIdx, setTabIdx] = useState<number>(0)
-  const [values, setValues] = useState<
-    Record<string, string | number | boolean | undefined>
-  >(defaultValues ?? {})
+  const [values, setValues] = useState<Record<string, KnobValue>>(
+    defaultValues ?? {}
+  )
 
   useEffect(() => {
     if (onKnobsChangeAction) onKnobsChangeAction(values)
   }, [onKnobsChangeAction, values])
-
 
   if (!tripComplete) {
     return (
@@ -471,14 +482,7 @@ export default function KnobPanel({
     )
   }
 
-  const tabOrder = [
-    "rates",
-    "repo",
-    "fees",
-    "discounts",
-    "time",
-    "eligibility",
-  ]
+  const tabOrder = ["rates", "repo", "fees", "discounts", "time", "eligibility"]
   const tabs = KNOB_UI_TABS.filter((tab) => tabOrder.includes(tab.id)).sort(
     (a, b) => tabOrder.indexOf(a.id) - tabOrder.indexOf(b.id)
   )
@@ -508,9 +512,7 @@ export default function KnobPanel({
       const [, path, operator, raw] = compareMatch
       const leftValue = getFieldValue(path.trim())
       const leftNumber =
-        typeof leftValue === "number"
-          ? leftValue
-          : Number(leftValue ?? NaN)
+        typeof leftValue === "number" ? leftValue : Number(leftValue ?? NaN)
       const rightNumber = Number(raw)
       if (Number.isNaN(leftNumber) || Number.isNaN(rightNumber)) return false
       switch (operator) {
@@ -533,7 +535,10 @@ export default function KnobPanel({
   function isEnabled(field: KnobUiField) {
     if (!field.enabledWhen) return true
     if (field.path === "pricing.hourlyRate") {
-      return tripComplete && String(getFieldValue("pricing.rateModel")) === "single_hourly"
+      return (
+        tripComplete &&
+        String(getFieldValue("pricing.rateModel")) === "single_hourly"
+      )
     }
     if (
       field.path === "pricing.repoRate" ||
@@ -541,8 +546,7 @@ export default function KnobPanel({
     ) {
       return (
         tripComplete &&
-        String(getFieldValue("pricing.rateModel")) ===
-          "dual_rate_repo_occupied"
+        String(getFieldValue("pricing.rateModel")) === "dual_rate_repo_occupied"
       )
     }
     if (field.path === "repo.fixedBaseIcao") {
@@ -578,10 +582,7 @@ export default function KnobPanel({
     return false
   }
 
-  function handleFieldChange(
-    path: string,
-    value: string | number | boolean | undefined
-  ) {
+  function handleFieldChange(path: string, value: KnobValue) {
     setValues((v) => {
       const next = { ...v, [path]: value }
       if (path === "pricing.rateModel") {
@@ -609,9 +610,7 @@ export default function KnobPanel({
 
   const tabHasChanges = tabs.map((tab) =>
     tab.sections.some((section) =>
-      section.fields.some((field) =>
-        isFieldValueSet(field, values[field.path])
-      )
+      section.fields.some((field) => isFieldValueSet(field, values[field.path]))
     )
   )
 
@@ -645,29 +644,29 @@ export default function KnobPanel({
           const enabledFields = section.fields.filter(isEnabled)
           if (enabledFields.length === 0) return null
           return (
-          <div key={section.title} className="mb-6">
-            <div className="pb-4">
-              <div className="text-base font-semibold text-slate-700 mb-1">
-                {section.title}
-              </div>
-              {section.description && (
-                <div className="text-sm text-slate-500">
-                  {section.description}
+            <div key={section.title} className="mb-6">
+              <div className="pb-4">
+                <div className="text-base font-semibold text-slate-700 mb-1">
+                  {section.title}
                 </div>
-              )}
+                {section.description && (
+                  <div className="text-sm text-slate-500">
+                    {section.description}
+                  </div>
+                )}
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {enabledFields.map((field) => (
+                  <Field
+                    key={field.path}
+                    field={field}
+                    value={values[field.path]}
+                    onChange={(v) => handleFieldChange(field.path, v)}
+                    required={isRequired(field)}
+                  />
+                ))}
+              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {enabledFields.map((field) => (
-                <Field
-                  key={field.path}
-                  field={field}
-                  value={values[field.path]}
-                  onChange={(v) => handleFieldChange(field.path, v)}
-                  required={isRequired(field)}
-                />
-              ))}
-            </div>
-          </div>
           )
         })}
       </div>
