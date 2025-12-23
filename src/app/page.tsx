@@ -16,6 +16,7 @@ import {
   type QuoteRequestPayload,
   type TripInput as ApiTripInput,
 } from "./engine/quoteRequest"
+import type { MississippiRule } from "./components/GeoRulesEditor"
 import { quoteEngine } from "./engine"
 import type { QuoteResult } from "./engine/quoteResult"
 import airportsData from "./data/airports"
@@ -185,6 +186,79 @@ function buildExportName(trip: TripInput | null) {
     .replace(/[^a-z0-9-]+/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "")
+}
+
+type LegacyMississippiRule = {
+  type: "mississippi"
+  config?: {
+    oneWay?: { originSide?: "east" | "west"; destinationSide?: "east" | "west" }
+    roundTripShort?: {
+      maxOvernights?: number
+      originSide?: "east" | "west"
+    }
+    roundTripLong?: {
+      minOvernights?: number
+      originSide?: "east" | "west"
+      destinationSide?: "east" | "west"
+    }
+  }
+}
+
+function normalizeGeoRulesValue(value: unknown) {
+  if (!Array.isArray(value)) return value
+  if (value.length === 0) return value
+  const first = value[0] as LegacyMississippiRule
+  if (!first?.config || first.type !== "mississippi") return value
+  const oneWayRequires =
+    first.config.oneWay?.originSide === "west" &&
+    first.config.oneWay?.destinationSide === "west"
+      ? "both_west"
+      : "both_east"
+  const roundTripUpToNightsRequiresOrigin =
+    typeof first.config.roundTripShort?.maxOvernights === "number"
+      ? first.config.roundTripShort.maxOvernights
+      : 0
+  const roundTripUpToNightsSide =
+    first.config.roundTripShort?.originSide === "west" ? "west" : "east"
+  const roundTripBeyondNightsRequires =
+    first.config.roundTripLong?.originSide === "west" &&
+    first.config.roundTripLong?.destinationSide === "west"
+      ? "both_west"
+      : "both_east"
+
+  const normalized: MississippiRule = {
+    type: "mississippi_rule",
+    oneWayRequires,
+    roundTripUpToNightsRequiresOrigin,
+    roundTripUpToNightsSide,
+    roundTripBeyondNightsRequires,
+  }
+
+  return [
+    {
+      ...normalized,
+    },
+  ]
+}
+
+function normalizeImportedKnobs(knobs: KnobValues) {
+  const next = { ...knobs }
+  if (Array.isArray(next["repo.vhbSets.default"])) {
+    next["repo.vhbSets.default"] = (
+      next["repo.vhbSets.default"] as string[]
+    ).join(", ")
+  }
+  if (Array.isArray(next["fees.highDensity.airports"])) {
+    next["fees.highDensity.airports"] = (
+      next["fees.highDensity.airports"] as string[]
+    ).join(", ")
+  }
+  if ("eligibility.geoRules" in next) {
+    next["eligibility.geoRules"] = normalizeGeoRulesValue(
+      next["eligibility.geoRules"]
+    ) as KnobValue
+  }
+  return next
 }
 
 function mergeDeep(
@@ -385,8 +459,9 @@ export default function CalculatorPage() {
         setTripSeed((prev) => prev + 1)
       }
       if (data.knobs) {
-        setKnobDefaults(data.knobs)
-        setKnobValues(data.knobs)
+        const normalizedKnobs = normalizeImportedKnobs(data.knobs)
+        setKnobDefaults(normalizedKnobs)
+        setKnobValues(normalizedKnobs)
         setKnobSeed((prev) => prev + 1)
       }
       if (data.quote) {

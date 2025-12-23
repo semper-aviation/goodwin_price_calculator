@@ -1,42 +1,80 @@
 {
   "version": 1,
   "trip": {
-    "tripType": "ROUND_TRIP",
+    "tripType": "ONE_WAY",
     "category": "CAT6",
-    "departLocalISO": "2026-02-01T09:00",
-    "returnLocalISO": "2025-03-03T15:00",
+    "aircraftModel": "mdl5dd0db18b0b",
+    "departLocalISO": "2026-01-14T09:00",
     "passengers": 6,
-    "fromIcao": "KBOS",
-    "toIcao": "KMCO"
+    "fromIcao": "KPTK",
+    "toIcao": "KMIA"
   },
   "knobs": {
     "repo.mode": "vhb_network",
     "repo.policy": "both",
-    "repo.vhbSets.default": "KPTK",
+    "repo.vhbSets.default": ["KPTK", "KDAY", "KCVG", "KSUA"],
     "repo.vhbSelection": "closest_by_distance",
     "time.taxiHoursPerLeg": 0.0,
     "time.bufferHoursPerLeg": 1.5,
     "time.applyTo": "both",
     "time.minimums.minActualFlightHoursPerLeg": 2.0,
+    "time.minimums.minFirstOccupiedLegHours": 2.0,
+    "time.minimums.minTotalTripHours": null,
+    "time.minimums.minOccupiedHoursTotal": null,
+    "time.dailyLimits.maxOccupiedHoursPerDay": null,
     "pricing.currency": "USD",
     "pricing.rateModel": "single_hourly",
     "pricing.hourlyRate": 5000,
+    "pricing.repoRate": null,
+    "pricing.occupiedRate": null,
     "discounts.vhbDiscount.mode": "origin_or_destination",
     "discounts.vhbDiscount.percent": 0.1,
     "discounts.vhbDiscount.appliesTo": "base_only",
     "fees.groundHandling.perSegmentAmount": 0,
     "fees.groundHandling.appliesTo": "occupied_only",
+    "fees.highDensity.airports": [],
     "fees.highDensity.feePerVisit": 0,
-    "fees.highDensity.countingMode": "arrivals_only",
-    "fees.landingFees.countingMode": "arrivals_only",
-    "fees.landingFees.defaultAmount": 0,
+    "fees.highDensity.countingMode": "segment_endpoints",
+    "fees.highDensity.roundTripOriginDoubleCharge": false,
+    "fees.highDensity.tripCap": null,
+    "fees.landing.countingMode": "arrivals_only",
+    "fees.landing.defaultAmount": 0,
     "fees.overnight.amountPerNight": 0,
     "fees.overnight.appliesWhen": "none",
+    "fees.overnight.maxNightsBeforeSplit": 3,
     "fees.daily.amountPerCalendarDay": 0,
     "fees.daily.calendarDayCounting": "unique_dates_touched",
+    "scoring.matchScore.enabled": false,
+    "scoring.matchScore.threshold": 0,
     "eligibility.domesticOnly": true,
     "eligibility.maxAdvanceDays": 90,
-    "results.selection": "all",
+    "eligibility.maxPassengers": null,
+    "eligibility.geoRules": [
+      {
+        "type": "mississippi",
+        "config": {
+          "oneWay": {
+            "originSide": "east",
+            "destinationSide": "east"
+          },
+          "roundTripShort": {
+            "maxOvernights": 3,
+            "originSide": "east",
+            "destinationSide": null
+          },
+          "roundTripLong": {
+            "minOvernights": 4,
+            "originSide": "east",
+            "destinationSide": "east"
+          }
+        }
+      }
+    ],
+    "repo.constraints.maxOriginRepoHours": null,
+    "repo.constraints.maxDestinationRepoHours": null,
+    "repo.constraints.rejectIfExceeded": false,
+    "repo.fixedBaseIcao": null,
+    "results.selection": "highest",
     "results.rankMetric": "price"
   },
   "quote": null,
