@@ -473,7 +473,7 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
         fields: [
           {
             type: "select",
-            path: "fees.landing.countingMode",
+            path: "fees.landingFees.countingMode",
             label: "Landing fee counting mode",
             why: "Defines which landings are charged.",
             help:
@@ -488,14 +488,14 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
               },
               {
                 label: "Landings (all legs incl repo)",
-                value: "landings",
+                value: "landings_including_repo",
               },
             ],
-            enabledWhen: "tripComplete && fees.landing.defaultAmount > 0",
+            enabledWhen: "tripComplete && fees.landingFees.defaultAmount > 0",
           },
           {
             type: "number",
-            path: "fees.landing.defaultAmount",
+            path: "fees.landingFees.defaultAmount",
             label: "Landing fee ($/landing)",
             why: "Dollar amount charged per counted landing.",
             help:

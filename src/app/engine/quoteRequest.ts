@@ -10,7 +10,6 @@ export type FlightLegInput = {
 }
 
 export type ICalculatedFlightTime = {
-  duration: number
   durationDetails: Array<{
     originIcao: string
     destinationIcao: string

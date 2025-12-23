@@ -51,7 +51,7 @@ export async function calcFlightSeconds(
     const results = await calculateFlightTimeForModels({
       aircraftModels: modelInputs,
       flightLegs: flightLegsInput,
-      addTaxiTime: false,
+      addTaxiTime: true,
     })
 
     const perLegTotals = new Array(legs.length).fill(0)

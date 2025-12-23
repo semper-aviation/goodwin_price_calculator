@@ -69,11 +69,11 @@
     "fees.highDensity.roundTripOriginDoubleCharge": false,
     "fees.highDensity.tripCap": null,
 
-    "fees.landing.countingMode": "landings",
-    "fees.landing.defaultAmount": 100,
-    "fees.landing.hdOverrideAmount": null,
-    "fees.landing.hdAirports": null,
-    "fees.landing.originIsHomebaseCountingRule": null,
+    "fees.landingFees.countingMode": "landings_including_repo",
+    "fees.landingFees.defaultAmount": 100,
+    "fees.landingFees.hdOverrideAmount": null,
+    "fees.landingFees.hdAirports": null,
+    "fees.landingFees.originIsHomebaseCountingRule": null,
 
     "fees.overnight.amountPerNight": 800,
     "fees.overnight.appliesWhen": "round_trip_only",

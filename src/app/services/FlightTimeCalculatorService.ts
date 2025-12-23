@@ -6,7 +6,6 @@ export type IGoodwinCalculatorFlightLegsInput = {
 }
 
 export type ICalculatedFlightTime = {
-  duration: number
   durationDetails: Array<{
     originIcao: string
     destinationIcao: string
@@ -16,22 +15,30 @@ export type ICalculatedFlightTime = {
   }>
 }
 
-const DEFAULT_TAXI_SECONDS = 600
+const DEFAULT_TAXI_SECONDS = 12 * 60 // 12 mins
 
 type FlightTimeApiResponse = {
   data?: {
     results?: Array<{
       modelId?: string
-      totalFlightTime?: { flightTimeSec?: number }
       flightLegs?: Array<{
         departDate?: string
         departTime?: string
         origin?: { icao?: string }
         destination?: { icao?: string }
         flightTime?: { flightTimeSec?: number }
+        flightTimeAscDescAdjusted?: { flightTimeSec?: number }
       }>
     }>
   }
+}
+
+const getTaxiTime = () => {
+  const taxiTime = parseInt(
+    process.env.NEXT_PUBLIC_TAXI_TIME_MINUTES ?? "0",
+    10
+  )
+  return Number.isNaN(taxiTime) ? 0 : taxiTime
 }
 
 function buildFallbackResult(
@@ -62,7 +69,6 @@ function buildFallbackResult(
   })
 
   return {
-    duration: durationDetails.reduce((sum, leg) => sum + leg.durationSec, 0),
     durationDetails,
   }
 }
@@ -73,7 +79,7 @@ export const calculateFlightTimeForModels = async (input: {
   addTaxiTime?: boolean
 }): Promise<Record<string, ICalculatedFlightTime>> => {
   const { aircraftModels, flightLegs, addTaxiTime = true } = input
-
+  const taxiTimePerLegInSeconds = getTaxiTime() * 60
   try {
     const response = await fetch("/api/flight-time", {
       method: "POST",
@@ -105,10 +111,15 @@ export const calculateFlightTimeForModels = async (input: {
           destinationIcao: leg.destination?.icao ?? "",
           departDate: leg.departDate ?? "",
           departTime: leg.departTime,
-          durationSec: leg.flightTime?.flightTimeSec ?? 0,
+          durationSec: addTaxiTime
+            ? (leg.flightTimeAscDescAdjusted?.flightTimeSec ??
+                leg.flightTime?.flightTimeSec ??
+                0) + taxiTimePerLegInSeconds
+            : leg.flightTimeAscDescAdjusted?.flightTimeSec ??
+              leg.flightTime?.flightTimeSec ??
+              0,
         })) ?? []
       mapped[result.modelId] = {
-        duration: result.totalFlightTime?.flightTimeSec ?? 0,
         durationDetails,
       }
     })
