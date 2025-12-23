@@ -73,48 +73,18 @@ export const calculateFlightTimeForModels = async (input: {
   addTaxiTime?: boolean
 }): Promise<Record<string, ICalculatedFlightTime>> => {
   const { aircraftModels, flightLegs, addTaxiTime = true } = input
-  const baseUrl = process.env.NEXT_PUBLIC_FLIGHT_TIME_CALCULATOR_BASE_URL
-  const apiKey = process.env.NEXT_PUBLIC_FLIGHT_TIME_CALCULATOR_KEY
-
-  if (!baseUrl || !apiKey) {
-    console.warn(
-      "Flight time API configuration missing, using fallback calculations"
-    )
-    return Object.fromEntries(
-      aircraftModels.map((model) => [
-        model.modelId,
-        buildFallbackResult(
-          model.modelId,
-          model.avgSpeedKnots,
-          flightLegs,
-          addTaxiTime
-        ),
-      ])
-    )
-  }
 
   try {
-    const response = await fetch(`${baseUrl}/flight_time`, {
+    const response = await fetch("/api/flight-time", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        "x-api-key": apiKey,
       },
       body: JSON.stringify({
-        flightLegs: flightLegs.flightLegs.map((leg) => ({
-          originIcao: leg.originIcao,
-          destinationIcao: leg.destinationIcao,
-          departDate: leg.departDate,
-          departTime: leg.departTime,
-          originLat: leg.originLat,
-          originLon: leg.originLon,
-          destinationLat: leg.destinationLat,
-          destinationLon: leg.destinationLon,
-        })),
-        aircraft: {
-          models: aircraftModels.map((model) => model.modelId),
-        },
+        aircraftModels,
+        flightLegs,
+        addTaxiTime,
       }),
     })
 
