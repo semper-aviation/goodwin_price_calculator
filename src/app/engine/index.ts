@@ -26,10 +26,14 @@ import { calcVhbDiscount } from "./discounts"
 import { calcFlightSeconds } from "./flightTime"
 
 export async function quoteEngine(
-  payload: QuoteRequestPayload
+  payload: QuoteRequestPayload,
+  logger?: (message: string) => void
 ): Promise<QuoteResult> {
   const now = new Date()
-  console.log("Payload received by quoteEngine:", payload)
+  if (logger) {
+    logger("ℹ️   Engine: ========== PRICING RUN ==========")
+    logger(`ℹ️   Engine: Trip type: ${payload.trip.tripType}`)
+  }
   const basic = validateBasics(payload)
   if (basic) return basic
 
@@ -65,10 +69,10 @@ export async function quoteEngine(
         knobs: payload.knobs,
       }
 
-      const out = await quoteOneItinerary(outReq, now)
+      const out = await quoteOneItinerary(outReq, now, logger)
       if (out.status === "REJECTED") return out
 
-      const back = await quoteOneItinerary(backReq, now)
+      const back = await quoteOneItinerary(backReq, now, logger)
       if (back.status === "REJECTED") return back
 
       return sumTwoQuotes(out, back, {
@@ -77,12 +81,17 @@ export async function quoteEngine(
     }
   }
 
-  return quoteOneItinerary(payload, now)
+  const result = await quoteOneItinerary(payload, now, logger)
+  if (logger) {
+    logger("ℹ️   Engine: ========== END PRICING RUN ==========")
+  }
+  return result
 }
 
 async function quoteOneItinerary(
   payload: QuoteRequestPayload,
-  now: Date
+  now: Date,
+  logger?: (message: string) => void
 ): Promise<QuoteResult> {
   const { trip, knobs } = payload
 
@@ -115,7 +124,12 @@ async function quoteOneItinerary(
 
   const allLegs = [...repoBuild.legsOut, ...occupiedLegs, ...repoBuild.legsBack]
 
-  const actualSeconds = await calcFlightSeconds(allLegs, trip.category, trip)
+  const actualSeconds = await calcFlightSeconds(
+    allLegs,
+    trip.category,
+    trip,
+    logger
+  )
 
   const timeR = applyTimeAdjustmentsAndValidate({
     trip,
@@ -125,6 +139,51 @@ async function quoteOneItinerary(
   })
   if (!timeR.ok) return timeR.error
   const { legsWithTime, occupiedHours, repoHours, totalHours } = timeR.value
+  if (logger) {
+    const occupiedIdxs = legsWithTime
+      .map((leg, index) => (leg.kind === "OCCUPIED" ? index : -1))
+      .filter((index) => index >= 0)
+    const firstOccupiedIdx = occupiedIdxs[0] ?? -1
+    const lastOccupiedIdx =
+      occupiedIdxs.length > 0 ? occupiedIdxs[occupiedIdxs.length - 1] : -1
+    logger("ℹ️   Engine: ========== LEG TIME ADJUSTMENTS ==========")
+    legsWithTime.forEach((leg, index) => {
+      const actual = leg.meta?.actualHours ?? 0
+      const adjusted = leg.meta?.adjustedHours ?? actual
+      const adjustment = adjusted - actual
+      const label = buildLegLabel(
+        leg.kind,
+        index,
+        firstOccupiedIdx,
+        lastOccupiedIdx,
+        occupiedIdxs.length
+      )
+      logger(
+        `ℹ️   Engine:   ${label}: ${leg.from.icao} → ${
+          leg.to.icao
+        } | Base: ${actual.toFixed(2)} hrs + Adjustment: ${adjustment.toFixed(
+          2
+        )} hrs = ${adjusted.toFixed(2)} hrs`
+      )
+    })
+    logger(
+      `ℹ️   Engine: Total base flight time (ALL legs): ${(
+        occupiedHours + repoHours
+      ).toFixed(2)} hrs (Repo: ${repoHours.toFixed(
+        2
+      )} hrs + Occupied: ${occupiedHours.toFixed(2)} hrs)`
+    )
+    logger(
+      `ℹ️   Engine: Time Adjustment: ${(
+        totalHours -
+        (occupiedHours + repoHours)
+      ).toFixed(2)} hrs`
+    )
+    logger(
+      `ℹ️   Engine: Adjusted total flight time: ${totalHours.toFixed(2)} hrs`
+    )
+    logger("ℹ️   Engine: ========== END LEG TIME ADJUSTMENTS ==========")
+  }
 
   const repoOutHours = sumAdjustedHours(
     legsWithTime
@@ -162,6 +221,17 @@ async function quoteOneItinerary(
   const baseR = calcBaseCost(knobs, occupiedHours, repoHours)
   if (!baseR.ok) return baseR.error
   const base = baseR.value
+  if (logger) {
+    if (knobs.pricing.rateModel === "single_hourly") {
+      logger(
+        `ℹ️   Engine: Hourly rate: $${knobs.pricing.hourlyRate}/hr (applied to ALL legs)`
+      )
+    } else {
+      logger(
+        `ℹ️   Engine: Repo rate: $${knobs.pricing.repoRate}/hr | Occupied rate: $${knobs.pricing.occupiedRate}/hr`
+      )
+    }
+  }
 
   const lineItems: LineItem[] = [
     {
@@ -187,7 +257,16 @@ async function quoteOneItinerary(
     })
   }
 
-  lineItems.push(...calcFees({ trip, knobs, legs: legsWithTime }))
+  const feeItems = calcFees({ trip, knobs, legs: legsWithTime })
+  lineItems.push(...feeItems)
+  if (logger && feeItems.length) {
+    const totalFees = feeItems.reduce((sum, item) => sum + item.amount, 0)
+    logger(
+      `ℹ️   Engine: Fees applied: $${totalFees.toFixed(2)} (${
+        feeItems.length
+      } items)`
+    )
+  }
 
   const baseSubtotal = base.baseOccupied + base.baseRepo
   const feesSubtotal = sum(
@@ -203,9 +282,17 @@ async function quoteOneItinerary(
     feesSubtotal,
     totalBeforeDiscount,
   })
-  if (vhbDiscount) lineItems.push(vhbDiscount)
+  if (vhbDiscount) {
+    lineItems.push(vhbDiscount)
+    if (logger) {
+      logger(`ℹ️   Engine: VHB Discount: ${vhbDiscount.amount.toFixed(2)}`)
+    }
+  }
 
   const totals = summarizeTotals(lineItems)
+  if (logger) {
+    logger(`ℹ️   Engine: FINAL PRICE: $${totals?.total.toFixed(2)}`)
+  }
 
   const overnights =
     trip.tripType === "ROUND_TRIP" && trip.returnLocalISO
@@ -231,6 +318,25 @@ async function quoteOneItinerary(
     lineItems,
     totals,
   }
+}
+
+function buildLegLabel(
+  kind: "OCCUPIED" | "REPO",
+  index: number,
+  firstOccupiedIdx: number,
+  lastOccupiedIdx: number,
+  occupiedCount: number
+) {
+  if (kind === "OCCUPIED") {
+    if (occupiedCount > 1) {
+      if (index === firstOccupiedIdx) return "OCCUPIED OUTBOUND"
+      if (index === lastOccupiedIdx) return "OCCUPIED RETURN"
+    }
+    return "OCCUPIED"
+  }
+  if (index < firstOccupiedIdx) return "ORIGIN REPO"
+  if (index > lastOccupiedIdx) return "DEST REPO"
+  return "REPO"
 }
 
 function validateBasics(payload: QuoteRequestPayload): QuoteResult | null {

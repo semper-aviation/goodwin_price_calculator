@@ -12,10 +12,13 @@ import {
 export async function calcFlightSeconds(
   legs: NormalizedLeg[],
   category: CategoryId,
-  trip: TripInput
+  trip: TripInput,
+  logger?: (message: string) => void
 ): Promise<number[]> {
   const fallback = () => {
-    console.log("Using fallback flight time calculations")
+    if (logger) {
+      logger("⚠️   Engine: Using fallback flight time calculations")
+    }
     const speed = categoryAvgSpeedKnots(category)
     return legs.map((l) => {
       const dNm = haversineNm(l.from.lat, l.from.lon, l.to.lat, l.to.lon)
@@ -48,6 +51,10 @@ export async function calcFlightSeconds(
 
   const flightLegsInput = buildFlightLegsInput(legs, trip)
   try {
+    if (logger) {
+      logger("ℹ️   Engine: ========== FLIGHT LEG CALCULATIONS ==========")
+      logger(`ℹ️   Engine: Total legs: ${legs.length}`)
+    }
     const results = await calculateFlightTimeForModels({
       aircraftModels: modelInputs,
       flightLegs: flightLegsInput,
@@ -60,10 +67,53 @@ export async function calcFlightSeconds(
     for (const model of modelInputs) {
       const details = results[model.modelId]?.durationDetails
       if (!details || details.length < legs.length) continue
+      if (logger) {
+        const occupiedIdxs = legs
+          .map((leg, index) => (leg.kind === "OCCUPIED" ? index : -1))
+          .filter((index) => index >= 0)
+        const firstOccupiedIdx = occupiedIdxs[0] ?? -1
+        const lastOccupiedIdx =
+          occupiedIdxs.length > 0 ? occupiedIdxs[occupiedIdxs.length - 1] : -1
+        logger(`ℹ️   Engine: Model ID ${model.modelId} flight breakdown:`)
+        let totalHours = 0
+        let repoHours = 0
+        let occupiedHours = 0
+        for (let i = 0; i < legs.length; i += 1) {
+          const leg = legs[i]
+          const durationSec = details[i]?.durationSec ?? 0
+          const hours = durationSec / 3600
+          totalHours += hours
+          if (leg.kind === "REPO") repoHours += hours
+          if (leg.kind === "OCCUPIED") occupiedHours += hours
+          const label = buildLegLabel(
+            leg.kind,
+            i,
+            firstOccupiedIdx,
+            lastOccupiedIdx,
+            occupiedIdxs.length
+          )
+          logger(
+            `ℹ️   Engine:   Leg ${i + 1} (${label}): ${leg.from.icao} → ${
+              leg.to.icao
+            } | ${hours.toFixed(2)} hrs`
+          )
+        }
+        logger(
+          `ℹ️   Engine:   TOTALS: Total=${totalHours.toFixed(
+            2
+          )} hrs | Repo=${repoHours.toFixed(
+            2
+          )} hrs | Occupied=${occupiedHours.toFixed(2)} hrs`
+        )
+      }
       for (let i = 0; i < legs.length; i++) {
         perLegTotals[i] += details[i]?.durationSec ?? 0
       }
       modelCount += 1
+    }
+
+    if (logger) {
+      logger("ℹ️   Engine: ========== END FLIGHT LEG CALCULATIONS ==========")
     }
 
     if (modelCount > 0) {
@@ -72,7 +122,7 @@ export async function calcFlightSeconds(
       )
     }
   } catch (error) {
-    console.warn("Flight time API error, using fallback calculations", error)
+    console.error("Flight time calculation error:", error)
     return fallback()
   }
   return fallback()
@@ -143,6 +193,25 @@ function buildFlightLegsInput(
       }
     }),
   }
+}
+
+function buildLegLabel(
+  kind: "OCCUPIED" | "REPO",
+  index: number,
+  firstOccupiedIdx: number,
+  lastOccupiedIdx: number,
+  occupiedCount: number
+) {
+  if (kind === "OCCUPIED") {
+    if (occupiedCount > 1) {
+      if (index === firstOccupiedIdx) return "OCCUPIED OUTBOUND"
+      if (index === lastOccupiedIdx) return "OCCUPIED RETURN"
+    }
+    return "OCCUPIED"
+  }
+  if (index < firstOccupiedIdx) return "ORIGIN REPO"
+  if (index > lastOccupiedIdx) return "DEST REPO"
+  return "REPO"
 }
 
 function pickLegDateTime(
