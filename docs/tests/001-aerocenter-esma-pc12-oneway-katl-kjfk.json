@@ -73,7 +73,6 @@
     "fees.landingFees.defaultAmount": 100,
     "fees.landingFees.hdOverrideAmount": null,
     "fees.landingFees.hdAirports": null,
-    "fees.landingFees.originIsHomebaseCountingRule": null,
 
     "fees.overnight.amountPerNight": 800,
     "fees.overnight.appliesWhen": "round_trip_only",

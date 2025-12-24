@@ -206,6 +206,36 @@ async function quoteOneItinerary(
   const matchScore = calcMatchScore(occupiedHours, repoHours)
   const matchCfg = knobs.scoring?.matchScore
 
+  if (logger) {
+    const occupiedLegs = legsWithTime.filter((l) => l.kind === "OCCUPIED")
+    const repoLegs = legsWithTime.filter((l) => l.kind === "REPO")
+    const occRoute = occupiedLegs
+      .map((l) => `${l.from.icao} → ${l.to.icao}`)
+      .join(", ")
+    const repoRoute = repoLegs
+      .map((l) => `${l.from.icao} → ${l.to.icao}`)
+      .join(", ")
+    logger(
+      `ℹ️   Engine: Repo: ${repoHours.toFixed(2)}hrs (${
+        repoRoute || "—"
+      })`
+    )
+    logger(
+      `ℹ️   Engine: Occupied: ${occupiedHours.toFixed(2)}hrs (${
+        occRoute || "—"
+      })`
+    )
+    if (typeof matchScore === "number") {
+      logger(
+        `ℹ️   Engine: Match Score: (${occupiedHours.toFixed(
+          2
+        )} / (${occupiedHours.toFixed(2)} + ${repoHours.toFixed(
+          2
+        )})) × 10 = ${matchScore.toFixed(2)}`
+      )
+    }
+  }
+
   if (matchCfg?.enabled && matchScore !== undefined) {
     if (matchScore < matchCfg.threshold && matchCfg.action === "reject") {
       return reject(

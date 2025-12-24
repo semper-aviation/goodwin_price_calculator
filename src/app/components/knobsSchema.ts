@@ -472,6 +472,18 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
           "Per-landing charges; you control whether repo legs count.",
         fields: [
           {
+            type: "number",
+            path: "fees.landingFees.defaultAmount",
+            label: "Landing fee ($/landing)",
+            why: "Dollar amount charged per counted landing.",
+            help:
+              "Flat fee charged per landing based on the counting mode.\n\n" +
+              "Set to 0 to effectively disable landing fees.",
+            min: 0,
+            step: 50,
+            enabledWhen: "tripComplete",
+          },
+          {
             type: "select",
             path: "fees.landingFees.countingMode",
             label: "Landing fee counting mode",
@@ -494,16 +506,33 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             enabledWhen: "tripComplete && fees.landingFees.defaultAmount > 0",
           },
           {
-            type: "number",
-            path: "fees.landingFees.defaultAmount",
-            label: "Landing fee ($/landing)",
-            why: "Dollar amount charged per counted landing.",
+            type: "airportMulti",
+            path: "fees.landingFees.hdAirports",
+            label: "Landing fee HD airports",
+            why: "Defines airports where landing fees are higher.",
             help:
-              "Flat fee charged per landing based on the counting mode.\n\n" +
-              "Set to 0 to effectively disable landing fees.",
+              "Airports listed here are treated as high-density for LANDING FEES only.\n\n" +
+              "When a landing occurs at one of these airports, the HD override amount is charged instead of the default landing fee.\n\n" +
+              "This is independent of High-Density Airport (HD) visit fees.",
+            enabledWhen: "tripComplete && fees.landingFees.defaultAmount > 0",
+          },
+
+          {
+            type: "number",
+            path: "fees.landingFees.hdOverrideAmount",
+            label: "Landing fee HD override ($)",
+            why: "Overrides the default landing fee at HD airports.",
+            help:
+              "If a landing occurs at an airport listed above, this amount is charged instead of the default landing fee.\n\n" +
+              "Example:\n" +
+              "- Default landing fee: $100\n" +
+              "- HD override: $1,500\n" +
+              "- Landing at KJFK → $1,500 charged\n\n" +
+              "Leave blank to always use the default landing fee.",
             min: 0,
             step: 50,
-            enabledWhen: "tripComplete",
+            enabledWhen:
+              "tripComplete && fees.landingFees.defaultAmount > 0 && fees.landingFees.hdAirports",
           },
         ],
       },

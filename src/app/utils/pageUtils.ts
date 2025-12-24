@@ -252,6 +252,11 @@ export function normalizeImportedKnobs(knobs: KnobValues) {
       next["fees.highDensity.airports"] as string[]
     ).join(", ")
   }
+  if (Array.isArray(next["fees.landingFees.hdAirports"])) {
+    next["fees.landingFees.hdAirports"] = (
+      next["fees.landingFees.hdAirports"] as string[]
+    ).join(", ")
+  }
   if ("eligibility.geoRules" in next) {
     next["eligibility.geoRules"] = normalizeGeoRulesValue(
       next["eligibility.geoRules"]
