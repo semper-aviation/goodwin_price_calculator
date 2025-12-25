@@ -655,18 +655,23 @@ export default function KnobPanel({
                   </div>
                 )}
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {enabledFields.map((field) => (
+            <div
+              className={`grid grid-cols-1 gap-4 ${
+                section.title === "Geographic Rules" ? "" : "md:grid-cols-2"
+              }`}
+            >
+              {enabledFields.map((field) => (
+                <div key={field.path}>
                   <Field
-                    key={field.path}
                     field={field}
                     value={values[field.path]}
                     onChange={(v) => handleFieldChange(field.path, v)}
                     required={isRequired(field)}
                   />
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
+          </div>
           )
         })}
       </div>

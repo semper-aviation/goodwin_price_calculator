@@ -777,7 +777,7 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
       },
       {
         title: "Geographic Rules",
-        description: "Rules that restrict quotes based on geography.",
+        description: "",
         fields: [
           {
             type: "geoRulesEditor",
