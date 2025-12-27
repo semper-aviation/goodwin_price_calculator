@@ -4,6 +4,7 @@
 
 import { useMemo, useRef, useState, type ChangeEvent } from "react"
 import Header from "./components/Header"
+import TypeaheadSelect from "./components/TypeaheadSelect"
 import TripPlanner, { type TripInput } from "./components/TripPlanner"
 import KnobPanel from "./components/KnobPanel"
 import ResultsPanel from "./components/ResultsPanel"
@@ -27,6 +28,7 @@ import {
   normalizeImportedKnobs,
   type KnobValues,
 } from "./utils/pageUtils"
+import { TEMPLATES } from "./templates"
 
 const DEFAULT_KNOBS: PricingKnobs = {
   repo: {
@@ -63,6 +65,7 @@ export default function CalculatorPage() {
   const [trip, setTrip] = useState<TripInput | null>(null)
   const [quote, setQuote] = useState<QuoteResult | null>(null)
   const [importName, setImportName] = useState<string | null>(null)
+  const [selectedTemplateId, setSelectedTemplateId] = useState<string>("")
   const [tripSeed, setTripSeed] = useState(0)
   const [knobSeed, setKnobSeed] = useState(0)
   const defaultKnobValues = useMemo(
@@ -138,6 +141,40 @@ export default function CalculatorPage() {
     URL.revokeObjectURL(url)
   }
 
+  const handleClearAll = () => {
+    setImportName(null)
+    setSelectedTemplateId("")
+    setQuote(null)
+    setKnobSeed((prev) => prev + 1)
+    setKnobDefaults(defaultKnobValues)
+    setKnobValues(defaultKnobValues)
+  }
+
+  const applyImportedData = (data: {
+    name?: string
+    trip?: TripInput
+    knobs?: KnobValues
+    quote?: QuoteResult | null
+  }) => {
+    setImportName(data.name ?? null)
+    if (data.trip) {
+      setTrip(data.trip)
+      setTripComplete(false)
+      setTripSeed((prev) => prev + 1)
+    }
+    if (data.knobs) {
+      const normalizedKnobs = normalizeImportedKnobs(data.knobs)
+      setKnobDefaults(normalizedKnobs)
+      setKnobValues(normalizedKnobs)
+      setKnobSeed((prev) => prev + 1)
+    }
+    if (data.quote) {
+      setQuote(data.quote)
+    } else {
+      setQuote(null)
+    }
+  }
+
   const handleImport = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
     if (!file) return
@@ -149,27 +186,20 @@ export default function CalculatorPage() {
         knobs?: KnobValues
         quote?: QuoteResult | null
       }
-      setImportName(data.name ?? null)
-      if (data.trip) {
-        setTrip(data.trip)
-        setTripComplete(false)
-        setTripSeed((prev) => prev + 1)
-      }
-      if (data.knobs) {
-        const normalizedKnobs = normalizeImportedKnobs(data.knobs)
-        setKnobDefaults(normalizedKnobs)
-        setKnobValues(normalizedKnobs)
-        setKnobSeed((prev) => prev + 1)
-      }
-      if (data.quote) {
-        setQuote(data.quote)
-      } else {
-        setQuote(null)
-      }
+      applyImportedData(data)
     } catch (error) {
       console.warn("Failed to import data", error)
     } finally {
       event.target.value = ""
+    }
+  }
+
+  const handleTemplateChange = (value: string | number | undefined) => {
+    const id = typeof value === "string" ? value : ""
+    setSelectedTemplateId(id)
+    const template = TEMPLATES.find((item) => item.id === id)
+    if (template) {
+      applyImportedData(template.data)
     }
   }
 
@@ -178,7 +208,19 @@ export default function CalculatorPage() {
       <div className="max-w-screen-2xl mx-auto px-4 py-8 space-y-8">
         <Header />
 
-        <div className="flex justify-end gap-2">
+        <div className="flex flex-wrap items-center justify-end gap-2">
+          <div className="min-w-[260px]">
+            <TypeaheadSelect
+              value={selectedTemplateId}
+              options={TEMPLATES.map((item) => ({
+                label: item.name,
+                value: item.id,
+              }))}
+              placeholder="Select operator..."
+              onChange={handleTemplateChange}
+              inputClassName="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-600 transition focus:border-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-200"
+            />
+          </div>
           <button
             type="button"
             onClick={() => importInputRef.current?.click()}
@@ -197,6 +239,13 @@ export default function CalculatorPage() {
             }`}
           >
             Export
+          </button>
+          <button
+            type="button"
+            onClick={handleClearAll}
+            className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-600 transition hover:border-slate-300 hover:text-slate-800"
+          >
+            Clear All
           </button>
           <input
             ref={importInputRef}
@@ -226,6 +275,7 @@ export default function CalculatorPage() {
                   if (areTripValuesEqual(prev, nextTrip)) return prev
                   setQuote(null)
                   setImportName(null)
+                  setSelectedTemplateId("")
                   return nextTrip
                 })
                 setTripComplete(complete)
@@ -241,6 +291,7 @@ export default function CalculatorPage() {
                   if (areKnobValuesEqual(prev, values)) return prev
                   setQuote(null)
                   setImportName(null)
+                  setSelectedTemplateId("")
                   return values
                 })
               }}

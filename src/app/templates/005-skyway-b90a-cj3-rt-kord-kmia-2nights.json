@@ -3,6 +3,7 @@
   "trip": {
     "tripType": "ROUND_TRIP",
     "category": "CAT4",
+    "aircraftModel": "mdl0513b21cf42",
     "departLocalISO": "2026-02-15T10:00",
     "returnLocalISO": "2025-01-17T15:00",
     "passengers": 5,
