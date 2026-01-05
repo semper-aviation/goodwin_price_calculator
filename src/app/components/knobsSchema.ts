@@ -90,7 +90,7 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
                 value: "dual_rate_repo_occupied",
               },
             ],
-            enabledWhen: "tripComplete",
+            enabledWhen: "tripComplete && repo.mode !== 'floating_fleet'",
           },
           {
             type: "number",
@@ -112,7 +112,7 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             min: 0,
             step: 100,
             enabledWhen:
-              "tripComplete && pricing.rateModel === 'dual_rate_repo_occupied'",
+              "tripComplete && pricing.rateModel === 'dual_rate_repo_occupied' && repo.mode !== 'floating_fleet'",
           },
           {
             type: "number",
@@ -147,10 +147,15 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             help:
               "Repo mode controls where the aircraft begins/ends relative to the passenger trip.\n\n" +
               "- Fixed base: aircraft always repos to/from a single home base airport\n" +
-              "- VHB network: aircraft uses the closest virtual base to the trip origin/destination",
+              "- VHB network: aircraft uses the closest virtual base to the trip origin/destination\n" +
+              "- Floating fleet: no repo legs are generated (price is based on occupied legs only)",
             options: [
               { label: "Fixed base", value: "fixed_base" },
               { label: "VHB network", value: "vhb_network" },
+              {
+                label: "Floating fleet (no repo legs)",
+                value: "floating_fleet",
+              },
             ],
             enabledWhen: "tripComplete",
           },
@@ -169,7 +174,7 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
               { label: "Outbound only", value: "outbound_only" },
               { label: "Inbound only", value: "inbound_only" },
             ],
-            enabledWhen: "tripComplete",
+            enabledWhen: "tripComplete && repo.mode !== 'floating_fleet'",
           },
         ],
       },
@@ -235,7 +240,7 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             help: "If outbound repo exceeds this threshold, the trip may be rejected.",
             min: 0,
             step: 0.1,
-            enabledWhen: "tripComplete",
+            enabledWhen: "tripComplete && repo.mode !== 'floating_fleet'",
           },
           {
             type: "number",

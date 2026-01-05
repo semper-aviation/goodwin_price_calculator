@@ -55,7 +55,7 @@ export type TripInput = {
 
 export type PricingKnobs = {
   repo: {
-    mode: "fixed_base" | "vhb_network"
+    mode: "fixed_base" | "vhb_network" | "floating_fleet"
     policy: "both" | "outbound_only" | "inbound_only"
     fixedBaseIcao?: Airport
     vhbSets?: {
