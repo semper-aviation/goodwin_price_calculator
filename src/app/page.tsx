@@ -51,7 +51,10 @@ const DEFAULT_KNOBS: PricingKnobs = {
   eligibility: {
     domesticOnly: true,
     maxAdvanceDays: 60,
-    jetInsights: {},
+    jetInsights: {
+      icalLink:
+        "https://portal.jetinsight.com/schedule/7a32dd47-6a5c-4c9c-b53b-864381bacebf/7d0b5f06-e9de-4851-a937-a406d103122f.ics",
+    },
   },
   results: {
     selection: "lowest",

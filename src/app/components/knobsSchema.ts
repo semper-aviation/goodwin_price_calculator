@@ -63,6 +63,7 @@ export type KnobUiField =
       help: string
       placeholder?: string
       buttonLabel?: string
+      defaultValue?: string
       enabledWhen?: string
     }
 
@@ -819,6 +820,8 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             help: "Paste the JetInsights iCal URL and open it in a new window.",
             placeholder: "https://example.com/jetinsights.ics",
             buttonLabel: "Open iCal",
+            defaultValue:
+              "https://portal.jetinsight.com/schedule/7a32dd47-6a5c-4c9c-b53b-864381bacebf/7d0b5f06-e9de-4851-a937-a406d103122f.ics",
           },
         ],
       },

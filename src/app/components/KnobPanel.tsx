@@ -436,6 +436,7 @@ function Field({
       const textValue = typeof value === "string" ? value : ""
       const trimmedValue = textValue.trim()
       const buttonLabel = field.buttonLabel ?? "Open"
+      const fallbackValue = field.defaultValue
       return (
         <div className="mb-4">
           <label className={`${LABEL_CLASSES} group inline-flex items-center`}>
@@ -444,15 +445,31 @@ function Field({
             {field.help ? <HelpIcon text={field.help} /> : null}
           </label>
           <div className="flex flex-col gap-2 sm:flex-row">
-            <input
-              type="url"
-              className={`${CONTROL_CLASSES} flex-1`}
-              placeholder={field.placeholder}
-              value={textValue}
-              onChange={(e) =>
-                onChange(e.target.value === "" ? undefined : e.target.value)
-              }
-            />
+            <div className="relative flex-1">
+              <input
+                type="url"
+                className={`${CONTROL_CLASSES} pr-10`}
+                placeholder={field.placeholder}
+                value={textValue}
+                onChange={(e) =>
+                  onChange(
+                    e.target.value === ""
+                      ? fallbackValue ?? undefined
+                      : e.target.value
+                  )
+                }
+              />
+              {trimmedValue && (
+                <button
+                  type="button"
+                  className="absolute right-2 top-1/2 inline-flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-xs font-semibold text-slate-400 transition hover:bg-slate-100 hover:text-slate-600"
+                  onClick={() => onChange(fallbackValue ?? undefined)}
+                  aria-label="Clear iCal link"
+                >
+                  ×
+                </button>
+              )}
+            </div>
             <button
               type="button"
               className="inline-flex items-center justify-center rounded-lg bg-slate-800 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:bg-slate-300"
