@@ -55,6 +55,16 @@ export type KnobUiField =
       help: string
       enabledWhen?: string
     }
+  | {
+      type: "icalLink"
+      path: string
+      label: string
+      why: string
+      help: string
+      placeholder?: string
+      buttonLabel?: string
+      enabledWhen?: string
+    }
 
 export type KnobUiTab = {
   id: string
@@ -795,6 +805,20 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
               "- Mississippi rule: requires airports to be on a specific side (east/west) depending on trip type and length.\n\n" +
               "If any geo rule fails, the quote is rejected.",
             enabledWhen: "tripComplete",
+          },
+        ],
+      },
+      {
+        title: "JetInsights Scheduling ?",
+        fields: [
+          {
+            type: "icalLink",
+            path: "eligibility.jetInsights.icalLink",
+            label: "Ical Link",
+            why: "Lets you preview JetInsights calendar data.",
+            help: "Paste the JetInsights iCal URL and open it in a new window.",
+            placeholder: "https://example.com/jetinsights.ics",
+            buttonLabel: "Open iCal",
           },
         ],
       },

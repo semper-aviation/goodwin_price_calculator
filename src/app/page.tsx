@@ -51,6 +51,7 @@ const DEFAULT_KNOBS: PricingKnobs = {
   eligibility: {
     domesticOnly: true,
     maxAdvanceDays: 60,
+    jetInsights: {},
   },
   results: {
     selection: "lowest",

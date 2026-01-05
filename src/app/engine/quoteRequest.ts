@@ -143,6 +143,9 @@ export type PricingKnobs = {
     maxAdvanceDays: number
     maxPassengers?: number
     excludeStates?: string[]
+    jetInsights?: {
+      icalLink?: string
+    }
     geoRules?: Array<
       | {
           type: "mississippi_rule"

@@ -432,6 +432,43 @@ function Field({
           onChangeAction={onChange}
         />
       )
+    case "icalLink": {
+      const textValue = typeof value === "string" ? value : ""
+      const trimmedValue = textValue.trim()
+      const buttonLabel = field.buttonLabel ?? "Open"
+      return (
+        <div className="mb-4">
+          <label className={`${LABEL_CLASSES} group inline-flex items-center`}>
+            {field.label}
+            {required ? <span className="ml-1 text-amber-600">*</span> : null}
+            {field.help ? <HelpIcon text={field.help} /> : null}
+          </label>
+          <div className="flex flex-col gap-2 sm:flex-row">
+            <input
+              type="url"
+              className={`${CONTROL_CLASSES} flex-1`}
+              placeholder={field.placeholder}
+              value={textValue}
+              onChange={(e) =>
+                onChange(e.target.value === "" ? undefined : e.target.value)
+              }
+            />
+            <button
+              type="button"
+              className="inline-flex items-center justify-center rounded-lg bg-slate-800 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+              disabled={!trimmedValue}
+              onClick={() => {
+                if (!trimmedValue) return
+                const url = `/ical?ical=${encodeURIComponent(trimmedValue)}`
+                window.open(url, "_blank", "noopener,noreferrer")
+              }}
+            >
+              {buttonLabel}
+            </button>
+          </div>
+        </div>
+      )
+    }
 
     default:
       return null
