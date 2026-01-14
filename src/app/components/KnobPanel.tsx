@@ -536,7 +536,7 @@ export default function KnobPanel({
     )
   }
 
-  const tabOrder = ["rates", "repo", "fees", "discounts", "time", "eligibility"]
+  const tabOrder = ["basics", "fees", "discounts", "time", "eligibility"]
   const tabs = KNOB_UI_TABS.filter((tab) => tabOrder.includes(tab.id)).sort(
     (a, b) => tabOrder.indexOf(a.id) - tabOrder.indexOf(b.id)
   )

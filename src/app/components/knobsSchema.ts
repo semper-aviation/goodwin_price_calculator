@@ -78,73 +78,10 @@ export type KnobUiTab = {
 }
 
 export const KNOB_UI_TABS: KnobUiTab[] = [
-  /* ─────────────────────────────── RATES ─────────────────────────────── */
+  /* ─────────────────────────────── BASICS ────────────────────────────── */
   {
-    id: "rates",
-    title: "Rates",
-    sections: [
-      {
-        title: "Base Pricing Model",
-        fields: [
-          {
-            type: "select",
-            path: "pricing.rateModel",
-            label: "Rate model",
-            why: "Defines how flight hours convert to base cost.",
-            help:
-              "Single hourly charges the same rate for repo and occupied.\n" +
-              "Dual rate charges repo cheaper than passenger time.",
-            options: [
-              { label: "Single hourly", value: "single_hourly" },
-              {
-                label: "Dual rate (repo / occupied)",
-                value: "dual_rate_repo_occupied",
-              },
-            ],
-            enabledWhen: "tripComplete && repo.mode !== 'floating_fleet'",
-          },
-          {
-            type: "number",
-            path: "pricing.hourlyRate",
-            label: "Hourly rate ($/hr)",
-            why: "Base cost per flight hour.",
-            help: "Used when rate model is single hourly.",
-            min: 0,
-            step: 100,
-            enabledWhen:
-              "tripComplete && pricing.rateModel === 'single_hourly'",
-          },
-          {
-            type: "number",
-            path: "pricing.repoRate",
-            label: "Repo rate ($/hr)",
-            why: "Lower rate applied to reposition hours.",
-            help: "Used when rate model is dual rate.",
-            min: 0,
-            step: 100,
-            enabledWhen:
-              "tripComplete && pricing.rateModel === 'dual_rate_repo_occupied' && repo.mode !== 'floating_fleet'",
-          },
-          {
-            type: "number",
-            path: "pricing.occupiedRate",
-            label: "Occupied rate ($/hr)",
-            why: "Higher rate applied to passenger hours.",
-            help: "Used when rate model is dual rate.",
-            min: 0,
-            step: 100,
-            enabledWhen:
-              "tripComplete && pricing.rateModel === 'dual_rate_repo_occupied'",
-          },
-        ],
-      },
-    ],
-  },
-
-  /* ─────────────────────────────── REPO ─────────────────────────────── */
-  {
-    id: "repo",
-    title: "Repositioning",
+    id: "basics",
+    title: "Basics",
     sections: [
       {
         title: "Repo Strategy",
@@ -270,6 +207,62 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             why: "Turns repo limits into hard constraints.",
             help: "When enabled, trips violating repo limits will return no quote.",
             enabledWhen: "tripComplete",
+          },
+        ],
+      },
+
+      {
+        title: "Base Pricing Model",
+        fields: [
+          {
+            type: "select",
+            path: "pricing.rateModel",
+            label: "Rate model",
+            why: "Defines how flight hours convert to base cost.",
+            help:
+              "Single hourly charges the same rate for repo and occupied.\n" +
+              "Dual rate charges repo cheaper than passenger time.",
+            options: [
+              { label: "Single hourly", value: "single_hourly" },
+              {
+                label: "Dual rate (repo / occupied)",
+                value: "dual_rate_repo_occupied",
+              },
+            ],
+            enabledWhen: "tripComplete && repo.mode !== 'floating_fleet'",
+          },
+          {
+            type: "number",
+            path: "pricing.hourlyRate",
+            label: "Hourly rate ($/hr)",
+            why: "Base cost per flight hour.",
+            help: "Used when rate model is single hourly.",
+            min: 0,
+            step: 100,
+            enabledWhen:
+              "tripComplete && pricing.rateModel === 'single_hourly'",
+          },
+          {
+            type: "number",
+            path: "pricing.repoRate",
+            label: "Repo rate ($/hr)",
+            why: "Lower rate applied to reposition hours.",
+            help: "Used when rate model is dual rate.",
+            min: 0,
+            step: 100,
+            enabledWhen:
+              "tripComplete && pricing.rateModel === 'dual_rate_repo_occupied' && repo.mode !== 'floating_fleet'",
+          },
+          {
+            type: "number",
+            path: "pricing.occupiedRate",
+            label: "Occupied rate ($/hr)",
+            why: "Higher rate applied to passenger hours.",
+            help: "Used when rate model is dual rate.",
+            min: 0,
+            step: 100,
+            enabledWhen:
+              "tripComplete && pricing.rateModel === 'dual_rate_repo_occupied'",
           },
         ],
       },
