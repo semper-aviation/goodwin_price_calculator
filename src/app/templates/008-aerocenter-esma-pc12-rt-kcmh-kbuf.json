@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "trip": {
+    "tripType": "ROUND_TRIP",
+    "category": "CAT2",
+    "aircraftModel": "mdlada9a0f850c",
+    "fromIcao": "KCMH",
+    "toIcao": "KBUF",
+    "departLocalISO": "2026-01-22T10:00",
+    "returnLocalISO": "2026-01-25T10:00",
+
+    "passengers": 4
+  },
+  "knobs": {
+    "repo.mode": "fixed_base",
+    "repo.policy": "both",
+    "repo.fixedBaseIcao": "KPDK",
+    "repo.vhbSets.default": null,
+    "repo.vhbSelection": "closest_by_distance",
+    "repo.constraints.maxOriginRepoHours": 2.0,
+    "repo.constraints.maxDestinationRepoHours": 3.5,
+    "repo.constraints.rejectIfExceeded": true,
+
+    "time.taxiHoursPerLeg": 0.1,
+    "time.bufferHoursPerLeg": 0.0,
+    "time.applyTo": "both",
+    "time.minimums.minActualFlightHoursPerLeg": null,
+    "time.minimums.minFirstOccupiedLegHours": null,
+    "time.minimums.minTotalTripHours": null,
+    "time.minimums.minOccupiedHoursTotal": null,
+    "time.dailyLimits.maxOccupiedHoursPerDay": null,
+
+    "pricing.currency": "USD",
+    "pricing.rateModel": "dual_rate_repo_occupied",
+    "pricing.hourlyRate": null,
+    "pricing.repoRate": 1700,
+    "pricing.occupiedRate": 3000,
+
+    "scoring.matchScore.enabled": false,
+    "scoring.matchScore.threshold": 0,
+    "scoring.matchScore.action": "reject",
+
+    "discounts.vhbDiscount.mode": "none",
+    "discounts.vhbDiscount.percent": 0,
+    "discounts.vhbDiscount.appliesTo": "base_only",
+
+    "fees.groundHandling.perSegmentAmount": 0,
+    "fees.groundHandling.appliesTo": "occupied_only",
+
+    "fees.highDensity.airports": [
+      "KJFK",
+      "KLGA",
+      "KEWR",
+      "KBOS",
+      "KLAX",
+      "KATL",
+      "KMIA",
+      "KDEN",
+      "KAUS",
+      "KDAL",
+      "KDFW",
+      "KIAH",
+      "KMDW",
+      "KORD",
+      "KSFO",
+      "KLAS"
+    ],
+    "fees.highDensity.feePerVisit": 500,
+    "fees.highDensity.countingMode": "segment_endpoints",
+    "fees.highDensity.roundTripOriginDoubleCharge": false,
+    "fees.highDensity.tripCap": null,
+
+    "fees.landingFees.countingMode": "landings_including_repo",
+    "fees.landingFees.defaultAmount": 100,
+    "fees.landingFees.hdOverrideAmount": null,
+    "fees.landingFees.hdAirports": null,
+
+    "fees.overnight.amountPerNight": 800,
+    "fees.overnight.appliesWhen": "round_trip_only",
+    "fees.overnight.maxNightsBeforeSplit": 3,
+
+    "fees.daily.amountPerCalendarDay": 0,
+    "fees.daily.calendarDayCounting": "unique_dates_touched",
+    "fees.daily.appliesWhen": "none",
+
+    "fees.roundTrip.perTripFee": null,
+    "fees.roundTrip.appliesWhen": "none",
+
+    "aircraft.excludedTails": ["N123SL"],
+    "aircraft.minAvailableForInstantPricing": 2,
+
+    "eligibility.domesticOnly": true,
+    "eligibility.maxAdvanceDays": 90,
+    "eligibility.maxPassengers": null,
+    "eligibility.geoRules": [],
+
+    "results.selection": "lowest",
+    "results.rankMetric": "price"
+  },
+  "quote": null,
+  "name": "aerocenter-esma-pc12-rt-kcmh-kbuf"
+}

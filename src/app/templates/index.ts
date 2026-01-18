@@ -9,6 +9,7 @@ import t004 from "./004-fly-alliance-3gja-heavy-rt-kteb-ksna.json"
 import t005 from "./005-skyway-b90a-cj3-rt-kord-kmia-2nights.json"
 import t006 from "./006-ventura-apma-excel-rt-kfrg-kiah-3nights-daily-margin.json"
 import t007 from "./007-privaira-1ksa-cl604-oneway-kfxe-kbos-matchscore-landing.json"
+import t008 from "./008-aerocenter-esma-pc12-rt-kcmh-kbuf.json"
 
 export type TemplatePayload = {
   version: number
@@ -32,6 +33,7 @@ const TEMPLATE_LABELS: Record<string, string> = {
   "skyway-b90a-cj3-rt-kord-kmia-2nights": "Skyway-CJ3",
   "ventura-apma-excel-rt-kfrg-kiah-3nights-daily-margin": "Ventura-Excel",
   "privaira-1ksa-cl604-oneway-kfxe-kbos-matchscore-landing": "Privaira-CL604",
+  "aerocenter-esma-pc12-rt-kcmh-kbuf": "AeroCenter-PC12-RT",
 }
 
 function withMeta(id: string, data: TemplatePayload): TemplateItem {
@@ -47,4 +49,5 @@ export const TEMPLATES: TemplateItem[] = [
   withMeta("skyway-b90a-cj3-rt-kord-kmia-2nights", t005 as TemplatePayload),
   withMeta("ventura-apma-excel-rt-kfrg-kiah-3nights-daily-margin", t006 as TemplatePayload),
   withMeta("privaira-1ksa-cl604-oneway-kfxe-kbos-matchscore-landing", t007 as TemplatePayload),
+  withMeta("aerocenter-esma-pc12-rt-kcmh-kbuf", t008 as TemplatePayload),
 ]
