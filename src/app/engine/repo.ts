@@ -53,8 +53,7 @@ export function buildRepoLegs(args: {
     }
     baseOut = base
     baseBack = base
-  } else {
-    // vhb_network
+  } else if (mode === "vhb_network") {
     if (!vhbCandidates.length) {
       return err(
         reject(
@@ -76,6 +75,10 @@ export function buildRepoLegs(args: {
         )
       )
     }
+  } else {
+    // floating_fleet: assume the aircraft is already at the trip endpoints
+    baseOut = itineraryStart
+    baseBack = itineraryEnd
   }
 
   const legsOut: NormalizedLeg[] = []
