@@ -16,6 +16,10 @@ export default function ResultsPanel({ quote }: { quote: QuoteResult | null }) {
     )
   }
 
+  const splitNote = quote.rejectReasons?.find(
+    (reason) => reason.code === "INFO_SPLIT"
+  )?.message
+
   return (
     <Card title="Results">
       {quote.status === "REJECTED" ? (
@@ -33,6 +37,11 @@ export default function ResultsPanel({ quote }: { quote: QuoteResult | null }) {
               title="Trip plan"
               subtitle="Computed legs and billable time"
             />
+            {splitNote ? (
+              <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs font-semibold text-amber-900">
+                {splitNote}
+              </div>
+            ) : null}
 
             <LegPlan legs={quote.legs ?? []} />
           </div>
