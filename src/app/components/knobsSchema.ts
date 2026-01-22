@@ -579,9 +579,9 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             path: "discounts.vhbDiscount.percent",
             label: "Discount percent",
             why: "Percentage reduction applied when eligible.",
-            help: "Stored as decimal (0.10 = 10%).",
+            help: "Enter 10 for 10% (or 0.10). Values > 1 are treated as percent.",
             min: 0,
-            max: 0.5,
+            max: 50,
             step: 0.01,
             enabledWhen:
               "tripComplete && discounts.vhbDiscount.mode !== 'none'",

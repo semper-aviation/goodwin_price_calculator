@@ -95,6 +95,13 @@ export function buildPricingKnobs(values: KnobValues) {
     ) {
       finalValue = "landings_including_repo"
     }
+    if (
+      finalPath === "discounts.vhbDiscount.percent" &&
+      typeof finalValue === "number" &&
+      finalValue > 1
+    ) {
+      finalValue = finalValue / 100
+    }
     setNestedValue(result, finalPath, finalValue)
   })
   return result
