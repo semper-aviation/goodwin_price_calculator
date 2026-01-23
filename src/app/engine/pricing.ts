@@ -1,12 +1,13 @@
 // engine/pricing.ts
 import { PricingKnobs } from "./quoteRequest"
-import { Result, ok, err, LineItem } from "./types"
+import { Result, ok, err } from "./types"
+import { LineItem } from "./quoteResult"
 import { roundMoney, reject } from "./utils"
 
 export function calcBaseCost(
   knobs: PricingKnobs,
   occupiedHours: number,
-  repoHours: number
+  repoHours: number,
 ): Result<{ baseOccupied: number; baseRepo: number }> {
   const p = knobs.pricing
 
@@ -16,8 +17,8 @@ export function calcBaseCost(
         reject(
           "MISSING_RATE",
           "hourlyRate required when pricing.rateModel=single_hourly",
-          "pricing.hourlyRate"
-        )
+          "pricing.hourlyRate",
+        ),
       )
     }
     return ok({
@@ -32,8 +33,8 @@ export function calcBaseCost(
         reject(
           "MISSING_RATE",
           "repoRate required when pricing.rateModel=dual_rate_repo_occupied",
-          "pricing.repoRate"
-        )
+          "pricing.repoRate",
+        ),
       )
     }
     if (typeof p.occupiedRate !== "number" || p.occupiedRate <= 0) {
@@ -41,8 +42,8 @@ export function calcBaseCost(
         reject(
           "MISSING_RATE",
           "occupiedRate required when pricing.rateModel=dual_rate_repo_occupied",
-          "pricing.occupiedRate"
-        )
+          "pricing.occupiedRate",
+        ),
       )
     }
     return ok({
@@ -56,8 +57,8 @@ export function calcBaseCost(
     reject(
       "INVALID_RATE_MODEL",
       `Unsupported rateModel ${_exhaustive}`,
-      "pricing.rateModel"
-    )
+      "pricing.rateModel",
+    ),
   )
 }
 

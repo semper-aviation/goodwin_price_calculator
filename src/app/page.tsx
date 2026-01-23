@@ -219,9 +219,10 @@ export default function CalculatorPage() {
               options={TEMPLATES.map((item) => ({
                 label: item.name,
                 value: item.id,
-              }))}
+              })).sort((a, b) => a.label.localeCompare(b.label))}
               placeholder="Select operator..."
               onChange={handleTemplateChange}
+              maxSuggestions={TEMPLATES.length}
               inputClassName="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-600 transition focus:border-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-200"
             />
           </div>

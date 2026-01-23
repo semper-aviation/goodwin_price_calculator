@@ -12,6 +12,7 @@ type TypeaheadSelectProps = {
   placeholder?: string
   onChange: (value: string | number | undefined) => void
   inputClassName?: string
+  maxSuggestions?: number
 }
 
 const DEFAULT_INPUT_CLASSES =
@@ -23,6 +24,7 @@ export default function TypeaheadSelect({
   placeholder = "Select...",
   onChange,
   inputClassName,
+  maxSuggestions = 10,
 }: TypeaheadSelectProps) {
   const normalizedValue = value == null ? "" : String(value)
   const selectedOption = options.find(
@@ -49,16 +51,16 @@ export default function TypeaheadSelect({
   }, [])
 
   const suggestions = useMemo(() => {
-    if (!hasTyped) return options.slice(0, 10)
+    if (!hasTyped) return options.slice(0, maxSuggestions)
     const term = query.trim().toLowerCase()
-    if (!term) return options.slice(0, 10)
+    if (!term) return options.slice(0, maxSuggestions)
     const matches = options.filter((option) => {
       const label = option.label.toLowerCase()
       const optValue = String(option.value).toLowerCase()
       return label.includes(term) || optValue.includes(term)
     })
-    return matches.slice(0, 10)
-  }, [options, query, hasTyped])
+    return matches.slice(0, maxSuggestions)
+  }, [options, query, hasTyped, maxSuggestions])
 
   const showClear =
     (value != null && String(value) !== "") || query.trim().length > 0
@@ -109,7 +111,7 @@ export default function TypeaheadSelect({
         </button>
       )}
       {open && (
-        <div className="absolute z-10 mt-2 max-h-72 w-full overflow-auto rounded-lg border border-slate-200 bg-white shadow-lg">
+        <div className="always-scrollbar absolute z-10 mt-2 max-h-72 w-full overflow-y-scroll rounded-lg border border-slate-200 bg-white shadow-lg">
           {suggestions.length === 0 ? (
             <div className="px-3 py-2 text-sm text-slate-500">
               No matching options.

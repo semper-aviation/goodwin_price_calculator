@@ -654,9 +654,17 @@ export default function TripPlanner({
               field={TRIP_PLANNER_SCHEMA.sections[0].fields[0]}
               value={trip.tripType ?? ""}
               onChange={(v) =>
-                setTrip({
-                  ...trip,
-                  tripType: typeof v === "string" ? (v as TripType) : undefined,
+                setTrip((prev) => {
+                  const nextTripType =
+                    typeof v === "string" ? (v as TripType) : undefined
+                  return {
+                    ...prev,
+                    tripType: nextTripType,
+                    returnLocalISO:
+                      nextTripType === "ONE_WAY"
+                        ? undefined
+                        : prev.returnLocalISO,
+                  }
                 })
               }
               trip={trip}
@@ -739,31 +747,30 @@ export default function TripPlanner({
             }
             trip={trip}
           />
-          <div className="mb-4">
-            <label className="block text-sm font-semibold text-slate-700 mb-1">
-              Return (local)
-              {trip.tripType === "ROUND_TRIP" ? (
+          {trip.tripType === "ROUND_TRIP" && (
+            <div className="mb-4">
+              <label className="block text-sm font-semibold text-slate-700 mb-1">
+                Return (local)
                 <span className="ml-1 text-amber-600">*</span>
-              ) : null}
-            </label>
-            <input
-              type="datetime-local"
-              className={CONTROL_CLASSES}
-              value={
-                typeof trip.returnLocalISO === "string"
-                  ? trip.returnLocalISO
-                  : ""
-              }
-              onChange={(e) =>
-                setTrip({
-                  ...trip,
-                  returnLocalISO:
-                    e.target.value !== "" ? e.target.value : undefined,
-                })
-              }
-              disabled={trip.tripType !== "ROUND_TRIP"}
-            />
-          </div>
+              </label>
+              <input
+                type="datetime-local"
+                className={CONTROL_CLASSES}
+                value={
+                  typeof trip.returnLocalISO === "string"
+                    ? trip.returnLocalISO
+                    : ""
+                }
+                onChange={(e) =>
+                  setTrip({
+                    ...trip,
+                    returnLocalISO:
+                      e.target.value !== "" ? e.target.value : undefined,
+                  })
+                }
+              />
+            </div>
+          )}
         </div>
         {/* Row 4: Optional Passengers */}
         <div>
