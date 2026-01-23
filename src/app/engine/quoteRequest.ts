@@ -54,6 +54,9 @@ export type TripInput = {
 }
 
 export type PricingKnobs = {
+  trip?: {
+    maxNightsBeforeSplit?: number
+  }
   repo: {
     mode: "fixed_base" | "vhb_network" | "floating_fleet"
     policy: "both" | "outbound_only" | "inbound_only"
@@ -81,6 +84,9 @@ export type PricingKnobs = {
     }
     dailyLimits?: {
       maxOccupiedHoursPerDay?: number
+      rejectIfExceeded?: boolean
+      rejectIfAnyLegExceeds?: number
+      rejectIfSameDayRoundTripExceeds?: number
     }
   }
   pricing: {
@@ -94,6 +100,12 @@ export type PricingKnobs = {
     vhbDiscount?: {
       mode: "none" | "origin_or_destination" | "both_required"
       percent: number
+      appliesTo: "base_only" | "subtotal_before_fees" | "total"
+    }
+    timeBasedDiscount?: {
+      enabled: boolean
+      minOccupiedHoursPerLeg: number
+      discountPercent: number
       appliesTo: "base_only" | "subtotal_before_fees" | "total"
     }
   }
@@ -121,6 +133,13 @@ export type PricingKnobs = {
       defaultAmount: number
       hdOverrideAmount?: number
       hdAirports?: Airport[]
+      conditionalLogic?: "standard" | "homebase_conditional"
+      homebase?: Airport
+    }
+    priceConstraints?: {
+      minPricePerLeg?: number
+      minTripPrice?: number
+      maxTripPrice?: number
     }
     overnight?: {
       amountPerNight: number
@@ -153,6 +172,10 @@ export type PricingKnobs = {
           roundTripUpToNightsRequiresOrigin: number
           roundTripUpToNightsSide: "east" | "west"
           roundTripBeyondNightsRequires: "both_east" | "both_west"
+        }
+      | {
+          type: "mississippi_ppj_round_trip"
+          enabled: boolean
         }
       | {
           type: "allowed_countries"

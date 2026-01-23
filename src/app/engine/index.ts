@@ -13,16 +13,16 @@ import {
 } from "./utils"
 
 import { summarizeTotals, sumTwoQuotes } from "./aggregation"
-import { runEligibilityChecks } from "./eligibility"
+import { runEligibilityChecks, checkDailyHourLimits } from "./eligibility"
 import {
   resolveVhbCandidates,
   buildRepoLegs,
   enforceRepoConstraints,
 } from "./repo"
 import { applyTimeAdjustmentsAndValidate } from "./time"
-import { calcBaseCost } from "./pricing"
+import { calcBaseCost, applyPriceConstraints } from "./pricing"
 import { calcFees } from "./fees"
-import { calcVhbDiscount } from "./discounts"
+import { calcVhbDiscount, calcTimeBasedDiscount } from "./discounts"
 import { calcFlightSeconds } from "./flightTime"
 
 export async function quoteEngine(
@@ -42,7 +42,8 @@ export async function quoteEngine(
       payload.trip.departLocalISO,
       payload.trip.returnLocalISO
     )
-    const splitThreshold = payload.knobs.fees.overnight?.maxNightsBeforeSplit
+    // Feature 5: Trip splitting moved from fees.overnight to trip-level config
+    const splitThreshold = payload.knobs.trip?.maxNightsBeforeSplit
 
     if (typeof splitThreshold === "number" && overnights > splitThreshold) {
       const outReq: QuoteRequestPayload = {
@@ -248,6 +249,10 @@ async function quoteOneItinerary(
     }
   }
 
+  // Feature 6: Daily hour limits as ineligibility
+  const dailyLimitReject = checkDailyHourLimits(trip, knobs, legsWithTime)
+  if (dailyLimitReject) return dailyLimitReject
+
   const baseR = calcBaseCost(knobs, occupiedHours, repoHours)
   if (!baseR.ok) return baseR.error
   const base = baseR.value
@@ -316,6 +321,42 @@ async function quoteOneItinerary(
     lineItems.push(vhbDiscount)
     if (logger) {
       logger(`ℹ️   Engine: VHB Discount: ${vhbDiscount.amount.toFixed(2)}`)
+    }
+  }
+
+  // Feature 2: Time-based discount
+  const timeDiscount = calcTimeBasedDiscount({
+    knobs,
+    legs: legsWithTime,
+    baseSubtotal,
+    feesSubtotal,
+    totalBeforeDiscount: sum(lineItems.map((li) => li.amount)),
+  })
+  if (timeDiscount) {
+    lineItems.push(timeDiscount)
+    if (logger) {
+      logger(`ℹ️   Engine: Time Discount: ${timeDiscount.amount.toFixed(2)}`)
+    }
+  }
+
+  // Feature 1: Price constraints (floors & ceilings)
+  const occupiedLegCount = legsWithTime.filter(
+    (l) => l.kind === "OCCUPIED"
+  ).length
+  const priceConstraintItems = applyPriceConstraints({
+    knobs,
+    tentativeTotal: sum(lineItems.map((li) => li.amount)),
+    occupiedLegCount,
+  })
+  if (priceConstraintItems.length > 0) {
+    lineItems.push(...priceConstraintItems)
+    if (logger) {
+      const total = sum(priceConstraintItems.map((item) => item.amount))
+      logger(
+        `ℹ️   Engine: Price Constraints: ${total.toFixed(2)} (${
+          priceConstraintItems.length
+        } adjustments)`
+      )
     }
   }
 

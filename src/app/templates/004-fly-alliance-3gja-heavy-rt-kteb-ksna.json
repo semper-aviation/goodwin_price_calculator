@@ -10,6 +10,7 @@
     "toIcao": "KSNA"
   },
   "knobs": {
+    "trip.maxNightsBeforeSplit": 1,
     "repo.mode": "vhb_network",
     "repo.policy": "both",
     "repo.vhbSets.default": "KTEB, KSNA",
@@ -23,6 +24,7 @@
     "discounts.vhbDiscount.mode": "both_required",
     "discounts.vhbDiscount.percent": 0.05,
     "discounts.vhbDiscount.appliesTo": "total",
+    "fees.priceConstraints.minPricePerLeg": 24000,
     "fees.groundHandling.perSegmentAmount": 0,
     "fees.groundHandling.appliesTo": "occupied_only",
     "fees.highDensity.airports": "KTEB",

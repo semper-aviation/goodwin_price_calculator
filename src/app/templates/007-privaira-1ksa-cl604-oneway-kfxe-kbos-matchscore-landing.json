@@ -11,6 +11,7 @@
     "toIcao": "KBOS"
   },
   "knobs": {
+    "trip.maxNightsBeforeSplit": 2,
     "repo.mode": "fixed_base",
     "repo.policy": "both",
     "repo.fixedBaseIcao": "KFXE",
@@ -69,6 +70,8 @@
     "fees.highDensity.roundTripOriginDoubleCharge": false,
     "fees.highDensity.tripCap": null,
 
+    "fees.landingFees.conditionalLogic": "homebase_conditional",
+    "fees.landingFees.homebase": "KFXE",
     "fees.landingFees.countingMode": "landings_including_repo",
     "fees.landingFees.defaultAmount": 500,
     "fees.landingFees.hdOverrideAmount": 1500,
@@ -93,7 +96,6 @@
 
     "fees.overnight.amountPerNight": 1500,
     "fees.overnight.appliesWhen": "round_trip_only",
-    "fees.overnight.maxNightsBeforeSplit": 2,
 
     "fees.daily.amountPerCalendarDay": 900,
     "fees.daily.calendarDayCounting": "nights_plus_one",

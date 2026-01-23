@@ -10,6 +10,7 @@
     "toIcao": "KMIA"
   },
   "knobs": {
+    "trip.maxNightsBeforeSplit": 3,
     "repo.mode": "vhb_network",
     "repo.policy": "both",
     "repo.vhbSets.default": ["KPTK", "KDAY", "KCVG", "KSUA"],
@@ -41,7 +42,6 @@
     "fees.landing.defaultAmount": 0,
     "fees.overnight.amountPerNight": 0,
     "fees.overnight.appliesWhen": "none",
-    "fees.overnight.maxNightsBeforeSplit": 3,
     "fees.daily.amountPerCalendarDay": 0,
     "fees.daily.calendarDayCounting": "unique_dates_touched",
     "scoring.matchScore.enabled": false,
@@ -51,23 +51,8 @@
     "eligibility.maxPassengers": null,
     "eligibility.geoRules": [
       {
-        "type": "mississippi",
-        "config": {
-          "oneWay": {
-            "originSide": "east",
-            "destinationSide": "east"
-          },
-          "roundTripShort": {
-            "maxOvernights": 3,
-            "originSide": "east",
-            "destinationSide": null
-          },
-          "roundTripLong": {
-            "minOvernights": 4,
-            "originSide": "east",
-            "destinationSide": "east"
-          }
-        }
+        "type": "mississippi_ppj_round_trip",
+        "enabled": true
       }
     ],
     "repo.constraints.maxOriginRepoHours": null,

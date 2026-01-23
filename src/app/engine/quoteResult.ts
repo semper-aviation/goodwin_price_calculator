@@ -19,11 +19,15 @@ export type LineItem = {
     | "BASE_OCCUPIED"
     | "BASE_REPO"
     | "DISCOUNT_VHB"
+    | "DISCOUNT_TIME_BASED"
+    | "DISCOUNT_MAX_TRIP_PRICE_CAP"
     | "FEE_GROUND_HANDLING"
     | "FEE_HIGH_DENSITY"
     | "FEE_LANDING"
     | "FEE_OVERNIGHT"
     | "FEE_DAILY"
+    | "FEE_MIN_PRICE_PER_LEG"
+    | "FEE_MIN_TRIP_PRICE"
     | "INFO_MATCH_SCORE"
   label: string
   amount: number

@@ -266,6 +266,31 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
           },
         ],
       },
+      {
+        title: "Trip Splitting",
+        description:
+          "Controls when long round trips split into two one-ways.",
+        fields: [
+          {
+            type: "number",
+            path: "trip.maxNightsBeforeSplit",
+            label: "Max nights before split",
+            why: "Splits long round trips into separate one-ways.",
+            help:
+              "If ROUND_TRIP has more overnights than this, split into:\n" +
+              "- Outbound ONE_WAY\n" +
+              "- Return ONE_WAY\n\n" +
+              "Operator variations:\n" +
+              "- Fly Alliance: 1 day\n" +
+              "- Skyway: 2 days\n" +
+              "- Privaira: 2 days\n\n" +
+              "Leave empty to never split.",
+            min: 0,
+            step: 1,
+            enabledWhen: "tripComplete",
+          },
+        ],
+      },
     ],
   },
 
@@ -543,6 +568,87 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             enabledWhen:
               "tripComplete && fees.landingFees.defaultAmount > 0 && fees.landingFees.hdAirports",
           },
+          {
+            type: "select",
+            path: "fees.landingFees.conditionalLogic",
+            label: "Landing count logic",
+            why: "Controls how landing counts are calculated based on homebase.",
+            help:
+              "Choose landing count calculation method:\n\n" +
+              "- Standard: Count all landings based on counting mode (default)\n" +
+              "- Homebase conditional: Adjust count based on whether trip origin equals homebase\n\n" +
+              "Homebase conditional logic (Privaira):\n" +
+              "  If trip origin = homebase: 2 landings (occupied legs only)\n" +
+              "  If trip origin ≠ homebase: 3 landings (1 repo + 2 occupied)\n\n" +
+              "This models operators who charge differently based on repositioning needs.",
+            options: [
+              { label: "Standard", value: "standard" },
+              { label: "Homebase conditional", value: "homebase_conditional" },
+            ],
+            enabledWhen: "tripComplete && fees.landingFees.defaultAmount > 0",
+          },
+          {
+            type: "airportSingle",
+            path: "fees.landingFees.homebase",
+            label: "Landing fees homebase",
+            why: "Defines the homebase airport for conditional landing count logic.",
+            help:
+              "When conditional logic is enabled, this airport is used to determine landing counts.\n\n" +
+              "Example: KFXE (Privaira)\n\n" +
+              "If trip origin = this airport, reduced landing count applies.",
+            enabledWhen:
+              "tripComplete && fees.landingFees.conditionalLogic === 'homebase_conditional'",
+            placeholder: "e.g., KFXE",
+          },
+        ],
+      },
+      {
+        title: "Price Floors & Ceilings",
+        description:
+          "Enforce minimum and maximum pricing constraints regardless of calculated cost.",
+        fields: [
+          {
+            type: "number",
+            path: "fees.priceConstraints.minPricePerLeg",
+            label: "Min price per leg ($)",
+            why: "Enforces minimum charge per occupied leg.",
+            help:
+              "If any occupied leg's allocated cost is below this, adjust upward.\n\n" +
+              "Example: $24,000 (Fly Alliance GIV)\n\n" +
+              "Applied: total × (legs meeting threshold / total occupied legs)\n\n" +
+              "Leave blank for no per-leg minimum.",
+            min: 0,
+            step: 1000,
+            enabledWhen: "tripComplete",
+          },
+          {
+            type: "number",
+            path: "fees.priceConstraints.minTripPrice",
+            label: "Min trip price ($)",
+            why: "Enforces minimum total price for entire trip.",
+            help:
+              "If calculated total (after fees/discounts) is below this, adjust upward.\n\n" +
+              "Examples:\n" +
+              "- $8,000 (Skyway)\n" +
+              "- $6,500 (Ventura daily margin)\n\n" +
+              "Applied after per-leg minimum if both set.\n\n" +
+              "Leave blank for no trip minimum.",
+            min: 0,
+            step: 1000,
+            enabledWhen: "tripComplete",
+          },
+          {
+            type: "number",
+            path: "fees.priceConstraints.maxTripPrice",
+            label: "Max trip price ($)",
+            why: "Caps total price at maximum (rarely used).",
+            help:
+              "If calculated total exceeds this, cap it.\n\n" +
+              "Leave blank for no ceiling.",
+            min: 0,
+            step: 1000,
+            enabledWhen: "tripComplete",
+          },
         ],
       },
     ],
@@ -585,6 +691,72 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             step: 0.01,
             enabledWhen:
               "tripComplete && discounts.vhbDiscount.mode !== 'none'",
+          },
+        ],
+      },
+      {
+        title: "Time-Based Discount",
+        description: "Discount for longer flight durations.",
+        fields: [
+          {
+            type: "toggle",
+            path: "discounts.timeBasedDiscount.enabled",
+            label: "Enable time-based discount",
+            why: "Activates discounts for longer trips.",
+            help:
+              "When enabled, trips meeting time threshold receive discount.\n\n" +
+              "Example: Skyway offers 10% discount for flights > 2.5 hours/leg.",
+            enabledWhen: "tripComplete",
+          },
+          {
+            type: "number",
+            path: "discounts.timeBasedDiscount.minOccupiedHoursPerLeg",
+            label: "Min occupied hours per leg (hrs)",
+            why: "Sets threshold for discount eligibility.",
+            help:
+              "Each occupied leg must exceed this flight time to qualify.\n\n" +
+              "Example: 2.5 hours (Skyway)\n\n" +
+              "ALL occupied legs must meet threshold for discount to apply.",
+            min: 0,
+            max: 10,
+            step: 0.1,
+            enabledWhen:
+              "tripComplete && discounts.timeBasedDiscount.enabled",
+          },
+          {
+            type: "number",
+            path: "discounts.timeBasedDiscount.discountPercent",
+            label: "Discount percent",
+            why: "Percentage reduction when threshold met.",
+            help:
+              "Enter 10 for 10% (or 0.10).\n\n" +
+              "Applied to base specified by 'Applies to' below.",
+            min: 0,
+            max: 50,
+            step: 0.01,
+            enabledWhen:
+              "tripComplete && discounts.timeBasedDiscount.enabled",
+          },
+          {
+            type: "select",
+            path: "discounts.timeBasedDiscount.appliesTo",
+            label: "Applies to",
+            why: "Defines what gets discounted.",
+            help:
+              "Choose discount base:\n\n" +
+              "- Base only: discounts base hourly cost only\n" +
+              "- Subtotal before fees: discounts base + fees\n" +
+              "- Total: discounts everything",
+            options: [
+              { label: "Base only", value: "base_only" },
+              {
+                label: "Subtotal before fees",
+                value: "subtotal_before_fees",
+              },
+              { label: "Total", value: "total" },
+            ],
+            enabledWhen:
+              "tripComplete && discounts.timeBasedDiscount.enabled",
           },
         ],
       },
@@ -739,6 +911,42 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             step: 0.25,
             enabledWhen: "tripComplete",
           },
+          {
+            type: "toggle",
+            path: "time.dailyLimits.rejectIfExceeded",
+            label: "Reject if limits exceeded",
+            why: "Converts daily hour limits into hard rejection rules.",
+            help:
+              "When enabled, trips exceeding daily limits are REJECTED (not just capped).\n\n" +
+              "Use this for operators with strict flight hour policies (e.g., Ventura Air).",
+            enabledWhen: "tripComplete",
+          },
+          {
+            type: "number",
+            path: "time.dailyLimits.rejectIfAnyLegExceeds",
+            label: "Reject if any leg exceeds (hrs)",
+            why: "Rejects trips with any single leg exceeding this duration.",
+            help:
+              "If ANY occupied leg flight time ≥ this value, reject the trip.\n\n" +
+              "Example: 7 hours (Ventura Air)\n\n" +
+              "This models operators who won't accept very long single legs.",
+            min: 0,
+            step: 0.5,
+            enabledWhen: "tripComplete && time.dailyLimits.rejectIfExceeded",
+          },
+          {
+            type: "number",
+            path: "time.dailyLimits.rejectIfSameDayRoundTripExceeds",
+            label: "Reject if same-day RT exceeds (hrs)",
+            why: "Rejects same-day round trips with combined flight time exceeding threshold.",
+            help:
+              "If ROUND_TRIP same-day combined flight time ≥ this value, reject.\n\n" +
+              "Example: 7 hours (Ventura Air)\n\n" +
+              "Same-day = return on same calendar date as departure.",
+            min: 0,
+            step: 0.5,
+            enabledWhen: "tripComplete && time.dailyLimits.rejectIfExceeded",
+          },
         ],
       },
     ],
@@ -796,7 +1004,11 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             help:
               "Adds geographic eligibility rules.\n\n" +
               "Supported rules:\n" +
-              "- Mississippi rule: requires airports to be on a specific side (east/west) depending on trip type and length.\n\n" +
+              "- Mississippi rule: requires airports to be on a specific side (east/west) depending on trip type.\n" +
+              "- Mississippi PPJ Round Trip: PPJ-specific variations\n" +
+              "  * Round trips ≤3 nights: origin must be east (destination anywhere)\n" +
+              "  * Round trips >3 nights: BOTH origin and destination must be east\n" +
+              "  * One-way trips: BOTH airports must be east\n\n" +
               "If any geo rule fails, the quote is rejected.",
             enabledWhen: "tripComplete",
           },

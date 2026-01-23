@@ -77,17 +77,46 @@ export function calcFees(args: {
 
     let landings = 0
     let amount = 0
+    const conditionalLogic = lf.conditionalLogic ?? "standard"
 
-    const applyToLegs =
-      lf.countingMode === "arrivals_only"
-        ? legs.filter((l) => l.kind === "OCCUPIED")
-        : legs
+    // Feature 4: Homebase conditional landing count
+    if (conditionalLogic === "homebase_conditional" && lf.homebase) {
+      const originIsHomebase =
+        trip.from.icao.toUpperCase() === lf.homebase.icao.toUpperCase()
 
-    for (const leg of applyToLegs) {
-      landings += 1
-      const isHd = hdSet.has(leg.to.icao.toUpperCase())
-      amount +=
-        isHd && lf.hdOverrideAmount ? lf.hdOverrideAmount : lf.defaultAmount
+      if (originIsHomebase) {
+        // 2 landings (occupied legs only)
+        const occupiedLegs = legs.filter((l) => l.kind === "OCCUPIED")
+        for (const leg of occupiedLegs) {
+          landings += 1
+          const isHd = hdSet.has(leg.to.icao.toUpperCase())
+          amount +=
+            isHd && lf.hdOverrideAmount ? lf.hdOverrideAmount : lf.defaultAmount
+        }
+      } else {
+        // 3 landings (1 repo + 2 occupied)
+        // This assumes first leg is repo, next legs are occupied
+        for (const leg of legs) {
+          landings += 1
+          const isHd = hdSet.has(leg.to.icao.toUpperCase())
+          amount +=
+            isHd && lf.hdOverrideAmount ? lf.hdOverrideAmount : lf.defaultAmount
+          if (landings >= 3) break
+        }
+      }
+    } else {
+      // Standard mode (existing logic)
+      const applyToLegs =
+        lf.countingMode === "arrivals_only"
+          ? legs.filter((l) => l.kind === "OCCUPIED")
+          : legs
+
+      for (const leg of applyToLegs) {
+        landings += 1
+        const isHd = hdSet.has(leg.to.icao.toUpperCase())
+        amount +=
+          isHd && lf.hdOverrideAmount ? lf.hdOverrideAmount : lf.defaultAmount
+      }
     }
 
     amount = roundMoney(amount)
@@ -96,7 +125,7 @@ export function calcFees(args: {
         code: "FEE_LANDING",
         label: "Landing fees",
         amount,
-        meta: { landings },
+        meta: { landings, conditionalLogic },
       })
   }
 

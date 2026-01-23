@@ -9,6 +9,7 @@
     "toIcao": "KPBI"
   },
   "knobs": {
+    "trip.maxNightsBeforeSplit": 1,
     "repo.mode": "vhb_network",
     "repo.policy": "both",
     "repo.vhbSets.default": "KTEB, KPBI",

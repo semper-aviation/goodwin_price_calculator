@@ -1,6 +1,6 @@
 // engine/pricing.ts
 import { PricingKnobs } from "./quoteRequest"
-import { Result, ok, err } from "./types"
+import { Result, ok, err, LineItem } from "./types"
 import { roundMoney, reject } from "./utils"
 
 export function calcBaseCost(
@@ -59,4 +59,71 @@ export function calcBaseCost(
       "pricing.rateModel"
     )
   )
+}
+
+/**
+ * Feature 1: Price Floors & Ceilings
+ * Applies minimum and maximum pricing constraints
+ */
+export function applyPriceConstraints(args: {
+  knobs: PricingKnobs
+  tentativeTotal: number
+  occupiedLegCount: number
+}): LineItem[] {
+  const { knobs, tentativeTotal, occupiedLegCount } = args
+  const constraints = knobs.fees.priceConstraints
+
+  if (!constraints) return []
+
+  const items: LineItem[] = []
+  let currentTotal = tentativeTotal
+
+  // 1. Per-leg minimum (applied proportionally)
+  if (typeof constraints.minPricePerLeg === "number" && occupiedLegCount > 0) {
+    const requiredMin = constraints.minPricePerLeg * occupiedLegCount
+    if (currentTotal < requiredMin) {
+      const adjustment = roundMoney(requiredMin - currentTotal)
+      items.push({
+        code: "FEE_MIN_PRICE_PER_LEG",
+        label: `Min price adjustment (${occupiedLegCount} leg${
+          occupiedLegCount > 1 ? "s" : ""
+        })`,
+        amount: adjustment,
+        meta: {
+          minPricePerLeg: constraints.minPricePerLeg,
+          occupiedLegCount,
+        },
+      })
+      currentTotal += adjustment
+    }
+  }
+
+  // 2. Trip-level minimum
+  if (typeof constraints.minTripPrice === "number") {
+    if (currentTotal < constraints.minTripPrice) {
+      const adjustment = roundMoney(constraints.minTripPrice - currentTotal)
+      items.push({
+        code: "FEE_MIN_TRIP_PRICE",
+        label: "Min trip price adjustment",
+        amount: adjustment,
+        meta: { minTripPrice: constraints.minTripPrice },
+      })
+      currentTotal += adjustment
+    }
+  }
+
+  // 3. Trip-level maximum (cap)
+  if (typeof constraints.maxTripPrice === "number") {
+    if (currentTotal > constraints.maxTripPrice) {
+      const reduction = roundMoney(currentTotal - constraints.maxTripPrice)
+      items.push({
+        code: "DISCOUNT_MAX_TRIP_PRICE_CAP",
+        label: "Max trip price cap",
+        amount: -reduction,
+        meta: { maxTripPrice: constraints.maxTripPrice },
+      })
+    }
+  }
+
+  return items
 }
