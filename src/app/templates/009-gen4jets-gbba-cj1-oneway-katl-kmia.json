@@ -3,7 +3,7 @@
   "trip": {
     "tripType": "ONE_WAY",
     "category": "CAT3",
-    "aircraftModel": "mdl0513b1ebf42",
+    "aircraftModel": "mdle34ad326e4c",
     "departLocalISO": "2026-02-05T15:30",
     "passengers": 4,
     "fromIcao": "KATL",
