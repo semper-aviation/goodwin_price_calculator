@@ -292,6 +292,7 @@ async function quoteOneItinerary(
       inboundAirport: repoBuild.chosenBackBase,
       config: knobs.repo.zoneNetwork!,
       departDateISO: trip.departLocalISO,
+      repoRate: knobs.pricing.repoRate ?? 0,
       occupiedRate: knobs.pricing.occupiedRate ?? 0,
     })
 
@@ -300,7 +301,11 @@ async function quoteOneItinerary(
       code: "BASE_OCCUPIED",
       label: "Base cost (occupied)",
       amount: base.baseOccupied,
-      meta: { occupiedHours, appliedRate: zoneCalculation.occupiedRate?.appliedRate },
+      meta: {
+        occupiedHours,
+        baseRate: knobs.pricing.occupiedRate,
+        appliedRate: zoneCalculation.occupiedRate?.appliedRate,
+      },
     })
 
     // Add zone-based repo line items (detailed per-leg)
@@ -308,11 +313,15 @@ async function quoteOneItinerary(
 
     if (logger) {
       logger(
-        `ℹ️   Engine: Zone-based pricing | Occupied rate: $${knobs.pricing.occupiedRate}/hr`
+        `ℹ️   Engine: Zone-based pricing | Occupied rate: $${knobs.pricing.occupiedRate}/hr | Repo rate: $${knobs.pricing.repoRate}/hr`
+      )
+      logger(
+        `ℹ️   Engine: Total zone repo time: ${zoneR.value.totalZoneRepoTime.toFixed(2)} hrs`
       )
       zoneR.value.repoLineItems.forEach((item) => {
+        const meta = item.meta as { zoneRepoTime?: number }
         logger(
-          `ℹ️   Engine:   ${item.label}: $${item.amount.toFixed(2)}`
+          `ℹ️   Engine:   ${item.label}: ${meta.zoneRepoTime?.toFixed(2) ?? 0} hrs = $${item.amount.toFixed(2)}`
         )
       })
     }
@@ -520,6 +529,13 @@ function validateBasics(payload: QuoteRequestPayload): QuoteResult | null {
         "pricing.occupiedRate"
       )
     }
+    if (typeof knobs.pricing.repoRate !== "number") {
+      return reject(
+        "MISSING_RATE",
+        "pricing.repoRate required for zone_based",
+        "pricing.repoRate"
+      )
+    }
     if (!knobs.repo.zoneNetwork || knobs.repo.zoneNetwork.zones.length === 0) {
       return reject(
         "MISSING_ZONE_CONFIG",
@@ -527,11 +543,11 @@ function validateBasics(payload: QuoteRequestPayload): QuoteResult | null {
         "repo.zoneNetwork.zones"
       )
     }
-    if (knobs.repo.zoneNetwork.zoneRepoRates.length === 0) {
+    if (knobs.repo.zoneNetwork.zoneRepoTimes.length === 0) {
       return reject(
-        "MISSING_ZONE_RATES",
-        "repo.zoneNetwork.zoneRepoRates required for zone_based pricing",
-        "repo.zoneNetwork.zoneRepoRates"
+        "MISSING_ZONE_TIMES",
+        "repo.zoneNetwork.zoneRepoTimes required for zone_based pricing",
+        "repo.zoneNetwork.zoneRepoTimes"
       )
     }
   }

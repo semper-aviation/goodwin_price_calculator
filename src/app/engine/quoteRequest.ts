@@ -44,13 +44,13 @@ export type Airport = {
 export type Zone = {
   id: string
   name: string
-  airports: Airport[]
+  states: string[] // US state codes (e.g., "NY", "CA", "FL")
 }
 
-export type ZoneRepoRates = {
+export type ZoneRepoTimes = {
   zoneId: string
-  originRepoRate: number
-  destinationRepoRate: number
+  originRepoTime: number      // hours to add for outbound repo FROM this zone
+  destinationRepoTime: number // hours to add for inbound repo TO this zone
 }
 
 export type PeakPeriod = {
@@ -58,17 +58,18 @@ export type PeakPeriod = {
   name: string
   startDate: string // YYYY-MM-DD
   endDate: string // YYYY-MM-DD
-  zoneMultipliers?: Array<{
+  zoneTimeOverrides?: Array<{
     zoneId: string
-    originRepoMultiplier: number
-    destinationRepoMultiplier: number
+    originRepoTime: number      // override origin repo time during peak
+    destinationRepoTime: number // override destination repo time during peak
   }>
-  occupiedMultiplier?: number
+  repoRateMultiplier?: number   // multiplier for repo rate during peak (e.g., 1.25 = 25% increase)
+  occupiedMultiplier?: number   // multiplier for occupied rate during peak
 }
 
 export type ZoneNetworkConfig = {
   zones: Zone[]
-  zoneRepoRates: ZoneRepoRates[]
+  zoneRepoTimes: ZoneRepoTimes[]
   peakPeriods?: PeakPeriod[]
   selectionMethod: "closest_in_zone"
 }

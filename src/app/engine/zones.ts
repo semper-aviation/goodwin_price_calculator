@@ -1,27 +1,29 @@
 // engine/zones.ts
-// Zone resolution and pricing logic for zone_network mode
+// Zone resolution and time calculation logic for zone_network mode
 
 import {
   Airport,
   Zone,
   ZoneNetworkConfig,
-  ZoneRepoRates,
+  ZoneRepoTimes,
   PeakPeriod,
 } from "./quoteRequest"
 import { NormalizedLeg, ZoneCalculationInfo } from "./quoteResult"
-import { haversineNm, roundMoney, toYYYYMMDD } from "./utils"
 
 /**
- * Find which zone an airport belongs to.
- * Returns null if airport is not in any zone.
+ * Find which zone an airport belongs to based on its state.
+ * Returns null if airport's state is not in any zone.
  */
 export function findZoneForAirport(
   airport: Airport,
   zones: Zone[]
 ): Zone | null {
+  if (!airport.state) return null
+
+  const airportState = airport.state.toUpperCase()
   for (const zone of zones) {
-    const match = zone.airports.find(
-      (a) => a.icao.toUpperCase() === airport.icao.toUpperCase()
+    const match = zone.states.some(
+      (s) => s.toUpperCase() === airportState
     )
     if (match) return zone
   }
@@ -29,77 +31,40 @@ export function findZoneForAirport(
 }
 
 /**
- * Find the closest airport within a specific zone to the given reference airport.
+ * Check if an airport's state is covered by any zone.
  */
-export function findClosestAirportInZone(
-  reference: Airport,
-  zone: Zone
-): Airport | null {
-  if (zone.airports.length === 0) return null
-
-  let closest: Airport | null = null
-  let minDistance = Infinity
-
-  for (const candidate of zone.airports) {
-    const dist = haversineNm(
-      reference.lat,
-      reference.lon,
-      candidate.lat,
-      candidate.lon
-    )
-    if (dist < minDistance) {
-      minDistance = dist
-      closest = candidate
-    }
-  }
-
-  return closest
+export function isAirportStateCovered(
+  airport: Airport,
+  zones: Zone[]
+): boolean {
+  return findZoneForAirport(airport, zones) !== null
 }
 
 /**
- * Select the zone and closest airport for a trip endpoint.
- * Used for zone_network mode to determine repo endpoints.
- * Returns null if no zone covers the trip endpoint.
+ * Select the zone for a trip endpoint based on the airport's state.
+ * Used for zone_network mode to determine which zone applies.
+ * Returns null if the airport's state is not covered by any zone.
  */
 export function selectZoneForEndpoint(
   tripEndpoint: Airport,
   config: ZoneNetworkConfig
 ): { zone: Zone; airport: Airport } | null {
-  // First check if the trip endpoint itself is directly in a zone
-  const directZone = findZoneForAirport(tripEndpoint, config.zones)
-  if (directZone) {
-    return { zone: directZone, airport: tripEndpoint }
+  // Find zone by airport's state
+  const zone = findZoneForAirport(tripEndpoint, config.zones)
+  if (zone) {
+    return { zone, airport: tripEndpoint }
   }
-
-  // Find the closest airport across all zones
-  let bestMatch: { zone: Zone; airport: Airport; distance: number } | null =
-    null
-
-  for (const zone of config.zones) {
-    for (const zoneAirport of zone.airports) {
-      const dist = haversineNm(
-        tripEndpoint.lat,
-        tripEndpoint.lon,
-        zoneAirport.lat,
-        zoneAirport.lon
-      )
-      if (!bestMatch || dist < bestMatch.distance) {
-        bestMatch = { zone, airport: zoneAirport, distance: dist }
-      }
-    }
-  }
-
-  return bestMatch ? { zone: bestMatch.zone, airport: bestMatch.airport } : null
+  return null
 }
 
 /**
- * Get the repo rates for a zone.
+ * Get the repo times for a zone.
  */
-export function getZoneRepoRates(
+export function getZoneRepoTimes(
   zoneId: string,
   config: ZoneNetworkConfig
-): ZoneRepoRates | null {
-  return config.zoneRepoRates.find((r) => r.zoneId === zoneId) ?? null
+): ZoneRepoTimes | null {
+  return config.zoneRepoTimes.find((r) => r.zoneId === zoneId) ?? null
 }
 
 /**
@@ -121,99 +86,104 @@ export function findPeakPeriod(
 }
 
 /**
- * Get the peak multiplier for a zone and direction.
- * Returns 1.0 if no multiplier is defined.
+ * Get the peak time override for a zone and direction.
+ * Returns null if no override is defined (use base zone time).
  */
-export function getPeakMultiplier(
+export function getPeakTimeOverride(
   peak: PeakPeriod,
   zoneId: string,
   direction: "origin" | "destination"
-): number {
-  if (!peak.zoneMultipliers) return 1.0
+): number | null {
+  if (!peak.zoneTimeOverrides) return null
 
-  const zoneMultiplier = peak.zoneMultipliers.find((m) => m.zoneId === zoneId)
-  if (!zoneMultiplier) return 1.0
+  const zoneOverride = peak.zoneTimeOverrides.find((m) => m.zoneId === zoneId)
+  if (!zoneOverride) return null
 
-  return direction === "origin"
-    ? zoneMultiplier.originRepoMultiplier
-    : zoneMultiplier.destinationRepoMultiplier
+  const time = direction === "origin"
+    ? zoneOverride.originRepoTime
+    : zoneOverride.destinationRepoTime
+
+  // Return null if time is 0 or undefined (meaning use base time)
+  return time != null && time > 0 ? time : null
 }
 
 /**
- * Calculate zone-based repo cost for a single repo leg.
- * - Outbound repo (base → trip origin): uses zone's originRepoRate
- * - Inbound repo (trip dest → base): uses zone's destinationRepoRate
+ * Calculate zone repo time for a single repo leg.
+ * Returns the zone repo time to add to the flight time.
+ *
+ * - Outbound repo (base → trip origin): uses zone's originRepoTime
+ * - Inbound repo (trip dest → base): uses zone's destinationRepoTime
+ *
+ * Peak periods can override these times with specific values.
  */
-export function calcZoneRepoCost(args: {
+export function calcZoneRepoTime(args: {
   leg: NormalizedLeg
-  hours: number
   config: ZoneNetworkConfig
   departDateISO: string
   isOutbound: boolean
 }): {
-  cost: number
+  zoneRepoTime: number
   zoneId: string | null
   zoneName: string | null
-  baseRate: number
-  appliedRate: number
-  rateDirection: "origin" | "destination"
+  baseRepoTime: number
+  repoDirection: "origin" | "destination"
   peakPeriodId: string | null
   peakPeriodName: string | null
-  peakMultiplier: number
+  isPeakOverride: boolean
 } {
-  const { leg, hours, config, departDateISO, isOutbound } = args
+  const { leg, config, departDateISO, isOutbound } = args
 
   // Determine which zone this leg is associated with
-  // For outbound: the repo starts FROM a zone airport (origin rate)
-  // For inbound: the repo ends AT a zone airport (destination rate)
+  // For outbound: the repo starts FROM a zone airport (origin time)
+  // For inbound: the repo ends AT a zone airport (destination time)
   const relevantAirport = isOutbound ? leg.from : leg.to
   const zone = findZoneForAirport(relevantAirport, config.zones)
-  const rateDirection = isOutbound ? "origin" : "destination"
+  const repoDirection = isOutbound ? "origin" : "destination"
 
   if (!zone) {
     // Should not happen if validation passes, but handle gracefully
     return {
-      cost: 0,
+      zoneRepoTime: 0,
       zoneId: null,
       zoneName: null,
-      baseRate: 0,
-      appliedRate: 0,
-      rateDirection,
+      baseRepoTime: 0,
+      repoDirection,
       peakPeriodId: null,
       peakPeriodName: null,
-      peakMultiplier: 1.0,
+      isPeakOverride: false,
     }
   }
 
-  // Get base rate for this zone
-  const zoneRates = getZoneRepoRates(zone.id, config)
-  const baseRate = zoneRates
+  // Get base repo time for this zone
+  const zoneTimes = getZoneRepoTimes(zone.id, config)
+  const baseRepoTime = zoneTimes
     ? isOutbound
-      ? zoneRates.originRepoRate
-      : zoneRates.destinationRepoRate
+      ? zoneTimes.originRepoTime
+      : zoneTimes.destinationRepoTime
     : 0
 
-  // Check for peak period
+  // Check for peak period override
   const peak = findPeakPeriod(departDateISO, config.peakPeriods ?? [])
-  let peakMultiplier = 1.0
+  let zoneRepoTime = baseRepoTime
+  let isPeakOverride = false
 
   if (peak) {
-    peakMultiplier = getPeakMultiplier(peak, zone.id, rateDirection)
+    const peakOverride = getPeakTimeOverride(peak, zone.id, repoDirection)
+    if (peakOverride !== null) {
+      zoneRepoTime = peakOverride
+      isPeakOverride = true
+    }
   }
 
-  const appliedRate = baseRate * peakMultiplier
-  const cost = roundMoney(hours * appliedRate)
-
   return {
-    cost,
+    zoneRepoTime,
     zoneId: zone.id,
     zoneName: zone.name,
-    baseRate,
-    appliedRate,
-    rateDirection,
+    baseRepoTime,
+    repoDirection,
     peakPeriodId: peak?.id ?? null,
     peakPeriodName: peak?.name ?? null,
-    peakMultiplier,
+    isPeakOverride,
   }
 }
 
@@ -227,6 +197,7 @@ export function buildZoneCalculationInfo(args: {
   inboundAirport?: Airport
   config: ZoneNetworkConfig
   departDateISO: string
+  repoRate: number
   occupiedRate: number
 }): ZoneCalculationInfo {
   const {
@@ -236,6 +207,7 @@ export function buildZoneCalculationInfo(args: {
     inboundAirport,
     config,
     departDateISO,
+    repoRate,
     occupiedRate,
   } = args
 
@@ -244,40 +216,49 @@ export function buildZoneCalculationInfo(args: {
   const info: ZoneCalculationInfo = {}
 
   if (outboundZone && outboundAirport) {
-    const rates = getZoneRepoRates(outboundZone.id, config)
-    const baseRate = rates?.originRepoRate ?? 0
-    const multiplier = peak
-      ? getPeakMultiplier(peak, outboundZone.id, "origin")
-      : 1.0
+    const times = getZoneRepoTimes(outboundZone.id, config)
+    const baseRepoTime = times?.originRepoTime ?? 0
+    const peakOverride = peak
+      ? getPeakTimeOverride(peak, outboundZone.id, "origin")
+      : null
+    const appliedRepoTime = peakOverride !== null ? peakOverride : baseRepoTime
 
     info.outboundZone = {
       zoneId: outboundZone.id,
       zoneName: outboundZone.name,
       selectedAirport: outboundAirport.icao,
-      baseRate,
-      appliedRate: baseRate * multiplier,
-      rateDirection: "origin",
+      baseRepoTime,
+      appliedRepoTime,
+      repoDirection: "origin",
     }
   }
 
   if (inboundZone && inboundAirport) {
-    const rates = getZoneRepoRates(inboundZone.id, config)
-    const baseRate = rates?.destinationRepoRate ?? 0
-    const multiplier = peak
-      ? getPeakMultiplier(peak, inboundZone.id, "destination")
-      : 1.0
+    const times = getZoneRepoTimes(inboundZone.id, config)
+    const baseRepoTime = times?.destinationRepoTime ?? 0
+    const peakOverride = peak
+      ? getPeakTimeOverride(peak, inboundZone.id, "destination")
+      : null
+    const appliedRepoTime = peakOverride !== null ? peakOverride : baseRepoTime
 
     info.inboundZone = {
       zoneId: inboundZone.id,
       zoneName: inboundZone.name,
       selectedAirport: inboundAirport.icao,
-      baseRate,
-      appliedRate: baseRate * multiplier,
-      rateDirection: "destination",
+      baseRepoTime,
+      appliedRepoTime,
+      repoDirection: "destination",
     }
   }
 
-  // Occupied rate info
+  // Repo rate info (with peak multiplier)
+  const repoRateMultiplier = peak?.repoRateMultiplier ?? 1.0
+  info.repoRate = {
+    baseRate: repoRate,
+    appliedRate: repoRate * repoRateMultiplier,
+  }
+
+  // Occupied rate info (with peak multiplier)
   const occupiedMultiplier = peak?.occupiedMultiplier ?? 1.0
   info.occupiedRate = {
     baseRate: occupiedRate,
@@ -286,16 +267,22 @@ export function buildZoneCalculationInfo(args: {
 
   // Peak period info
   if (peak) {
+    const outboundTimeOverride = outboundZone
+      ? getPeakTimeOverride(peak, outboundZone.id, "origin")
+      : null
+    const inboundTimeOverride = inboundZone
+      ? getPeakTimeOverride(peak, inboundZone.id, "destination")
+      : null
+
     info.peakPeriod = {
       id: peak.id,
       name: peak.name,
+      timeOverrides: {
+        outboundRepoTime: outboundTimeOverride ?? undefined,
+        inboundRepoTime: inboundTimeOverride ?? undefined,
+      },
       multipliers: {
-        outboundRepo: outboundZone
-          ? getPeakMultiplier(peak, outboundZone.id, "origin")
-          : undefined,
-        inboundRepo: inboundZone
-          ? getPeakMultiplier(peak, inboundZone.id, "destination")
-          : undefined,
+        repoRate: peak.repoRateMultiplier,
         occupied: peak.occupiedMultiplier,
       },
     }

@@ -14,10 +14,10 @@ export type NormalizedLeg = {
     // Zone-based pricing metadata
     zoneId?: string
     zoneName?: string
-    appliedRate?: number
-    rateDirection?: "origin" | "destination"
+    zoneRepoTime?: number         // zone repo time added (origin or destination)
+    repoDirection?: "origin" | "destination"
     peakPeriodName?: string
-    peakMultiplier?: number
+    isPeakOverride?: boolean      // true if peak period overrides the zone repo time
   }
 }
 
@@ -49,17 +49,21 @@ export type ZoneCalculationInfo = {
     zoneId: string
     zoneName: string
     selectedAirport: string
-    baseRate: number
-    appliedRate: number
-    rateDirection: "origin"
+    baseRepoTime: number          // base zone repo time (hours)
+    appliedRepoTime: number       // applied time (may be peak override)
+    repoDirection: "origin"
   }
   inboundZone?: {
     zoneId: string
     zoneName: string
     selectedAirport: string
+    baseRepoTime: number
+    appliedRepoTime: number
+    repoDirection: "destination"
+  }
+  repoRate?: {
     baseRate: number
-    appliedRate: number
-    rateDirection: "destination"
+    appliedRate: number           // after peak multiplier
   }
   occupiedRate?: {
     baseRate: number
@@ -68,10 +72,13 @@ export type ZoneCalculationInfo = {
   peakPeriod?: {
     id: string
     name: string
+    timeOverrides: {
+      outboundRepoTime?: number   // peak override for outbound zone repo time
+      inboundRepoTime?: number    // peak override for inbound zone repo time
+    }
     multipliers: {
-      outboundRepo?: number
-      inboundRepo?: number
-      occupied?: number
+      repoRate?: number           // multiplier for repo rate during peak
+      occupied?: number           // multiplier for occupied rate during peak
     }
   }
 }

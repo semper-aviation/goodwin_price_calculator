@@ -129,31 +129,39 @@ export function buildRepoLegs(args: {
   const legsOut: NormalizedLeg[] = []
   const legsBack: NormalizedLeg[] = []
 
+  // For zone_network mode, always create repo legs even if base == trip endpoint
+  // because we bill based on zone repo time, not actual flight
+  const isZoneNetwork = mode === "zone_network"
+
   if (policy === "both" || policy === "outbound_only") {
-    if (
-      baseOut &&
-      baseOut.icao.toUpperCase() !== itineraryStart.icao.toUpperCase()
-    ) {
-      legsOut.push({
-        kind: "REPO",
-        from: baseOut,
-        to: itineraryStart,
-        meta: { chosenBaseIcao: baseOut.icao },
-      })
+    if (baseOut) {
+      const shouldCreateOutboundLeg = isZoneNetwork ||
+        baseOut.icao.toUpperCase() !== itineraryStart.icao.toUpperCase()
+
+      if (shouldCreateOutboundLeg) {
+        legsOut.push({
+          kind: "REPO",
+          from: baseOut,
+          to: itineraryStart,
+          meta: { chosenBaseIcao: baseOut.icao },
+        })
+      }
     }
   }
 
   if (policy === "both" || policy === "inbound_only") {
-    if (
-      baseBack &&
-      itineraryEnd.icao.toUpperCase() !== baseBack.icao.toUpperCase()
-    ) {
-      legsBack.push({
-        kind: "REPO",
-        from: itineraryEnd,
-        to: baseBack,
-        meta: { chosenBaseIcao: baseBack.icao },
-      })
+    if (baseBack) {
+      const shouldCreateInboundLeg = isZoneNetwork ||
+        itineraryEnd.icao.toUpperCase() !== baseBack.icao.toUpperCase()
+
+      if (shouldCreateInboundLeg) {
+        legsBack.push({
+          kind: "REPO",
+          from: itineraryEnd,
+          to: baseBack,
+          meta: { chosenBaseIcao: baseBack.icao },
+        })
+      }
     }
   }
 

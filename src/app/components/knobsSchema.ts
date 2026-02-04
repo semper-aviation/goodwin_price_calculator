@@ -202,11 +202,12 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             type: "zonesEditor",
             path: "repo.zoneNetwork",
             label: "Zones",
-            why: "Defines geographic zones with directional repo pricing.",
+            why: "Defines geographic zones with directional repo times.",
             help:
-              "Configure zones (clusters of airports) with separate origin and destination repo rates.\n\n" +
-              "- Origin repo rate: charged when aircraft repos FROM a zone airport (outbound)\n" +
-              "- Destination repo rate: charged when aircraft repos TO a zone airport (inbound)\n\n" +
+              "Configure zones (clusters of airports) with separate origin and destination repo times.\n\n" +
+              "- Origin repo time: hours added when aircraft repos FROM a zone airport (outbound)\n" +
+              "- Destination repo time: hours added when aircraft repos TO a zone airport (inbound)\n\n" +
+              "Final pricing: (flight time × occupied rate) + (zone origin time + zone dest time) × repo rate\n\n" +
               "Zone selection uses the closest airport across all zones to the trip endpoint.\n" +
               "If trip origin/destination is not covered by any zone, the quote is rejected.",
             enabledWhen: "tripComplete && repo.mode === 'zone_network'",
@@ -215,13 +216,13 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             type: "peakPeriodsEditor",
             path: "repo.zoneNetwork.peakPeriods",
             label: "Peak Periods",
-            why: "Defines date ranges with rate multipliers for seasonal pricing.",
+            why: "Defines date ranges with time overrides and rate multipliers for seasonal pricing.",
             help:
               "Configure peak periods (e.g., Holiday Peak, Summer Peak) with:\n\n" +
               "- Date range (start to end)\n" +
-              "- Zone multipliers for repo rates (per zone, per direction)\n" +
+              "- Zone repo time overrides (replace base zone times during peak)\n" +
+              "- Repo rate multiplier (e.g., 1.25x = 25% increase)\n" +
               "- Occupied rate multiplier\n\n" +
-              "Example: 1.25x multiplier = 25% price increase during peak.\n" +
               "If trip date falls in multiple periods, the first match is applied.",
             enabledWhen: "tripComplete && repo.mode === 'zone_network'",
           },
@@ -272,14 +273,15 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             why: "Defines how flight hours convert to base cost.",
             help:
               "Single hourly charges the same rate for repo and occupied.\n" +
-              "Dual rate charges repo cheaper than passenger time.",
+              "Dual rate charges repo cheaper than passenger time.\n" +
+              "Zone-based uses zone repo times with a single repo rate.",
             options: [
               { label: "Single hourly", value: "single_hourly" },
               {
                 label: "Dual rate (repo / occupied)",
                 value: "dual_rate_repo_occupied",
               },
-              { label: "Zone-based repo rates", value: "zone_based" },
+              { label: "Zone-based (repo times)", value: "zone_based" },
             ],
             enabledWhen: "tripComplete && repo.mode !== 'floating_fleet'",
           },
@@ -298,12 +300,12 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             type: "number",
             path: "pricing.repoRate",
             label: "Repo rate ($/hr)",
-            why: "Lower rate applied to reposition hours.",
-            help: "Used when rate model is dual rate.",
+            why: "Rate applied to reposition time (zone times or repo hours).",
+            help: "Used when rate model is dual rate or zone-based.\n\nFor zone-based: repo cost = (zone origin time + zone dest time) × repo rate",
             min: 0,
             step: 100,
             enabledWhen:
-              "tripComplete && pricing.rateModel === 'dual_rate_repo_occupied' && repo.mode !== 'floating_fleet'",
+              "tripComplete && (pricing.rateModel === 'dual_rate_repo_occupied' || pricing.rateModel === 'zone_based')",
           },
           {
             type: "number",

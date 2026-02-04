@@ -1,33 +1,86 @@
 "use client"
 
 import React, { useState, useMemo } from "react"
-import { FiInfo, FiPlus, FiTrash2, FiChevronDown, FiChevronUp } from "react-icons/fi"
-import airportsData from "../data/airports"
-import type { Airport } from "../engine/quoteRequest"
+import { FiInfo, FiPlus, FiTrash2 } from "react-icons/fi"
+
+// US States list
+const US_STATES = [
+  { code: "AL", name: "Alabama" },
+  { code: "AK", name: "Alaska" },
+  { code: "AZ", name: "Arizona" },
+  { code: "AR", name: "Arkansas" },
+  { code: "CA", name: "California" },
+  { code: "CO", name: "Colorado" },
+  { code: "CT", name: "Connecticut" },
+  { code: "DE", name: "Delaware" },
+  { code: "FL", name: "Florida" },
+  { code: "GA", name: "Georgia" },
+  { code: "HI", name: "Hawaii" },
+  { code: "ID", name: "Idaho" },
+  { code: "IL", name: "Illinois" },
+  { code: "IN", name: "Indiana" },
+  { code: "IA", name: "Iowa" },
+  { code: "KS", name: "Kansas" },
+  { code: "KY", name: "Kentucky" },
+  { code: "LA", name: "Louisiana" },
+  { code: "ME", name: "Maine" },
+  { code: "MD", name: "Maryland" },
+  { code: "MA", name: "Massachusetts" },
+  { code: "MI", name: "Michigan" },
+  { code: "MN", name: "Minnesota" },
+  { code: "MS", name: "Mississippi" },
+  { code: "MO", name: "Missouri" },
+  { code: "MT", name: "Montana" },
+  { code: "NE", name: "Nebraska" },
+  { code: "NV", name: "Nevada" },
+  { code: "NH", name: "New Hampshire" },
+  { code: "NJ", name: "New Jersey" },
+  { code: "NM", name: "New Mexico" },
+  { code: "NY", name: "New York" },
+  { code: "NC", name: "North Carolina" },
+  { code: "ND", name: "North Dakota" },
+  { code: "OH", name: "Ohio" },
+  { code: "OK", name: "Oklahoma" },
+  { code: "OR", name: "Oregon" },
+  { code: "PA", name: "Pennsylvania" },
+  { code: "RI", name: "Rhode Island" },
+  { code: "SC", name: "South Carolina" },
+  { code: "SD", name: "South Dakota" },
+  { code: "TN", name: "Tennessee" },
+  { code: "TX", name: "Texas" },
+  { code: "UT", name: "Utah" },
+  { code: "VT", name: "Vermont" },
+  { code: "VA", name: "Virginia" },
+  { code: "WA", name: "Washington" },
+  { code: "WV", name: "West Virginia" },
+  { code: "WI", name: "Wisconsin" },
+  { code: "WY", name: "Wyoming" },
+  { code: "DC", name: "District of Columbia" },
+]
 
 // Types matching the engine types
 type Zone = {
   id: string
   name: string
-  airports: Airport[]
+  states: string[]
 }
 
-type ZoneRepoRates = {
+type ZoneRepoTimes = {
   zoneId: string
-  originRepoRate: number
-  destinationRepoRate: number
+  originRepoTime: number
+  destinationRepoTime: number
 }
 
 type ZoneNetworkConfig = {
   zones: Zone[]
-  zoneRepoRates: ZoneRepoRates[]
+  zoneRepoTimes: ZoneRepoTimes[]
   peakPeriods?: unknown[]
-  selectionMethod: "closest_in_zone"
+  selectionMethod: "closest_in_zone" | "state_based"
 }
 
 const CONTROL_CLASSES =
   "w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm transition focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200"
-const LABEL_CLASSES = "block text-sm font-semibold text-slate-700 mb-1"
+const LABEL_CLASSES = "block text-xs font-semibold text-slate-600 mb-1"
 
 function generateZoneId(): string {
   return `zone_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
@@ -36,248 +89,190 @@ function generateZoneId(): string {
 function HelpIcon({ text }: { text: string }) {
   return (
     <span className="relative inline-flex items-center group">
-      <span className="ml-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-100 text-slate-500">
-        <FiInfo className="h-3.5 w-3.5" aria-hidden="true" />
+      <span className="ml-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-slate-100 text-slate-500">
+        <FiInfo className="h-3 w-3" aria-hidden="true" />
       </span>
-      <span className="pointer-events-none absolute left-7 top-1/2 z-20 w-80 -translate-y-1/2 whitespace-pre-line rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs text-slate-600 shadow-lg opacity-0 transition group-hover:opacity-100">
+      <span className="pointer-events-none absolute left-5 top-1/2 z-20 w-64 -translate-y-1/2 whitespace-pre-line rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs text-slate-600 shadow-lg opacity-0 transition group-hover:opacity-100">
         {text}
       </span>
     </span>
   )
 }
 
-function ZoneCard({
+function ZoneRow({
   zone,
-  rates,
+  times,
   onZoneChange,
-  onRatesChange,
+  onTimesChange,
   onDelete,
-  expanded,
-  onToggleExpand,
-  usedAirports,
+  usedStates,
 }: {
   zone: Zone
-  rates: ZoneRepoRates
+  times: ZoneRepoTimes
   onZoneChange: (zone: Zone) => void
-  onRatesChange: (rates: ZoneRepoRates) => void
+  onTimesChange: (times: ZoneRepoTimes) => void
   onDelete: () => void
-  expanded: boolean
-  onToggleExpand: () => void
-  usedAirports: Set<string>
+  usedStates: Set<string>
 }) {
-  const [airportQuery, setAirportQuery] = useState("")
-  const [showAirportDropdown, setShowAirportDropdown] = useState(false)
+  const [stateQuery, setStateQuery] = useState("")
+  const [showStateDropdown, setShowStateDropdown] = useState(false)
 
-  // Get airports that are used in OTHER zones (not this zone)
-  const airportsUsedElsewhere = useMemo(() => {
-    const thisZoneIcaos = new Set(zone.airports.map((a) => a.icao))
+  // Get states that are used in OTHER zones (not this zone)
+  const statesUsedElsewhere = useMemo(() => {
+    const thisZoneStates = new Set(zone.states.map((s) => s.toUpperCase()))
     const usedElsewhere = new Set<string>()
-    usedAirports.forEach((icao) => {
-      if (!thisZoneIcaos.has(icao)) {
-        usedElsewhere.add(icao)
+    usedStates.forEach((state) => {
+      if (!thisZoneStates.has(state.toUpperCase())) {
+        usedElsewhere.add(state.toUpperCase())
       }
     })
     return usedElsewhere
-  }, [zone.airports, usedAirports])
+  }, [zone.states, usedStates])
 
-  const filteredAirports = useMemo(() => {
-    if (!airportQuery.trim()) return []
-    const query = airportQuery.toLowerCase()
-    return airportsData
-      .filter(
-        (a) =>
-          // Not already in this zone
-          !zone.airports.some((za) => za.icao === a.icao) &&
-          // Not used in another zone
-          !airportsUsedElsewhere.has(a.icao) &&
-          (a.icao.toLowerCase().includes(query) ||
-            a.name?.toLowerCase().includes(query) ||
-            a.city?.toLowerCase().includes(query) ||
-            a.state?.toLowerCase().includes(query))
-      )
-      .slice(0, 10)
-  }, [airportQuery, zone.airports, airportsUsedElsewhere])
+  const filteredStates = useMemo(() => {
+    if (!stateQuery.trim()) return []
+    const query = stateQuery.toLowerCase()
+    return US_STATES.filter(
+      (s) =>
+        // Not already in this zone
+        !zone.states.some((zs) => zs.toUpperCase() === s.code.toUpperCase()) &&
+        // Not used in another zone
+        !statesUsedElsewhere.has(s.code.toUpperCase()) &&
+        (s.code.toLowerCase().includes(query) ||
+          s.name.toLowerCase().includes(query))
+    ).slice(0, 10)
+  }, [stateQuery, zone.states, statesUsedElsewhere])
 
-  const addAirport = (airport: (typeof airportsData)[0]) => {
-    const newAirport: Airport = {
-      icao: airport.icao,
-      lat: airport.lat,
-      lon: airport.lon,
-      country: airport.country,
-      state: airport.state,
-      mississippi_direction: airport.mississippi_direction as "EAST" | "WEST",
-      timezoneId: airport.timezone_id,
-    }
+  const addState = (state: (typeof US_STATES)[0]) => {
     onZoneChange({
       ...zone,
-      airports: [...zone.airports, newAirport],
+      states: [...zone.states, state.code],
     })
-    setAirportQuery("")
-    setShowAirportDropdown(false)
+    setStateQuery("")
+    setShowStateDropdown(false)
   }
 
-  const removeAirport = (icao: string) => {
+  const removeState = (stateCode: string) => {
     onZoneChange({
       ...zone,
-      airports: zone.airports.filter((a) => a.icao !== icao),
+      states: zone.states.filter((s) => s.toUpperCase() !== stateCode.toUpperCase()),
     })
   }
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white mb-3">
-      {/* Header */}
-      <div
-        className="flex items-center justify-between p-4 cursor-pointer hover:bg-slate-50"
-        onClick={onToggleExpand}
-      >
-        <div className="flex items-center gap-3">
-          <span className="text-slate-400">
-            {expanded ? <FiChevronUp /> : <FiChevronDown />}
-          </span>
-          <div>
-            <div className="font-semibold text-slate-800">
-              {zone.name || "Unnamed Zone"}
+    <tr className="border-b border-slate-200 last:border-b-0">
+      {/* Zone Name */}
+      <td className="py-3 px-2 align-top">
+        <input
+          type="text"
+          className={`${CONTROL_CLASSES} min-w-[120px]`}
+          value={zone.name}
+          onChange={(e) => onZoneChange({ ...zone, name: e.target.value })}
+          placeholder="Zone name"
+        />
+      </td>
+
+      {/* Origin Repo Time */}
+      <td className="py-3 px-2 align-top">
+        <input
+          type="number"
+          className={`${CONTROL_CLASSES} w-20`}
+          value={times.originRepoTime}
+          min={0}
+          step={0.1}
+          onChange={(e) =>
+            onTimesChange({
+              ...times,
+              originRepoTime: parseFloat(e.target.value) || 0,
+            })
+          }
+        />
+      </td>
+
+      {/* Destination Repo Time */}
+      <td className="py-3 px-2 align-top">
+        <input
+          type="number"
+          className={`${CONTROL_CLASSES} w-20`}
+          value={times.destinationRepoTime}
+          min={0}
+          step={0.1}
+          onChange={(e) =>
+            onTimesChange({
+              ...times,
+              destinationRepoTime: parseFloat(e.target.value) || 0,
+            })
+          }
+        />
+      </td>
+
+      {/* Zone States */}
+      <td className="py-3 px-2 align-top">
+        <div className="relative">
+          <input
+            type="text"
+            className={`${CONTROL_CLASSES} min-w-[200px]`}
+            placeholder="Search states..."
+            value={stateQuery}
+            onChange={(e) => {
+              setStateQuery(e.target.value)
+              setShowStateDropdown(true)
+            }}
+            onFocus={() => setShowStateDropdown(true)}
+            onBlur={() =>
+              setTimeout(() => setShowStateDropdown(false), 150)
+            }
+          />
+          {showStateDropdown && filteredStates.length > 0 && (
+            <div className="absolute z-10 mt-1 w-full bg-white border border-slate-200 rounded-lg shadow-lg max-h-48 overflow-auto">
+              {filteredStates.map((state) => (
+                <button
+                  key={state.code}
+                  type="button"
+                  className="w-full text-left px-3 py-2 text-sm hover:bg-slate-50"
+                  onMouseDown={() => addState(state)}
+                >
+                  <span className="font-semibold">{state.code}</span>
+                  <span className="text-slate-500 ml-2">
+                    {state.name}
+                  </span>
+                </button>
+              ))}
             </div>
-            <div className="text-xs text-slate-500">
-              {zone.airports.length} airports | Origin: $
-              {rates.originRepoRate.toLocaleString()}/hr | Dest: $
-              {rates.destinationRepoRate.toLocaleString()}/hr
-            </div>
-          </div>
+          )}
         </div>
+        {zone.states.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-1">
+            {zone.states.map((stateCode) => (
+              <span
+                key={stateCode}
+                className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-700"
+              >
+                {stateCode}
+                <button
+                  type="button"
+                  className="text-slate-400 hover:text-slate-600"
+                  onClick={() => removeState(stateCode)}
+                >
+                  ×
+                </button>
+              </span>
+            ))}
+          </div>
+        )}
+      </td>
+
+      {/* Delete */}
+      <td className="py-3 px-2 align-top">
         <button
           type="button"
           className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition"
-          onClick={(e) => {
-            e.stopPropagation()
-            onDelete()
-          }}
+          onClick={onDelete}
         >
           <FiTrash2 className="h-4 w-4" />
         </button>
-      </div>
-
-      {/* Expanded content */}
-      {expanded && (
-        <div className="border-t border-slate-100 p-4 space-y-4">
-          {/* Zone name */}
-          <div>
-            <label className={LABEL_CLASSES}>Zone Name</label>
-            <input
-              type="text"
-              className={CONTROL_CLASSES}
-              value={zone.name}
-              onChange={(e) => onZoneChange({ ...zone, name: e.target.value })}
-              placeholder="e.g., East Zone, West Zone"
-            />
-          </div>
-
-          {/* Rates */}
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className={LABEL_CLASSES}>
-                Origin Repo Rate ($/hr)
-                <HelpIcon text="Rate charged when a repo leg STARTS from an airport in this zone (outbound repo)." />
-              </label>
-              <input
-                type="number"
-                className={CONTROL_CLASSES}
-                value={rates.originRepoRate}
-                min={0}
-                step={100}
-                onChange={(e) =>
-                  onRatesChange({
-                    ...rates,
-                    originRepoRate: parseFloat(e.target.value) || 0,
-                  })
-                }
-              />
-            </div>
-            <div>
-              <label className={LABEL_CLASSES}>
-                Destination Repo Rate ($/hr)
-                <HelpIcon text="Rate charged when a repo leg ENDS at an airport in this zone (inbound repo)." />
-              </label>
-              <input
-                type="number"
-                className={CONTROL_CLASSES}
-                value={rates.destinationRepoRate}
-                min={0}
-                step={100}
-                onChange={(e) =>
-                  onRatesChange({
-                    ...rates,
-                    destinationRepoRate: parseFloat(e.target.value) || 0,
-                  })
-                }
-              />
-            </div>
-          </div>
-
-          {/* Airports */}
-          <div>
-            <label className={LABEL_CLASSES}>Zone Airports</label>
-            <div className="relative">
-              <input
-                type="text"
-                className={CONTROL_CLASSES}
-                placeholder="Search and add airports..."
-                value={airportQuery}
-                onChange={(e) => {
-                  setAirportQuery(e.target.value)
-                  setShowAirportDropdown(true)
-                }}
-                onFocus={() => setShowAirportDropdown(true)}
-                onBlur={() =>
-                  setTimeout(() => setShowAirportDropdown(false), 150)
-                }
-              />
-              {showAirportDropdown && filteredAirports.length > 0 && (
-                <div className="absolute z-10 mt-1 w-full bg-white border border-slate-200 rounded-lg shadow-lg max-h-48 overflow-auto">
-                  {filteredAirports.map((airport) => (
-                    <button
-                      key={airport.icao}
-                      type="button"
-                      className="w-full text-left px-3 py-2 text-sm hover:bg-slate-50"
-                      onMouseDown={() => addAirport(airport)}
-                    >
-                      <span className="font-semibold">{airport.icao}</span>
-                      <span className="text-slate-500 ml-2">
-                        {airport.name} ({airport.city}, {airport.state})
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-            {zone.airports.length > 0 && (
-              <div className="mt-2 flex flex-wrap gap-2">
-                {zone.airports.map((airport) => (
-                  <span
-                    key={airport.icao}
-                    className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-700"
-                  >
-                    {airport.icao}
-                    <button
-                      type="button"
-                      className="text-slate-400 hover:text-slate-600"
-                      onClick={() => removeAirport(airport.icao)}
-                    >
-                      ×
-                    </button>
-                  </span>
-                ))}
-              </div>
-            )}
-            {zone.airports.length === 0 && (
-              <p className="mt-2 text-xs text-slate-500">
-                No airports added. Search and add airports above.
-              </p>
-            )}
-          </div>
-        </div>
-      )}
-    </div>
+      </td>
+    </tr>
   )
 }
 
@@ -292,21 +287,19 @@ export function ZonesEditor({
   value: unknown
   onChangeAction: (v: unknown) => void
 }) {
-  const [expandedZoneIds, setExpandedZoneIds] = useState<Set<string>>(new Set())
-
   const config: ZoneNetworkConfig = useMemo(() => {
     if (value && typeof value === "object") {
       const v = value as Partial<ZoneNetworkConfig>
       return {
         zones: v.zones ?? [],
-        zoneRepoRates: v.zoneRepoRates ?? [],
+        zoneRepoTimes: v.zoneRepoTimes ?? [],
         peakPeriods: v.peakPeriods ?? [],
         selectionMethod: "closest_in_zone" as const,
       }
     }
     return {
       zones: [],
-      zoneRepoRates: [],
+      zoneRepoTimes: [],
       peakPeriods: [],
       selectionMethod: "closest_in_zone" as const,
     }
@@ -317,43 +310,30 @@ export function ZonesEditor({
     const newZone: Zone = {
       id: newZoneId,
       name: `Zone ${config.zones.length + 1}`,
-      airports: [],
+      states: [],
     }
-    const newRates: ZoneRepoRates = {
+    const newTimes: ZoneRepoTimes = {
       zoneId: newZoneId,
-      originRepoRate: 0,
-      destinationRepoRate: 0,
+      originRepoTime: 0,
+      destinationRepoTime: 0,
     }
     onChangeAction({
       ...config,
       zones: [...config.zones, newZone],
-      zoneRepoRates: [...config.zoneRepoRates, newRates],
+      zoneRepoTimes: [...config.zoneRepoTimes, newTimes],
     })
-    setExpandedZoneIds((prev) => new Set(prev).add(newZoneId))
   }
 
-  // Collect all airports used across all zones
-  const usedAirports = useMemo(() => {
+  // Collect all states used across all zones
+  const usedStates = useMemo(() => {
     const used = new Set<string>()
     config.zones.forEach((zone) => {
-      zone.airports.forEach((airport) => {
-        used.add(airport.icao)
+      zone.states.forEach((state) => {
+        used.add(state.toUpperCase())
       })
     })
     return used
   }, [config.zones])
-
-  const toggleZoneExpand = (zoneId: string) => {
-    setExpandedZoneIds((prev) => {
-      const next = new Set(prev)
-      if (next.has(zoneId)) {
-        next.delete(zoneId)
-      } else {
-        next.add(zoneId)
-      }
-      return next
-    })
-  }
 
   const updateZone = (zoneId: string, updatedZone: Zone) => {
     onChangeAction({
@@ -362,11 +342,11 @@ export function ZonesEditor({
     })
   }
 
-  const updateRates = (zoneId: string, updatedRates: ZoneRepoRates) => {
+  const updateTimes = (zoneId: string, updatedTimes: ZoneRepoTimes) => {
     onChangeAction({
       ...config,
-      zoneRepoRates: config.zoneRepoRates.map((r) =>
-        r.zoneId === zoneId ? updatedRates : r
+      zoneRepoTimes: config.zoneRepoTimes.map((t) =>
+        t.zoneId === zoneId ? updatedTimes : t
       ),
     })
   }
@@ -375,22 +355,20 @@ export function ZonesEditor({
     onChangeAction({
       ...config,
       zones: config.zones.filter((z) => z.id !== zoneId),
-      zoneRepoRates: config.zoneRepoRates.filter((r) => r.zoneId !== zoneId),
+      zoneRepoTimes: config.zoneRepoTimes.filter((t) => t.zoneId !== zoneId),
     })
   }
 
   return (
     <div className="mb-4 w-full">
-      <label
-        className={`${LABEL_CLASSES} group inline-flex items-center`}
-      >
+      <label className="block text-sm font-semibold text-slate-700 mb-1 group inline-flex items-center">
         {label}
         {help && <HelpIcon text={help} />}
       </label>
 
-      <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+      <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
         {config.zones.length === 0 ? (
-          <div className="text-center py-8 text-slate-500">
+          <div className="text-center py-8 text-slate-500 bg-slate-50">
             <p className="text-sm mb-4">No zones configured yet.</p>
             <button
               type="button"
@@ -402,35 +380,64 @@ export function ZonesEditor({
           </div>
         ) : (
           <>
-            {config.zones.map((zone) => {
-              const rates = config.zoneRepoRates.find(
-                (r) => r.zoneId === zone.id
-              ) ?? {
-                zoneId: zone.id,
-                originRepoRate: 0,
-                destinationRepoRate: 0,
-              }
-              return (
-                <ZoneCard
-                  key={zone.id}
-                  zone={zone}
-                  rates={rates}
-                  onZoneChange={(z) => updateZone(zone.id, z)}
-                  onRatesChange={(r) => updateRates(zone.id, r)}
-                  onDelete={() => deleteZone(zone.id)}
-                  expanded={expandedZoneIds.has(zone.id)}
-                  onToggleExpand={() => toggleZoneExpand(zone.id)}
-                  usedAirports={usedAirports}
-                />
-              )
-            })}
-            <button
-              type="button"
-              className="w-full mt-2 inline-flex items-center justify-center gap-2 rounded-lg border border-dashed border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-600 hover:border-slate-400 hover:bg-slate-50"
-              onClick={addZone}
-            >
-              <FiPlus /> Add Zone
-            </button>
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-slate-50 border-b border-slate-200">
+                    <th className="py-2 px-2 text-left">
+                      <span className={LABEL_CLASSES}>Zone Name</span>
+                    </th>
+                    <th className="py-2 px-2 text-left">
+                      <span className={`${LABEL_CLASSES} inline-flex items-center`}>
+                        Origin Time (hrs)
+                        <HelpIcon text="Hours to add when aircraft repos FROM this zone (outbound)." />
+                      </span>
+                    </th>
+                    <th className="py-2 px-2 text-left">
+                      <span className={`${LABEL_CLASSES} inline-flex items-center`}>
+                        Dest Time (hrs)
+                        <HelpIcon text="Hours to add when aircraft repos TO this zone (inbound)." />
+                      </span>
+                    </th>
+                    <th className="py-2 px-2 text-left">
+                      <span className={LABEL_CLASSES}>Zone States</span>
+                    </th>
+                    <th className="py-2 px-2 w-12"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {config.zones.map((zone) => {
+                    const times = config.zoneRepoTimes.find(
+                      (t) => t.zoneId === zone.id
+                    ) ?? {
+                      zoneId: zone.id,
+                      originRepoTime: 0,
+                      destinationRepoTime: 0,
+                    }
+                    return (
+                      <ZoneRow
+                        key={zone.id}
+                        zone={zone}
+                        times={times}
+                        onZoneChange={(z) => updateZone(zone.id, z)}
+                        onTimesChange={(t) => updateTimes(zone.id, t)}
+                        onDelete={() => deleteZone(zone.id)}
+                        usedStates={usedStates}
+                      />
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div>
+            <div className="p-3 bg-slate-50 border-t border-slate-200">
+              <button
+                type="button"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-lg border border-dashed border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-600 hover:border-slate-400 hover:bg-slate-50"
+                onClick={addZone}
+              >
+                <FiPlus /> Add Zone
+              </button>
+            </div>
           </>
         )}
       </div>

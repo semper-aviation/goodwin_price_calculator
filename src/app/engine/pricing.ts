@@ -3,7 +3,7 @@ import { PricingKnobs } from "./quoteRequest"
 import { Result, ok, err } from "./types"
 import { LineItem, NormalizedLeg } from "./quoteResult"
 import { roundMoney, reject } from "./utils"
-import { calcZoneRepoCost, findPeakPeriod } from "./zones"
+import { calcZoneRepoTime, findPeakPeriod } from "./zones"
 
 export function calcBaseCost(
   knobs: PricingKnobs,
@@ -144,6 +144,12 @@ export function applyPriceConstraints(args: {
 
 /**
  * Calculate zone-based pricing for zone_network mode.
+ *
+ * New model:
+ * - Total time = flight time + zone origin time + zone destination time
+ * - Occupied cost = occupied hours × occupied rate (with peak multiplier)
+ * - Repo cost = (zone origin time + zone destination time) × repo rate (with peak multiplier)
+ *
  * Returns base costs and detailed line items for each repo leg.
  */
 export function calcZoneBasedCost(args: {
@@ -154,6 +160,7 @@ export function calcZoneBasedCost(args: {
 }): Result<{
   baseOccupied: number
   baseRepo: number
+  totalZoneRepoTime: number
   repoLineItems: LineItem[]
   enrichedRepoLegs: NormalizedLeg[]
 }> {
@@ -181,14 +188,28 @@ export function calcZoneBasedCost(args: {
     )
   }
 
-  // Check for peak period to apply to occupied rate
+  if (typeof p.repoRate !== "number" || p.repoRate <= 0) {
+    return err(
+      reject(
+        "MISSING_RATE",
+        "repoRate required for zone_based pricing",
+        "pricing.repoRate"
+      )
+    )
+  }
+
+  // Check for peak period to apply to rates
   const peak = findPeakPeriod(departDateISO, zoneConfig.peakPeriods ?? [])
   const occupiedMultiplier = peak?.occupiedMultiplier ?? 1.0
+  const repoRateMultiplier = peak?.repoRateMultiplier ?? 1.0
+
   const appliedOccupiedRate = p.occupiedRate * occupiedMultiplier
+  const appliedRepoRate = p.repoRate * repoRateMultiplier
+
   const baseOccupied = roundMoney(occupiedHours * appliedOccupiedRate)
 
-  // Calculate zone-based repo costs for each repo leg
-  let baseRepo = 0
+  // Calculate zone repo times for each repo leg
+  let totalZoneRepoTime = 0
   const repoLineItems: LineItem[] = []
   const enrichedRepoLegs: NormalizedLeg[] = []
 
@@ -199,19 +220,17 @@ export function calcZoneBasedCost(args: {
       continue
     }
 
-    const hours = leg.meta?.adjustedHours ?? 0
     // First repo leg is outbound, last repo leg (if different) is inbound
     const isOutbound = i === 0
 
-    const result = calcZoneRepoCost({
+    const result = calcZoneRepoTime({
       leg,
-      hours,
       config: zoneConfig,
       departDateISO,
       isOutbound,
     })
 
-    baseRepo += result.cost
+    totalZoneRepoTime += result.zoneRepoTime
 
     // Enrich the leg with zone metadata
     const enrichedLeg: NormalizedLeg = {
@@ -220,38 +239,45 @@ export function calcZoneBasedCost(args: {
         ...leg.meta,
         zoneId: result.zoneId ?? undefined,
         zoneName: result.zoneName ?? undefined,
-        appliedRate: result.appliedRate,
-        rateDirection: result.rateDirection,
+        zoneRepoTime: result.zoneRepoTime,
+        repoDirection: result.repoDirection,
         peakPeriodName: result.peakPeriodName ?? undefined,
-        peakMultiplier: result.peakMultiplier !== 1.0 ? result.peakMultiplier : undefined,
+        isPeakOverride: result.isPeakOverride || undefined,
       },
     }
     enrichedRepoLegs.push(enrichedLeg)
 
-    // Create detailed line item
+    // Create detailed line item for this zone's repo time contribution
     const direction = isOutbound ? "outbound" : "inbound"
+    const legCost = roundMoney(result.zoneRepoTime * appliedRepoRate)
+
     repoLineItems.push({
       code: "BASE_REPO_ZONE",
-      label: `Repo: ${result.zoneName ?? "Unknown"} (${direction})`,
-      amount: result.cost,
+      label: `Zone repo time: ${result.zoneName ?? "Unknown"} (${direction})`,
+      amount: legCost,
       meta: {
         zoneName: result.zoneName,
         zoneId: result.zoneId,
-        direction: result.rateDirection,
-        hours,
-        baseRate: result.baseRate,
-        appliedRate: result.appliedRate,
+        direction: result.repoDirection,
+        zoneRepoTime: result.zoneRepoTime,
+        baseRepoTime: result.baseRepoTime,
+        repoRate: p.repoRate,
+        appliedRepoRate,
         peakPeriod: result.peakPeriodName,
-        peakMultiplier: result.peakMultiplier,
+        isPeakOverride: result.isPeakOverride,
         fromIcao: leg.from.icao,
         toIcao: leg.to.icao,
       },
     })
   }
 
+  // Total repo cost = total zone repo time × applied repo rate
+  const baseRepo = roundMoney(totalZoneRepoTime * appliedRepoRate)
+
   return ok({
     baseOccupied,
-    baseRepo: roundMoney(baseRepo),
+    baseRepo,
+    totalZoneRepoTime,
     repoLineItems,
     enrichedRepoLegs,
   })

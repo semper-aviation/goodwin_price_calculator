@@ -3,7 +3,9 @@
     "allow": [
       "Bash(grep:*)",
       "Bash(npm run build:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(yarn build:*)",
+      "Bash(pkill:*)"
     ]
   }
 }

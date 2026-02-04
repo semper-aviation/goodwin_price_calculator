@@ -30,6 +30,23 @@ export function LegPlan({ legs }: { legs?: NormalizedLeg[] }) {
             ? (l.meta["distanceNm"] as number)
             : undefined
 
+        // Zone-related metadata
+        const zoneName =
+          typeof l.meta?.["zoneName"] === "string"
+            ? (l.meta["zoneName"] as string)
+            : undefined
+        const zoneRepoTime =
+          typeof l.meta?.["zoneRepoTime"] === "number"
+            ? (l.meta["zoneRepoTime"] as number)
+            : undefined
+        const repoDirection =
+          typeof l.meta?.["repoDirection"] === "string"
+            ? (l.meta["repoDirection"] as string)
+            : undefined
+
+        // Check if this is a zone-based repo leg
+        const isZoneBasedRepo = l.kind === "REPO" && zoneName != null && zoneRepoTime != null
+
         let label = l.kind === "OCCUPIED" ? "Occupied" : "Repo"
         if (l.kind === "REPO" && repoIndexes.length > 1) {
           label =
@@ -40,35 +57,32 @@ export function LegPlan({ legs }: { legs?: NormalizedLeg[] }) {
               : "Repo"
         }
 
-        // Zone-related metadata
-        const zoneName =
-          typeof l.meta?.["zoneName"] === "string"
-            ? (l.meta["zoneName"] as string)
-            : undefined
-        const appliedRate =
-          typeof l.meta?.["appliedRate"] === "number"
-            ? (l.meta["appliedRate"] as number)
-            : undefined
-        const rateDirection =
-          typeof l.meta?.["rateDirection"] === "string"
-            ? (l.meta["rateDirection"] as string)
-            : undefined
-
+        // Build detail parts based on leg type
         const detailParts: string[] = []
-        if (chosenBase) detailParts.push(`VHB chosen: ${chosenBase}`)
-        if (zoneName && appliedRate != null && rateDirection) {
-          detailParts.push(
-            `Zone: ${zoneName} • $${appliedRate.toLocaleString()}/hr (${rateDirection})`
-          )
+
+        if (isZoneBasedRepo) {
+          // For zone-based repo legs, show zone info only
+          detailParts.push(`Zone: ${zoneName}`)
+          if (repoDirection) {
+            detailParts.push(repoDirection === "origin" ? "outbound" : "inbound")
+          }
+        } else {
+          // For non-zone legs, show standard details
+          if (chosenBase) detailParts.push(`VHB: ${chosenBase}`)
+          if (typeof distanceNm === "number") {
+            detailParts.push(`${distanceNm.toFixed(0)}nm`)
+          }
+          if (actual != null && adjusted != null && actual !== adjusted) {
+            detailParts.push(
+              `Actual ${hours(actual)} → Adjusted ${hours(adjusted)}`
+            )
+          }
         }
-        if (typeof distanceNm === "number") {
-          detailParts.push(`Distance ${distanceNm.toFixed(0)}nm`)
-        }
-        if (actual != null && adjusted != null && actual !== adjusted) {
-          detailParts.push(
-            `Actual ${hours(actual)} • Adjusted ${hours(adjusted)}`
-          )
-        }
+
+        // Determine display time
+        // For zone-based repo: use zone repo time
+        // For others: use adjusted or actual flight time
+        const displayTime = isZoneBasedRepo ? zoneRepoTime : (adjusted ?? actual)
 
         return (
           <div
@@ -101,13 +115,18 @@ export function LegPlan({ legs }: { legs?: NormalizedLeg[] }) {
             </div>
             <div className="text-right">
               <div className="text-sm font-semibold text-slate-900">
-                {hours(adjusted ?? actual)}
+                {hours(displayTime)}
               </div>
-              {adjusted != null && actual != null && adjusted !== actual ? (
+              {isZoneBasedRepo && actual != null && (
+                <div className="mt-1 text-xs text-slate-400">
+                  (flight: {hours(actual)})
+                </div>
+              )}
+              {!isZoneBasedRepo && adjusted != null && actual != null && adjusted !== actual && (
                 <div className="mt-1 text-xs text-slate-500">
                   Actual {hours(actual)}
                 </div>
-              ) : null}
+              )}
             </div>
           </div>
         )

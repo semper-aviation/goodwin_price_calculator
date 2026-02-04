@@ -635,10 +635,10 @@ export default function KnobPanel({
       )
     }
     if (field.path === "pricing.repoRate") {
+      const rateModel = String(getFieldValue("pricing.rateModel"))
       return (
         tripComplete &&
-        repoMode !== "zone_network" &&
-        String(getFieldValue("pricing.rateModel")) === "dual_rate_repo_occupied"
+        (rateModel === "dual_rate_repo_occupied" || rateModel === "zone_based")
       )
     }
     if (field.path === "pricing.occupiedRate") {
@@ -679,7 +679,7 @@ export default function KnobPanel({
       return rateModel === "single_hourly"
     }
     if (field.path === "pricing.repoRate") {
-      return rateModel === "dual_rate_repo_occupied"
+      return rateModel === "dual_rate_repo_occupied" || rateModel === "zone_based"
     }
     if (field.path === "pricing.occupiedRate") {
       return rateModel === "dual_rate_repo_occupied" || rateModel === "zone_based"
@@ -791,7 +791,7 @@ export default function KnobPanel({
               </div>
             <div
               className={`grid grid-cols-1 gap-4 ${
-                section.title === "Geographic Rules" ? "" : "md:grid-cols-2"
+                section.title === "Geographic Rules" || section.title === "Zone Network Configuration" ? "" : "md:grid-cols-2"
               }`}
             >
               {enabledFields.map((field) => (

@@ -8,11 +8,12 @@ type PeakPeriod = {
   name: string
   startDate: string
   endDate: string
-  zoneMultipliers?: Array<{
+  zoneTimeOverrides?: Array<{
     zoneId: string
-    originRepoMultiplier: number
-    destinationRepoMultiplier: number
+    originRepoTime: number
+    destinationRepoTime: number
   }>
+  repoRateMultiplier?: number
   occupiedMultiplier?: number
 }
 
@@ -249,41 +250,39 @@ function PeakCard({
   expanded: boolean
   onToggleExpand: () => void
 }) {
-  const updateMultiplier = (
+  const updateTimeOverride = (
     zoneId: string,
-    field: "originRepoMultiplier" | "destinationRepoMultiplier",
+    field: "originRepoTime" | "destinationRepoTime",
     value: number
   ) => {
-    const existing = peak.zoneMultipliers?.find((m) => m.zoneId === zoneId)
+    const existing = peak.zoneTimeOverrides?.find((m) => m.zoneId === zoneId)
     if (existing) {
       onPeakChange({
         ...peak,
-        zoneMultipliers: peak.zoneMultipliers?.map((m) =>
+        zoneTimeOverrides: peak.zoneTimeOverrides?.map((m) =>
           m.zoneId === zoneId ? { ...m, [field]: value } : m
         ),
       })
     } else {
       onPeakChange({
         ...peak,
-        zoneMultipliers: [
-          ...(peak.zoneMultipliers ?? []),
+        zoneTimeOverrides: [
+          ...(peak.zoneTimeOverrides ?? []),
           {
             zoneId,
-            originRepoMultiplier:
-              field === "originRepoMultiplier" ? value : 1.0,
-            destinationRepoMultiplier:
-              field === "destinationRepoMultiplier" ? value : 1.0,
+            originRepoTime: field === "originRepoTime" ? value : 0,
+            destinationRepoTime: field === "destinationRepoTime" ? value : 0,
           },
         ],
       })
     }
   }
 
-  const getMultiplier = (
+  const getTimeOverride = (
     zoneId: string,
-    field: "originRepoMultiplier" | "destinationRepoMultiplier"
+    field: "originRepoTime" | "destinationRepoTime"
   ) => {
-    return peak.zoneMultipliers?.find((m) => m.zoneId === zoneId)?.[field] ?? 1.0
+    return peak.zoneTimeOverrides?.find((m) => m.zoneId === zoneId)?.[field] ?? 0
   }
 
   const formatDateRange = () => {
@@ -349,33 +348,54 @@ function PeakCard({
             />
           </div>
 
-          {/* Occupied multiplier */}
-          <div>
-            <label className={LABEL_CLASSES}>
-              Occupied Rate Multiplier
-              <HelpIcon text={`Multiplier applied to the occupied (passenger) leg rate during this peak period.\n\n1.0 = no change\n1.25 = 25% increase\n0.9 = 10% discount`} />
-            </label>
-            <input
-              type="number"
-              className={CONTROL_CLASSES}
-              value={peak.occupiedMultiplier ?? 1.0}
-              min={0}
-              step={0.05}
-              onChange={(e) =>
-                onPeakChange({
-                  ...peak,
-                  occupiedMultiplier: parseFloat(e.target.value) || 1.0,
-                })
-              }
-            />
+          {/* Rate Multipliers */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className={LABEL_CLASSES}>
+                Occupied Rate Multiplier
+                <HelpIcon text={`Multiplier applied to the occupied (passenger) leg rate during this peak period.\n\n1.0 = no change\n1.25 = 25% increase\n0.9 = 10% discount`} />
+              </label>
+              <input
+                type="number"
+                className={CONTROL_CLASSES}
+                value={peak.occupiedMultiplier ?? 1.0}
+                min={0}
+                step={0.05}
+                onChange={(e) =>
+                  onPeakChange({
+                    ...peak,
+                    occupiedMultiplier: parseFloat(e.target.value) || 1.0,
+                  })
+                }
+              />
+            </div>
+            <div>
+              <label className={LABEL_CLASSES}>
+                Repo Rate Multiplier
+                <HelpIcon text={`Multiplier applied to the repo rate during this peak period.\n\n1.0 = no change\n1.25 = 25% increase\n0.9 = 10% discount`} />
+              </label>
+              <input
+                type="number"
+                className={CONTROL_CLASSES}
+                value={peak.repoRateMultiplier ?? 1.0}
+                min={0}
+                step={0.05}
+                onChange={(e) =>
+                  onPeakChange({
+                    ...peak,
+                    repoRateMultiplier: parseFloat(e.target.value) || 1.0,
+                  })
+                }
+              />
+            </div>
           </div>
 
-          {/* Zone multipliers */}
+          {/* Zone time overrides */}
           {zones.length > 0 && (
             <div>
               <label className={LABEL_CLASSES}>
-                Zone Repo Rate Multipliers
-                <HelpIcon text={`Multipliers applied to zone repo rates during this peak period.\n\nOrigin multiplier: applied to outbound repo legs\nDestination multiplier: applied to inbound repo legs`} />
+                Zone Repo Time Overrides
+                <HelpIcon text={`Override the base zone repo times during this peak period.\n\nSet to 0 to use the zone's base repo time.\nSet a value > 0 to override with a different time during peak.`} />
               </label>
               <div className="space-y-3 mt-2">
                 {zones.map((zone) => (
@@ -386,41 +406,43 @@ function PeakCard({
                     <div className="grid grid-cols-2 gap-3">
                       <div>
                         <label className="block text-xs text-slate-500 mb-1">
-                          Origin Multiplier
+                          Origin Repo Time (hrs)
                         </label>
                         <input
                           type="number"
                           className={CONTROL_CLASSES}
-                          value={getMultiplier(zone.id, "originRepoMultiplier")}
+                          value={getTimeOverride(zone.id, "originRepoTime")}
                           min={0}
-                          step={0.05}
+                          step={0.1}
+                          placeholder="0 = use base"
                           onChange={(e) =>
-                            updateMultiplier(
+                            updateTimeOverride(
                               zone.id,
-                              "originRepoMultiplier",
-                              parseFloat(e.target.value) || 1.0
+                              "originRepoTime",
+                              parseFloat(e.target.value) || 0
                             )
                           }
                         />
                       </div>
                       <div>
                         <label className="block text-xs text-slate-500 mb-1">
-                          Destination Multiplier
+                          Dest Repo Time (hrs)
                         </label>
                         <input
                           type="number"
                           className={CONTROL_CLASSES}
-                          value={getMultiplier(
+                          value={getTimeOverride(
                             zone.id,
-                            "destinationRepoMultiplier"
+                            "destinationRepoTime"
                           )}
                           min={0}
-                          step={0.05}
+                          step={0.1}
+                          placeholder="0 = use base"
                           onChange={(e) =>
-                            updateMultiplier(
+                            updateTimeOverride(
                               zone.id,
-                              "destinationRepoMultiplier",
-                              parseFloat(e.target.value) || 1.0
+                              "destinationRepoTime",
+                              parseFloat(e.target.value) || 0
                             )
                           }
                         />
@@ -434,7 +456,7 @@ function PeakCard({
 
           {zones.length === 0 && (
             <div className="rounded-lg bg-amber-50 border border-amber-200 p-3 text-sm text-amber-800">
-              Add zones first to configure zone-specific peak multipliers.
+              Add zones first to configure zone-specific peak time overrides.
             </div>
           )}
         </div>
@@ -471,10 +493,11 @@ export function PeakPeriodsEditor({
       startDate: "",
       endDate: "",
       occupiedMultiplier: 1.0,
-      zoneMultipliers: zones.map((z) => ({
+      repoRateMultiplier: 1.0,
+      zoneTimeOverrides: zones.map((z) => ({
         zoneId: z.id,
-        originRepoMultiplier: 1.0,
-        destinationRepoMultiplier: 1.0,
+        originRepoTime: 0,
+        destinationRepoTime: 0,
       })),
     }
     onChangeAction([...periods, newPeriod])
