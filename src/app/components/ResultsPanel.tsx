@@ -52,7 +52,7 @@ export default function ResultsPanel({ quote }: { quote: QuoteResult | null }) {
               subtitle="Line items and totals"
             />
 
-            <Ledger items={quote.lineItems ?? []} />
+            <Ledger items={quote.lineItems ?? []} zoneCalculation={quote.zoneCalculation} />
           </div>
           <div className="rounded-2xl bg-white border border-slate-200 shadow-sm p-6">
             <SectionHeader

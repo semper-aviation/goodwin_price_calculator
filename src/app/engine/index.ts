@@ -20,7 +20,8 @@ import {
   enforceRepoConstraints,
 } from "./repo"
 import { applyTimeAdjustmentsAndValidate } from "./time"
-import { calcBaseCost, applyPriceConstraints } from "./pricing"
+import { calcBaseCost, applyPriceConstraints, calcZoneBasedCost } from "./pricing"
+import { buildZoneCalculationInfo } from "./zones"
 import { calcFees } from "./fees"
 import { calcVhbDiscount, calcTimeBasedDiscount } from "./discounts"
 import { calcFlightSeconds } from "./flightTime"
@@ -253,35 +254,101 @@ async function quoteOneItinerary(
   const dailyLimitReject = checkDailyHourLimits(trip, knobs, legsWithTime)
   if (dailyLimitReject) return dailyLimitReject
 
-  const baseR = calcBaseCost(knobs, occupiedHours, repoHours)
-  if (!baseR.ok) return baseR.error
-  const base = baseR.value
-  if (logger) {
-    if (knobs.pricing.rateModel === "single_hourly") {
-      logger(
-        `ℹ️   Engine: Hourly rate: $${knobs.pricing.hourlyRate}/hr (applied to ALL legs)`
-      )
-    } else {
-      logger(
-        `ℹ️   Engine: Repo rate: $${knobs.pricing.repoRate}/hr | Occupied rate: $${knobs.pricing.occupiedRate}/hr`
-      )
-    }
-  }
+  // Calculate base costs - different handling for zone_based pricing
+  let base: { baseOccupied: number; baseRepo: number }
+  let lineItems: LineItem[] = []
+  let finalLegsWithTime = legsWithTime
+  let zoneCalculation = undefined
 
-  const lineItems: LineItem[] = [
-    {
+  if (knobs.pricing.rateModel === "zone_based") {
+    // Zone-based pricing: calculate per-leg repo costs
+    const repoLegsOnly = legsWithTime.filter((l) => l.kind === "REPO")
+    const zoneR = calcZoneBasedCost({
+      knobs,
+      occupiedHours,
+      repoLegs: repoLegsOnly,
+      departDateISO: trip.departLocalISO,
+    })
+    if (!zoneR.ok) return zoneR.error
+
+    base = {
+      baseOccupied: zoneR.value.baseOccupied,
+      baseRepo: zoneR.value.baseRepo,
+    }
+
+    // Replace repo legs with enriched versions containing zone metadata
+    const occupiedLegsWithTime = legsWithTime.filter((l) => l.kind === "OCCUPIED")
+    finalLegsWithTime = [
+      ...zoneR.value.enrichedRepoLegs.slice(0, repoBuild.legsOut.length),
+      ...occupiedLegsWithTime,
+      ...zoneR.value.enrichedRepoLegs.slice(repoBuild.legsOut.length),
+    ]
+
+    // Build zone calculation info for output
+    zoneCalculation = buildZoneCalculationInfo({
+      outboundZone: repoBuild.outZone,
+      outboundAirport: repoBuild.chosenOutBase,
+      inboundZone: repoBuild.backZone,
+      inboundAirport: repoBuild.chosenBackBase,
+      config: knobs.repo.zoneNetwork!,
+      departDateISO: trip.departLocalISO,
+      occupiedRate: knobs.pricing.occupiedRate ?? 0,
+    })
+
+    // Add base occupied line item
+    lineItems.push({
       code: "BASE_OCCUPIED",
       label: "Base cost (occupied)",
       amount: base.baseOccupied,
-      meta: { occupiedHours },
-    },
-    {
-      code: "BASE_REPO",
-      label: "Base cost (repo)",
-      amount: base.baseRepo,
-      meta: { repoHours },
-    },
-  ]
+      meta: { occupiedHours, appliedRate: zoneCalculation.occupiedRate?.appliedRate },
+    })
+
+    // Add zone-based repo line items (detailed per-leg)
+    lineItems.push(...zoneR.value.repoLineItems)
+
+    if (logger) {
+      logger(
+        `ℹ️   Engine: Zone-based pricing | Occupied rate: $${knobs.pricing.occupiedRate}/hr`
+      )
+      zoneR.value.repoLineItems.forEach((item) => {
+        logger(
+          `ℹ️   Engine:   ${item.label}: $${item.amount.toFixed(2)}`
+        )
+      })
+    }
+  } else {
+    // Standard pricing (single_hourly or dual_rate_repo_occupied)
+    const baseR = calcBaseCost(knobs, occupiedHours, repoHours)
+    if (!baseR.ok) return baseR.error
+    base = baseR.value
+
+    if (logger) {
+      if (knobs.pricing.rateModel === "single_hourly") {
+        logger(
+          `ℹ️   Engine: Hourly rate: $${knobs.pricing.hourlyRate}/hr (applied to ALL legs)`
+        )
+      } else {
+        logger(
+          `ℹ️   Engine: Repo rate: $${knobs.pricing.repoRate}/hr | Occupied rate: $${knobs.pricing.occupiedRate}/hr`
+        )
+      }
+    }
+
+    lineItems = [
+      {
+        code: "BASE_OCCUPIED",
+        label: "Base cost (occupied)",
+        amount: base.baseOccupied,
+        meta: { occupiedHours },
+      },
+      {
+        code: "BASE_REPO",
+        label: "Base cost (repo)",
+        amount: base.baseRepo,
+        meta: { repoHours },
+      },
+    ]
+  }
 
   if (matchCfg?.enabled) {
     lineItems.push({
@@ -292,7 +359,7 @@ async function quoteOneItinerary(
     })
   }
 
-  const feeItems = calcFees({ trip, knobs, legs: legsWithTime })
+  const feeItems = calcFees({ trip, knobs, legs: finalLegsWithTime })
   lineItems.push(...feeItems)
   if (logger && feeItems.length) {
     const totalFees = feeItems.reduce((sum, item) => sum + item.amount, 0)
@@ -327,7 +394,7 @@ async function quoteOneItinerary(
   // Feature 2: Time-based discount
   const timeDiscount = calcTimeBasedDiscount({
     knobs,
-    legs: legsWithTime,
+    legs: finalLegsWithTime,
     baseSubtotal,
     feesSubtotal,
     totalBeforeDiscount: sum(lineItems.map((li) => li.amount)),
@@ -340,7 +407,7 @@ async function quoteOneItinerary(
   }
 
   // Feature 1: Price constraints (floors & ceilings)
-  const occupiedLegCount = legsWithTime.filter(
+  const occupiedLegCount = finalLegsWithTime.filter(
     (l) => l.kind === "OCCUPIED"
   ).length
   const priceConstraintItems = applyPriceConstraints({
@@ -377,7 +444,7 @@ async function quoteOneItinerary(
 
   return {
     status: "OK",
-    legs: legsWithTime,
+    legs: finalLegsWithTime,
     times: {
       occupiedHours,
       repoHours,
@@ -388,6 +455,7 @@ async function quoteOneItinerary(
     },
     lineItems,
     totals,
+    zoneCalculation,
   }
 }
 
@@ -429,7 +497,7 @@ function validateBasics(payload: QuoteRequestPayload): QuoteResult | null {
         "pricing.hourlyRate"
       )
     }
-  } else {
+  } else if (knobs.pricing.rateModel === "dual_rate_repo_occupied") {
     if (typeof knobs.pricing.repoRate !== "number") {
       return reject(
         "MISSING_RATE",
@@ -442,6 +510,28 @@ function validateBasics(payload: QuoteRequestPayload): QuoteResult | null {
         "MISSING_RATE",
         "pricing.occupiedRate required for dual_rate_repo_occupied",
         "pricing.occupiedRate"
+      )
+    }
+  } else if (knobs.pricing.rateModel === "zone_based") {
+    if (typeof knobs.pricing.occupiedRate !== "number") {
+      return reject(
+        "MISSING_RATE",
+        "pricing.occupiedRate required for zone_based",
+        "pricing.occupiedRate"
+      )
+    }
+    if (!knobs.repo.zoneNetwork || knobs.repo.zoneNetwork.zones.length === 0) {
+      return reject(
+        "MISSING_ZONE_CONFIG",
+        "repo.zoneNetwork.zones required for zone_based pricing",
+        "repo.zoneNetwork.zones"
+      )
+    }
+    if (knobs.repo.zoneNetwork.zoneRepoRates.length === 0) {
+      return reject(
+        "MISSING_ZONE_RATES",
+        "repo.zoneNetwork.zoneRepoRates required for zone_based pricing",
+        "repo.zoneNetwork.zoneRepoRates"
       )
     }
   }
@@ -464,6 +554,18 @@ function validateBasics(payload: QuoteRequestPayload): QuoteResult | null {
       "MISSING_VHB_LIST",
       "repo.vhbSets.default must include at least 1 VHB Airport when repo.mode=vhb_network",
       "repo.vhbSets.default"
+    )
+  }
+
+  // If zone_network, ensure zones exist
+  if (
+    knobs.repo.mode === "zone_network" &&
+    (!knobs.repo.zoneNetwork || knobs.repo.zoneNetwork.zones.length === 0)
+  ) {
+    return reject(
+      "MISSING_ZONE_CONFIG",
+      "repo.zoneNetwork.zones required when repo.mode=zone_network",
+      "repo.zoneNetwork.zones"
     )
   }
 

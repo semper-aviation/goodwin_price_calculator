@@ -11,6 +11,13 @@ export type NormalizedLeg = {
     actualHours?: number
     adjustedHours?: number
     distanceNm?: number
+    // Zone-based pricing metadata
+    zoneId?: string
+    zoneName?: string
+    appliedRate?: number
+    rateDirection?: "origin" | "destination"
+    peakPeriodName?: string
+    peakMultiplier?: number
   }
 }
 
@@ -18,6 +25,7 @@ export type LineItem = {
   code:
     | "BASE_OCCUPIED"
     | "BASE_REPO"
+    | "BASE_REPO_ZONE"
     | "DISCOUNT_VHB"
     | "DISCOUNT_TIME_BASED"
     | "DISCOUNT_MAX_TRIP_PRICE_CAP"
@@ -29,9 +37,43 @@ export type LineItem = {
     | "FEE_MIN_PRICE_PER_LEG"
     | "FEE_MIN_TRIP_PRICE"
     | "INFO_MATCH_SCORE"
+    | "PEAK_ADJUSTMENT_REPO"
+    | "PEAK_ADJUSTMENT_OCCUPIED"
   label: string
   amount: number
   meta?: Record<string, unknown>
+}
+
+export type ZoneCalculationInfo = {
+  outboundZone?: {
+    zoneId: string
+    zoneName: string
+    selectedAirport: string
+    baseRate: number
+    appliedRate: number
+    rateDirection: "origin"
+  }
+  inboundZone?: {
+    zoneId: string
+    zoneName: string
+    selectedAirport: string
+    baseRate: number
+    appliedRate: number
+    rateDirection: "destination"
+  }
+  occupiedRate?: {
+    baseRate: number
+    appliedRate: number
+  }
+  peakPeriod?: {
+    id: string
+    name: string
+    multipliers: {
+      outboundRepo?: number
+      inboundRepo?: number
+      occupied?: number
+    }
+  }
 }
 
 export type QuoteResult = {
@@ -58,4 +100,6 @@ export type QuoteResult = {
     fees: number
     total: number
   }
+
+  zoneCalculation?: ZoneCalculationInfo
 }

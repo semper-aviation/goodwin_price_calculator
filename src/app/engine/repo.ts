@@ -1,8 +1,9 @@
 // engine/repo.ts
-import type { Airport, PricingKnobs, CategoryId } from "./quoteRequest"
+import type { Airport, PricingKnobs, CategoryId, Zone } from "./quoteRequest"
 import type { NormalizedLeg, QuoteResult } from "./quoteResult"
 import { Result, ok, err } from "./types"
 import { haversineNm, uniqByIcao, reject } from "./utils"
+import { selectZoneForEndpoint } from "./zones"
 
 export async function resolveVhbCandidates(
   category: CategoryId,
@@ -31,6 +32,8 @@ export function buildRepoLegs(args: {
   legsBack: NormalizedLeg[]
   chosenOutBase?: Airport
   chosenBackBase?: Airport
+  outZone?: Zone
+  backZone?: Zone
 }> {
   const { itineraryStart, itineraryEnd, knobs, vhbCandidates } = args
 
@@ -39,6 +42,8 @@ export function buildRepoLegs(args: {
 
   let baseOut: Airport | null = null
   let baseBack: Airport | null = null
+  let outZone: Zone | undefined
+  let backZone: Zone | undefined
 
   if (mode === "fixed_base") {
     const base = knobs.repo.fixedBaseIcao // <-- Airport object (your updated schema)
@@ -75,6 +80,46 @@ export function buildRepoLegs(args: {
         )
       )
     }
+  } else if (mode === "zone_network") {
+    // Zone network mode: select closest airport from matching zone
+    const zoneConfig = knobs.repo.zoneNetwork
+    if (!zoneConfig || zoneConfig.zones.length === 0) {
+      return err(
+        reject(
+          "MISSING_ZONE_CONFIG",
+          "Zones required for zone_network mode",
+          "repo.zoneNetwork.zones"
+        )
+      )
+    }
+
+    // Select zone and airport for outbound repo
+    const outSelection = selectZoneForEndpoint(itineraryStart, zoneConfig)
+    if (!outSelection) {
+      return err(
+        reject(
+          "NO_ZONE_MATCH",
+          `Trip origin ${itineraryStart.icao} not covered by any zone`,
+          "repo.zoneNetwork.zones"
+        )
+      )
+    }
+    baseOut = outSelection.airport
+    outZone = outSelection.zone
+
+    // Select zone and airport for inbound repo
+    const backSelection = selectZoneForEndpoint(itineraryEnd, zoneConfig)
+    if (!backSelection) {
+      return err(
+        reject(
+          "NO_ZONE_MATCH",
+          `Trip destination ${itineraryEnd.icao} not covered by any zone`,
+          "repo.zoneNetwork.zones"
+        )
+      )
+    }
+    baseBack = backSelection.airport
+    backZone = backSelection.zone
   } else {
     // floating_fleet: assume the aircraft is already at the trip endpoints
     baseOut = itineraryStart
@@ -117,6 +162,8 @@ export function buildRepoLegs(args: {
     legsBack,
     chosenOutBase: baseOut ?? undefined,
     chosenBackBase: baseBack ?? undefined,
+    outZone,
+    backZone,
   })
 }
 

@@ -40,6 +40,39 @@ export type Airport = {
   timezoneId: string
 }
 
+// Zone Network Types
+export type Zone = {
+  id: string
+  name: string
+  airports: Airport[]
+}
+
+export type ZoneRepoRates = {
+  zoneId: string
+  originRepoRate: number
+  destinationRepoRate: number
+}
+
+export type PeakPeriod = {
+  id: string
+  name: string
+  startDate: string // YYYY-MM-DD
+  endDate: string // YYYY-MM-DD
+  zoneMultipliers?: Array<{
+    zoneId: string
+    originRepoMultiplier: number
+    destinationRepoMultiplier: number
+  }>
+  occupiedMultiplier?: number
+}
+
+export type ZoneNetworkConfig = {
+  zones: Zone[]
+  zoneRepoRates: ZoneRepoRates[]
+  peakPeriods?: PeakPeriod[]
+  selectionMethod: "closest_in_zone"
+}
+
 export type TripInput = {
   tripType: TripType
   category: CategoryId
@@ -58,7 +91,7 @@ export type PricingKnobs = {
     maxNightsBeforeSplit?: number
   }
   repo: {
-    mode: "fixed_base" | "vhb_network" | "floating_fleet"
+    mode: "fixed_base" | "vhb_network" | "floating_fleet" | "zone_network"
     policy: "both" | "outbound_only" | "inbound_only"
     fixedBaseIcao?: Airport
     vhbSets?: {
@@ -66,6 +99,7 @@ export type PricingKnobs = {
       byCategory?: Partial<Record<CategoryId, string[]>>
     }
     vhbSelection: "closest_by_distance"
+    zoneNetwork?: ZoneNetworkConfig
     constraints?: {
       maxOriginRepoHours?: number
       maxDestinationRepoHours?: number
@@ -91,7 +125,7 @@ export type PricingKnobs = {
   }
   pricing: {
     currency: "USD"
-    rateModel: "single_hourly" | "dual_rate_repo_occupied"
+    rateModel: "single_hourly" | "dual_rate_repo_occupied" | "zone_based"
     hourlyRate?: number
     repoRate?: number
     occupiedRate?: number

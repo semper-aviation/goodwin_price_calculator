@@ -102,6 +102,14 @@ export function buildPricingKnobs(values: KnobValues) {
     ) {
       finalValue = finalValue / 100
     }
+    // Zone network config is stored as an object, pass through as-is
+    if (path === "repo.zoneNetwork" && isPlainObject(value)) {
+      finalValue = value
+    }
+    // Peak periods are stored as an array, pass through as-is
+    if (path === "repo.zoneNetwork.peakPeriods" && Array.isArray(value)) {
+      finalValue = value
+    }
     setNestedValue(result, finalPath, finalValue)
   })
   return result
@@ -146,6 +154,16 @@ export function buildDefaultKnobValues(knobs: PricingKnobs): KnobValues {
               return
             }
           }
+        }
+        // Zone network config is stored as an object, pass through as-is
+        if (field.type === "zonesEditor" && isPlainObject(value)) {
+          result[field.path] = value
+          return
+        }
+        // Peak periods are stored as an array, pass through as-is
+        if (field.type === "peakPeriodsEditor" && Array.isArray(value)) {
+          result[field.path] = value
+          return
         }
         if (
           typeof value === "string" ||
@@ -294,7 +312,11 @@ export function isKnobsReady(knobs: PricingKnobs) {
       Boolean(knobs.repo.fixedBaseIcao?.icao)) ||
     (knobs.repo.mode === "vhb_network" &&
       Boolean(knobs.repo.vhbSets?.default?.length)) ||
-    (knobs.repo.mode !== "fixed_base" && knobs.repo.mode !== "vhb_network")
+    (knobs.repo.mode === "zone_network" &&
+      Boolean(knobs.repo.zoneNetwork?.zones?.length)) ||
+    (knobs.repo.mode !== "fixed_base" &&
+      knobs.repo.mode !== "vhb_network" &&
+      knobs.repo.mode !== "zone_network")
 
   const pricingReady =
     (knobs.pricing.rateModel === "single_hourly" &&
@@ -303,6 +325,9 @@ export function isKnobsReady(knobs: PricingKnobs) {
     (knobs.pricing.rateModel === "dual_rate_repo_occupied" &&
       typeof knobs.pricing.repoRate === "number" &&
       knobs.pricing.repoRate > 0 &&
+      typeof knobs.pricing.occupiedRate === "number" &&
+      knobs.pricing.occupiedRate > 0) ||
+    (knobs.pricing.rateModel === "zone_based" &&
       typeof knobs.pricing.occupiedRate === "number" &&
       knobs.pricing.occupiedRate > 0)
 

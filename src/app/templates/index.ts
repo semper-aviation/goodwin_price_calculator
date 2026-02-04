@@ -11,6 +11,7 @@ import t006 from "./006-ventura-apma-excel-rt-kfrg-kiah-3nights-daily-margin.jso
 import t007 from "./007-privaira-1ksa-cl604-oneway-kfxe-kbos-matchscore-landing.json"
 import t008 from "./008-aerocenter-esma-pc12-rt-kcmh-kbuf.json"
 import t009 from "./009-gen4jets-gbba-cj1-oneway-katl-kmia.json"
+import t010 from "./010-operator-x-zone-network-oneway-kteb-ksfo.json"
 
 export type TemplatePayload = {
   version: number
@@ -36,6 +37,7 @@ const TEMPLATE_LABELS: Record<string, string> = {
   "privaira-1ksa-cl604-oneway-kfxe-kbos-matchscore-landing": "Privaira-CL604",
   "aerocenter-esma-pc12-rt-kcmh-kbuf": "AeroCenter-PC12-RT",
   "gen4jets-gbba-cj1-oneway-katl-kmia": "Gen4Jets-CJ1",
+  "operator-x-zone-network-oneway-kteb-ksfo": "OperatorX-ZoneNetwork",
 }
 
 function withMeta(id: string, data: TemplatePayload): TemplateItem {
@@ -53,4 +55,5 @@ export const TEMPLATES: TemplateItem[] = [
   withMeta("privaira-1ksa-cl604-oneway-kfxe-kbos-matchscore-landing", t007 as TemplatePayload),
   withMeta("aerocenter-esma-pc12-rt-kcmh-kbuf", t008 as TemplatePayload),
   withMeta("gen4jets-gbba-cj1-oneway-katl-kmia", t009 as TemplatePayload),
+  withMeta("operator-x-zone-network-oneway-kteb-ksfo", t010 as TemplatePayload),
 ]

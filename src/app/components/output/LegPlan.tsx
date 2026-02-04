@@ -40,8 +40,27 @@ export function LegPlan({ legs }: { legs?: NormalizedLeg[] }) {
               : "Repo"
         }
 
+        // Zone-related metadata
+        const zoneName =
+          typeof l.meta?.["zoneName"] === "string"
+            ? (l.meta["zoneName"] as string)
+            : undefined
+        const appliedRate =
+          typeof l.meta?.["appliedRate"] === "number"
+            ? (l.meta["appliedRate"] as number)
+            : undefined
+        const rateDirection =
+          typeof l.meta?.["rateDirection"] === "string"
+            ? (l.meta["rateDirection"] as string)
+            : undefined
+
         const detailParts: string[] = []
         if (chosenBase) detailParts.push(`VHB chosen: ${chosenBase}`)
+        if (zoneName && appliedRate != null && rateDirection) {
+          detailParts.push(
+            `Zone: ${zoneName} • $${appliedRate.toLocaleString()}/hr (${rateDirection})`
+          )
+        }
         if (typeof distanceNm === "number") {
           detailParts.push(`Distance ${distanceNm.toFixed(0)}nm`)
         }

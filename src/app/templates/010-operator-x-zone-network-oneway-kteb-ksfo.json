@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "trip": {
+    "tripType": "ONE_WAY",
+    "category": "CAT7",
+    "aircraftModel": "mdld1548536caa",
+    "departLocalISO": "2026-02-15T09:00",
+    "passengers": 4,
+    "fromIcao": "KEWR",
+    "toIcao": "KOAK"
+  },
+  "knobs": {
+    "trip.maxNightsBeforeSplit": 2,
+    "repo.mode": "zone_network",
+    "repo.policy": "both",
+    "repo.zoneNetwork": {
+      "zones": [
+        {
+          "id": "zone_east",
+          "name": "East Zone",
+          "airports": [
+            { "icao": "KTEB", "lat": 40.8501, "lon": -74.0608, "country": "US", "state": "NJ", "mississippi_direction": "EAST", "timezoneId": "America/New_York" },
+            { "icao": "KJFK", "lat": 40.6413, "lon": -73.7781, "country": "US", "state": "NY", "mississippi_direction": "EAST", "timezoneId": "America/New_York" },
+            { "icao": "KLGA", "lat": 40.7772, "lon": -73.8726, "country": "US", "state": "NY", "mississippi_direction": "EAST", "timezoneId": "America/New_York" },
+            { "icao": "KPBI", "lat": 26.6832, "lon": -80.0956, "country": "US", "state": "FL", "mississippi_direction": "EAST", "timezoneId": "America/New_York" }
+          ]
+        },
+        {
+          "id": "zone_west",
+          "name": "West Zone",
+          "airports": [
+            { "icao": "KSFO", "lat": 37.6213, "lon": -122.379, "country": "US", "state": "CA", "mississippi_direction": "WEST", "timezoneId": "America/Los_Angeles" },
+            { "icao": "KLAX", "lat": 33.9425, "lon": -118.408, "country": "US", "state": "CA", "mississippi_direction": "WEST", "timezoneId": "America/Los_Angeles" },
+            { "icao": "KLAS", "lat": 36.0801, "lon": -115.152, "country": "US", "state": "NV", "mississippi_direction": "WEST", "timezoneId": "America/Los_Angeles" }
+          ]
+        }
+      ],
+      "zoneRepoRates": [
+        { "zoneId": "zone_east", "originRepoRate": 3000, "destinationRepoRate": 2500 },
+        { "zoneId": "zone_west", "originRepoRate": 3500, "destinationRepoRate": 2800 }
+      ],
+      "peakPeriods": [
+        {
+          "id": "peak_holiday",
+          "name": "Holiday Peak",
+          "startDate": "2026-12-20",
+          "endDate": "2027-01-05",
+          "occupiedMultiplier": 1.25,
+          "zoneMultipliers": [
+            { "zoneId": "zone_east", "originRepoMultiplier": 1.25, "destinationRepoMultiplier": 1.2 },
+            { "zoneId": "zone_west", "originRepoMultiplier": 1.3, "destinationRepoMultiplier": 1.25 }
+          ]
+        },
+        {
+          "id": "peak_summer",
+          "name": "Summer Peak",
+          "startDate": "2026-06-15",
+          "endDate": "2026-08-31",
+          "occupiedMultiplier": 1.15,
+          "zoneMultipliers": [
+            { "zoneId": "zone_east", "originRepoMultiplier": 1.1, "destinationRepoMultiplier": 1.1 },
+            { "zoneId": "zone_west", "originRepoMultiplier": 1.15, "destinationRepoMultiplier": 1.1 }
+          ]
+        }
+      ],
+      "selectionMethod": "closest_in_zone"
+    },
+    "time.taxiHoursPerLeg": 0.2,
+    "time.bufferHoursPerLeg": 0.3,
+    "time.applyTo": "both",
+    "pricing.currency": "USD",
+    "pricing.rateModel": "zone_based",
+    "pricing.occupiedRate": 4500,
+    "scoring.matchScore.enabled": false,
+    "fees.groundHandling.perSegmentAmount": 250,
+    "fees.groundHandling.appliesTo": "occupied_only",
+    "fees.landingFees.countingMode": "arrivals_only",
+    "fees.landingFees.defaultAmount": 150,
+    "eligibility.domesticOnly": true,
+    "eligibility.maxAdvanceDays": 120,
+    "eligibility.maxPassengers": 8,
+    "results.selection": "all",
+    "results.rankMetric": "price"
+  },
+  "quote": null,
+  "name": "operator-x-zone-network-oneway-kteb-ksfo"
+}

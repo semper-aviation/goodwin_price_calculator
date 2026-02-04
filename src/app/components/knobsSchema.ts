@@ -66,6 +66,22 @@ export type KnobUiField =
       defaultValue?: string
       enabledWhen?: string
     }
+  | {
+      type: "zonesEditor"
+      path: "repo.zoneNetwork"
+      label: string
+      why: string
+      help: string
+      enabledWhen?: string
+    }
+  | {
+      type: "peakPeriodsEditor"
+      path: "repo.zoneNetwork.peakPeriods"
+      label: string
+      why: string
+      help: string
+      enabledWhen?: string
+    }
 
 export type KnobUiTab = {
   id: string
@@ -104,6 +120,7 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
                 label: "Floating fleet (no repo legs)",
                 value: "floating_fleet",
               },
+              { label: "Zone network", value: "zone_network" },
             ],
             enabledWhen: "tripComplete",
           },
@@ -178,6 +195,40 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
       },
 
       {
+        title: "Zone Network Configuration",
+        description: "Used when repo mode is Zone network.",
+        fields: [
+          {
+            type: "zonesEditor",
+            path: "repo.zoneNetwork",
+            label: "Zones",
+            why: "Defines geographic zones with directional repo pricing.",
+            help:
+              "Configure zones (clusters of airports) with separate origin and destination repo rates.\n\n" +
+              "- Origin repo rate: charged when aircraft repos FROM a zone airport (outbound)\n" +
+              "- Destination repo rate: charged when aircraft repos TO a zone airport (inbound)\n\n" +
+              "Zone selection uses the closest airport across all zones to the trip endpoint.\n" +
+              "If trip origin/destination is not covered by any zone, the quote is rejected.",
+            enabledWhen: "tripComplete && repo.mode === 'zone_network'",
+          },
+          {
+            type: "peakPeriodsEditor",
+            path: "repo.zoneNetwork.peakPeriods",
+            label: "Peak Periods",
+            why: "Defines date ranges with rate multipliers for seasonal pricing.",
+            help:
+              "Configure peak periods (e.g., Holiday Peak, Summer Peak) with:\n\n" +
+              "- Date range (start to end)\n" +
+              "- Zone multipliers for repo rates (per zone, per direction)\n" +
+              "- Occupied rate multiplier\n\n" +
+              "Example: 1.25x multiplier = 25% price increase during peak.\n" +
+              "If trip date falls in multiple periods, the first match is applied.",
+            enabledWhen: "tripComplete && repo.mode === 'zone_network'",
+          },
+        ],
+      },
+
+      {
         title: "Repo Limits",
         fields: [
           {
@@ -228,6 +279,7 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
                 label: "Dual rate (repo / occupied)",
                 value: "dual_rate_repo_occupied",
               },
+              { label: "Zone-based repo rates", value: "zone_based" },
             ],
             enabledWhen: "tripComplete && repo.mode !== 'floating_fleet'",
           },
@@ -258,11 +310,11 @@ export const KNOB_UI_TABS: KnobUiTab[] = [
             path: "pricing.occupiedRate",
             label: "Occupied rate ($/hr)",
             why: "Higher rate applied to passenger hours.",
-            help: "Used when rate model is dual rate.",
+            help: "Used when rate model is dual rate or zone-based.",
             min: 0,
             step: 100,
             enabledWhen:
-              "tripComplete && pricing.rateModel === 'dual_rate_repo_occupied'",
+              "tripComplete && (pricing.rateModel === 'dual_rate_repo_occupied' || pricing.rateModel === 'zone_based')",
           },
         ],
       },

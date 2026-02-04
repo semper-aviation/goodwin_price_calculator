@@ -5,6 +5,8 @@ import { KNOB_UI_TABS, KnobUiField } from "./knobsSchema"
 import TypeaheadSelect from "./TypeaheadSelect"
 import airportsData, { type Airport } from "../data/airports"
 import { GeoRulesEditor } from "./GeoRulesEditor"
+import { ZonesEditor } from "./ZonesEditor"
+import { PeakPeriodsEditor } from "./PeakPeriodsEditor"
 
 const CONTROL_CLASSES =
   "w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm transition focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200"
@@ -318,11 +320,13 @@ function Field({
   value,
   onChange,
   required,
+  allValues,
 }: {
   field: KnobUiField
   value: KnobValue
   onChange: (v: KnobValue) => void
   required?: boolean
+  allValues?: Record<string, KnobValue>
 }) {
   switch (field.type) {
     case "select": {
@@ -486,6 +490,37 @@ function Field({
         </div>
       )
     }
+    case "zonesEditor":
+      return (
+        <ZonesEditor
+          label={field.label}
+          help={field.help}
+          value={value}
+          onChangeAction={onChange}
+        />
+      )
+    case "peakPeriodsEditor": {
+      // Extract zones from the parent zoneNetwork value to pass to PeakPeriodsEditor
+      // The zones are needed to show zone-specific multipliers
+      const zoneNetworkValue = allValues?.["repo.zoneNetwork"]
+      const zones =
+        zoneNetworkValue &&
+        typeof zoneNetworkValue === "object" &&
+        "zones" in zoneNetworkValue
+          ? (
+              zoneNetworkValue as { zones: Array<{ id: string; name: string }> }
+            ).zones
+          : []
+      return (
+        <PeakPeriodsEditor
+          label={field.label}
+          help={field.help}
+          value={value}
+          zones={zones}
+          onChangeAction={onChange}
+        />
+      )
+    }
 
     default:
       return null
@@ -588,19 +623,29 @@ export default function KnobPanel({
 
   function isEnabled(field: KnobUiField) {
     if (!field.enabledWhen) return true
+    // Hide rate model selector when in zone_network mode (auto-set to zone_based)
+    if (field.path === "pricing.rateModel") {
+      return tripComplete && repoMode !== "zone_network" && repoMode !== "floating_fleet"
+    }
     if (field.path === "pricing.hourlyRate") {
       return (
         tripComplete &&
+        repoMode !== "zone_network" &&
         String(getFieldValue("pricing.rateModel")) === "single_hourly"
       )
     }
-    if (
-      field.path === "pricing.repoRate" ||
-      field.path === "pricing.occupiedRate"
-    ) {
+    if (field.path === "pricing.repoRate") {
       return (
         tripComplete &&
+        repoMode !== "zone_network" &&
         String(getFieldValue("pricing.rateModel")) === "dual_rate_repo_occupied"
+      )
+    }
+    if (field.path === "pricing.occupiedRate") {
+      const rateModel = String(getFieldValue("pricing.rateModel"))
+      return (
+        tripComplete &&
+        (rateModel === "dual_rate_repo_occupied" || rateModel === "zone_based")
       )
     }
     if (field.path === "repo.fixedBaseIcao") {
@@ -611,6 +656,12 @@ export default function KnobPanel({
       field.path.startsWith("repo.vhbSets")
     ) {
       return tripComplete && repoMode === "vhb_network"
+    }
+    if (
+      field.path === "repo.zoneNetwork" ||
+      field.path === "repo.zoneNetwork.peakPeriods"
+    ) {
+      return tripComplete && repoMode === "zone_network"
     }
     const conditions = field.enabledWhen.split("&&").map((part) => part.trim())
     return conditions.every((condition) => evaluateCondition(condition))
@@ -627,11 +678,14 @@ export default function KnobPanel({
     if (field.path === "pricing.hourlyRate") {
       return rateModel === "single_hourly"
     }
-    if (
-      field.path === "pricing.repoRate" ||
-      field.path === "pricing.occupiedRate"
-    ) {
+    if (field.path === "pricing.repoRate") {
       return rateModel === "dual_rate_repo_occupied"
+    }
+    if (field.path === "pricing.occupiedRate") {
+      return rateModel === "dual_rate_repo_occupied" || rateModel === "zone_based"
+    }
+    if (field.path === "repo.zoneNetwork") {
+      return repoMode === "zone_network"
     }
     return false
   }
@@ -652,10 +706,36 @@ export default function KnobPanel({
         if (value === "fixed_base") {
           delete next["repo.vhbSets.default"]
           delete next["repo.vhbSelection"]
+          delete next["repo.zoneNetwork"]
+          delete next["repo.zoneNetwork.peakPeriods"]
         }
         if (value === "vhb_network") {
           delete next["repo.fixedBaseIcao"]
+          delete next["repo.zoneNetwork"]
+          delete next["repo.zoneNetwork.peakPeriods"]
           next["repo.vhbSelection"] = "closest_by_distance"
+        }
+        if (value === "zone_network") {
+          delete next["repo.fixedBaseIcao"]
+          delete next["repo.vhbSets.default"]
+          delete next["repo.vhbSelection"]
+          // Auto-set rate model to zone_based for zone_network mode
+          next["pricing.rateModel"] = "zone_based"
+          delete next["pricing.hourlyRate"]
+          delete next["pricing.repoRate"]
+        }
+        if (value === "floating_fleet") {
+          delete next["repo.fixedBaseIcao"]
+          delete next["repo.vhbSets.default"]
+          delete next["repo.vhbSelection"]
+          delete next["repo.zoneNetwork"]
+          delete next["repo.zoneNetwork.peakPeriods"]
+        }
+      }
+      if (path === "pricing.rateModel") {
+        if (value === "zone_based") {
+          delete next["pricing.hourlyRate"]
+          delete next["pricing.repoRate"]
         }
       }
       return next
@@ -721,6 +801,7 @@ export default function KnobPanel({
                     value={values[field.path]}
                     onChange={(v) => handleFieldChange(field.path, v)}
                     required={isRequired(field)}
+                    allValues={values}
                   />
                 </div>
               ))}
