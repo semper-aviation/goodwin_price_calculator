@@ -16,7 +16,7 @@ type TypeaheadSelectProps = {
 }
 
 const DEFAULT_INPUT_CLASSES =
-  "w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm transition focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200"
+  "w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm transition focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200"
 
 export default function TypeaheadSelect({
   value,
